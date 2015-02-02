@@ -16,74 +16,71 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
         var session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/UpperChapa?fmt=json")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        var params = ["Tarchapa":"gsv024"] as Dictionary<String, String>
+        var params = ["Tarchapa":"lxi369"] as Dictionary<String, String>
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
        
-//        request.addValue("Spanish", forHTTPHeaderField: "GeneXus-Language")
-//        request.addValue("SmartDevice Application", forHTTPHeaderField: "GeneXus-Agent")
-//        request.addValue("es-ES,es", forHTTPHeaderField: "Accept-Language")
-//        request.addValue("iOS", forHTTPHeaderField: "DeviceOSName")
-//        request.addValue("80", forHTTPHeaderField: "DeviceOSVersion")
-//        request.addValue("3a6a4fd2-25b2-352a-80f2-a5e796f59d41", forHTTPHeaderField: "DeviceId")
-//        request.addValue("354987052282506", forHTTPHeaderField: "DeviceNetworkId")
-//        request.addValue("21", forHTTPHeaderField: "Content-Length")
-
-//        request.addValue("w1.logo-sa.com.ar:8080", forHTTPHeaderField: "Host")
-//        request.addValue("Keep-Alive", forHTTPHeaderField: "Connection")
-//        request.addValue("Apache-HttpClient/UNAVAILABLE (java 1.4)", forHTTPHeaderField: "User-Agent")
         
         println("Resquest: \(request)")
         
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
             println("Response: \(response)")
             
+            
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
             var session = NSURLSession.sharedSession()
-            let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/UpperChapa?fmt=json")!)
-            request.HTTPMethod = "POST"
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/WorkWithDevicesEMCredito_EMCredito_List?fmt=json&CreditoChapa=lxi369&gxid=2")!)
+            
+            request.HTTPMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            var params = ["Tarchapa":"gsv024"] as Dictionary<String, String>
-            var err: NSError?
-            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+            println("Resquest: \(request)")
             
+            var task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                println("Response: \(response)")
+                
+                let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String:String]
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.saldoLabel.text = jsonSaldo["Creditosaldo"]
+                })
+                
+            });
+            task.resume()
+            
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
+//            var session = NSURLSession.sharedSession()
+//            let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/VerifiPinSinHorario?fmt=json")!)
+//            request.HTTPMethod = "POST"
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 //            
-//            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
-//            println("Body: \(strData)")
+//            var params = ["AutoPin":"2812","AutoChapa":"gsv024"] as Dictionary<String, String>
 //            var err: NSError?
-//            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-            
-            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
-//            if(err != nil) {
-//                println(err!.localizedDescription)
-//                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                println("Error could not parse JSON: '\(jsonStr)'")
-//            }
-//            else {
-//                // The JSONObjectWithData constructor didn't return an error. But, we should still
-//                // check and make sure that json has a value using optional binding.
-//                if let parseJSON = json {
-//                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-//                    var success = parseJSON["success"] as? Int
-//                    println("Succes: \(success)")
-//                }
-//                else {
-//                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-//                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                    println("Error could not parse JSON: \(jsonStr)")
-//                }
-//            }
-            
+//            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+//            
+//            println("Resquest: \(request)")
+//            
+//            var task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+//                
+//                println("Response: \(response)")
+//                
+//                
+//               
+//                
+//            });
+//            task.resume()
             
         })
-        
         task.resume()
-        
     }
 
     override func didReceiveMemoryWarning() {
