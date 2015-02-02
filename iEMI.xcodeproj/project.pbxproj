@@ -13,6 +13,7 @@
 		EF163D3A1A7AABBB00BE4461 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF163D391A7AABBB00BE4461 /* Images.xcassets */; };
 		EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */; };
 		EF163D491A7AABBB00BE4461 /* iEMITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D481A7AABBB00BE4461 /* iEMITests.swift */; };
+		EFC014EF1A7FFFD00074560F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC014EE1A7FFFD00074560F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		EF163D421A7AABBB00BE4461 /* iEMITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iEMITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF163D471A7AABBB00BE4461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF163D481A7AABBB00BE4461 /* iEMITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iEMITests.swift; sourceTree = "<group>"; };
+		EFC014EE1A7FFFD00074560F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EF163D321A7AABBB00BE4461 /* AppDelegate.swift */,
+				EFC014EE1A7FFFD00074560F /* LoginViewController.swift */,
 				EF163D341A7AABBB00BE4461 /* ViewController.swift */,
 				EF163D361A7AABBB00BE4461 /* Main.storyboard */,
 				EF163D391A7AABBB00BE4461 /* Images.xcassets */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC014EF1A7FFFD00074560F /* LoginViewController.swift in Sources */,
 				EF163D351A7AABBB00BE4461 /* ViewController.swift in Sources */,
 				EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */,
 			);
@@ -407,6 +411,7 @@
 				EF163D4E1A7AABBB00BE4461 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF163D4F1A7AABBB00BE4461 /* Build configuration list for PBXNativeTarget "iEMITests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				EF163D511A7AABBB00BE4461 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

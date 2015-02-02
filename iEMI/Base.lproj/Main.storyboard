@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -86,7 +86,96 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="438"/>
+            <point key="canvasLocation" x="1937" y="476"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="qfs-IE-YDM">
+            <objects>
+                <viewController id="TsN-dz-rbM" customClass="LoginViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IJS-ll-ns2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bmh-LU-5LR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eC9-1N-Rox">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patente:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A07-rx-pUD">
+                                <rect key="frame" x="174" y="149" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44L-LE-0rz">
+                                <rect key="frame" x="250" y="245" width="140" height="30"/>
+                                <state key="normal" title="Aceptar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="aceptarTouched:" destination="TsN-dz-rbM" eventType="touchUpInside" id="yPk-a3-lo5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-y7-eGj">
+                                <rect key="frame" x="208" y="197" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-QU-b0m">
+                                <rect key="frame" x="250" y="193" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Iyw-eX-OdW"/>
+                                    <constraint firstAttribute="height" constant="30" id="dzg-PM-hBL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TsN-dz-rbM" id="Fz5-WI-td5"/>
+                                </connections>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v2k-iz-qAS">
+                                <rect key="frame" x="196" y="250" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-rK-7CB">
+                                <rect key="frame" x="250" y="145" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="1vY-cW-6Wa"/>
+                                    <constraint firstAttribute="height" constant="30" id="2sr-i6-84N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TsN-dz-rbM" id="emB-eX-eaR"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="eWc-rK-7CB" secondAttribute="centerX" constant="-20" id="CYE-Iq-aJ1"/>
+                            <constraint firstItem="44L-LE-0rz" firstAttribute="top" secondItem="Ned-QU-b0m" secondAttribute="bottom" constant="22" id="JeB-YJ-oQm"/>
+                            <constraint firstItem="Ned-QU-b0m" firstAttribute="top" secondItem="eWc-rK-7CB" secondAttribute="bottom" constant="18" id="JqJ-Cp-sEn"/>
+                            <constraint firstItem="44L-LE-0rz" firstAttribute="width" secondItem="Ned-QU-b0m" secondAttribute="width" id="JxG-ZU-6SZ"/>
+                            <constraint firstItem="DnJ-y7-eGj" firstAttribute="centerY" secondItem="Ned-QU-b0m" secondAttribute="centerY" constant="-0.5" id="KG0-dx-yMz"/>
+                            <constraint firstAttribute="centerY" secondItem="eWc-rK-7CB" secondAttribute="centerY" constant="140" id="Q8p-0n-BMI"/>
+                            <constraint firstItem="Ned-QU-b0m" firstAttribute="leading" secondItem="DnJ-y7-eGj" secondAttribute="trailing" constant="12" id="VPv-AG-GhC"/>
+                            <constraint firstItem="Ned-QU-b0m" firstAttribute="centerX" secondItem="eWc-rK-7CB" secondAttribute="centerX" id="bkO-lu-g4m"/>
+                            <constraint firstItem="44L-LE-0rz" firstAttribute="leading" secondItem="v2k-iz-qAS" secondAttribute="trailing" constant="34" id="eqs-xz-z8k"/>
+                            <constraint firstItem="44L-LE-0rz" firstAttribute="centerX" secondItem="Ned-QU-b0m" secondAttribute="centerX" id="hLC-K9-6UQ"/>
+                            <constraint firstItem="44L-LE-0rz" firstAttribute="centerY" secondItem="v2k-iz-qAS" secondAttribute="centerY" id="hZL-sh-sX9"/>
+                            <constraint firstItem="eWc-rK-7CB" firstAttribute="leading" secondItem="A07-rx-pUD" secondAttribute="trailing" constant="12" id="kSo-qv-5k2"/>
+                            <constraint firstItem="eWc-rK-7CB" firstAttribute="centerY" secondItem="A07-rx-pUD" secondAttribute="centerY" constant="0.5" id="nyT-QL-wEz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aceptarbutton" destination="44L-LE-0rz" id="yiq-S3-fC6"/>
+                        <outlet property="cargandoSpinner" destination="v2k-iz-qAS" id="WbX-Pe-r8b"/>
+                        <outlet property="patenteTextField" destination="eWc-rK-7CB" id="ngg-fd-ncD"/>
+                        <outlet property="pinTextField" destination="Ned-QU-b0m" id="nAt-Y4-b2O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgs-PG-O3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="438"/>
         </scene>
     </scenes>
 </document>
