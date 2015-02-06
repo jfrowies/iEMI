@@ -17,15 +17,26 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: - View controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         reloadData(patente: self.patente())
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: -
+    
     func patente() ->String {
         return NSUserDefaults.standardUserDefaults().stringForKey("patenteKey")!
     }
+    
+    //MARK: - Service calls
     
     func reloadData(#patente: String) {
         
@@ -53,6 +64,8 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
     }
     
+    //MARK: -
+    
     func updateSaldo(saldo:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.refreshButton.enabled = true
@@ -60,11 +73,14 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.saldoLabel.text = saldo
         })
     }
+    
+    //MARK: - IBAction
 
     @IBAction func refreshButtonTouched(sender: UIButton) {
         reloadData(patente: self.patente())
     }
     
+    //MARK: - UITableViewDelegate implementation
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO

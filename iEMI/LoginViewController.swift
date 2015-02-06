@@ -16,6 +16,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cargandoSpinner: UIActivityIndicatorView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    //MARK: - View controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.hidden = true
@@ -42,6 +44,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: - UITextFieldDelegate
+    
     func textFieldDidEndEditing(textField: UITextField) {
         if textField == self.patenteTextField {
             self.pinTextField.becomeFirstResponder()
@@ -52,6 +56,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
+    
+    //MARK: - IBActions
     
     @IBAction func aceptarTouched(sender: UIButton) {
         
@@ -64,6 +70,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.getSessionCookie(patente: self.patenteTextField.text)
     }
+    
+    //MARK: - Service calls
     
     func getSessionCookie(#patente: String) {
         
@@ -135,6 +143,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         task.resume()
     }
+    
+    //MARK: -
     
     func savePatente(patente:String) {
         let settings = NSUserDefaults.standardUserDefaults()
