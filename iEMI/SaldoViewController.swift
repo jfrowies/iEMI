@@ -19,11 +19,8 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
+
         reloadData(patente: self.patente())
-       
     }
     
     func patente() ->String {
@@ -70,14 +67,13 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //TODO
         return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //TODO
         return UITableViewCell()
-        
     }
-    
-    
     
 }
