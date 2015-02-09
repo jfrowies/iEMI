@@ -73,10 +73,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Service calls
     
+    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
+    
     func getSessionCookie(#patente: String) {
         
         var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/UpperChapa?fmt=json")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "UpperChapa?fmt=json")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -84,11 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         
-        println("Resquest: \(request)")
-        
-        var task = session.dataTaskWithRequest(request) {data, response, error -> Void in
-            
-            println("Response: \(response)")
+        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
             
             if error != nil {
                 self.showError(error.description)
@@ -106,25 +104,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func authenticatePatente(patente:String,pin:String) {
         
-        var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/VerifPinSinHorario?fmt=json")!)
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerifPinSinHorario?fmt=json")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        var params = ["AutoPin":pin,"AutoChapa":patente] as Dictionary<String, String>
+        let params = ["AutoPin":pin,"AutoChapa":patente] as Dictionary<String, String>
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         
-        println("Resquest: \(request)")
-        
-        var task = session.dataTaskWithRequest(request) {
+        let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
-            
-            println("Response: \(response)")
-            println("Error: \(error)")
+
             
             if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String:AnyObject]? {
-                println("Data: \(responseData)")
+
                 if let messages = responseData["Messages"] as? [[String : AnyObject]] {
                     if let m = messages.first {
                         let d = m["Description"] as String!

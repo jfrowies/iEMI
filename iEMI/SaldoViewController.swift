@@ -38,26 +38,115 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //MARK: - Service calls
     
+    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
+    
     func reloadData(#patente: String) {
         
         self.loadingSpinner.startAnimating()
         self.refreshButton.enabled = false
         
-        var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/WorkWithDevicesEMCredito_EMCredito_List?fmt=json&CreditoChapa="+patente+"&gxid=2")!)
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?fmt=json&CreditoChapa="+patente)!)
         
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        println("Resquest: \(request)")
+//        println("Resquest: \(request)")
         
-        var task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-            println("Response: \(response)")
+        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+//            println("Response: \(response)")
             
-            if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? [String:String] {
+            if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
                 self.updateSaldo(jsonSaldo["Creditosaldo"]! + " $")
+                self.reloadTableData(patente: patente, count: 10)
             }else {
                 self.updateSaldo("Unknown")
+            }
+            
+        }
+        task.resume()
+    }
+    
+    func reloadTableData(#patente: String, count: Int) {
+        
+        self.loadRecargas(patente: patente, count: count) { ([[String:String]]) -> Void in
+            //guardo el resultado y hago la otra llamada
+            
+            self.loadConsumos(patente: patente, count: count) { ([[String:String]]) -> Void in
+                
+            }
+            
+        }
+
+    }
+    
+    func loadRecargas(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
+        
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?fmt=json&CreditoChapa="+patente+"&count="+String(count))!)
+        
+        request.HTTPMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //        println("Resquest: \(request)")
+        
+        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            
+            //            println("Response: \(response)")
+            
+            var err: NSError?
+            
+            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
+                println("Data: \(jsonData)")
+                completion(jsonData)
+            }else {
+                println("Error: \(err)")
+            }
+            
+        }
+        task.resume()
+    }
+    
+    func loadConsumos(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
+        
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerUltFechaTar?fmt=json")!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let params = ["TarChapa":patente,"Cant":String(count)] as Dictionary<String, String>
+        var err: NSError?
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        println("Resquest: \(request)")
+        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            println("Response: \(response)")
+            var err: NSError?
+            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [String:String] {
+                println("Data: \(jsonData)")
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&Tarhoraini=0000-00-00T00:00:00&fmt=json&count="+String(count))!)
+                
+                request.HTTPMethod = "GET"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+               
+                println("Resquest: \(request)")
+                let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+                    println("Response: \(response)")
+                    var err: NSError?
+                    if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
+                        println("Data: \(jsonData)")
+                        
+                    }else {
+                        println("Error: \(err)")
+                    }
+                    
+                }
+                task.resume()
+                
+                
+            }else {
+                println("Error: \(err)")
             }
             
         }
