@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func getSessionCookie(#patente: String) {
         
         var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "UpperChapa?fmt=json")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "UpperChapa")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func authenticatePatente(patente:String,pin:String) {
         
         let session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerifPinSinHorario?fmt=json")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerifPinSinHorario")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

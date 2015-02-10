@@ -46,7 +46,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.refreshButton.enabled = false
         
         let session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?fmt=json&CreditoChapa="+patente)!)
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?CreditoChapa="+patente)!)
         
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -83,21 +83,21 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     func loadRecargas(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
         
         let session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?fmt=json&CreditoChapa="+patente+"&count="+String(count))!)
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?CreditoChapa="+patente+"&count="+String(count))!)
         
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        //        println("Resquest: \(request)")
+        println("Resquest: \(request)")
         
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             
-            //            println("Response: \(response)")
+            println("Response: \(response)")
             
             var err: NSError?
             
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
-                println("Data: \(jsonData)")
+                println("Recargas Data: \(jsonData)")
                 completion(jsonData)
             }else {
                 println("Error: \(err)")
@@ -110,40 +110,18 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     func loadConsumos(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
         
         let session = NSURLSession.sharedSession()
+                
+        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente)!)
         
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerUltFechaTar?fmt=json")!)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["TarChapa":patente,"Cant":String(count)] as Dictionary<String, String>
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+        
         println("Resquest: \(request)")
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             println("Response: \(response)")
             var err: NSError?
-            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [String:String] {
-                println("Data: \(jsonData)")
-                
-                
-                let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&Tarhoraini=0000-00-00T00:00:00&fmt=json&count="+String(count))!)
-                
-                request.HTTPMethod = "GET"
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-               
-                println("Resquest: \(request)")
-                let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-                    println("Response: \(response)")
-                    var err: NSError?
-                    if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
-                        println("Data: \(jsonData)")
-                        
-                    }else {
-                        println("Error: \(err)")
-                    }
-                    
-                }
-                task.resume()
-                
+            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:AnyObject]] {
+                println("Consumos Data: \(jsonData)")
                 
             }else {
                 println("Error: \(err)")
@@ -151,7 +129,9 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         task.resume()
+        
     }
+    
     
     //MARK: -
     
