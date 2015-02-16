@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Credito: NSObject {
+class Credito: NSObject, Movimiento {
     var creditoId: String?
     var fecha: String?
     var hora: String?

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Consumo: NSObject {
+class Consumo: NSObject, Movimiento {
     var tarNro: String?
     var tarSerie: String?
     var tarAno: String?

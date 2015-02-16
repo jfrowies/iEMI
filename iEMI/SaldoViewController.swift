@@ -16,7 +16,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var tableElements = [AnyObject]() 
+    var tableElements = [Movimiento]()
     
     //MARK: - View controller lifecycle
     
@@ -39,32 +39,15 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         return NSUserDefaults.standardUserDefaults().stringForKey("patenteKey")!
     }
     
-    //MARK: - Service calls
-    
-    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
     
     func reloadData(#patente: String) {
         
         self.loadingSpinner.startAnimating()
         self.refreshButton.enabled = false
         
-        let session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?CreditoChapa="+patente)!)
+        self.reloadSaldoData(patente: patente)
+        self.reloadTableData(patente: patente, count: 10)
         
-        request.HTTPMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-            
-            if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
-                self.updateSaldo(jsonSaldo["Creditosaldo"]! + " $")
-                self.reloadTableData(patente: patente, count: 10)
-            }else {
-                self.updateSaldo("Unknown")
-            }
-            
-        }
-        task.resume()
     }
     
     func reloadTableData(#patente: String, count: Int) {
@@ -78,6 +61,14 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.tableElements.append(credito)
             }
             
+            self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
+                if mov1.fecha >= mov2.fecha {
+                  return true
+                }else {
+                  return false
+                }
+            })
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
@@ -89,11 +80,81 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.tableElements.append(consumo)
             }
             
+            self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
+                if mov1.fecha >= mov2.fecha {
+                    return true
+                }else {
+                    return false
+                }
+            })
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
         }
+    }
 
+    func updateSaldo(saldo:String) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.refreshButton.enabled = true
+            self.loadingSpinner.stopAnimating()
+            self.saldoLabel.text = saldo
+        })
+    }
+    
+    //MARK: - IBAction
+
+    @IBAction func refreshButtonTouched(sender: UIButton) {
+        reloadData(patente: self.patente())
+    }
+    
+    //MARK: - UITableViewDelegate implementation
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableElements.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let movimiento = self.tableElements[indexPath.row]
+        
+        if movimiento.isKindOfClass(Credito) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as CreditoTableViewCell
+            cell.credito = self.tableElements[indexPath.row] as Credito
+            return cell
+        }
+        
+        if movimiento.isKindOfClass(Consumo) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as ConsumoTableViewCell
+            cell.consumo = self.tableElements[indexPath.row] as Consumo
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    //MARK: - Service calls
+    
+    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
+    
+    func reloadSaldoData(#patente: String) {
+        
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?CreditoChapa="+patente)!)
+        
+        request.HTTPMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            
+            if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
+                self.updateSaldo(jsonSaldo["Creditosaldo"]! + " $")
+            }else {
+                self.updateSaldo("Unknown")
+            }
+            
+        }
+        task.resume()
     }
     
     func loadRecargas(#patente: String, count: Int, completion: ([Credito] -> Void)) {
@@ -125,7 +186,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     func loadConsumos(#patente: String, count: Int, completion: ([Consumo] -> Void)) {
         
         let session = NSURLSession.sharedSession()
-                
+        
         let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&count="+String(count))!)
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -143,7 +204,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                     consumosArray.append(Consumo(json: consumoJson))
                 }
                 completion(consumosArray)
-
+                
             }else {
                 println("Error: \(err)")
             }
@@ -151,48 +212,6 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         task.resume()
         
-    }
-    
-    //MARK: -
-    
-    func updateSaldo(saldo:String) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.refreshButton.enabled = true
-            self.loadingSpinner.stopAnimating()
-            self.saldoLabel.text = saldo
-        })
-    }
-    
-    //MARK: - IBAction
-
-    @IBAction func refreshButtonTouched(sender: UIButton) {
-        reloadData(patente: self.patente())
-    }
-    
-    //MARK: - UITableViewDelegate implementation
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableElements.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let movimiento : AnyObject = self.tableElements[indexPath.row]
-        
-        
-        if movimiento.isKindOfClass(Credito) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as CreditoTableViewCell
-            cell.credito = self.tableElements[indexPath.row] as Credito
-            return cell
-        }
-        
-        if movimiento.isKindOfClass(Consumo) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as ConsumoTableViewCell
-            cell.consumo = self.tableElements[indexPath.row] as Consumo
-            return cell
-        }
-        
-        return UITableViewCell()
     }
     
 }
