@@ -142,7 +142,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func savePatente(patente:String) {
         let settings = NSUserDefaults.standardUserDefaults()
-        settings.setObject(patente, forKey: "patenteKey")
+        settings.setObject(patente.uppercaseString, forKey: "patenteKey")
         settings.synchronize()
     }
     

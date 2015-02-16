@@ -46,7 +46,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.refreshButton.enabled = false
         
         self.reloadSaldoData(patente: patente)
-        self.reloadTableData(patente: patente, count: 10)
+        self.reloadTableData(patente: patente, count: 5)
         
     }
     
@@ -61,36 +61,20 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.tableElements.append(credito)
             }
             
-            self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
-                if mov1.fecha >= mov2.fecha {
-                  return true
-                }else {
-                  return false
+            self.sortTableElements()
+            
+            self.loadConsumos(patente: patente, desdeHoraIni: self.tableElements.last!.timestamp!) { (consumos: [Consumo]) -> Void in
+                
+                for consumo in consumos {
+                    self.tableElements.append(consumo)
                 }
-            })
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
-        }
-        
-        self.loadConsumos(patente: patente, count: count*2) { (consumos: [Consumo]) -> Void in
-            
-            for consumo in consumos {
-                self.tableElements.append(consumo)
+                
+                self.sortTableElements()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
             }
-            
-            self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
-                if mov1.fecha >= mov2.fecha {
-                    return true
-                }else {
-                    return false
-                }
-            })
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
         }
     }
 
@@ -99,6 +83,22 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.refreshButton.enabled = true
             self.loadingSpinner.stopAnimating()
             self.saldoLabel.text = saldo
+        })
+    }
+    
+    func sortTableElements() {
+        self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
+            if mov1.timestamp > mov2.timestamp {
+                return true
+            }else if mov1.timestamp == mov2.timestamp {
+                if mov1.isKindOfClass(Consumo) {
+                    return true
+                }else {
+                    return false
+                }
+            } else {
+                return false
+            }
         })
     }
     
@@ -183,11 +183,11 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
     }
     
-    func loadConsumos(#patente: String, count: Int, completion: ([Consumo] -> Void)) {
+    func loadConsumos(#patente: String, desdeHoraIni: String, completion: ([Consumo] -> Void)) {
         
         let session = NSURLSession.sharedSession()
         
-        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&count="+String(count))!)
+        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&Tarhoraini="+desdeHoraIni)!)
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -197,8 +197,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             var err: NSError?
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:AnyObject]] {
                 println("Consumos Data: \(jsonData)")
-                //crear objetos consumo
-                //crear objetos credito
+
                 var consumosArray = [Consumo]()
                 for consumoJson in jsonData {
                     consumosArray.append(Consumo(json: consumoJson))
