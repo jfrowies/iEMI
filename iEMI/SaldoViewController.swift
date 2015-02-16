@@ -10,18 +10,21 @@ import UIKit
 
 class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    
     @IBOutlet weak var waitingView: UIView!
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var tableElements = [AnyObject]() //esto deberia ser de tipo "movimiento" que seria una interfaz con fecha y tipo de movimiento para porder agregar recargas y consumos
+    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+        
         reloadData(patente: self.patente())
     }
     
@@ -66,18 +69,34 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func reloadTableData(#patente: String, count: Int) {
         
-        self.loadRecargas(patente: patente, count: count) { ([[String:String]]) -> Void in
-            //guardo el resultado y hago la otra llamada
+        //show spinner on table
+        self.tableElements.removeAll(keepCapacity: false)
+        
+        self.loadRecargas(patente: patente, count: count) { (creditos: [Credito]) -> Void in
             
-            self.loadConsumos(patente: patente, count: count) { ([[String:String]]) -> Void in
-                
+            for credito in creditos {
+                self.tableElements.append(credito)
             }
             
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        
+        self.loadConsumos(patente: patente, count: count*2) { (consumos: [Consumo]) -> Void in
+            
+            for consumo in consumos {
+                self.tableElements.append(consumo)
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
         }
 
     }
     
-    func loadRecargas(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
+    func loadRecargas(#patente: String, count: Int, completion: ([Credito] -> Void)) {
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?CreditoChapa="+patente+"&count="+String(count))!)
@@ -89,7 +108,12 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             var err: NSError?
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
                 println("Recargas Data: \(jsonData)")
-                completion(jsonData)
+                //crear objetos credito
+                var creditoArray = [Credito]()
+                for creditoJson in jsonData {
+                    creditoArray.append(Credito(json: creditoJson))
+                }
+                completion(creditoArray)
             }else {
                 println("Error: \(err)")
             }
@@ -98,7 +122,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
     }
     
-    func loadConsumos(#patente: String, count: Int, completion: ([[String:String]] -> Void)) {
+    func loadConsumos(#patente: String, count: Int, completion: ([Consumo] -> Void)) {
         
         let session = NSURLSession.sharedSession()
                 
@@ -112,7 +136,14 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
             var err: NSError?
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:AnyObject]] {
                 println("Consumos Data: \(jsonData)")
-                
+                //crear objetos consumo
+                //crear objetos credito
+                var consumosArray = [Consumo]()
+                for consumoJson in jsonData {
+                    consumosArray.append(Consumo(json: consumoJson))
+                }
+                completion(consumosArray)
+
             }else {
                 println("Error: \(err)")
             }
@@ -141,12 +172,26 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: - UITableViewDelegate implementation
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO
-        return 0
+        return tableElements.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //TODO
+
+        let movimiento : AnyObject = self.tableElements[indexPath.row]
+        
+        
+        if movimiento.isKindOfClass(Credito) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as CreditoTableViewCell
+            cell.credito = self.tableElements[indexPath.row] as Credito
+            return cell
+        }
+        
+        if movimiento.isKindOfClass(Consumo) {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as ConsumoTableViewCell
+            cell.consumo = self.tableElements[indexPath.row] as Consumo
+            return cell
+        }
+        
         return UITableViewCell()
     }
     

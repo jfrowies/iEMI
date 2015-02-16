@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1264" y="1151"/>
         </scene>
-        <!--Saldo-->
+        <!--SaldoViewController-->
         <scene sceneID="Qky-sy-1dv">
             <objects>
-                <viewController id="0cr-uO-OTH" customClass="SaldoViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0cr-uO-OTH" userLabel="SaldoViewController" customClass="SaldoViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W1N-fi-Y1b"/>
                         <viewControllerLayoutGuide type="bottom" id="oqG-kH-xu7"/>
@@ -124,7 +124,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-5d-Xey">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fxg-IA-c7o">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -133,7 +133,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="consumoCell" rowHeight="50" id="Ens-Fd-79h">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="consumoCell" rowHeight="50" id="Ens-Fd-79h" customClass="ConsumoTableViewCell" customModule="iEMI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ens-Fd-79h" id="G4l-Pc-QjR">
@@ -145,45 +145,48 @@
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSk-hJ-OtX">
-                                                    <rect key="frame" x="30" y="8" width="21" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSk-hJ-OtX">
+                                                    <rect key="frame" x="30" y="8" width="40" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="YVG-sd-VM1"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqx-12-7cs">
-                                                    <rect key="frame" x="59" y="8" width="9" height="18"/>
+                                                    <rect key="frame" x="78" y="8" width="9" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/03/2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU8-wF-bi2">
-                                                    <rect key="frame" x="76" y="9" width="67" height="16"/>
+                                                    <rect key="frame" x="95" y="9" width="67" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desde:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSb-R6-9KU">
-                                                    <rect key="frame" x="77" y="25" width="40" height="16"/>
+                                                    <rect key="frame" x="96" y="25" width="40" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:05 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-FL-UWh">
-                                                    <rect key="frame" x="121" y="25" width="50" height="16"/>
+                                                    <rect key="frame" x="140" y="25" width="50" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hasta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehv-uO-G6B">
-                                                    <rect key="frame" x="179" y="25" width="35" height="16"/>
+                                                    <rect key="frame" x="198" y="25" width="35" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-go-Opi">
-                                                    <rect key="frame" x="218" y="25" width="50" height="16"/>
+                                                    <rect key="frame" x="237" y="25" width="50" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avenida Italia 450" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-pJ-aYt">
-                                                    <rect key="frame" x="151" y="9" width="103" height="16"/>
+                                                    <rect key="frame" x="170" y="9" width="103" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -206,11 +209,19 @@
                                                 <constraint firstItem="JSb-R6-9KU" firstAttribute="centerX" secondItem="IU8-wF-bi2" secondAttribute="centerX" constant="-13" id="lIO-vn-Vbg"/>
                                                 <constraint firstItem="nSk-hJ-OtX" firstAttribute="leading" secondItem="gzg-cc-TMh" secondAttribute="trailing" constant="8" id="ubC-MB-wyQ"/>
                                                 <constraint firstItem="nSk-hJ-OtX" firstAttribute="centerY" secondItem="gzg-cc-TMh" secondAttribute="centerY" id="vFg-HS-Vlj"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0a1-pJ-aYt" secondAttribute="trailing" id="wnD-Gi-X7i"/>
                                                 <constraint firstItem="aqx-12-7cs" firstAttribute="centerY" secondItem="IU8-wF-bi2" secondAttribute="centerY" id="zpj-Tr-pOW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="consumoDireccionLabel" destination="0a1-pJ-aYt" id="UEK-ib-4TQ"/>
+                                            <outlet property="consumoFechaLabel" destination="IU8-wF-bi2" id="Z6H-Sr-cA2"/>
+                                            <outlet property="consumoLabel" destination="nSk-hJ-OtX" id="SgD-og-YkZ"/>
+                                            <outlet property="horaDesdeLabel" destination="DPM-FL-UWh" id="nVi-7f-M9X"/>
+                                            <outlet property="horaHastaLabel" destination="eCl-go-Opi" id="Uyo-NE-hwN"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditoCell" rowHeight="50" id="wN6-Ly-3tL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditoCell" rowHeight="50" id="wN6-Ly-3tL" customClass="CreditoTableViewCell" customModule="iEMI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wN6-Ly-3tL" id="fX8-2e-crw">
@@ -219,66 +230,94 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yd8-rO-Kgs">
                                                     <rect key="frame" x="16" y="8" width="9" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0045940893449999999" green="0.93704678870000002" blue="0.01282618428" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-k8-Equ">
-                                                    <rect key="frame" x="33" y="8" width="21" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-k8-Equ">
+                                                    <rect key="frame" x="33" y="8" width="40" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="F0v-b9-gUe"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0045940893449999999" green="0.93704678870000002" blue="0.01282618428" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88n-ip-pQN">
-                                                    <rect key="frame" x="62" y="8" width="9" height="18"/>
+                                                    <rect key="frame" x="81" y="8" width="9" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0045940893449999999" green="0.93704678870000002" blue="0.01282618428" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/03/2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fl-K4-1P3">
-                                                    <rect key="frame" x="79" y="9" width="67" height="16"/>
+                                                    <rect key="frame" x="98" y="9" width="67" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-xQ-OFL">
-                                                    <rect key="frame" x="79" y="25" width="35" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hora:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-xQ-OFL">
+                                                    <rect key="frame" x="98" y="25" width="30" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-jk-iWt">
-                                                    <rect key="frame" x="118" y="25" width="19" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-jk-iWt">
+                                                    <rect key="frame" x="132" y="25" width="50" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doa-cl-LjD">
-                                                    <rect key="frame" x="141" y="25" width="8" height="16"/>
+                                                    <rect key="frame" x="158" y="25" width="8" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:45 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rif-LW-wek">
-                                                    <rect key="frame" x="154" y="9" width="50" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rif-LW-wek">
+                                                    <rect key="frame" x="173" y="9" width="38" height="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywF-bn-gcZ">
+                                                    <rect key="frame" x="215" y="9" width="19" height="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRU-fX-MPF">
+                                                    <rect key="frame" x="238" y="9" width="8" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FFf-xQ-OFL" firstAttribute="centerX" secondItem="4Fl-K4-1P3" secondAttribute="centerX" constant="-16" id="1Xb-gq-v9k"/>
+                                                <constraint firstItem="FFf-xQ-OFL" firstAttribute="centerX" secondItem="4Fl-K4-1P3" secondAttribute="centerX" constant="-18.5" id="1Xb-gq-v9k"/>
+                                                <constraint firstItem="rif-LW-wek" firstAttribute="centerY" secondItem="ywF-bn-gcZ" secondAttribute="centerY" id="2el-EE-60Q"/>
                                                 <constraint firstItem="yd8-rO-Kgs" firstAttribute="leading" secondItem="fX8-2e-crw" secondAttribute="leading" constant="16" id="8zN-9I-3iM"/>
                                                 <constraint firstItem="88n-ip-pQN" firstAttribute="centerY" secondItem="fLf-k8-Equ" secondAttribute="centerY" id="DoJ-8O-JDc"/>
                                                 <constraint firstItem="88n-ip-pQN" firstAttribute="leading" secondItem="fLf-k8-Equ" secondAttribute="trailing" constant="8" id="FnG-pN-G4x"/>
                                                 <constraint firstItem="fLf-k8-Equ" firstAttribute="centerY" secondItem="yd8-rO-Kgs" secondAttribute="centerY" id="GtD-Bz-UqJ"/>
                                                 <constraint firstItem="yd8-rO-Kgs" firstAttribute="top" secondItem="fX8-2e-crw" secondAttribute="top" constant="8" id="KKt-21-rfO"/>
                                                 <constraint firstItem="FFf-xQ-OFL" firstAttribute="top" secondItem="4Fl-K4-1P3" secondAttribute="bottom" id="OPI-jK-i6l"/>
+                                                <constraint firstItem="ywF-bn-gcZ" firstAttribute="leading" secondItem="rif-LW-wek" secondAttribute="trailing" constant="4" id="QHZ-uL-p1v"/>
                                                 <constraint firstItem="FFf-xQ-OFL" firstAttribute="centerY" secondItem="GDo-jk-iWt" secondAttribute="centerY" id="Ujv-0G-xcy"/>
                                                 <constraint firstItem="GDo-jk-iWt" firstAttribute="leading" secondItem="FFf-xQ-OFL" secondAttribute="trailing" constant="4" id="Ulv-mn-RNx"/>
                                                 <constraint firstItem="4Fl-K4-1P3" firstAttribute="leading" secondItem="88n-ip-pQN" secondAttribute="trailing" constant="8" id="Vhf-xD-PF6"/>
                                                 <constraint firstItem="rif-LW-wek" firstAttribute="centerY" secondItem="4Fl-K4-1P3" secondAttribute="centerY" id="WMm-ER-5uM"/>
                                                 <constraint firstItem="fLf-k8-Equ" firstAttribute="leading" secondItem="yd8-rO-Kgs" secondAttribute="trailing" constant="8" id="WWm-9f-XOa"/>
+                                                <constraint firstItem="fRU-fX-MPF" firstAttribute="leading" secondItem="ywF-bn-gcZ" secondAttribute="trailing" constant="4" id="dNa-R6-9mk"/>
                                                 <constraint firstItem="doa-cl-LjD" firstAttribute="centerY" secondItem="GDo-jk-iWt" secondAttribute="centerY" id="hcJ-v2-x9l"/>
                                                 <constraint firstItem="88n-ip-pQN" firstAttribute="centerY" secondItem="4Fl-K4-1P3" secondAttribute="centerY" id="mGA-bQ-bbq"/>
                                                 <constraint firstItem="rif-LW-wek" firstAttribute="leading" secondItem="4Fl-K4-1P3" secondAttribute="trailing" constant="8" id="mrN-jR-LgW"/>
                                                 <constraint firstItem="doa-cl-LjD" firstAttribute="leading" secondItem="GDo-jk-iWt" secondAttribute="trailing" constant="4" id="wFm-e6-kro"/>
+                                                <constraint firstItem="fRU-fX-MPF" firstAttribute="centerY" secondItem="ywF-bn-gcZ" secondAttribute="centerY" id="zO1-Do-07M"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="doa-cl-LjD"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="creditoLabel" destination="fLf-k8-Equ" id="1DK-VW-qzO"/>
+                                            <outlet property="fechaCreditoLabel" destination="4Fl-K4-1P3" id="GaE-CC-TyW"/>
+                                            <outlet property="horaCreditoLabel" destination="GDo-jk-iWt" id="sG6-RC-gG7"/>
+                                            <outlet property="saldoLabel" destination="ywF-bn-gcZ" id="Dgy-Lh-yeC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

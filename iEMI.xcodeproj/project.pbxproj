@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
+		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
+		B540C4B21A91C97100863944 /* Credito.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B11A91C97100863944 /* Credito.swift */; };
+		B540C4B41A91C98800863944 /* Consumo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B31A91C98800863944 /* Consumo.swift */; };
 		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
 		B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */; };
 		EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D321A7AABBB00BE4461 /* AppDelegate.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; };
+		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditoTableViewCell.swift; sourceTree = "<group>"; };
+		B540C4B11A91C97100863944 /* Credito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credito.swift; sourceTree = "<group>"; };
+		B540C4B31A91C98800863944 /* Consumo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumo.swift; sourceTree = "<group>"; };
 		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaldoViewController.swift; sourceTree = "<group>"; };
 		B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltaViewController.swift; sourceTree = "<group>"; };
 		EF163D2D1A7AABBB00BE4461 /* iEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +68,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B540C4AB1A91C69B00863944 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */,
+				B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B540C4B01A91C8EB00863944 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B540C4B11A91C97100863944 /* Credito.swift */,
+				B540C4B31A91C98800863944 /* Consumo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		EF163D241A7AABBB00BE4461 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +107,8 @@
 		EF163D2F1A7AABBB00BE4461 /* iEMI */ = {
 			isa = PBXGroup;
 			children = (
+				B540C4B01A91C8EB00863944 /* Models */,
+				B540C4AB1A91C69B00863944 /* Views */,
 				EF163D321A7AABBB00BE4461 /* AppDelegate.swift */,
 				EFC014EE1A7FFFD00074560F /* LoginViewController.swift */,
 				B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */,
@@ -218,7 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */,
+				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,
+				B540C4B21A91C97100863944 /* Credito.swift in Sources */,
+				B540C4B41A91C98800863944 /* Consumo.swift in Sources */,
 				EFC014EF1A7FFFD00074560F /* LoginViewController.swift in Sources */,
 				B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */,
 				EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */,
