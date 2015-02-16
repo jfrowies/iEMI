@@ -51,10 +51,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-//        println("Resquest: \(request)")
-        
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-//            println("Response: \(response)")
             
             if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
                 self.updateSaldo(jsonSaldo["Creditosaldo"]! + " $")
@@ -84,18 +81,12 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?CreditoChapa="+patente+"&count="+String(count))!)
-        
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        println("Resquest: \(request)")
-        
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             
-            println("Response: \(response)")
-            
             var err: NSError?
-            
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
                 println("Recargas Data: \(jsonData)")
                 completion(jsonData)
@@ -111,8 +102,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let session = NSURLSession.sharedSession()
                 
-        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente)!)
-        
+        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&count="+String(count))!)
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -131,7 +121,6 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
         
     }
-    
     
     //MARK: -
     
