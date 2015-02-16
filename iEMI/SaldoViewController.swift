@@ -16,7 +16,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var tableElements = [AnyObject]() //esto deberia ser de tipo "movimiento" que seria una interfaz con fecha y tipo de movimiento para porder agregar recargas y consumos
+    var tableElements = [AnyObject]() 
     
     //MARK: - View controller lifecycle
     
