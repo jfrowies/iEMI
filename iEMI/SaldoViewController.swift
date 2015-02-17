@@ -133,6 +133,19 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         return UITableViewCell()
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTarjeta" {
+            var dvc = segue.destinationViewController as TarjetaViewController
+            var tar = Tarjeta()
+            tar.TarNro = "10123"
+            tar.TarAno = "2015"
+            tar.TarSerie = "A"
+            dvc.tarjeta = tar
+        }
+    }
+    
     //MARK: - Service calls
     
     let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"

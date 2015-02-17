@@ -14,6 +14,8 @@
 		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
 		B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */; };
 		B5C367591A92607500851368 /* Movimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C367581A92607500851368 /* Movimiento.swift */; };
+		B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675A1A92ACF100851368 /* BajaViewController.swift */; };
+		B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */; };
 		EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D321A7AABBB00BE4461 /* AppDelegate.swift */; };
 		EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF163D361A7AABBB00BE4461 /* Main.storyboard */; };
 		EF163D3A1A7AABBB00BE4461 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF163D391A7AABBB00BE4461 /* Images.xcassets */; };
@@ -40,6 +42,8 @@
 		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaldoViewController.swift; sourceTree = "<group>"; };
 		B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltaViewController.swift; sourceTree = "<group>"; };
 		B5C367581A92607500851368 /* Movimiento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movimiento.swift; sourceTree = "<group>"; };
+		B5C3675A1A92ACF100851368 /* BajaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BajaViewController.swift; sourceTree = "<group>"; };
+		B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarjetaViewController.swift; sourceTree = "<group>"; };
 		EF163D2D1A7AABBB00BE4461 /* iEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF163D311A7AABBB00BE4461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF163D321A7AABBB00BE4461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				EFC014EE1A7FFFD00074560F /* LoginViewController.swift */,
 				B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */,
 				B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */,
+				B5C3675A1A92ACF100851368 /* BajaViewController.swift */,
+				B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */,
 				EF163D361A7AABBB00BE4461 /* Main.storyboard */,
 				EF163D391A7AABBB00BE4461 /* Images.xcassets */,
 				EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */,
@@ -249,6 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */,
+				B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */,
 				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,

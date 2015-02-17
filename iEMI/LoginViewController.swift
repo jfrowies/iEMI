@@ -116,7 +116,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
 
-            
             if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String:AnyObject]? {
 
                 if let messages = responseData["Messages"] as? [[String : AnyObject]] {
