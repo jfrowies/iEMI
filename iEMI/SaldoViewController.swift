@@ -141,6 +141,8 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if let consumo = self.tableElements[indexPath.row] as? Consumo {
             tar.TarNro = consumo.tarNro!
+            tar.TarAno = consumo.tarAno!
+            tar.TarSerie = consumo.tarSerie!
             self.tarjetaSeleccionada = tar
         }else{
             return nil
