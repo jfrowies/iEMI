@@ -3,7 +3,7 @@ Cliente iOS no oficial para el EMI (Estacionamiento medido inteligente de Resist
 
 Este es un pequeño proyecto con dos objetivos:
 
-1) Hacerle un cliente iOS a un par de amigos para que puedan usar la Autogestión del sistema EMI en sus iPhones.
+1) Hacer un cliente iOS para que un par de amigos puedan usar la Autogestión del sistema EMI en sus iPhones.
 
 2) Incursionar en Swift.
 
