@@ -346,8 +346,8 @@
                                             </vibrancyEffect>
                                         </visualEffectView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDE-Xd-y7x">
-                                            <rect key="frame" x="537" y="30" width="47" height="30"/>
-                                            <state key="normal" title="refresh">
+                                            <rect key="frame" x="527" y="30" width="57" height="30"/>
+                                            <state key="normal" title="recargar">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -464,9 +464,9 @@
                                 <exclude reference="Yh8-Il-Aqg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DKJ-Rr-ppB"/>
                                 <exclude reference="3XD-Vt-5cA"/>
                                 <exclude reference="qil-fM-NVh"/>
+                                <exclude reference="DKJ-Rr-ppB"/>
                             </mask>
                         </variation>
                     </view>
@@ -641,6 +641,15 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-K0-iu7">
+                                            <rect key="frame" x="543" y="30" width="41" height="30"/>
+                                            <state key="normal" title="cerrar">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="cerrarButtonTouched:" destination="3dn-jm-yZS" eventType="touchUpInside" id="CZI-bc-ydM"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5k-nH-PMa">
                                             <rect key="frame" x="255" y="35" width="39" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -678,12 +687,14 @@
                                         <constraint firstItem="WWh-cr-Lxg" firstAttribute="centerY" secondItem="1oF-1d-7XW" secondAttribute="centerY" id="Eey-vV-tzl"/>
                                         <constraint firstItem="iz6-pd-GBy" firstAttribute="leading" secondItem="WWh-cr-Lxg" secondAttribute="trailing" constant="8" id="FPR-HA-cto"/>
                                         <constraint firstItem="WWh-cr-Lxg" firstAttribute="leading" secondItem="1oF-1d-7XW" secondAttribute="trailing" constant="2" id="OpD-BB-5qy"/>
+                                        <constraint firstAttribute="centerY" secondItem="mv1-K0-iu7" secondAttribute="centerY" constant="-10" id="RNw-DA-kCA"/>
                                         <constraint firstItem="T5k-nH-PMa" firstAttribute="leading" secondItem="iz6-pd-GBy" secondAttribute="trailing" constant="2" id="T9N-JM-2DE"/>
                                         <constraint firstItem="wdu-b4-PYb" firstAttribute="centerY" secondItem="7jV-qO-G13" secondAttribute="centerY" id="XxG-3D-xL9"/>
                                         <constraint firstItem="iz6-pd-GBy" firstAttribute="centerY" secondItem="7jV-qO-G13" secondAttribute="centerY" id="Zrm-hx-jMO"/>
                                         <constraint firstItem="iz6-pd-GBy" firstAttribute="centerY" secondItem="1oF-1d-7XW" secondAttribute="centerY" id="auL-It-WAs"/>
                                         <constraint firstItem="T5k-nH-PMa" firstAttribute="centerY" secondItem="iz6-pd-GBy" secondAttribute="centerY" id="bPk-Hg-DtZ"/>
                                         <constraint firstAttribute="trailing" secondItem="1oF-1d-7XW" secondAttribute="trailing" constant="491" id="bSe-NY-PnW"/>
+                                        <constraint firstAttribute="trailing" secondItem="mv1-K0-iu7" secondAttribute="trailing" constant="16" id="bpz-i2-lwK"/>
                                         <constraint firstItem="7jV-qO-G13" firstAttribute="leading" secondItem="T5k-nH-PMa" secondAttribute="trailing" constant="8" id="mzB-RC-s7E"/>
                                         <constraint firstItem="T8N-M6-eG1" firstAttribute="leading" secondItem="WWh-cr-Lxg" secondAttribute="trailing" constant="8" id="s1a-fH-aIh"/>
                                         <constraint firstItem="1oF-1d-7XW" firstAttribute="centerY" secondItem="7jV-qO-G13" secondAttribute="centerY" id="su9-rz-2z5"/>
@@ -702,8 +713,8 @@
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="s1a-fH-aIh"/>
-                                            <exclude reference="bSe-NY-PnW"/>
                                             <exclude reference="Ab4-Dm-8VB"/>
+                                            <exclude reference="bSe-NY-PnW"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -741,6 +752,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cerrarButton" destination="mv1-K0-iu7" id="tiI-wV-ocF"/>
                         <outlet property="numeroDeTarjetaLabel" destination="WWh-cr-Lxg" id="u5H-Pb-25a"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,7 @@ struct Tarjeta {
 class TarjetaViewController: UIViewController {
     
     @IBOutlet weak var numeroDeTarjetaLabel: UILabel!
+    @IBOutlet weak var cerrarButton: UIButton!
     
     // MARK: - Properties
     
@@ -46,6 +47,11 @@ class TarjetaViewController: UIViewController {
         
     }
 
+    @IBAction func cerrarButtonTouched(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
     /*
     // MARK: - Navigation
 

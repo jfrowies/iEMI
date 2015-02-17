@@ -17,6 +17,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var tableElements = [Movimiento]()
+    var tarjetaSeleccionada = Tarjeta()
     
     //MARK: - View controller lifecycle
     
@@ -26,6 +27,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
         
         reloadData(patente: self.patente())
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -133,16 +135,30 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         return UITableViewCell()
     }
     
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        
+        var tar = Tarjeta()
+        
+        if let consumo = self.tableElements[indexPath.row] as? Consumo {
+            tar.TarNro = consumo.tarNro!
+            self.tarjetaSeleccionada = tar
+        }else{
+            return nil
+        }
+
+        return indexPath
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showTarjeta" {
             var dvc = segue.destinationViewController as TarjetaViewController
-            var tar = Tarjeta()
-            tar.TarNro = "10123"
-            tar.TarAno = "2015"
-            tar.TarSerie = "A"
-            dvc.tarjeta = tar
+            dvc.tarjeta = self.tarjetaSeleccionada
         }
     }
     
