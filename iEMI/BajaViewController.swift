@@ -143,8 +143,7 @@ class BajaViewController: UIViewController {
                 if error != nil {
                     self.bajaButton.enabled = true
                 } else {
-                    //setting tarjeta again to force reloading the data
-                    self.tarjetaViewController?.tarjeta = tar
+                    self.tarjetaViewController?.reloadTarjeta()
                 }
             })
         }

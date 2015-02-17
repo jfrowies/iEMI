@@ -45,6 +45,8 @@ class TarjetaViewController: UIViewController {
     
         self.numeroDeTarjetaLabel.text = self.tarjeta.TarNro
         
+        //TODO: mostrar toda la info de la tarjeta
+        
     }
 
     @IBAction func cerrarButtonTouched(sender: UIButton) {
@@ -52,6 +54,7 @@ class TarjetaViewController: UIViewController {
             
         })
     }
+    
     /*
     // MARK: - Navigation
 
