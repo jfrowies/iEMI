@@ -470,7 +470,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saldo" id="lwr-wQ-oHY"/>
+                    <tabBarItem key="tabBarItem" title="Saldo" image="saldo" id="lwr-wQ-oHY"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="qaC-T7-xT5" id="vPF-R1-pze"/>
@@ -580,7 +580,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Baja" id="aNv-CJ-VNb"/>
+                    <tabBarItem key="tabBarItem" title="Baja" image="baja" id="aNv-CJ-VNb"/>
                     <connections>
                         <outlet property="bajaButton" destination="brE-HP-ZuM" id="jOl-5b-wxK"/>
                         <outlet property="bajaSpinner" destination="dSR-MA-jVj" id="GvE-qT-PU7"/>
@@ -785,7 +785,7 @@
                             <constraint firstAttribute="centerX" secondItem="90o-Wi-9Cb" secondAttribute="centerX" id="fi8-MD-xsg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" id="JmU-HU-n4H"/>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="settings" id="JmU-HU-n4H"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGB-lL-hGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -816,7 +816,7 @@
                             <constraint firstAttribute="centerY" secondItem="cAs-FE-8Co" secondAttribute="centerY" constant="10" id="JoO-Rm-72q"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alta" id="AhU-cn-rDZ"/>
+                    <tabBarItem key="tabBarItem" title="Alta" image="alta" id="AhU-cn-rDZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHK-y8-e20" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -862,6 +862,12 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="alta" width="19" height="22"/>
+        <image name="baja" width="22" height="22"/>
+        <image name="saldo" width="22" height="22"/>
+        <image name="settings" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dxy-4a-0gi"/>
     </inferredMetricsTieBreakers>
