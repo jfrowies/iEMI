@@ -64,7 +64,7 @@
                                     <outlet property="delegate" destination="TsN-dz-rbM" id="emB-eX-eaR"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKU-dM-Qga">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKU-dM-Qga">
                                 <rect key="frame" x="262" y="283" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,9 +82,11 @@
                             <constraint firstItem="OKU-dM-Qga" firstAttribute="top" secondItem="44L-LE-0rz" secondAttribute="bottom" constant="8" id="L0I-cb-x9g"/>
                             <constraint firstAttribute="centerY" secondItem="eWc-rK-7CB" secondAttribute="centerY" constant="140" id="Q8p-0n-BMI"/>
                             <constraint firstItem="Ned-QU-b0m" firstAttribute="leading" secondItem="DnJ-y7-eGj" secondAttribute="trailing" constant="12" id="VPv-AG-GhC"/>
+                            <constraint firstItem="OKU-dM-Qga" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eC9-1N-Rox" secondAttribute="leading" constant="8" id="YK0-yb-vel"/>
                             <constraint firstAttribute="centerX" secondItem="44L-LE-0rz" secondAttribute="centerX" id="ZCc-kD-RRK"/>
                             <constraint firstItem="Ned-QU-b0m" firstAttribute="centerX" secondItem="eWc-rK-7CB" secondAttribute="centerX" id="bkO-lu-g4m"/>
                             <constraint firstItem="44L-LE-0rz" firstAttribute="leading" secondItem="v2k-iz-qAS" secondAttribute="trailing" constant="20" id="eqs-xz-z8k"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OKU-dM-Qga" secondAttribute="trailing" constant="8" id="fbL-wP-PcQ"/>
                             <constraint firstItem="44L-LE-0rz" firstAttribute="centerX" secondItem="Ned-QU-b0m" secondAttribute="centerX" id="hLC-K9-6UQ"/>
                             <constraint firstItem="44L-LE-0rz" firstAttribute="centerY" secondItem="v2k-iz-qAS" secondAttribute="centerY" id="hZL-sh-sX9"/>
                             <constraint firstItem="eWc-rK-7CB" firstAttribute="leading" secondItem="A07-rx-pUD" secondAttribute="trailing" constant="12" id="kSo-qv-5k2"/>

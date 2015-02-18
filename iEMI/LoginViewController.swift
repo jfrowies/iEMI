@@ -89,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
             
             if error != nil {
-                self.showError(error.description)
+                self.showError(error.localizedDescription)
             }else {
                 if self.pinTextField.text == "2432" {
                     self.savePatente(patente)
@@ -124,7 +124,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.showError(d)
                     }
                 } else if error != nil {
-                    self.showError(error.description)
+                    self.showError(error.localizedDescription)
                 } else {
                     self.savePatente(patente)
                     self.performSegueWithIdentifier("showTabBarViewController", sender: self)
