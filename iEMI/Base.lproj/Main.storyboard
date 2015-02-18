@@ -438,16 +438,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-xl-3bt" userLabel="loading table view">
+                                <rect key="frame" x="0.0" y="70" width="600" height="481"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cargando" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nS-fV-Lq5">
+                                        <rect key="frame" x="264" y="220" width="73" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hY0-lc-5qb">
+                                        <rect key="frame" x="290" y="192" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="0nS-fV-Lq5" secondAttribute="centerY" constant="10" id="5zN-Ox-22U"/>
+                                    <constraint firstAttribute="centerX" secondItem="0nS-fV-Lq5" secondAttribute="centerX" constant="-0.5" id="HN8-Oz-3Qj"/>
+                                    <constraint firstItem="0nS-fV-Lq5" firstAttribute="top" secondItem="hY0-lc-5qb" secondAttribute="bottom" constant="8" id="SoT-TB-1M3"/>
+                                    <constraint firstItem="0nS-fV-Lq5" firstAttribute="centerX" secondItem="hY0-lc-5qb" secondAttribute="centerX" constant="0.5" id="wuE-tR-FK6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2dU-56-oq9" firstAttribute="centerY" secondItem="Yh8-Il-Aqg" secondAttribute="centerY" id="3HR-Jv-Xfn"/>
                             <constraint firstItem="4Bo-Ca-DH0" firstAttribute="top" secondItem="W1N-fi-Y1b" secondAttribute="bottom" id="3XD-Vt-5cA"/>
+                            <constraint firstItem="sCI-xl-3bt" firstAttribute="top" secondItem="4Bo-Ca-DH0" secondAttribute="bottom" id="5Xp-dj-2It"/>
                             <constraint firstItem="vNx-JJ-Abl" firstAttribute="centerY" secondItem="aas-ee-FZk" secondAttribute="centerY" id="DKJ-Rr-ppB"/>
                             <constraint firstItem="aas-ee-FZk" firstAttribute="leading" secondItem="vNx-JJ-Abl" secondAttribute="trailing" constant="5" id="KGx-qF-aUs"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="top" secondItem="W1N-fi-Y1b" secondAttribute="bottom" id="KVp-JN-Bd1"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="M8D-SM-tvI"/>
+                            <constraint firstItem="oqG-kH-xu7" firstAttribute="top" secondItem="sCI-xl-3bt" secondAttribute="bottom" id="Nr7-rM-5JF"/>
                             <constraint firstAttribute="trailing" secondItem="4Bo-Ca-DH0" secondAttribute="trailing" id="TBj-cK-o3N"/>
+                            <constraint firstAttribute="trailing" secondItem="sCI-xl-3bt" secondAttribute="trailing" id="ctg-bb-7Be"/>
+                            <constraint firstItem="sCI-xl-3bt" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="dhZ-ge-D0d"/>
                             <constraint firstItem="4Bo-Ca-DH0" firstAttribute="top" secondItem="ghS-6J-idp" secondAttribute="top" id="hJM-YA-oFS"/>
                             <constraint firstItem="Yh8-Il-Aqg" firstAttribute="leading" secondItem="2dU-56-oq9" secondAttribute="trailing" constant="5" id="ipd-lf-rru"/>
                             <constraint firstItem="4Bo-Ca-DH0" firstAttribute="top" secondItem="ghS-6J-idp" secondAttribute="top" id="qil-fM-NVh"/>
@@ -466,16 +491,19 @@
                                 <exclude reference="Yh8-Il-Aqg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="DKJ-Rr-ppB"/>
                                 <exclude reference="3XD-Vt-5cA"/>
                                 <exclude reference="qil-fM-NVh"/>
-                                <exclude reference="DKJ-Rr-ppB"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Saldo" image="saldo" id="lwr-wQ-oHY"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="feedbackTableLabel" destination="0nS-fV-Lq5" id="zOY-cg-YoP"/>
                         <outlet property="loadingSpinner" destination="qaC-T7-xT5" id="vPF-R1-pze"/>
+                        <outlet property="loadingTableSpinner" destination="hY0-lc-5qb" id="eaf-JG-XMV"/>
+                        <outlet property="loadingtableView" destination="sCI-xl-3bt" id="J0f-C8-DFj"/>
                         <outlet property="refreshButton" destination="pDE-Xd-y7x" id="ufA-yZ-ZGT"/>
                         <outlet property="saldoLabel" destination="PrB-wf-ge0" id="dh5-hE-6qE"/>
                         <outlet property="tableView" destination="bnv-5d-Xey" id="MGv-XN-KD5"/>

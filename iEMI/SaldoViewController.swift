@@ -16,6 +16,11 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var loadingTableSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var feedbackTableLabel: UILabel!
+    @IBOutlet weak var loadingtableView: UIView!
+    
+    
     var tableElements = [Movimiento]()
     var tarjetaSeleccionada = Tarjeta()
     
@@ -54,7 +59,10 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func reloadTableData(#patente: String, count: Int) {
         
-        //show spinner on table
+        self.loadingtableView.alpha = 1.0
+        self.loadingTableSpinner.startAnimating()
+        self.feedbackTableLabel.text = "cargando"
+        
         self.tableElements.removeAll(keepCapacity: false)
         
         self.loadRecargas(patente: patente, count: count) { (creditos: [Credito]) -> Void in
@@ -75,6 +83,9 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        self.loadingtableView.alpha = 0.0
+                    })
                 })
             }
         }
@@ -197,6 +208,11 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             
+            if error != nil {
+                self.showTableError(error)
+                return
+            }
+            
             var err: NSError?
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
                 //crear objetos credito
@@ -206,7 +222,7 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
                 completion(creditoArray)
             }else {
-                println("Error: \(err)")
+                self.showTableError(err)
             }
             
         }
@@ -222,6 +238,12 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
+            
+            if error != nil {
+                self.showTableError(error)
+                return
+            }
+            
             var err: NSError?
             if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:AnyObject]] {
                 
@@ -232,12 +254,20 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 completion(consumosArray)
                 
             }else {
-                println("Error: \(err)")
+                self.showTableError(err)
             }
             
         }
         task.resume()
         
+    }
+    
+    func showTableError(error: NSError?) {
+        println("Error: \(error)")
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.loadingTableSpinner.stopAnimating()
+            self.feedbackTableLabel.text = error?.localizedDescription
+        })
     }
     
 }
