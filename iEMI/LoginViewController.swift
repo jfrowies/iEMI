@@ -27,6 +27,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.errorLabel.hidden = true
+        self.aceptarbutton.enabled = true
+        self.patenteTextField.enabled = true
+        self.pinTextField.enabled = true
+        self.cargandoSpinner.stopAnimating()
+        
     }
     
     override func viewDidAppear(animated: Bool) {

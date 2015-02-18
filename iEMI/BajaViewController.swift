@@ -37,6 +37,8 @@ class BajaViewController: UIViewController {
         self.bajaSpinner.stopAnimating()
         self.bajaButton.enabled = true
         
+        self.tarjeta = Tarjeta()
+        
         self.loadTarjeta()
     }
 
@@ -88,33 +90,40 @@ class BajaViewController: UIViewController {
         var err: NSError?
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         
-        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             
-            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String:AnyObject]? {
+            if error != nil {
+                self.showError(error.description)
+                return
+            }
+            
+            var responseDataError: NSError?
+            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as [String:AnyObject]? {
+                
+                if error != nil {
+                    self.showError(error.description)
+                    return
+                }
                 
                 if let messages = responseData["Messages"] as? [[String : AnyObject]] {
                     
                     if let m = messages.first {
                         let d = m["Description"] as String!
                         self.showError(d)
+                        return
                     }
-                    
-                } else if error != nil {
-                    
-                    self.showError(error.description)
-                    
-                } else {
-                    
-                    self.tarjeta.TarAno = responseData["Tarano"]as String!
-                    self.tarjeta.TarNro = responseData["Tarnro"]as String!
-                    self.tarjeta.TarSerie = responseData["TarSerie"]as String!
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.tarjetaViewController?.tarjeta = self.tarjeta
-                        self.loadingView.hidden = true
-                        self.bajaButton.enabled = true
-                    })
                 }
+                    
+                self.tarjeta.TarAno = String(responseData["Tarano"] as Int!)
+                self.tarjeta.TarNro = responseData["Tarnro"] as String!
+                self.tarjeta.TarSerie = responseData["TarSerie"] as String!
+                    
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tarjetaViewController?.tarjeta = self.tarjeta
+                    self.tarjetaViewController?.reloadTarjeta()
+                    self.loadingView.hidden = true
+                    self.bajaButton.enabled = true
+                })
             }
         }
         task.resume()
