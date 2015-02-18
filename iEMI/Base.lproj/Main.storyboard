@@ -441,7 +441,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-xl-3bt" userLabel="loading table view">
                                 <rect key="frame" x="0.0" y="70" width="600" height="481"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cargando" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nS-fV-Lq5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cargando" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nS-fV-Lq5">
                                         <rect key="frame" x="264" y="220" width="73" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -456,6 +456,8 @@
                                     <constraint firstAttribute="centerY" secondItem="0nS-fV-Lq5" secondAttribute="centerY" constant="10" id="5zN-Ox-22U"/>
                                     <constraint firstAttribute="centerX" secondItem="0nS-fV-Lq5" secondAttribute="centerX" constant="-0.5" id="HN8-Oz-3Qj"/>
                                     <constraint firstItem="0nS-fV-Lq5" firstAttribute="top" secondItem="hY0-lc-5qb" secondAttribute="bottom" constant="8" id="SoT-TB-1M3"/>
+                                    <constraint firstItem="0nS-fV-Lq5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sCI-xl-3bt" secondAttribute="leading" constant="8" id="rrl-3H-XYg"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0nS-fV-Lq5" secondAttribute="trailing" constant="8" id="uJ4-Wc-g2j"/>
                                     <constraint firstItem="0nS-fV-Lq5" firstAttribute="centerX" secondItem="hY0-lc-5qb" secondAttribute="centerX" constant="0.5" id="wuE-tR-FK6"/>
                                 </constraints>
                             </view>
@@ -491,9 +493,9 @@
                                 <exclude reference="Yh8-Il-Aqg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DKJ-Rr-ppB"/>
                                 <exclude reference="3XD-Vt-5cA"/>
                                 <exclude reference="qil-fM-NVh"/>
+                                <exclude reference="DKJ-Rr-ppB"/>
                             </mask>
                         </variation>
                     </view>
@@ -857,7 +859,7 @@
                                     <constraint firstItem="Bij-sg-xNt" firstAttribute="baseline" secondItem="cGK-Fl-TQ4" secondAttribute="baseline" id="aaJ-wn-TIY"/>
                                     <constraint firstItem="Vqo-AN-ciU" firstAttribute="leading" secondItem="L4q-4z-G2Q" secondAttribute="trailing" constant="8" id="c4b-a8-bvA"/>
                                     <constraint firstItem="TM5-wL-vKB" firstAttribute="leading" secondItem="SoT-lZ-1Gb" secondAttribute="leading" constant="28" id="hQu-2u-Q9S"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L4q-4z-G2Q" secondAttribute="trailing" constant="4" id="hnj-jv-TQJ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L4q-4z-G2Q" secondAttribute="trailing" constant="8" id="hnj-jv-TQJ"/>
                                     <constraint firstItem="Cgv-8f-S2X" firstAttribute="centerY" secondItem="C5L-du-afD" secondAttribute="centerY" id="lUQ-2O-8HB"/>
                                     <constraint firstItem="fn9-fi-54a" firstAttribute="trailing" secondItem="Da1-z2-V5u" secondAttribute="trailing" id="mgg-bw-3wG"/>
                                     <constraint firstItem="TM5-wL-vKB" firstAttribute="top" secondItem="L4q-4z-G2Q" secondAttribute="top" constant="1" id="nOP-np-frm"/>
