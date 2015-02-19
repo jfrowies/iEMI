@@ -3,7 +3,11 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
+<<<<<<< HEAD
+      "filename" : "baja@2x-1.png"
+=======
       "filename" : "baja@1x.png"
+>>>>>>> upstream/master
     },
     {
       "idiom" : "universal",

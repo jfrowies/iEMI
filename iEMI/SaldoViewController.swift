@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var waitingView: UIView!
     @IBOutlet weak var saldoLabel: UILabel!
@@ -20,7 +20,8 @@ class SaldoViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var feedbackTableLabel: UILabel!
     @IBOutlet weak var loadingtableView: UIView!
     
-    
+    override func iconName() -> String { return "saldo" }
+        
     var tableElements = [Movimiento]()
     var tarjetaSeleccionada = Tarjeta()
     
