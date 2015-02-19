@@ -3,7 +3,11 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
+<<<<<<< HEAD
       "filename" : "Saldo@2x-1.png"
+=======
+      "filename" : "Saldo@1x.png"
+>>>>>>> upstream/master
     },
     {
       "idiom" : "universal",
