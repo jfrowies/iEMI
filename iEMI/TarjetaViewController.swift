@@ -12,7 +12,7 @@ struct Tarjeta {
     var TarNro = "", TarAno = "", TarSerie = ""
 }
 
-class TarjetaViewController: UIViewController {
+class TarjetaViewController: TabBarIconFixerViewController {
     
     @IBOutlet weak var numeroDeTarjetaLabel: UILabel!
     @IBOutlet weak var cerrarButton: UIButton!

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AltaViewController: UIViewController {
+class AltaViewController: TabBarIconFixerViewController {
 
+    override func iconName() -> String { return "alta" }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

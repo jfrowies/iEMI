@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BajaViewController: UIViewController {
+class BajaViewController: TabBarIconFixerViewController {
 
     @IBOutlet weak var loadingFeedback: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
@@ -26,6 +26,8 @@ class BajaViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func iconName() -> String { return "baja" }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
