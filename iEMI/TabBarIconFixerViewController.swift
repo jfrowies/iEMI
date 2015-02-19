@@ -14,15 +14,19 @@ extension UIViewController {
 }
 
 class TabBarIconFixerViewController: UIViewController {
+    
+    lazy var icon: UIImage? = {
+        if let imageName = self.iconName() {
+            return UIImage(named: imageName)
+        }
+        return nil
+        }()
+    
     override var tabBarItem: UITabBarItem! {
         get {
             let tbi = super.tabBarItem
-            if let iconName = iconName() {
-                if let img = UIImage(named: iconName) {
-                    tbi.image = img
-                    tbi.selectedImage = img
-                }
-            }
+            tbi.image = icon
+            tbi.selectedImage = icon
             return tbi
         }
         set {
