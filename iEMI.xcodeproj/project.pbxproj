@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		354598F41A9589350037771C /* TabBarIconFixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354598F31A9589350037771C /* TabBarIconFixerViewController.swift */; };
+		B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A490231AAE646200886C25 /* NSDateExtension.swift */; };
 		B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5225CA11A959A1E002DF870 /* SettingsViewController.swift */; };
 		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
 		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		354598F31A9589350037771C /* TabBarIconFixerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarIconFixerViewController.swift; sourceTree = "<group>"; };
+		B3A490231AAE646200886C25 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		B5225CA11A959A1E002DF870 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; };
 		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditoTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				EF163D391A7AABBB00BE4461 /* Images.xcassets */,
 				EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */,
 				EF163D301A7AABBB00BE4461 /* Supporting Files */,
+				B3A490231AAE646200886C25 /* NSDateExtension.swift */,
 			);
 			path = iEMI;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */,
 				B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */,
+				B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */,
 				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,

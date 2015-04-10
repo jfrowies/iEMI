@@ -14,7 +14,7 @@ class Consumo: NSObject, Movimiento {
     var tarSerie: String?
     var tarAno: String?
 
-    var timestamp : String?
+    var timestamp : String
     var fecha: String?
     var direccion: String?
     
@@ -36,12 +36,29 @@ class Consumo: NSObject, Movimiento {
             
             let minutos = hastaTotalMinutos - desdeTotalMinutos
             
-            if minutos <= 60 {
-                return "4.50"
-            }else if minutos <= 90 {
-                return "6.75"
-            }else if  minutos <= 120 {
-                return "9.00"
+            let date = NSDate(dateJsonString: (self.timestamp as NSString));
+            
+            let tarj55 = NSDate(dateString: "2015-03-02")
+            
+            if (tarj55.compare(date) == NSComparisonResult.OrderedAscending)
+            {
+                if minutos <= 60 {
+                    return "5.50"
+                }else if minutos <= 90 {
+                    return "7.75"
+                }else if  minutos <= 120 {
+                    return "11.00"
+                }
+            }
+            else
+            {
+                if minutos <= 60 {
+                    return "4.50"
+                }else if minutos <= 90 {
+                    return "6.75"
+                }else if  minutos <= 120 {
+                    return "9.00"
+                }
             }
            return "0.00"
         }

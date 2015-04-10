@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 
+
 class iEMITests: XCTestCase {
     
     override func setUp() {
@@ -22,6 +23,9 @@ class iEMITests: XCTestCase {
     }
     
     func testExample() {
+        
+        //let date = NSDate("2015-10-12T13:43:12Z")
+        
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }

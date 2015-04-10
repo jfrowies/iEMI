@@ -11,10 +11,11 @@ import UIKit
 class Credito: NSObject, Movimiento {
     var creditoId: String?
     var fecha: String?
-    var timestamp: String?
+    var timestamp: String
     var hora: String?
     var importe: String?
     var saldo: String?
+    
     
     init(json:[String:String]) {
         creditoId = json["CreditoID"]

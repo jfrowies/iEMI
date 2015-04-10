@@ -37,7 +37,9 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.patenteTextField.becomeFirstResponder()
+        //self.patenteTextField.becomeFirstResponder()
+        
+        self.getSessionCookie(patente: self.patenteTextField.text)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -97,12 +99,15 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
             if error != nil {
                 self.showError(error.localizedDescription)
             }else {
-                if self.pinTextField.text == "2432" {
+                // hack
+                self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+
+                /*if self.pinTextField.text == "2432" {
                     self.savePatente(patente)
                     self.performSegueWithIdentifier("showTabBarViewController", sender: self)
-                }else {
+                } else {
                     self.authenticatePatente(self.patenteTextField.text, pin:self.pinTextField.text)
-                }
+                }*/
             }
         }
         task.resume()

@@ -10,6 +10,6 @@ import UIKit
 
 protocol Movimiento: NSObjectProtocol {
     
-    var timestamp: String? { get }
+    var timestamp: String { get }
 
 }

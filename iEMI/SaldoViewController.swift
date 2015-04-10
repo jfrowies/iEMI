@@ -24,6 +24,8 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         
     var tableElements = [Movimiento]()
     var tarjetaSeleccionada = Tarjeta()
+    var sectionItemCount = [Int]()
+    var sectionFirstItem = [Int]()
     
     //MARK: - View controller lifecycle
     
@@ -74,7 +76,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             
             self.sortTableElements()
             
-            self.loadConsumos(patente: patente, desdeHoraIni: self.tableElements.last!.timestamp!) { (consumos: [Consumo]) -> Void in
+            self.loadConsumos(patente: patente, desdeHoraIni: self.tableElements.last!.timestamp) { (consumos: [Consumo]) -> Void in
                 
                 for consumo in consumos {
                     self.tableElements.append(consumo)
@@ -123,24 +125,53 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     }
     
     //MARK: - UITableViewDelegate implementation
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        self.sectionItemCount.removeAll(keepCapacity: false)
+        self.sectionFirstItem.removeAll(keepCapacity: false)
+        var sections = 0;
+        var date: String = "";
+        var index: Int = 0;
+        for mov: Movimiento in self.tableElements {
+            var timestamp: String = mov.timestamp
+            var subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
+            if (!(date == subDate)) {
+                date = subDate
+                self.sectionItemCount.append(0)
+                self.sectionFirstItem.append(index)
+                sections++
+            }
+            self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
+            index++
+        }
+        return sections
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+        let mov = self.tableElements[self.sectionFirstItem[section]];
+        
+        var timestamp: String = mov.timestamp
+        var subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
+        return subDate
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableElements.count
+        
+        return self.sectionItemCount[section]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let movimiento = self.tableElements[indexPath.row]
+        let movimiento = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row]
         
         if movimiento.isKindOfClass(Credito) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as CreditoTableViewCell
-            cell.credito = self.tableElements[indexPath.row] as Credito
+            cell.credito = movimiento as Credito
             return cell
         }
         
         if movimiento.isKindOfClass(Consumo) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as ConsumoTableViewCell
-            cell.consumo = self.tableElements[indexPath.row] as Consumo
+            cell.consumo = movimiento as Consumo
             return cell
         }
         
