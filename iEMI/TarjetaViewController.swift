@@ -136,13 +136,13 @@ class TarjetaViewController: TabBarIconFixerViewController {
                         //mas chanchada, alto refactoring needed :P
                         
                         self.fechaLabel.text = jsonData["TarFecha"] as? String
-                        var horaIni = jsonData["TarHoraIni"] as NSString
+                        var horaIni = jsonData["TarHoraIni"] as! NSString
                         self.horaInicioLabel.text = horaIni.substringFromIndex(11) + " hs"
                         
-                        var horaFin = jsonData["TarHoraFin"] as NSString
+                        var horaFin = jsonData["TarHoraFin"] as! NSString
                         self.horaFinLabel.text = horaFin.substringFromIndex(11) + " hs"
                         
-                        var tiempo = jsonData["TarTiempo"] as String
+                        var tiempo = jsonData["TarTiempo"] as! String
                         var horas = tiempo.toInt()!/60 as Int
                         var minutos = tiempo.toInt()! % 60
                         

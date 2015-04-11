@@ -100,7 +100,7 @@ class BajaViewController: TabBarIconFixerViewController {
             }
             
             var responseDataError: NSError?
-            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as [String:AnyObject]? {
+            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as! [String:AnyObject]? {
                 
                 if error != nil {
                     self.showError(error.description)
@@ -110,15 +110,15 @@ class BajaViewController: TabBarIconFixerViewController {
                 if let messages = responseData["Messages"] as? [[String : AnyObject]] {
                     
                     if let m = messages.first {
-                        let d = m["Description"] as String!
+                        let d = m["Description"] as! String!
                         self.showError(d)
                         return
                     }
                 }
                     
-                self.tarjeta.TarAno = String(responseData["Tarano"] as Int!)
-                self.tarjeta.TarNro = responseData["Tarnro"] as String!
-                self.tarjeta.TarSerie = responseData["TarSerie"] as String!
+                self.tarjeta.TarAno = String(responseData["Tarano"] as! Int!)
+                self.tarjeta.TarNro = responseData["Tarnro"]as! String!
+                self.tarjeta.TarSerie = responseData["TarSerie"] as! String!
                     
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tarjetaViewController?.tarjeta = self.tarjeta

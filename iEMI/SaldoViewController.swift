@@ -146,7 +146,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         return sections
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let mov = self.tableElements[self.sectionFirstItem[section]];
         
         var timestamp: String = mov.timestamp
@@ -164,14 +164,14 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         let movimiento = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row]
         
         if movimiento.isKindOfClass(Credito) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as CreditoTableViewCell
-            cell.credito = movimiento as Credito
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as! CreditoTableViewCell
+            cell.credito = movimiento as! Credito
             return cell
         }
         
         if movimiento.isKindOfClass(Consumo) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as ConsumoTableViewCell
-            cell.consumo = movimiento as Consumo
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as! ConsumoTableViewCell
+            cell.consumo = movimiento as! Consumo
             return cell
         }
         
@@ -202,7 +202,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showTarjeta" {
-            var dvc = segue.destinationViewController as TarjetaViewController
+            var dvc = segue.destinationViewController as! TarjetaViewController
             dvc.tarjeta = self.tarjetaSeleccionada
         }
     }

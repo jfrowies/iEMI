@@ -36,7 +36,7 @@ class Consumo: NSObject, Movimiento {
             
             let minutos = hastaTotalMinutos - desdeTotalMinutos
             
-            let date = NSDate(dateJsonString: (self.timestamp as NSString));
+            let date = NSDate(dateJsonString: self.timestamp);
             
             let tarj55 = NSDate(dateString: "2015-03-02")
             
@@ -69,7 +69,7 @@ class Consumo: NSObject, Movimiento {
         tarSerie = json["TarSerie"]?.description
         tarAno = json["TarAno"]?.description
         let fechaYHoraDesdeString : NSString = json["TarHoraIni"]!.description
-        timestamp = fechaYHoraDesdeString
+        timestamp = fechaYHoraDesdeString as String
         fecha = fechaYHoraDesdeString.substringToIndex(10)
         horaDesde = fechaYHoraDesdeString.substringWithRange(NSMakeRange(11, 5)) + " hs"
         

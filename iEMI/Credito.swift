@@ -20,7 +20,7 @@ class Credito: NSObject, Movimiento {
     init(json:[String:String]) {
         creditoId = json["CreditoID"]
         let fechaYHora : NSString = json["CreditoFecha"]!
-        timestamp = fechaYHora
+        timestamp = fechaYHora as String
         fecha = fechaYHora.substringToIndex(10)
         hora = fechaYHora.substringWithRange(NSMakeRange(11, 5)) + " hs"
         importe = json["CreditoImporte"]

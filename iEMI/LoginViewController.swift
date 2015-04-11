@@ -100,7 +100,11 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
                 self.showError(error.localizedDescription)
             }else {
                 // hack
-                self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+                if (!self.patenteTextField.text.isEmpty)
+                {
+                    self.savePatente(patente)
+                    self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+                }
 
                 /*if self.pinTextField.text == "2432" {
                     self.savePatente(patente)
@@ -127,11 +131,11 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
 
-            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as [String:AnyObject]? {
+            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! [String:AnyObject]? {
 
                 if let messages = responseData["Messages"] as? [[String : AnyObject]] {
                     if let m = messages.first {
-                        let d = m["Description"] as String!
+                        let d = m["Description"] as! String!
                         self.showError(d)
                     }
                 } else if error != nil {
