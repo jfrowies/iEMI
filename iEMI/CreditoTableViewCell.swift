@@ -21,7 +21,6 @@ class CreditoTableViewCell: UITableViewCell {
         }
         set(newCredito){
             self.creditoLabel.text = newCredito.importe
-            self.fechaCreditoLabel.text = newCredito.fecha
             self.horaCreditoLabel.text = newCredito.hora
 //            self.saldoLabel.text = newCredito.saldo
         }

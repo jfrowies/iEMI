@@ -22,7 +22,6 @@ class ConsumoTableViewCell: UITableViewCell {
         }
         set(cons){
             self.consumoLabel.text = cons.importe
-            self.consumoFechaLabel.text = cons.fecha
             self.consumoDireccionLabel.text = cons.direccion
             self.horaDesdeLabel.text = cons.horaDesde
             self.horaHastaLabel.text = cons.horaHasta
