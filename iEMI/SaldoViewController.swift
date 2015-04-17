@@ -26,6 +26,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     var tarjetaSeleccionada = Tarjeta()
     var sectionItemCount = [Int]()
     var sectionFirstItem = [Int]()
+    var saldo = 0.0
     
     //MARK: - View controller lifecycle
     
@@ -131,6 +132,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         var sections = 0;
         var date: String = "";
         var index: Int = 0;
+        var newSaldo = self.saldo
         for mov: Movimiento in self.tableElements {
             var timestamp: String = mov.timestamp
             var subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
@@ -140,6 +142,19 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
                 self.sectionFirstItem.append(index)
                 sections++
             }
+            
+            mov.saldo = String(format: "%.2f $", newSaldo)
+            if (mov.isKindOfClass(Consumo))
+            {
+                let importe = (mov as! Consumo).importe
+                newSaldo += (importe! as NSString).doubleValue
+            }
+            if (mov.isKindOfClass(Credito))
+            {
+                let importe = (mov as! Credito).importe
+                newSaldo -= (importe! as NSString).doubleValue
+            }
+            
             self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
             index++
         }
@@ -222,9 +237,12 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             
             if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
-                self.updateSaldo(jsonSaldo["Creditosaldo"]! + " $")
+                let saldoValue = jsonSaldo["Creditosaldo"]!
+                self.updateSaldo(saldoValue + " $")
+                self.saldo = (saldoValue as NSString).doubleValue
             }else {
                 self.updateSaldo("Unknown")
+                self.saldo = 0.0
             }
             
         }

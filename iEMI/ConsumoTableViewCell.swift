@@ -11,10 +11,10 @@ import UIKit
 class ConsumoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var consumoLabel: UILabel!
-    @IBOutlet weak var consumoFechaLabel: UILabel!
     @IBOutlet weak var consumoDireccionLabel: UILabel!
     @IBOutlet weak var horaDesdeLabel: UILabel!
     @IBOutlet weak var horaHastaLabel: UILabel!
+    @IBOutlet weak var saldoLabel: UILabel!
     
     var consumo: Consumo {
         get{
@@ -25,6 +25,7 @@ class ConsumoTableViewCell: UITableViewCell {
             self.consumoDireccionLabel.text = cons.direccion
             self.horaDesdeLabel.text = cons.horaDesde
             self.horaHastaLabel.text = cons.horaHasta
+            self.saldoLabel.text = cons.saldo
         }
     }
 

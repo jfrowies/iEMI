@@ -24,6 +24,6 @@ class Credito: NSObject, Movimiento {
         fecha = fechaYHora.substringToIndex(10)
         hora = fechaYHora.substringWithRange(NSMakeRange(11, 5)) + " hs"
         importe = json["CreditoImporte"]
-        saldo = json["CreditoSaldo"]
+        //saldo = json["CreditoSaldo"] this is the saldo actual, non sense
     }
 }

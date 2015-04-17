@@ -20,6 +20,8 @@ class Consumo: NSObject, Movimiento {
     
     var horaDesde: String?
     var horaHasta: String?
+    
+    var saldo: String?
 
     var importe: String? {
         get {

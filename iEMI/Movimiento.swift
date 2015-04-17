@@ -12,4 +12,6 @@ protocol Movimiento: NSObjectProtocol {
     
     var timestamp: String { get }
 
+    var saldo: String? { get set }
+    
 }

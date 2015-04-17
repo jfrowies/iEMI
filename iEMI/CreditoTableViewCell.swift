@@ -11,9 +11,8 @@ import UIKit
 class CreditoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var creditoLabel: UILabel!
-    @IBOutlet weak var fechaCreditoLabel: UILabel!
     @IBOutlet weak var horaCreditoLabel: UILabel!
-//    @IBOutlet weak var saldoLabel: UILabel!
+    @IBOutlet weak var saldoLabel: UILabel!
     
     var credito: Credito {
         get{
@@ -22,7 +21,7 @@ class CreditoTableViewCell: UITableViewCell {
         set(newCredito){
             self.creditoLabel.text = newCredito.importe
             self.horaCreditoLabel.text = newCredito.hora
-//            self.saldoLabel.text = newCredito.saldo
+            self.saldoLabel.text = newCredito.saldo
         }
     }
     
