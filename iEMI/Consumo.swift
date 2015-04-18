@@ -47,7 +47,7 @@ class Consumo: NSObject, Movimiento {
                 if minutos <= 60 {
                     return "5.50"
                 }else if minutos <= 90 {
-                    return "7.75"
+                    return "8.25"
                 }else if  minutos <= 120 {
                     return "11.00"
                 }
