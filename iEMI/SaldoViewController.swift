@@ -33,7 +33,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         
         reloadData(patente: self.patente())
 
@@ -166,7 +166,12 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         
         var timestamp: String = mov.timestamp
         var subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
-        return subDate
+        
+        let nsDate = NSDate(dateString: subDate)
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.FullStyle
+        formatter.timeStyle = NSDateFormatterStyle.NoStyle
+        return formatter.stringFromDate(nsDate)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
