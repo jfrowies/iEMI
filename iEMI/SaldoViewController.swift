@@ -21,7 +21,8 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     @IBOutlet weak var loadingtableView: UIView!
     
     override func iconName() -> String { return "saldo" }
-        
+
+    var refreshControl: UIRefreshControl!
     var tableElements = [Movimiento]()
     var tarjetaSeleccionada = Tarjeta()
     var sectionItemCount = [Int]()
@@ -36,12 +37,20 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         
         reloadData(patente: self.patente())
-
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Tire para recargar")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refresh(sender:AnyObject) {
+        reloadData(patente: self.patente())
     }
     
     //MARK: -
@@ -100,6 +109,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             self.refreshButton.enabled = true
             self.loadingSpinner.stopAnimating()
             self.saldoLabel.text = saldo
+            self.refreshControl.endRefreshing()
         })
     }
     
