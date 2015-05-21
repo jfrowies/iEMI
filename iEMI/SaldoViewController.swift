@@ -76,18 +76,15 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         self.loadingTableSpinner.startAnimating()
         self.feedbackTableLabel.text = "cargando"
         
-//        self.tableElements.removeAll(keepCapacity: false)
         var newTableElements = [Movimiento]()
         
         self.loadRecargas(patente: patente, count: count) { (creditos: [Credito]) -> Void in
-            
-//            self.tableElements.removeAll(keepCapacity: false)
             
             for credito in creditos {
                 newTableElements.append(credito)
             }
             
-           self.sortElements(newTableElements)
+           self.sortElements(&newTableElements)
             
             self.loadConsumos(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Consumo]) -> Void in
                 
@@ -95,7 +92,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
                     newTableElements.append(consumo)
                 }
                 
-                self.sortElements(newTableElements)
+                self.sortElements(&newTableElements)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     
@@ -119,7 +116,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         })
     }
     
-    func sortElements(var elements:[Movimiento]) {
+    func sortElements(inout elements:[Movimiento]) {
         
         elements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
             if mov1.timestamp > mov2.timestamp {
