@@ -13,7 +13,6 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     @IBOutlet weak var waitingView: UIView!
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var loadingTableSpinner: UIActivityIndicatorView!
@@ -63,7 +62,6 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     func reloadData(#patente: String) {
         
         self.loadingSpinner.startAnimating()
-        self.refreshButton.enabled = false
         
         self.reloadSaldoData(patente: patente)
         self.reloadTableData(patente: patente, count: 5)
@@ -109,7 +107,6 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
 
     func updateSaldo(saldo:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.refreshButton.enabled = true
             self.loadingSpinner.stopAnimating()
             self.saldoLabel.text = saldo
             self.refreshControl.endRefreshing()
