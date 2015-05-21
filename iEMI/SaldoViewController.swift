@@ -76,26 +76,32 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         self.loadingTableSpinner.startAnimating()
         self.feedbackTableLabel.text = "cargando"
         
-        self.tableElements.removeAll(keepCapacity: false)
+//        self.tableElements.removeAll(keepCapacity: false)
+        var newTableElements = [Movimiento]()
         
         self.loadRecargas(patente: patente, count: count) { (creditos: [Credito]) -> Void in
             
+//            self.tableElements.removeAll(keepCapacity: false)
+            
             for credito in creditos {
-                self.tableElements.append(credito)
+                newTableElements.append(credito)
             }
             
-            self.sortTableElements()
+           self.sortElements(newTableElements)
             
-            self.loadConsumos(patente: patente, desdeHoraIni: self.tableElements.last!.timestamp) { (consumos: [Consumo]) -> Void in
+            self.loadConsumos(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Consumo]) -> Void in
                 
                 for consumo in consumos {
-                    self.tableElements.append(consumo)
+                    newTableElements.append(consumo)
                 }
                 
-                self.sortTableElements()
+                self.sortElements(newTableElements)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    self.tableElements = newTableElements
                     self.tableView.reloadData()
+                    
                     UIView.animateWithDuration(0.2, animations: { () -> Void in
                         self.loadingtableView.alpha = 0.0
                     })
@@ -113,8 +119,9 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         })
     }
     
-    func sortTableElements() {
-        self.tableElements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
+    func sortElements(var elements:[Movimiento]) {
+        
+        elements.sort({ (mov1: Movimiento, mov2: Movimiento) -> Bool in
             if mov1.timestamp > mov2.timestamp {
                 return true
             }else if mov1.timestamp == mov2.timestamp {
