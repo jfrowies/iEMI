@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		354598F41A9589350037771C /* TabBarIconFixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354598F31A9589350037771C /* TabBarIconFixerViewController.swift */; };
-		B39AC5E61AD99E29008434BF /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39AC5E51AD99E29008434BF /* Images-2.xcassets */; };
 		B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A490231AAE646200886C25 /* NSDateExtension.swift */; };
 		B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5225CA11A959A1E002DF870 /* SettingsViewController.swift */; };
 		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
@@ -20,6 +19,7 @@
 		B5C367591A92607500851368 /* Movimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C367581A92607500851368 /* Movimiento.swift */; };
 		B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675A1A92ACF100851368 /* BajaViewController.swift */; };
 		B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */; };
+		B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CEBD731B6AA34700794CAC /* Images.xcassets */; };
 		EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D321A7AABBB00BE4461 /* AppDelegate.swift */; };
 		EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF163D361A7AABBB00BE4461 /* Main.storyboard */; };
 		EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */; };
@@ -39,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		354598F31A9589350037771C /* TabBarIconFixerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarIconFixerViewController.swift; sourceTree = "<group>"; };
-		B39AC5E51AD99E29008434BF /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		B3A490231AAE646200886C25 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		B5225CA11A959A1E002DF870 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		B5C367581A92607500851368 /* Movimiento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movimiento.swift; sourceTree = "<group>"; };
 		B5C3675A1A92ACF100851368 /* BajaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BajaViewController.swift; sourceTree = "<group>"; };
 		B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarjetaViewController.swift; sourceTree = "<group>"; };
+		B5CEBD731B6AA34700794CAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EF163D2D1A7AABBB00BE4461 /* iEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF163D311A7AABBB00BE4461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF163D321A7AABBB00BE4461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */,
 				EF163D301A7AABBB00BE4461 /* Supporting Files */,
 				B3A490231AAE646200886C25 /* NSDateExtension.swift */,
-				B39AC5E51AD99E29008434BF /* Images-2.xcassets */,
+				B5CEBD731B6AA34700794CAC /* Images.xcassets */,
 			);
 			path = iEMI;
 			sourceTree = "<group>";
@@ -245,8 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */,
+				B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */,
 				EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */,
-				B39AC5E61AD99E29008434BF /* Images-2.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +402,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,7 +413,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,15 +10,10 @@ import UIKit
 
 class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var waitingView: UIView!
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var loadingTableSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var feedbackTableLabel: UILabel!
-    @IBOutlet weak var loadingtableView: UIView!
-    
+
     override func iconName() -> String { return "saldo" }
 
     var refreshControl: UIRefreshControl!
@@ -69,11 +64,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     }
     
     func reloadTableData(#patente: String, count: Int) {
-        
-        self.loadingtableView.alpha = 1.0
-        self.loadingTableSpinner.startAnimating()
-        self.feedbackTableLabel.text = "cargando"
-        
+
         var newTableElements = [Movimiento]()
         
         self.loadRecargas(patente: patente, count: count) { (creditos: [Credito]) -> Void in
@@ -96,10 +87,6 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
                     
                     self.tableElements = newTableElements
                     self.tableView.reloadData()
-                    
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
-                        self.loadingtableView.alpha = 0.0
-                    })
                 })
             }
         }
@@ -330,10 +317,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     func showTableError(error: NSError?) {
         println("Error: \(error)")
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.loadingTableSpinner.stopAnimating()
-            self.feedbackTableLabel.text = error?.localizedDescription
-        })
+        //TODO: show error feedback
     }
     
 }
