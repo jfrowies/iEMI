@@ -78,87 +78,85 @@ class BajaViewController: TabBarIconFixerViewController {
     }
     
     // MARK: - service calls
-
-    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
     
     func loadTarjeta() {
         
-        var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "BuscaTarjeta")!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        var params = ["Tarchapa":self.patente()] as Dictionary<String, String>
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
-            
-            if error != nil {
-                self.showError(error.description)
-                return
-            }
-            
-            var responseDataError: NSError?
-            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as! [String:AnyObject]? {
-                
-                if error != nil {
-                    self.showError(error.description)
-                    return
-                }
-                
-                if let messages = responseData["Messages"] as? [[String : AnyObject]] {
-                    
-                    if let m = messages.first {
-                        let d = m["Description"] as! String!
-                        self.showError(d)
-                        return
-                    }
-                }
-                    
-                self.tarjeta.TarAno = String(responseData["Tarano"] as! Int!)
-                self.tarjeta.TarNro = responseData["Tarnro"]as! String!
-                self.tarjeta.TarSerie = responseData["TarSerie"] as! String!
-                    
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.tarjetaViewController?.tarjeta = self.tarjeta
-                    self.tarjetaViewController?.reloadTarjeta()
-                    self.loadingView.hidden = true
-                    self.bajaButton.enabled = true
-                })
-            }
-        }
-        task.resume()
+//        var session = NSURLSession.sharedSession()
+//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "BuscaTarjeta")!)
+//        request.HTTPMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        var params = ["Tarchapa":self.patente()] as Dictionary<String, String>
+//        var err: NSError?
+//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+//        
+//        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+//            
+//            if error != nil {
+//                self.showError(error!.description)
+//                return
+//            }
+//            
+//            var responseDataError: NSError?
+//            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as! [String:AnyObject]? {
+//                
+//                if error != nil {
+//                    self.showError(error!.description)
+//                    return
+//                }
+//                
+//                if let messages = responseData["Messages"] as? [[String : AnyObject]] {
+//                    
+//                    if let m = messages.first {
+//                        let d = m["Description"] as! String!
+//                        self.showError(d)
+//                        return
+//                    }
+//                }
+//                    
+//                self.tarjeta.TarAno = String(responseData["Tarano"] as! Int!)
+//                self.tarjeta.TarNro = responseData["Tarnro"]as! String!
+//                self.tarjeta.TarSerie = responseData["TarSerie"] as! String!
+//                    
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    self.tarjetaViewController?.tarjeta = self.tarjeta
+//                    self.tarjetaViewController?.reloadTarjeta()
+//                    self.loadingView.hidden = true
+//                    self.bajaButton.enabled = true
+//                })
+//            }
+//        }
+//        task.resume()
     }
     
     func bajaTarjeta(tar: Tarjeta) {
         
-        self.bajaButton.enabled = false
-        self.bajaSpinner.startAnimating()
-        
-        var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "CloseTarjeta")!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        var params = ["TarSerie":tar.TarSerie,"TarNro":tar.TarNro,"TarAno":tar.TarAno] as Dictionary<String, String>
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        
-        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
-                self.bajaSpinner.stopAnimating()
-                
-                if error != nil {
-                    self.bajaButton.enabled = true
-                } else {
-                    self.tarjetaViewController?.reloadTarjeta()
-                }
-            })
-        }
-        task.resume()
+//        self.bajaButton.enabled = false
+//        self.bajaSpinner.startAnimating()
+//        
+//        var session = NSURLSession.sharedSession()
+//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "CloseTarjeta")!)
+//        request.HTTPMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        var params = ["TarSerie":tar.TarSerie,"TarNro":tar.TarNro,"TarAno":tar.TarAno] as Dictionary<String, String>
+//        var err: NSError?
+//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
+//        
+//        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                
+//                self.bajaSpinner.stopAnimating()
+//                
+//                if error != nil {
+//                    self.bajaButton.enabled = true
+//                } else {
+//                    self.tarjetaViewController?.reloadTarjeta()
+//                }
+//            })
+//        }
+//        task.resume()
 
     }
 }

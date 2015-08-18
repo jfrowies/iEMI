@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Consumo: NSObject, Movimiento {
+class Consumo: NSObject, Transaction {
     
     var tarNro: String?
     var tarSerie: String?
@@ -30,11 +30,11 @@ class Consumo: NSObject, Movimiento {
             
             let desdeHoras = (self.horaDesde! as NSString).substringToIndex(2)
             let desdeMinutos = (self.horaDesde! as NSString).substringWithRange(NSMakeRange(3, 2))
-            let desdeTotalMinutos = (desdeHoras.toInt()! * 60) + desdeMinutos.toInt()!
+            let desdeTotalMinutos = (Int(desdeHoras)! * 60) + Int(desdeMinutos)!
             
             let hastaHoras = (self.horaHasta! as NSString).substringToIndex(2)
             let hastaMinutos = (self.horaHasta! as NSString).substringWithRange(NSMakeRange(3, 2))
-            let hastaTotalMinutos = (hastaHoras.toInt()! * 60) + hastaMinutos.toInt()!
+            let hastaTotalMinutos = (Int(hastaHoras)! * 60) + Int(hastaMinutos)!
             
             let minutos = hastaTotalMinutos - desdeTotalMinutos
             

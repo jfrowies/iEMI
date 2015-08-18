@@ -14,7 +14,7 @@ class CreditoTableViewCell: UITableViewCell {
     @IBOutlet weak var horaCreditoLabel: UILabel!
     @IBOutlet weak var saldoLabel: UILabel!
     
-    var credito: Credito {
+    var credito: Credit {
         get{
             return self.credito
         }

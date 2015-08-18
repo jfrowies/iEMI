@@ -16,6 +16,8 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     @IBOutlet weak var cargandoSpinner: UIActivityIndicatorView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    let service: LoginService = LoginEMIService()
+    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
@@ -39,7 +41,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         //self.patenteTextField.becomeFirstResponder()
         
-        self.getSessionCookie(patente: self.patenteTextField.text)
+        self.getSessionCookie(patente: self.patenteTextField.text!)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -76,80 +78,50 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         self.cargandoSpinner.startAnimating()
         self.errorLabel.hidden = true
         
-        self.getSessionCookie(patente: self.patenteTextField.text)
+        self.getSessionCookie(patente: self.patenteTextField.text!)
     }
     
     //MARK: - Service calls
     
-    let REST_SERVICE_URL = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
-    
-    func getSessionCookie(#patente: String) {
+    let defaultErrorDescription = NSLocalizedString("Unknown error.", comment: "default error message")
         
-        var session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "UpperChapa")!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    func getSessionCookie(patente patente: String) {
         
-        var params = ["Tarchapa":patente] as Dictionary<String, String>
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        
-        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
-            
-            if error != nil {
-                self.showError(error.localizedDescription)
-            }else {
-                // hack
-                if (!self.patenteTextField.text.isEmpty)
-                {
-                    self.savePatente(patente)
-                    self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+        service.getSessionCookie(licensePlate: patente) { (result) -> Void in
+            do {
+                if try result() {
+                    
+                    if (!self.patenteTextField.text!.isEmpty) {
+                        self.savePatente(patente)
+                        self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+                    }
                 }
-
-                /*if self.pinTextField.text == "2432" {
-                    self.savePatente(patente)
-                    self.performSegueWithIdentifier("showTabBarViewController", sender: self)
-                } else {
-                    self.authenticatePatente(self.patenteTextField.text, pin:self.pinTextField.text)
-                }*/
+              
+            } catch  ServiceError.RequestFailed(let errorDescription){
+                self.showError(errorDescription!)
+            } catch  {
+                self.showError(self.defaultErrorDescription)
             }
         }
-        task.resume()
     }
     
     func authenticatePatente(patente:String,pin:String) {
         
-        let session = NSURLSession.sharedSession()
-        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "VerifPinSinHorario")!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let params = ["AutoPin":pin,"AutoChapa":patente] as Dictionary<String, String>
-        var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        
-        let task = session.dataTaskWithRequest(request) {
-            (data, response, error) -> Void in
-
-            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! [String:AnyObject]? {
-
-                if let messages = responseData["Messages"] as? [[String : AnyObject]] {
-                    if let m = messages.first {
-                        let d = m["Description"] as! String!
-                        self.showError(d)
-                    }
-                } else if error != nil {
-                    self.showError(error.localizedDescription)
-                } else {
+        service.authenticate(licensePlate: patente, password: pin) { (result) -> Void in
+            do {
+                let loginResult = try result()
+                if (loginResult.loginSuccessful) {
                     self.savePatente(patente)
                     self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+                } else {
+                    self.showError(loginResult.message!)
                 }
-            } else {
-                self.showError("Error parsing response")
+            } catch ServiceError.RequestFailed(let errorDescription) {
+                self.showError(errorDescription!)
+            } catch {
+                self.showError(self.defaultErrorDescription)
             }
-            
         }
-        task.resume()
     }
     
     //MARK: -

@@ -1,5 +1,5 @@
 //
-//  Credito.swift
+//  Credit.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 2/16/15.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Credito: NSObject, Movimiento {
+class Credit: NSObject, Transaction {
+    
     var creditoId: String?
     var fecha: String?
     var timestamp: String
@@ -26,4 +27,5 @@ class Credito: NSObject, Movimiento {
         importe = json["CreditoImporte"]
         //saldo = json["CreditoSaldo"] this is the saldo actual, non sense
     }
+    
 }

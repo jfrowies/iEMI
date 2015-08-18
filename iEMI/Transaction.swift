@@ -1,5 +1,5 @@
 //
-//  Movimiento.swift
+//  Transaction.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 2/16/15.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-protocol Movimiento: NSObjectProtocol {
+protocol Transaction: NSObjectProtocol {
     
     var timestamp: String { get }
-
     var saldo: String? { get set }
     
 }
