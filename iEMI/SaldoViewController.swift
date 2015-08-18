@@ -24,6 +24,8 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     var saldo = 0.0
     
     let service: AccountService = AccountEMIService()
+    let licensePlateSotrage = LicensePlate()
+
     
     //MARK: - View controller lifecycle
     
@@ -32,7 +34,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
 
         self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         
-        reloadData(patente: self.patente())
+        reloadData(patente:licensePlateSotrage.currentLicensePlate!)
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -45,15 +47,11 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     }
     
     func refresh(sender:AnyObject) {
-        reloadData(patente: self.patente())
+        reloadData(patente: licensePlateSotrage.currentLicensePlate!)
     }
     
     //MARK: -
-    
-    func patente() ->String {
-        return NSUserDefaults.standardUserDefaults().stringForKey("patenteKey")!
-    }
-    
+
     
     func reloadData(patente patente: String) {
         
@@ -121,7 +119,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     //MARK: - IBAction
 
     @IBAction func refreshButtonTouched(sender: UIButton) {
-        reloadData(patente: self.patente())
+        reloadData(patente: licensePlateSotrage.currentLicensePlate!)
     }
     
     //MARK: - UITableViewDelegate implementation

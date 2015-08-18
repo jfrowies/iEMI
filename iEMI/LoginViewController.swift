@@ -17,19 +17,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     
     let service: LoginService = LoginEMIService()
-    
-    let LICENSE_PLATE_KEY = "patenteKey"
-    var licensePlate: String? {
-        get {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LICENSE_PLATE_KEY)
-        }
-        
-        set (newLicensePlate) {
-            let settings = NSUserDefaults.standardUserDefaults()
-            settings.setObject(newLicensePlate?.uppercaseString, forKey:LICENSE_PLATE_KEY)
-            settings.synchronize()
-        }
-    }
+    let licensePlate = LicensePlate()
     
     //MARK: - View controller lifecycle
     
@@ -40,7 +28,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let currentLicensePlate = self.licensePlate {
+        if let currentLicensePlate = self.licensePlate.currentLicensePlate {
             self.patenteTextField.text = currentLicensePlate
             self.showLoadingUI(true)
              self.getSessionCookie(patente: self.patenteTextField.text!) { [unowned self] () -> Void in
@@ -132,7 +120,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         service.authenticate(licensePlate: patente, password: pin) { [unowned self]  (result) -> Void in
             do {
                 if try result() {
-                    self.licensePlate = patente
+                    self.licensePlate.currentLicensePlate = patente
                     completion()
                 }
             } catch ServiceError.ResponseErrorMessage(let errorMessage) {
