@@ -18,28 +18,42 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     
     let service: LoginService = LoginEMIService()
     
+    let LICENSE_PLATE_KEY = "patenteKey"
+    var licensePlate: String? {
+        get {
+            return NSUserDefaults.standardUserDefaults().stringForKey(LICENSE_PLATE_KEY)
+        }
+        
+        set (newLicensePlate) {
+            let settings = NSUserDefaults.standardUserDefaults()
+            settings.setObject(newLicensePlate?.uppercaseString, forKey:LICENSE_PLATE_KEY)
+            settings.synchronize()
+        }
+    }
+    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        errorLabel.hidden = true
-        self.patenteTextField.text = NSUserDefaults.standardUserDefaults().stringForKey("patenteKey")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.errorLabel.hidden = true
-        self.aceptarbutton.enabled = true
-        self.patenteTextField.enabled = true
-        self.pinTextField.enabled = true
-        self.cargandoSpinner.stopAnimating()
-        
+        if let currentLicensePlate = self.licensePlate {
+            self.patenteTextField.text = currentLicensePlate
+            self.showLoadingUI(true)
+             self.getSessionCookie(patente: self.patenteTextField.text!) { [unowned self] () -> Void in
+                self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+            }
+        } else {
+            self.showLoadingUI(false)
+            self.patenteTextField.becomeFirstResponder()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.patenteTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -50,6 +64,23 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
+    }
+    
+    func showLoadingUI(loading:Bool) {
+        if loading {
+            self.aceptarbutton.enabled = false
+            self.patenteTextField.enabled = false
+            self.pinTextField.enabled = false
+            self.cargandoSpinner.hidden = false
+            self.cargandoSpinner.startAnimating()
+            self.errorLabel.hidden = true
+        } else {
+            self.aceptarbutton.enabled = true
+            self.patenteTextField.enabled = true
+            self.pinTextField.enabled = true
+            self.cargandoSpinner.stopAnimating()
+            self.errorLabel.hidden = true
+        }
     }
     
     //MARK: - UITextFieldDelegate
@@ -66,18 +97,15 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     }
     
     //MARK: - IBActions
-    
+
     @IBAction func aceptarTouched(sender: UIButton) {
         
-        self.aceptarbutton.enabled = false
-        self.patenteTextField.enabled = false
-        self.pinTextField.enabled = false
-        self.cargandoSpinner.hidden = false
-        self.cargandoSpinner.startAnimating()
-        self.errorLabel.hidden = true
+        self.showLoadingUI(true)
         
-        self.getSessionCookie(patente: self.patenteTextField.text!) { () -> Void in
-            self.authenticatePatente(self.patenteTextField.text!, pin: self.pinTextField.text!)
+        self.getSessionCookie(patente: self.patenteTextField.text!) { [unowned self] () -> Void in
+            self.authenticatePatente(self.patenteTextField.text!, pin: self.pinTextField.text!) { [unowned self]  () -> Void in
+                self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+            }
         }
     }
     
@@ -87,7 +115,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         
     func getSessionCookie(patente patente: String, completion: (Void -> Void)) {
         
-        service.getSessionCookie(licensePlate: patente) { (result) -> Void in
+        service.getSessionCookie(licensePlate: patente) { [unowned self]  (result) -> Void in
             do {
                 try result()
                 completion()
@@ -99,13 +127,13 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         }
     }
     
-    func authenticatePatente(patente:String,pin:String) {
+    func authenticatePatente(patente:String,pin:String, completion: (Void -> Void)) {
         
-        service.authenticate(licensePlate: patente, password: pin) { (result) -> Void in
+        service.authenticate(licensePlate: patente, password: pin) { [unowned self]  (result) -> Void in
             do {
                 if try result() {
-                    self.savePatente(patente)
-                    self.performSegueWithIdentifier("showTabBarViewController", sender: self)
+                    self.licensePlate = patente
+                    completion()
                 }
             } catch ServiceError.ResponseErrorMessage(let errorMessage) {
                 self.showError(errorMessage!)
@@ -116,25 +144,14 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    //MARK: -
-    
-    func savePatente(patente:String) {
-        let settings = NSUserDefaults.standardUserDefaults()
-        settings.setObject(patente.uppercaseString, forKey: "patenteKey")
-        settings.synchronize()
-    }
-    
+
     func showError(error: String) {
-        
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.errorLabel.text = error
-            self.errorLabel.hidden = false
-            self.aceptarbutton.enabled = true
-            self.patenteTextField.enabled = true
-            self.pinTextField.enabled = true
-            self.cargandoSpinner.stopAnimating()
-        })
+        self.errorLabel.text = error
+        self.errorLabel.hidden = false
+        self.aceptarbutton.enabled = true
+        self.patenteTextField.enabled = true
+        self.pinTextField.enabled = true
+        self.cargandoSpinner.stopAnimating()
     }
     
 }

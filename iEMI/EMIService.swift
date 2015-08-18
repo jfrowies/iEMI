@@ -31,7 +31,10 @@ class EMIService: NSObject, Service {
     
         let requestURL = NSURL(string: requestURLString)
         if requestURL == nil {
-            completion(response: {throw ServiceError.ParametersSerializationError})
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {throw ServiceError.ParametersSerializationError})
+            })
             return;
         }
         
@@ -45,11 +48,15 @@ class EMIService: NSObject, Service {
             
             if error != nil {
                 
-                completion(response: {throw ServiceError.RequestFailed(description: error?.localizedDescription)})
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {throw ServiceError.RequestFailed(description: error?.localizedDescription)})
+                })
                 
             } else if data == nil {
                 
-                completion(response: {return nil})
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {return nil})
+                })
                 
             } else {
                 
@@ -61,15 +68,21 @@ class EMIService: NSObject, Service {
                         
                         if let message = messages.first {
                             let messageDescription = message["Description"] as? String
-                            completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
+                            })
                         }
                         
                     } else {
-                        completion(response: {return responseData})
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completion(response: {return responseData})
+                        })
                     }
                     
                 } catch {
-                    completion(response: {throw ServiceError.ResponseParsingError})
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(response: {throw ServiceError.ResponseParsingError})
+                    })
                 }
             }
         }
@@ -87,18 +100,24 @@ class EMIService: NSObject, Service {
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters,options:NSJSONWritingOptions.PrettyPrinted)
         }
         catch {
-            completion(response: {throw ServiceError.ParametersSerializationError})
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {throw ServiceError.ParametersSerializationError})
+            })
         }
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             
             if error != nil {
                 
-                completion(response: {throw ServiceError.RequestFailed(description: error?.localizedDescription)})
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {throw ServiceError.RequestFailed(description: error?.localizedDescription)})
+                })
             
             } else if data == nil {
                 
-                completion(response: {return nil})
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {return nil})
+                })
                 
             } else {
                 
@@ -109,15 +128,21 @@ class EMIService: NSObject, Service {
                     if let messages = responseMessages?["Messages"] as? [[String : AnyObject]] {
                         if let message = messages.first {
                             let messageDescription = message["Description"] as? String
-                            completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
+                            })
                         }
                         
                     } else {
-                        completion(response: {return responseData})
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completion(response: {return responseData})
+                        })
                     }
                     
                 } catch {
-                    completion(response: {throw ServiceError.ResponseParsingError})
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(response: {throw ServiceError.ResponseParsingError})
+                    })
                 }
             }
         }

@@ -231,7 +231,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     func reloadSaldoData(patente licensePlate: String) {
         
-        service.accountBalance(licensePlate: licensePlate) { (result) -> Void in
+        service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
             do {
                 let currentBalance = try result()
                 self.updateSaldo("\(currentBalance)"+" $")
@@ -246,7 +246,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     func loadRecargas(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
         
-        service.credits(licensePlate: licensePlate, cant: cant) { (result) -> Void in
+        service.credits(licensePlate: licensePlate, cant: cant) { [unowned self] (result) -> Void in
             do {
                 let credits = try result()
                 completion(credits)
@@ -258,7 +258,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     func loadConsumos(patente licensePlate: String, desdeHoraIni fromTimeStamp: String, completion: ([Debit] -> Void)) {
         
-        service.debits(licensePlate: licensePlate, fromTimeStamp: fromTimeStamp) { (result) -> Void in
+        service.debits(licensePlate: licensePlate, fromTimeStamp: fromTimeStamp) { [unowned self] (result) -> Void in
             do {
                 let debits = try result()
                 completion(debits)
