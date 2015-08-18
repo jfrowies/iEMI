@@ -17,7 +17,6 @@
 		B540C4B21A91C97100863944 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B11A91C97100863944 /* Credit.swift */; };
 		B540C4B41A91C98800863944 /* Debit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B31A91C98800863944 /* Debit.swift */; };
 		B5AD6DC91B754EEE00932A26 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DC81B754EEE00932A26 /* LoginService.swift */; };
-		B5AD6DCB1B75660600932A26 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCA1B75660600932A26 /* LoginResult.swift */; };
 		B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */; };
 		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
 		B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */; };
@@ -55,7 +54,6 @@
 		B540C4B11A91C97100863944 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debit.swift; sourceTree = "<group>"; };
 		B5AD6DC81B754EEE00932A26 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		B5AD6DCA1B75660600932A26 /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
 		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaldoViewController.swift; sourceTree = "<group>"; };
 		B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltaViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				B540C4B11A91C97100863944 /* Credit.swift */,
 				B540C4B31A91C98800863944 /* Debit.swift */,
 				B5C367581A92607500851368 /* Transaction.swift */,
-				B5AD6DCA1B75660600932A26 /* LoginResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -330,7 +327,6 @@
 				B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */,
-				B5AD6DCB1B75660600932A26 /* LoginResult.swift in Sources */,
 				B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */,
 				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,
 				B5C367591A92607500851368 /* Transaction.swift in Sources */,
