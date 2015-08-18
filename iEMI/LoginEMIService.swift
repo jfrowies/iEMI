@@ -14,9 +14,10 @@ class LoginEMIService: NSObject, LoginService {
         
     func getSessionCookie(licensePlate licensePlate:String, completion: (result: () throws -> Bool) -> Void) -> Void {
         
+        let endpointURL = "UpperChapa"
         let params = ["Tarchapa":licensePlate] as Dictionary<String, String>
         
-        service.post("UpperChapa", parameters: params) { (response) -> Void in
+        service.post(endpointURL, parameters: params) { (response) -> Void in
             completion(result: {
                 do {
                     try response()
@@ -26,17 +27,16 @@ class LoginEMIService: NSObject, LoginService {
         }
     }
     
-    func authenticate(licensePlate licensePlate:String, password:String, completion: (result: () throws -> LoginResult) -> Void) -> Void {
+    func authenticate(licensePlate licensePlate:String, password:String, completion: (result: () throws -> Bool) -> Void) -> Void {
         
+        let endpointURL = "VerifPinSinHorario"
         let params = ["AutoPin":password,"AutoChapa":licensePlate] as Dictionary<String, String>
 
-        service.post("VerifPinSinHorario", parameters: params) { (response) -> Void in
+        service.post(endpointURL, parameters: params) { (response) -> Void in
             completion(result: {
                 do {
                     try response()
-                    return LoginResult(true)
-                } catch ServiceError.ResponseErrorMessage(let errorMessage) {
-                    return LoginResult(false, message: errorMessage)
+                    return true
                 }
             })
         }

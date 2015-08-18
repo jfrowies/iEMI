@@ -13,6 +13,7 @@ enum ServiceError: ErrorType {
     case RequestFailed(description:String?)
     case ParametersSerializationError
     case ResponseParsingError
+    case ResponseInformationError
     case ResponseErrorMessage(errorMessage:String?)
 }
 

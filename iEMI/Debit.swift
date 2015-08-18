@@ -1,5 +1,5 @@
 //
-//  Consumo.swift
+//  Debit.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 2/16/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Consumo: NSObject, Transaction {
+class Debit: NSObject, Transaction {
     
     var tarNro: String?
     var tarSerie: String?

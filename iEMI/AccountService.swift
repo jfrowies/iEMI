@@ -14,6 +14,8 @@ protocol AccountService: NSObjectProtocol {
     
     func accountBalance(licensePlate licensePlate:String, completion: (result: () throws -> Double) -> Void) -> Void
     
-    func accountCredits(licensePlate licensePlate:String, cant:Int ,completion: (result: () throws -> [Credit]) -> Void) -> Void
+    func credits(licensePlate licensePlate:String, cant:Int ,completion: (result: () throws -> [Credit]) -> Void) -> Void
     
+    func debits(licensePlate licensePlate:String, fromTimeStamp:String ,completion: (result: () throws -> [Debit]) -> Void) -> Void
+
 }

@@ -16,7 +16,7 @@ class ConsumoTableViewCell: UITableViewCell {
     @IBOutlet weak var horaHastaLabel: UILabel!
     @IBOutlet weak var saldoLabel: UILabel!
     
-    var consumo: Consumo {
+    var consumo: Debit {
         get{
             return self.consumo
         }

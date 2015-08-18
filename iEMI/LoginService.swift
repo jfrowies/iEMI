@@ -12,7 +12,7 @@ protocol LoginService: NSObjectProtocol {
     
     var service: Service { get set }
     
-    func authenticate(licensePlate licensePlate:String, password:String, completion: (result: () throws -> LoginResult) -> Void) -> Void
+    func authenticate(licensePlate licensePlate:String, password:String, completion: (result: () throws -> Bool) -> Void) -> Void
     
     func getSessionCookie(licensePlate licensePlate:String, completion: (result: () throws -> Bool) -> Void) -> Void
     

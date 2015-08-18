@@ -23,6 +23,8 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     var sectionFirstItem = [Int]()
     var saldo = 0.0
     
+    let service: AccountService = AccountEMIService()
+    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
@@ -33,7 +35,6 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         reloadData(patente: self.patente())
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Tire para recargar")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
     }
@@ -75,7 +76,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             
            self.sortElements(&newTableElements)
             
-            self.loadConsumos(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Consumo]) -> Void in
+            self.loadConsumos(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Debit]) -> Void in
                 
                 for consumo in consumos {
                     newTableElements.append(consumo)
@@ -106,7 +107,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             if mov1.timestamp > mov2.timestamp {
                 return true
             }else if mov1.timestamp == mov2.timestamp {
-                if mov1.isKindOfClass(Consumo) {
+                if mov1.isKindOfClass(Debit) {
                     return true
                 }else {
                     return false
@@ -124,6 +125,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     }
     
     //MARK: - UITableViewDelegate implementation
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.sectionItemCount.removeAll(keepCapacity: false)
         self.sectionFirstItem.removeAll(keepCapacity: false)
@@ -142,9 +144,9 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             }
             
             mov.saldo = String(format: "%.2f $", newSaldo)
-            if (mov.isKindOfClass(Consumo))
+            if (mov.isKindOfClass(Debit))
             {
-                let importe = (mov as! Consumo).importe
+                let importe = (mov as! Debit).importe
                 newSaldo += (importe! as NSString).doubleValue
             }
             if (mov.isKindOfClass(Credit))
@@ -187,9 +189,9 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             return cell
         }
         
-        if movimiento.isKindOfClass(Consumo) {
+        if movimiento.isKindOfClass(Debit) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as! ConsumoTableViewCell
-            cell.consumo = movimiento as! Consumo
+            cell.consumo = movimiento as! Debit
             return cell
         }
         
@@ -200,7 +202,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         
         var tar = Tarjeta()
         
-        if let consumo = self.tableElements[indexPath.row] as? Consumo {
+        if let consumo = self.tableElements[indexPath.row] as? Debit {
             tar.TarNro = consumo.tarNro!
             tar.TarAno = consumo.tarAno!
             tar.TarSerie = consumo.tarSerie!
@@ -227,90 +229,43 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     //MARK: - Service calls
     
-    func reloadSaldoData(patente patente: String) {
+    func reloadSaldoData(patente licensePlate: String) {
         
-//        let session = NSURLSession.sharedSession()
-//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List?CreditoChapa="+patente)!)
-//        
-//        request.HTTPMethod = "GET"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-//            
-//            if let jsonSaldo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as? [String:String] {
-//                let saldoValue = jsonSaldo["Creditosaldo"]!
-//                self.updateSaldo(saldoValue + " $")
-//                self.saldo = (saldoValue as NSString).doubleValue
-//            }else {
-//                self.updateSaldo("Unknown")
-//                self.saldo = 0.0
-//            }
-//            
-//        }
-//        task.resume()
+        service.accountBalance(licensePlate: licensePlate) { (result) -> Void in
+            do {
+                let currentBalance = try result()
+                self.updateSaldo("\(currentBalance)"+" $")
+                self.saldo = currentBalance
+                
+            } catch {
+                self.updateSaldo("Unknown")
+                self.saldo = 0.0
+            }
+        }
     }
     
-    func loadRecargas(patente patente: String, count: Int, completion: ([Credit] -> Void)) {
+    func loadRecargas(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
         
-//        let session = NSURLSession.sharedSession()
-//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "WorkWithDevicesEMCredito_EMCredito_List_Grid?CreditoChapa="+patente+"&count="+String(count))!)
-//        request.HTTPMethod = "GET"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-//            
-//            if error != nil {
-//                self.showTableError(error)
-//                return
-//            }
-//            
-//            var err: NSError?
-//            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:String]] {
-//                //crear objetos credito
-//                var creditoArray = [Credit]()
-//                for creditoJson in jsonData {
-//                    creditoArray.append(Credit(json: creditoJson))
-//                }
-//                completion(creditoArray)
-//            }else {
-//                self.showTableError(err)
-//            }
-//            
-//        }
-//        task.resume()
+        service.credits(licensePlate: licensePlate, cant: cant) { (result) -> Void in
+            do {
+                let credits = try result()
+                completion(credits)
+            } catch let error{
+                self.showTableError(error as NSError)
+            }
+        }
     }
     
-    func loadConsumos(patente patente: String, desdeHoraIni: String, completion: ([Consumo] -> Void)) {
+    func loadConsumos(patente licensePlate: String, desdeHoraIni fromTimeStamp: String, completion: ([Debit] -> Void)) {
         
-//        let session = NSURLSession.sharedSession()
-//        
-//        let request = NSMutableURLRequest(URL: NSURL(string: self.REST_SERVICE_URL + "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid?TarChapa="+patente+"&Tarhoraini="+desdeHoraIni)!)
-//        request.HTTPMethod = "GET"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
-//            
-//            if error != nil {
-//                self.showTableError(error)
-//                return
-//            }
-//            
-//            var err: NSError?
-//            if let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &err) as? [[String:AnyObject]] {
-//                
-//                var consumosArray = [Consumo]()
-//                for consumoJson in jsonData {
-//                    consumosArray.append(Consumo(json: consumoJson))
-//                }
-//                completion(consumosArray)
-//                
-//            }else {
-//                self.showTableError(err)
-//            }
-//            
-//        }
-//        task.resume()
-        
+        service.debits(licensePlate: licensePlate, fromTimeStamp: fromTimeStamp) { (result) -> Void in
+            do {
+                let debits = try result()
+                completion(debits)
+            } catch let error{
+                self.showTableError(error as NSError)
+            }
+        }
     }
     
     func showTableError(error: NSError?) {

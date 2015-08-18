@@ -39,9 +39,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        //self.patenteTextField.becomeFirstResponder()
-        
-        self.getSessionCookie(patente: self.patenteTextField.text!)
+        self.patenteTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -78,25 +76,21 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         self.cargandoSpinner.startAnimating()
         self.errorLabel.hidden = true
         
-        self.getSessionCookie(patente: self.patenteTextField.text!)
+        self.getSessionCookie(patente: self.patenteTextField.text!) { () -> Void in
+            self.authenticatePatente(self.patenteTextField.text!, pin: self.pinTextField.text!)
+        }
     }
     
     //MARK: - Service calls
     
     let defaultErrorDescription = NSLocalizedString("Unknown error.", comment: "default error message")
         
-    func getSessionCookie(patente patente: String) {
+    func getSessionCookie(patente patente: String, completion: (Void -> Void)) {
         
         service.getSessionCookie(licensePlate: patente) { (result) -> Void in
             do {
-                if try result() {
-                    
-                    if (!self.patenteTextField.text!.isEmpty) {
-                        self.savePatente(patente)
-                        self.performSegueWithIdentifier("showTabBarViewController", sender: self)
-                    }
-                }
-              
+                try result()
+                completion()
             } catch  ServiceError.RequestFailed(let errorDescription){
                 self.showError(errorDescription!)
             } catch  {
@@ -109,13 +103,12 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         
         service.authenticate(licensePlate: patente, password: pin) { (result) -> Void in
             do {
-                let loginResult = try result()
-                if (loginResult.loginSuccessful) {
+                if try result() {
                     self.savePatente(patente)
                     self.performSegueWithIdentifier("showTabBarViewController", sender: self)
-                } else {
-                    self.showError(loginResult.message!)
                 }
+            } catch ServiceError.ResponseErrorMessage(let errorMessage) {
+                self.showError(errorMessage!)
             } catch ServiceError.RequestFailed(let errorDescription) {
                 self.showError(errorDescription!)
             } catch {
