@@ -19,9 +19,9 @@ class CreditoTableViewCell: UITableViewCell {
             return self.credito
         }
         set(newCredito){
-            self.creditoLabel.text = newCredito.importe
-            self.horaCreditoLabel.text = newCredito.hora
-            self.saldoLabel.text = newCredito.saldo
+            self.creditoLabel.text = newCredito.amount
+            self.horaCreditoLabel.text = newCredito.time
+            self.saldoLabel.text = newCredito.balance
         }
     }
     

@@ -13,6 +13,8 @@
 		B536E5141B82F27D00A1D286 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5131B82F27D00A1D286 /* AccountService.swift */; };
 		B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5151B83006500A1D286 /* AccountEMIService.swift */; };
 		B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5171B83C72400A1D286 /* LicensePlate.swift */; };
+		B536E51A1B83EF7000A1D286 /* ParkingFareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5191B83EF7000A1D286 /* ParkingFareService.swift */; };
+		B536E51C1B84F41C00A1D286 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E51B1B84F41C00A1D286 /* Parking.swift */; };
 		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
 		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
 		B540C4B21A91C97100863944 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B11A91C97100863944 /* Credit.swift */; };
@@ -27,6 +29,7 @@
 		B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CEBD731B6AA34700794CAC /* Images.xcassets */; };
 		B5CF48671B8257B200B13EC2 /* EMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF48661B8257B200B13EC2 /* EMIService.swift */; };
 		B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF486A1B829D2000B13EC2 /* Service.swift */; };
+		B5FF34771B865605004603D1 /* ParkingGeneralSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF34761B865605004603D1 /* ParkingGeneralSection.swift */; };
 		EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D321A7AABBB00BE4461 /* AppDelegate.swift */; };
 		EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF163D361A7AABBB00BE4461 /* Main.storyboard */; };
 		EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */; };
@@ -51,20 +54,23 @@
 		B536E5131B82F27D00A1D286 /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		B536E5151B83006500A1D286 /* AccountEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEMIService.swift; sourceTree = "<group>"; };
 		B536E5171B83C72400A1D286 /* LicensePlate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicensePlate.swift; sourceTree = "<group>"; };
-		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; };
-		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditoTableViewCell.swift; sourceTree = "<group>"; };
-		B540C4B11A91C97100863944 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
-		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debit.swift; sourceTree = "<group>"; };
+		B536E5191B83EF7000A1D286 /* ParkingFareService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingFareService.swift; sourceTree = "<group>"; };
+		B536E51B1B84F41C00A1D286 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B540C4B11A91C97100863944 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Credit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Debit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5AD6DC81B754EEE00932A26 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
-		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaldoViewController.swift; sourceTree = "<group>"; };
+		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SaldoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BDAD331A8567BD00E31D01 /* AltaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltaViewController.swift; sourceTree = "<group>"; };
-		B5C367581A92607500851368 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B5C367581A92607500851368 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Transaction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5C3675A1A92ACF100851368 /* BajaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BajaViewController.swift; sourceTree = "<group>"; };
 		B5C3675C1A938B1F00851368 /* TarjetaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarjetaViewController.swift; sourceTree = "<group>"; };
 		B5CEBD731B6AA34700794CAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5CF48661B8257B200B13EC2 /* EMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIService.swift; sourceTree = "<group>"; };
 		B5CF486A1B829D2000B13EC2 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B5FF34761B865605004603D1 /* ParkingGeneralSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGeneralSection.swift; sourceTree = "<group>"; };
 		EF163D2D1A7AABBB00BE4461 /* iEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF163D311A7AABBB00BE4461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF163D321A7AABBB00BE4461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 				B540C4B31A91C98800863944 /* Debit.swift */,
 				B5C367581A92607500851368 /* Transaction.swift */,
 				B536E5171B83C72400A1D286 /* LicensePlate.swift */,
+				B536E51B1B84F41C00A1D286 /* Parking.swift */,
+				B5FF34761B865605004603D1 /* ParkingGeneralSection.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 				B5CF486A1B829D2000B13EC2 /* Service.swift */,
 				B5AD6DC81B754EEE00932A26 /* LoginService.swift */,
 				B536E5131B82F27D00A1D286 /* AccountService.swift */,
+				B536E5191B83EF7000A1D286 /* ParkingFareService.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -328,6 +337,7 @@
 				B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */,
 				B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */,
 				B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */,
+				B536E51C1B84F41C00A1D286 /* Parking.swift in Sources */,
 				B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */,
@@ -343,6 +353,8 @@
 				B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */,
 				B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */,
 				B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */,
+				B536E51A1B83EF7000A1D286 /* ParkingFareService.swift in Sources */,
+				B5FF34771B865605004603D1 /* ParkingGeneralSection.swift in Sources */,
 				B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */,
 				EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */,
 				B5CF48671B8257B200B13EC2 /* EMIService.swift in Sources */,

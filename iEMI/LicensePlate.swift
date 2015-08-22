@@ -13,6 +13,7 @@ class LicensePlate: NSObject {
     let LICENSE_PLATE_KEY = "patenteKey"
     
     var currentLicensePlate: String? {
+        
         get {
             return NSUserDefaults.standardUserDefaults().stringForKey(LICENSE_PLATE_KEY)
         }

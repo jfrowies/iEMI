@@ -74,13 +74,10 @@ class TarjetaViewController: TabBarIconFixerViewController {
     }
 
     @IBAction func cerrarButtonTouched(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
-        })
+        self.dismissViewControllerAnimated(true, completion:nil)
     }
     
     // MARK: - service calls
-    
     
     func loadDireccion(tar: Tarjeta) {
         
@@ -144,9 +141,9 @@ class TarjetaViewController: TabBarIconFixerViewController {
 //                        
 //                        var tiempo = jsonData["TarTiempo"] as! String
 //                        var horas = tiempo.toInt()!/60 as Int
-//                        var minutos = tiempo.toInt()! % 60
+//                        var minutes = tiempo.toInt()! % 60
 //                        
-//                        self.duracionLabel.text = String("\(horas) hs \(minutos) min")
+//                        self.duracionLabel.text = String("\(horas) hs \(minutes) min")
 //                        
 //                        self.estadoLabel.text = jsonData["TarHoraFin"] as? String == "0000-00-00T00:00:00" ? "estacionado": "cerrado"
 //                        self.fechaSpinner.stopAnimating()

@@ -9,34 +9,33 @@
 import UIKit
 
 class Debit: NSObject, Transaction {
-    
-    var tarNro: String?
-    var tarSerie: String?
-    var tarAno: String?
 
+    var number: String?
+    var year: String?
+    var serie: String?
+    
     var timestamp : String
-    var fecha: String?
-    var direccion: String?
+    var date: String?
+    var address: String?
     
-    var horaDesde: String?
-    var horaHasta: String?
+    var timeFrom: String?
+    var timeTo: String?
     
-    var saldo: String?
+    var balance: String?
 
-    var importe: String? {
+    var amount: String? {
         get {
             
-            //chanchada provisioria
+            //temporary workaround
+            let hourFrom = (self.timeFrom! as NSString).substringToIndex(2)
+            let minutesFrom = (self.timeFrom! as NSString).substringWithRange(NSMakeRange(3, 2))
+            let totalMinutesFrom = (Int(hourFrom)! * 60) + Int(minutesFrom)!
             
-            let desdeHoras = (self.horaDesde! as NSString).substringToIndex(2)
-            let desdeMinutos = (self.horaDesde! as NSString).substringWithRange(NSMakeRange(3, 2))
-            let desdeTotalMinutos = (Int(desdeHoras)! * 60) + Int(desdeMinutos)!
+            let hourTo = (self.timeTo! as NSString).substringToIndex(2)
+            let minutesTo = (self.timeTo! as NSString).substringWithRange(NSMakeRange(3, 2))
+            let totalMinutesTo = (Int(hourTo)! * 60) + Int(minutesTo)!
             
-            let hastaHoras = (self.horaHasta! as NSString).substringToIndex(2)
-            let hastaMinutos = (self.horaHasta! as NSString).substringWithRange(NSMakeRange(3, 2))
-            let hastaTotalMinutos = (Int(hastaHoras)! * 60) + Int(hastaMinutos)!
-            
-            let minutos = hastaTotalMinutos - desdeTotalMinutos
+            let minutes = totalMinutesTo - totalMinutesFrom
             
             let date = NSDate(dateJsonString: self.timestamp);
             
@@ -44,21 +43,21 @@ class Debit: NSObject, Transaction {
             
             if (tarj55.compare(date) == NSComparisonResult.OrderedAscending)
             {
-                if minutos <= 60 {
+                if minutes <= 60 {
                     return "5.50"
-                }else if minutos <= 90 {
+                }else if minutes <= 90 {
                     return "8.25"
-                }else if  minutos <= 120 {
+                }else if  minutes <= 120 {
                     return "11.00"
                 }
             }
             else
             {
-                if minutos <= 60 {
+                if minutes <= 60 {
                     return "4.50"
-                }else if minutos <= 90 {
+                }else if minutes <= 90 {
                     return "6.75"
-                }else if  minutos <= 120 {
+                }else if  minutes <= 120 {
                     return "9.00"
                 }
             }
@@ -67,24 +66,21 @@ class Debit: NSObject, Transaction {
     }
     
     init(json:[String:AnyObject]) {
-        tarNro = json["TarNro"]?.description
-        tarSerie = json["TarSerie"]?.description
-        tarAno = json["TarAno"]?.description
-        let fechaYHoraDesdeString : NSString = json["TarHoraIni"]!.description
-        timestamp = fechaYHoraDesdeString as String
-        fecha = fechaYHoraDesdeString.substringToIndex(10)
-        horaDesde = fechaYHoraDesdeString.substringWithRange(NSMakeRange(11, 5)) + " hs"
         
-        let fechaYHoraHastaString : NSString = json["TarHoraFin"]!.description
-        horaHasta = fechaYHoraHastaString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        number = json["TarNro"]!.description
+        year = json["TarAno"]!.description
+        serie = json["TarSerie"]!.description
         
-        let direccionString : NSString = json["TarAddress"]!.description
-        direccion = direccionString.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")
-
+        let timestampStartString : NSString = json["TarHoraIni"]!.description
+        timestamp = timestampStartString as String
+        date = timestampStartString.substringToIndex(10)
+        timeFrom = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        
+        let timestampEndString : NSString = json["TarHoraFin"]!.description
+        timeTo = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        
+        let addressString : NSString = json["TarAddress"]!.description
+        address = addressString.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")
     }
-    
-//    func calcularImporte(#desde: String, hasta: String) -> Float {
-//        
-//        return 4.5;
-//    }
+
 }

@@ -21,11 +21,11 @@ class ConsumoTableViewCell: UITableViewCell {
             return self.consumo
         }
         set(cons){
-            self.consumoLabel.text = cons.importe
-            self.consumoDireccionLabel.text = cons.direccion
-            self.horaDesdeLabel.text = cons.horaDesde
-            self.horaHastaLabel.text = cons.horaHasta
-            self.saldoLabel.text = cons.saldo
+            self.consumoLabel.text = cons.amount
+            self.consumoDireccionLabel.text = cons.address
+            self.horaDesdeLabel.text = cons.timeFrom
+            self.horaHastaLabel.text = cons.timeTo
+            self.saldoLabel.text = cons.balance
         }
     }
 

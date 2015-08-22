@@ -11,6 +11,6 @@ import UIKit
 protocol Transaction: NSObjectProtocol {
     
     var timestamp: String { get }
-    var saldo: String? { get set }
+    var balance: String? { get set }
     
 }

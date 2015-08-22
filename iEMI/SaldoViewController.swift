@@ -21,7 +21,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     var tarjetaSeleccionada = Tarjeta()
     var sectionItemCount = [Int]()
     var sectionFirstItem = [Int]()
-    var saldo = 0.0
+    var balance = 0.0
     
     let service: AccountService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
@@ -91,10 +91,10 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         }
     }
 
-    func updateSaldo(saldo:String) {
+    func updateSaldo(balance:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.loadingSpinner.stopAnimating()
-            self.saldoLabel.text = saldo
+            self.saldoLabel.text = balance
             self.refreshControl.endRefreshing()
         })
     }
@@ -130,7 +130,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         var sections = 0;
         var date: String = "";
         var index: Int = 0;
-        var newSaldo = self.saldo
+        var newSaldo = self.balance
         for mov: Transaction in self.tableElements {
             var timestamp: String = mov.timestamp
             let subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
@@ -141,16 +141,16 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
                 sections++
             }
             
-            mov.saldo = String(format: "%.2f $", newSaldo)
+            mov.balance = String(format: "%.2f $", newSaldo)
             if (mov.isKindOfClass(Debit))
             {
-                let importe = (mov as! Debit).importe
-                newSaldo += (importe! as NSString).doubleValue
+                let amount = (mov as! Debit).amount
+                newSaldo += (amount! as NSString).doubleValue
             }
             if (mov.isKindOfClass(Credit))
             {
-                let importe = (mov as! Credit).importe
-                newSaldo -= (importe! as NSString).doubleValue
+                let amount = (mov as! Credit).amount
+                newSaldo -= (amount! as NSString).doubleValue
             }
             
             self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
@@ -201,9 +201,9 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         var tar = Tarjeta()
         
         if let consumo = self.tableElements[indexPath.row] as? Debit {
-            tar.TarNro = consumo.tarNro!
-            tar.TarAno = consumo.tarAno!
-            tar.TarSerie = consumo.tarSerie!
+            tar.TarNro = consumo.number!
+            tar.TarAno = consumo.year!
+            tar.TarSerie = consumo.serie!
             self.tarjetaSeleccionada = tar
         }else{
             return nil
@@ -233,11 +233,11 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             do {
                 let currentBalance = try result()
                 self.updateSaldo("\(currentBalance)"+" $")
-                self.saldo = currentBalance
+                self.balance = currentBalance
                 
             } catch {
                 self.updateSaldo("Unknown")
-                self.saldo = 0.0
+                self.balance = 0.0
             }
         }
     }
