@@ -1,5 +1,5 @@
 //
-//  FareGeneralSection.swift
+//  FareGeneral.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 8/20/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParkingGeneralSection: Parking {
+class ParkingGeneral: Parking {
     
     var licensePlate: String?
     var fareType: String?
@@ -29,6 +29,6 @@ class ParkingGeneralSection: Parking {
         parkingStatus = json["TarEstado"]
         parkingCashier = json["TarPostero"]
         parkingSpace = json["TarPostaNro"]
-        
     }
+    
 }
