@@ -13,7 +13,7 @@
 		B536E5141B82F27D00A1D286 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5131B82F27D00A1D286 /* AccountService.swift */; };
 		B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5151B83006500A1D286 /* AccountEMIService.swift */; };
 		B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5171B83C72400A1D286 /* LicensePlate.swift */; };
-		B536E51A1B83EF7000A1D286 /* ParkingFareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5191B83EF7000A1D286 /* ParkingFareService.swift */; };
+		B536E51A1B83EF7000A1D286 /* ParkingInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */; };
 		B536E51C1B84F41C00A1D286 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E51B1B84F41C00A1D286 /* Parking.swift */; };
 		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
 		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
@@ -21,6 +21,7 @@
 		B540C4B41A91C98800863944 /* Debit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B31A91C98800863944 /* Debit.swift */; };
 		B5974C531B883B3B001BAA97 /* ParkingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C521B883B3B001BAA97 /* ParkingTime.swift */; };
 		B5974C551B883BE3001BAA97 /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C541B883BE3001BAA97 /* ParkingLocation.swift */; };
+		B5974C571B88421F001BAA97 /* ParkingInformationEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */; };
 		B5AD6DC91B754EEE00932A26 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DC81B754EEE00932A26 /* LoginService.swift */; };
 		B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */; };
 		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
@@ -56,7 +57,7 @@
 		B536E5131B82F27D00A1D286 /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		B536E5151B83006500A1D286 /* AccountEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEMIService.swift; sourceTree = "<group>"; };
 		B536E5171B83C72400A1D286 /* LicensePlate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicensePlate.swift; sourceTree = "<group>"; };
-		B536E5191B83EF7000A1D286 /* ParkingFareService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingFareService.swift; sourceTree = "<group>"; };
+		B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationService.swift; sourceTree = "<group>"; };
 		B536E51B1B84F41C00A1D286 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -64,6 +65,7 @@
 		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Debit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5974C521B883B3B001BAA97 /* ParkingTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTime.swift; sourceTree = "<group>"; };
 		B5974C541B883BE3001BAA97 /* ParkingLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
+		B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationEMIService.swift; sourceTree = "<group>"; };
 		B5AD6DC81B754EEE00932A26 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
 		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SaldoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -165,7 +167,7 @@
 				B5CF486A1B829D2000B13EC2 /* Service.swift */,
 				B5AD6DC81B754EEE00932A26 /* LoginService.swift */,
 				B536E5131B82F27D00A1D286 /* AccountService.swift */,
-				B536E5191B83EF7000A1D286 /* ParkingFareService.swift */,
+				B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 				B5CF48661B8257B200B13EC2 /* EMIService.swift */,
 				B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */,
 				B536E5151B83006500A1D286 /* AccountEMIService.swift */,
+				B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */,
 			);
 			name = Implementations;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				B5C3675D1A938B1F00851368 /* TarjetaViewController.swift in Sources */,
 				B5C3675B1A92ACF100851368 /* BajaViewController.swift in Sources */,
 				B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */,
+				B5974C571B88421F001BAA97 /* ParkingInformationEMIService.swift in Sources */,
 				B536E51C1B84F41C00A1D286 /* Parking.swift in Sources */,
 				B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
@@ -361,7 +365,7 @@
 				B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */,
 				B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */,
 				B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */,
-				B536E51A1B83EF7000A1D286 /* ParkingFareService.swift in Sources */,
+				B536E51A1B83EF7000A1D286 /* ParkingInformationService.swift in Sources */,
 				B5FF34771B865605004603D1 /* ParkingGeneral.swift in Sources */,
 				B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */,
 				EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */,

@@ -16,15 +16,15 @@ class ParkingTime: Parking {
     var maxEndTime: String?
     var parkingTime: String?
     
-    override init(json:[String:String]) {
+    override init(json:[String:AnyObject]) {
         
         super.init(json: json)
         
-        date = json["TarFecha"]
-        startTime = json["TarHoraIni"]
-        endTime = json["TarHoraFin"]
-        maxEndTime = json["TarFinMax"]
-        parkingTime = json["TarTiempo"]
+        date = json["TarFecha"]?.description
+        startTime = json["TarHoraIni"]?.description
+        endTime = json["TarHoraFin"]?.description
+        maxEndTime = json["TarFinMax"]?.description
+        parkingTime = json["TarTiempo"]?.description
     }
     
 }

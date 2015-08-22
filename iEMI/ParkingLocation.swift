@@ -19,18 +19,18 @@ class ParkingLocation: Parking {
     var parkingSpace: String?
     var parkingSpaceZone: String?
     
-    override init(json:[String:String]) {
+    override init(json:[String:AnyObject]) {
         
         super.init(json: json)
         
-        fullAddress = json["TarAddress"]
-        streetId = json["TarCallecod"]
-        streetName = json["TarCalleDenom"]
-        streetNumberMin = json["TarCalleDesde"]
-        streetNumberMax = json["TarCalleHasta"]
-        streetSide = json["TarCalleMano"]
-        parkingSpace = json["TarPostaNro"]
-        parkingSpaceZone = json["TarPostaZona"]
+        fullAddress = json["TarAddress"]?.description
+        streetId = json["TarCallecod"]?.description
+        streetName = json["TarCalleDenom"]?.description
+        streetNumberMin = json["TarCalleDesde"]?.description
+        streetNumberMax = json["TarCalleHasta"]?.description
+        streetSide = json["TarCalleMano"]?.description
+        parkingSpace = json["TarPostaNro"]?.description
+        parkingSpaceZone = json["TarPostaZona"]?.description
 
     }
     

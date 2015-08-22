@@ -23,8 +23,8 @@ class ConsumoTableViewCell: UITableViewCell {
         set(cons){
             self.consumoLabel.text = cons.amount
             self.consumoDireccionLabel.text = cons.address
-            self.horaDesdeLabel.text = cons.timeFrom
-            self.horaHastaLabel.text = cons.timeTo
+            self.horaDesdeLabel.text = cons.timeStart
+            self.horaHastaLabel.text = cons.timeEnd
             self.saldoLabel.text = cons.balance
         }
     }

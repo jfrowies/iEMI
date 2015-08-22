@@ -18,8 +18,8 @@ class Debit: NSObject, Transaction {
     var date: String?
     var address: String?
     
-    var timeFrom: String?
-    var timeTo: String?
+    var timeStart: String?
+    var timeEnd: String?
     
     var balance: String?
 
@@ -27,12 +27,12 @@ class Debit: NSObject, Transaction {
         get {
             
             //temporary workaround
-            let hourFrom = (self.timeFrom! as NSString).substringToIndex(2)
-            let minutesFrom = (self.timeFrom! as NSString).substringWithRange(NSMakeRange(3, 2))
+            let hourFrom = (self.timeStart! as NSString).substringToIndex(2)
+            let minutesFrom = (self.timeStart! as NSString).substringWithRange(NSMakeRange(3, 2))
             let totalMinutesFrom = (Int(hourFrom)! * 60) + Int(minutesFrom)!
             
-            let hourTo = (self.timeTo! as NSString).substringToIndex(2)
-            let minutesTo = (self.timeTo! as NSString).substringWithRange(NSMakeRange(3, 2))
+            let hourTo = (self.timeEnd! as NSString).substringToIndex(2)
+            let minutesTo = (self.timeEnd! as NSString).substringWithRange(NSMakeRange(3, 2))
             let totalMinutesTo = (Int(hourTo)! * 60) + Int(minutesTo)!
             
             let minutes = totalMinutesTo - totalMinutesFrom
@@ -74,10 +74,10 @@ class Debit: NSObject, Transaction {
         let timestampStartString : NSString = json["TarHoraIni"]!.description
         timestamp = timestampStartString as String
         date = timestampStartString.substringToIndex(10)
-        timeFrom = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        timeStart = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " hs"
         
         let timestampEndString : NSString = json["TarHoraFin"]!.description
-        timeTo = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        timeEnd = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " hs"
         
         let addressString : NSString = json["TarAddress"]!.description
         address = addressString.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
@@ -485,18 +485,6 @@
                                                 <blurEffect style="light"/>
                                             </vibrancyEffect>
                                         </visualEffectView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-cr-Lxg">
-                                            <rect key="frame" x="161" y="35" width="48" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de tarjeta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oF-1d-7XW">
-                                            <rect key="frame" x="16" y="35" width="143" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-K0-iu7">
                                             <rect key="frame" x="543" y="30" width="41" height="30"/>
                                             <state key="normal" title="cerrar">
@@ -508,10 +496,6 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="1oF-1d-7XW" firstAttribute="leading" secondItem="TqQ-ZZ-nrT" secondAttribute="leading" constant="16" id="4Li-DC-P35"/>
-                                        <constraint firstAttribute="centerY" secondItem="1oF-1d-7XW" secondAttribute="centerY" constant="-10" id="6jr-sO-c8V"/>
-                                        <constraint firstItem="WWh-cr-Lxg" firstAttribute="centerY" secondItem="1oF-1d-7XW" secondAttribute="centerY" id="Eey-vV-tzl"/>
-                                        <constraint firstItem="WWh-cr-Lxg" firstAttribute="leading" secondItem="1oF-1d-7XW" secondAttribute="trailing" constant="2" id="OpD-BB-5qy"/>
                                         <constraint firstAttribute="centerY" secondItem="mv1-K0-iu7" secondAttribute="centerY" constant="-10" id="RNw-DA-kCA"/>
                                         <constraint firstAttribute="trailing" secondItem="mv1-K0-iu7" secondAttribute="trailing" constant="16" id="bpz-i2-lwK"/>
                                     </constraints>
@@ -677,7 +661,6 @@
                         <outlet property="fechaSpinner" destination="Cgv-8f-S2X" id="XYW-E6-w6G"/>
                         <outlet property="horaFinLabel" destination="oid-W8-aO7" id="00g-nV-MXz"/>
                         <outlet property="horaInicioLabel" destination="7Bt-Gm-b7t" id="kxE-wS-DPf"/>
-                        <outlet property="numeroDeTarjetaLabel" destination="WWh-cr-Lxg" id="u5H-Pb-25a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41N-kq-8eh" userLabel="First Responder" sceneMemberID="firstResponder"/>

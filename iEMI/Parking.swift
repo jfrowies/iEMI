@@ -13,10 +13,16 @@ class Parking: NSObject {
     var year: String?
     var serie: String?
     
-    init(json:[String:String]) {
-        number = json["TarNro"]
-        year = json["TarAno"]
-        serie = json["TarSerie"]
+    init(json:[String:AnyObject]) {
+        number = json["TarNro"]?.description
+        year = json["TarAno"]?.description
+        serie = json["TarSerie"]?.description
+    }
+    
+    init(number:String?, year:String?, serie:String?) {
+        self.number = number
+        self.year = year
+        self.serie = serie
     }
     
 }

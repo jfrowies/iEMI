@@ -18,7 +18,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
 
     var refreshControl: UIRefreshControl!
     var tableElements = [Transaction]()
-    var tarjetaSeleccionada = Tarjeta()
+    var parkingSelected: Parking?
     var sectionItemCount = [Int]()
     var sectionFirstItem = [Int]()
     var balance = 0.0
@@ -198,13 +198,11 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         
-        var tar = Tarjeta()
         
-        if let consumo = self.tableElements[indexPath.row] as? Debit {
-            tar.TarNro = consumo.number!
-            tar.TarAno = consumo.year!
-            tar.TarSerie = consumo.serie!
-            self.tarjetaSeleccionada = tar
+        if let debit = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
+
+            self.parkingSelected = Parking(number: debit.number, year: debit.year, serie: debit.serie)
+            
         }else{
             return nil
         }
@@ -221,7 +219,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showTarjeta" {
             let dvc = segue.destinationViewController as! TarjetaViewController
-            dvc.tarjeta = self.tarjetaSeleccionada
+            dvc.tarjeta = self.parkingSelected
         }
     }
     

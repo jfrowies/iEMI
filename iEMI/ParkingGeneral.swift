@@ -18,17 +18,17 @@ class ParkingGeneral: Parking {
     var parkingCashier: String?
     var parkingSpace: String?
 
-    override init(json:[String:String]) {
+    override init(json:[String:AnyObject]) {
         
         super.init(json: json)
         
-        licensePlate = json["TarChapa"]
-        fareType = json["TarTarifa"]
-        parkingDescription = json["TarDescripcion"]
-        fareAmount = json["TarMto"]
-        parkingStatus = json["TarEstado"]
-        parkingCashier = json["TarPostero"]
-        parkingSpace = json["TarPostaNro"]
+        licensePlate = json["TarChapa"]?.description
+        fareType = json["TarTarifa"]?.description
+        parkingDescription = json["TarDescripcion"]?.description
+        fareAmount = json["TarMto"]?.description
+        parkingStatus = json["TarEstado"]?.description
+        parkingCashier = json["TarPostero"]?.description
+        parkingSpace = json["TarPostaNro"]?.description
     }
     
 }

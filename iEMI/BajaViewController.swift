@@ -18,7 +18,7 @@ class BajaViewController: TabBarIconFixerViewController {
     @IBOutlet weak var tarjetaLabel: NSLayoutConstraint!
     @IBOutlet weak var bajaButton: UIButton!
     
-    var tarjeta = Tarjeta()
+    var tarjeta: Parking?
     weak var tarjetaViewController : TarjetaViewController?
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class BajaViewController: TabBarIconFixerViewController {
         self.bajaSpinner.stopAnimating()
         self.bajaButton.enabled = true
         
-        self.tarjeta = Tarjeta()
+//        self.tarjeta = Tarjeta()
         
         self.loadTarjeta()
     }
@@ -51,7 +51,7 @@ class BajaViewController: TabBarIconFixerViewController {
     
     
     @IBAction func bajaButtonTouched(sender: UIButton) {
-        self.bajaTarjeta(self.tarjeta)
+//        self.bajaTarjeta(self.tarjeta)
     }
 
     // MARK: - Navigation
@@ -129,7 +129,7 @@ class BajaViewController: TabBarIconFixerViewController {
 //        task.resume()
     }
     
-    func bajaTarjeta(tar: Tarjeta) {
+    func bajaTarjeta() {
         
 //        self.bajaButton.enabled = false
 //        self.bajaSpinner.startAnimating()
