@@ -11,7 +11,7 @@ import UIKit
 protocol ParkingInformationService: NSObjectProtocol {
     
     var service: Service { get set }
-    
+        
     func detail(parking:Parking , completion: (result: () throws -> ParkingGeneral) -> Void) -> Void
     
     func time(parking:Parking , completion: (result: () throws -> ParkingTime) -> Void) -> Void

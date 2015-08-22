@@ -15,14 +15,15 @@ enum ServiceError: ErrorType {
     case ResponseParsingError
     case ResponseInformationError
     case ResponseErrorMessage(errorMessage:String?)
+    case RequestURLNotValid
 }
 
 protocol Service: NSObjectProtocol {
 
     var baseURL: String { get }
 
-    func get(url: String, parameters: Dictionary<String, String>, completion: (response: () throws -> AnyObject?) -> Void) -> Void
+    func get(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void
     
-    func post(url: String, parameters: Dictionary<String, String>, completion: (response: () throws -> AnyObject?) -> Void) -> Void
+    func post(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void
 
 }

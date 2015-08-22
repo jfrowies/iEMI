@@ -22,6 +22,8 @@
 		B5974C531B883B3B001BAA97 /* ParkingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C521B883B3B001BAA97 /* ParkingTime.swift */; };
 		B5974C551B883BE3001BAA97 /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C541B883BE3001BAA97 /* ParkingLocation.swift */; };
 		B5974C571B88421F001BAA97 /* ParkingInformationEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */; };
+		B5974C591B89201E001BAA97 /* ParkingCloseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C581B89201E001BAA97 /* ParkingCloseService.swift */; };
+		B5974C5B1B8922A6001BAA97 /* ParkingCloseEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */; };
 		B5AD6DC91B754EEE00932A26 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DC81B754EEE00932A26 /* LoginService.swift */; };
 		B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */; };
 		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
@@ -66,6 +68,8 @@
 		B5974C521B883B3B001BAA97 /* ParkingTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTime.swift; sourceTree = "<group>"; };
 		B5974C541B883BE3001BAA97 /* ParkingLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
 		B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationEMIService.swift; sourceTree = "<group>"; };
+		B5974C581B89201E001BAA97 /* ParkingCloseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCloseService.swift; sourceTree = "<group>"; };
+		B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCloseEMIService.swift; sourceTree = "<group>"; };
 		B5AD6DC81B754EEE00932A26 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
 		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SaldoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -168,6 +172,7 @@
 				B5AD6DC81B754EEE00932A26 /* LoginService.swift */,
 				B536E5131B82F27D00A1D286 /* AccountService.swift */,
 				B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */,
+				B5974C581B89201E001BAA97 /* ParkingCloseService.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */,
 				B536E5151B83006500A1D286 /* AccountEMIService.swift */,
 				B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */,
+				B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */,
 			);
 			name = Implementations;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 				B5BDAD341A8567BD00E31D01 /* AltaViewController.swift in Sources */,
 				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,
 				B5C367591A92607500851368 /* Transaction.swift in Sources */,
+				B5974C5B1B8922A6001BAA97 /* ParkingCloseEMIService.swift in Sources */,
+				B5974C591B89201E001BAA97 /* ParkingCloseService.swift in Sources */,
 				B5AD6DC91B754EEE00932A26 /* LoginService.swift in Sources */,
 				B540C4B21A91C97100863944 /* Credit.swift in Sources */,
 				B5974C531B883B3B001BAA97 /* ParkingTime.swift in Sources */,

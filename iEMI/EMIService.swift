@@ -14,28 +14,35 @@ class EMIService: NSObject, Service {
     
     let session = NSURLSession.sharedSession()
     
-    func get(url: String, parameters: Dictionary<String, String>, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
+    func get(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
+        
+        guard NSURL(string: baseURL + url) != nil else {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {throw ServiceError.RequestURLNotValid})
+            })
+            return
+        }
         
         var requestURLString = baseURL + url
         
-        if parameters.count > 0 {
-            requestURLString += "?"
-            for (parameterName, parameterValue) in parameters {
-                requestURLString += parameterName + "=" + parameterValue + "&"
+        if let requestParameters = parameters {
+            if requestParameters.count > 0 {
+                requestURLString += "?"
+                for (parameterName, parameterValue) in requestParameters {
+                    requestURLString += parameterName + "=" + parameterValue + "&"
+                }
+                requestURLString.removeAtIndex(requestURLString.endIndex.predecessor())
             }
-            requestURLString.removeAtIndex(requestURLString.endIndex.predecessor())
         }
-    
-        let requestURL = NSURL(string: requestURLString)
         
-        guard requestURL != nil else {
+        guard let requestURL = NSURL(string: requestURLString) else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 completion(response: {throw ServiceError.ParametersSerializationError})
             })
             return;
         }
         
-        let request = NSMutableURLRequest(URL: requestURL!)
+        let request = NSMutableURLRequest(URL: requestURL)
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -94,20 +101,29 @@ class EMIService: NSObject, Service {
         task.resume()
     }
     
-    func post(url: String, parameters: Dictionary<String, String>, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
+    func post(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
         
-        let request = NSMutableURLRequest(URL: NSURL(string: baseURL + url)!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                
-        do {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters,options:NSJSONWritingOptions.PrettyPrinted)
-        }
-        catch {
+        guard let requestURL = NSURL(string: baseURL + url) else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completion(response: {throw ServiceError.ParametersSerializationError})
+                completion(response: {throw ServiceError.RequestURLNotValid})
             })
             return
+        }
+        
+        let request = NSMutableURLRequest(URL: requestURL)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let requestParameters = parameters {
+            do {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(requestParameters,options:NSJSONWritingOptions.PrettyPrinted)
+            }
+            catch {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {throw ServiceError.ParametersSerializationError})
+                })
+                return
+            }
         }
         
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in

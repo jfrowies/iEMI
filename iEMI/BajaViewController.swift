@@ -18,7 +18,11 @@ class BajaViewController: TabBarIconFixerViewController {
     @IBOutlet weak var tarjetaLabel: NSLayoutConstraint!
     @IBOutlet weak var bajaButton: UIButton!
     
+    let service: ParkingCloseService = ParkingCloseEMIService()
+    let licensePlate = LicensePlate()
+
     var tarjeta: Parking?
+    
     weak var tarjetaViewController : TarjetaViewController?
     
     override func viewDidLoad() {
@@ -39,8 +43,6 @@ class BajaViewController: TabBarIconFixerViewController {
         self.bajaSpinner.stopAnimating()
         self.bajaButton.enabled = true
         
-//        self.tarjeta = Tarjeta()
-        
         self.loadTarjeta()
     }
 
@@ -51,7 +53,12 @@ class BajaViewController: TabBarIconFixerViewController {
     
     
     @IBAction func bajaButtonTouched(sender: UIButton) {
-//        self.bajaTarjeta(self.tarjeta)
+        
+        guard let currentParking = self.tarjeta else {
+            return
+        }
+        
+        self.bajaTarjeta(currentParking)
     }
 
     // MARK: - Navigation
@@ -81,82 +88,46 @@ class BajaViewController: TabBarIconFixerViewController {
     
     func loadTarjeta() {
         
-//        var session = NSURLSession.sharedSession()
-//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "BuscaTarjeta")!)
-//        request.HTTPMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        var params = ["Tarchapa":self.patente()] as Dictionary<String, String>
-//        var err: NSError?
-//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-//        
-//        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
-//            
-//            if error != nil {
-//                self.showError(error!.description)
-//                return
-//            }
-//            
-//            var responseDataError: NSError?
-//            if let responseData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &responseDataError) as! [String:AnyObject]? {
-//                
-//                if error != nil {
-//                    self.showError(error!.description)
-//                    return
-//                }
-//                
-//                if let messages = responseData["Messages"] as? [[String : AnyObject]] {
-//                    
-//                    if let m = messages.first {
-//                        let d = m["Description"] as! String!
-//                        self.showError(d)
-//                        return
-//                    }
-//                }
-//                    
-//                self.tarjeta.TarAno = String(responseData["Tarano"] as! Int!)
-//                self.tarjeta.TarNro = responseData["Tarnro"]as! String!
-//                self.tarjeta.TarSerie = responseData["TarSerie"] as! String!
-//                    
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    self.tarjetaViewController?.tarjeta = self.tarjeta
-//                    self.tarjetaViewController?.reloadTarjeta()
-//                    self.loadingView.hidden = true
-//                    self.bajaButton.enabled = true
-//                })
-//            }
-//        }
-//        task.resume()
+        service.getOpenParking(licensePlate.currentLicensePlate!) { [unowned self] (result) -> Void in
+            
+            do {
+                let parking = try result()
+            
+                self.tarjeta = parking
+                
+                self.tarjetaViewController?.tarjeta = self.tarjeta
+                self.tarjetaViewController?.reloadTarjeta()
+                self.loadingView.hidden = true
+                self.bajaButton.enabled = true
+          
+            } catch ServiceError.ResponseErrorMessage(let errorMessage){
+                
+                self.showError(errorMessage!)
+
+            } catch {
+                self.showError("Error")
+
+            }
+        }
+    
     }
     
-    func bajaTarjeta() {
+    func bajaTarjeta(parking:Parking) {
         
-//        self.bajaButton.enabled = false
-//        self.bajaSpinner.startAnimating()
-//        
-//        var session = NSURLSession.sharedSession()
-//        let request = NSMutableURLRequest(URL: NSURL(string: REST_SERVICE_URL + "CloseTarjeta")!)
-//        request.HTTPMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        var params = ["TarSerie":tar.TarSerie,"TarNro":tar.TarNro,"TarAno":tar.TarAno] as Dictionary<String, String>
-//        var err: NSError?
-//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-//        
-//        let task = session.dataTaskWithRequest(request) {data, response, error -> Void in
-//            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                
-//                self.bajaSpinner.stopAnimating()
-//                
-//                if error != nil {
-//                    self.bajaButton.enabled = true
-//                } else {
-//                    self.tarjetaViewController?.reloadTarjeta()
-//                }
-//            })
-//        }
-//        task.resume()
-
+        self.bajaButton.enabled = false
+        self.bajaSpinner.startAnimating()
+        
+        service.closeParking(parking) { [unowned self] (result) -> Void in
+            
+            do {
+                try result()
+                self.bajaSpinner.stopAnimating()
+                self.bajaButton.enabled = true
+                
+            } catch {
+                self.bajaSpinner.stopAnimating()
+                self.tarjetaViewController?.reloadTarjeta()
+            }
+        }
     }
 }

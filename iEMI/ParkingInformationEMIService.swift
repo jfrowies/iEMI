@@ -29,7 +29,6 @@ class ParkingInformationEMIService: NSObject , ParkingInformationService {
                 }
             })
         }
-
     }
     
     func time(parking:Parking , completion: (result: () throws -> ParkingTime) -> Void) -> Void {
@@ -49,7 +48,6 @@ class ParkingInformationEMIService: NSObject , ParkingInformationService {
                 }
             })
         }
-
     }
     
     func location(parking:Parking , completion: (result: () throws -> ParkingLocation) -> Void) -> Void {
