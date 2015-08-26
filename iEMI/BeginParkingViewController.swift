@@ -1,5 +1,5 @@
 //
-//  AltaViewController.swift
+//  BeginParkingViewController.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 2/6/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AltaViewController: TabBarIconFixerViewController {
+class BeginParkingViewController: TabBarIconFixerViewController {
 
     override func iconName() -> String { return "alta" }
     

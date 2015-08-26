@@ -34,7 +34,7 @@ class ParkingCloseEMIService: NSObject, ParkingCloseService {
     func closeParking(parking:Parking , completion: (result: () throws -> Parking) -> Void) -> Void {
         
         let endpointURL = "CloseTarjeta"
-        let parameters = ["TarNro":parking.number!, "TarAno":parking.year!, "TarSerie":parking.serie!]
+        let parameters = ["TarNro":parking.number, "TarAno":parking.year, "TarSerie":parking.serie]
         
         service.post(endpointURL, parameters: parameters) { (response) -> Void in
             completion (result: { () -> Parking in

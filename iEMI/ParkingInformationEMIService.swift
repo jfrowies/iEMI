@@ -15,7 +15,7 @@ class ParkingInformationEMIService: NSObject , ParkingInformationService {
     func detail(parking:Parking , completion: (result: () throws -> ParkingGeneral) -> Void) -> Void {
         
         let endpointURL = "WorkWithDevicesTarjetas_Tarjetas_Section_General"
-        let parameters = ["TarNro":parking.number!, "TarAno":parking.year!, "TarSerie":parking.serie!]
+        let parameters = ["TarNro":parking.number, "TarAno":parking.year, "TarSerie":parking.serie]
         
         service.get(endpointURL, parameters: parameters) { (response) -> Void in
             completion (result: { () -> ParkingGeneral in
@@ -34,7 +34,7 @@ class ParkingInformationEMIService: NSObject , ParkingInformationService {
     func time(parking:Parking , completion: (result: () throws -> ParkingTime) -> Void) -> Void {
         
         let endpointURL = "WorkWithDevicesTarjetas_Tarjetas_Section_Horario"
-        let parameters = ["TarNro":parking.number!, "TarAno":parking.year!, "TarSerie":parking.serie!]
+        let parameters = ["TarNro":parking.number, "TarAno":parking.year, "TarSerie":parking.serie]
     
         service.get(endpointURL, parameters: parameters) { (response) -> Void in
             completion (result: { () -> ParkingTime in
@@ -53,7 +53,7 @@ class ParkingInformationEMIService: NSObject , ParkingInformationService {
     func location(parking:Parking , completion: (result: () throws -> ParkingLocation) -> Void) -> Void {
         
         let endpointURL = "WorkWithDevicesTarjetas_Tarjetas_Section_Ubicacion"
-        let parameters = ["TarNro":parking.number!, "TarAno": parking.year!, "TarSerie":parking.serie!]
+        let parameters = ["TarNro":parking.number ,"TarAno": parking.year, "TarSerie":parking.serie]
         
         service.get(endpointURL, parameters: parameters) { (response) -> Void in
             completion (result: { () -> ParkingLocation in

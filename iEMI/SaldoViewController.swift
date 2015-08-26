@@ -201,7 +201,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         
         if let debit = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
 
-            self.parkingSelected = Parking(number: debit.number, year: debit.year, serie: debit.serie)
+            self.parkingSelected = Parking(number: debit.number!, year: debit.year!, serie: debit.serie!)
             
         }else{
             return nil
@@ -217,9 +217,9 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showTarjeta" {
-            let dvc = segue.destinationViewController as! TarjetaViewController
-            dvc.tarjeta = self.parkingSelected
+        if segue.identifier == "showParkingInformation" {
+            let dvc = segue.destinationViewController as! ParkingInformationViewController
+            dvc.parking = self.parkingSelected
         }
     }
     
