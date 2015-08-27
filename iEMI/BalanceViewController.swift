@@ -10,8 +10,8 @@ import UIKit
 
 class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var creditBalanceLabel: UILabel!
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+//    @IBOutlet weak var creditBalanceLabel: UILabel!
+//    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
 
     override func iconName() -> String { return "saldo" }
@@ -32,7 +32,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
+//        self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         
         reloadData(patente:licensePlateSotrage.currentLicensePlate!)
         
@@ -55,7 +55,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     func reloadData(patente patente: String) {
         
-        self.loadingSpinner.startAnimating()
+//        self.loadingSpinner.startAnimating()
         
         self.reloadBalanceData(patente: patente)
         self.reloadTableData(patente: patente, count: 5)
@@ -93,8 +93,8 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
 
     func updateCreditBalance(balance:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.loadingSpinner.stopAnimating()
-            self.creditBalanceLabel.text = balance
+//            self.loadingSpinner.stopAnimating()
+//            self.creditBalanceLabel.text = balance
             self.refreshControl.endRefreshing()
         })
     }
@@ -177,18 +177,21 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         return self.sectionItemCount[section]
     }
     
+    let kCreditCellReuseId = "creditoCell"
+    let kDebitCellReuseId = "consumoCell"
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let movimiento = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row]
         
         if movimiento.isKindOfClass(Credit) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("creditoCell", forIndexPath: indexPath) as! CreditoTableViewCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(kCreditCellReuseId, forIndexPath: indexPath) as! CreditoTableViewCell
             cell.credito = movimiento as! Credit
             return cell
         }
         
         if movimiento.isKindOfClass(Debit) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("consumoCell", forIndexPath: indexPath) as! ConsumoTableViewCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(kDebitCellReuseId, forIndexPath: indexPath) as! ConsumoTableViewCell
             cell.consumo = movimiento as! Debit
             return cell
         }
@@ -216,14 +219,18 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     // MARK: - Navigation
     
+    let kShowParkingInformationSegueId = "showParkingInformation"
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showParkingInformation" {
+        if segue.identifier == kShowParkingInformationSegueId {
             let dvc = segue.destinationViewController as! ParkingInformationViewController
             dvc.parking = self.parkingSelected
         }
     }
     
     //MARK: - Service calls
+    
+    let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
     
     func reloadBalanceData(patente licensePlate: String) {
         
@@ -234,7 +241,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
                 self.balance = currentBalance
                 
             } catch {
-                self.updateCreditBalance("Unknown")
+                self.updateCreditBalance(self.kUnknownCreditBalance)
                 self.balance = 0.0
             }
         }

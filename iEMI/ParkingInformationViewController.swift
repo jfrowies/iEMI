@@ -10,8 +10,6 @@ import UIKit
 
 class ParkingInformationViewController: TabBarIconFixerViewController {
     
-    @IBOutlet weak var cerrarButton: UIButton!
-    
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
@@ -44,10 +42,7 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let _ = self.parentViewController?.isKindOfClass(EndParkingViewController) {
-            self.cerrarButton.hidden = true
-        }
-        
+        // TODO: shouldn't do this
         self.reloadParking()
     }
 
@@ -71,9 +66,6 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
 
     // MARK: - IBActions
     
-    @IBAction func cerrarButtonTouched(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion:nil)
-    }
     
     // MARK: - service calls
     
