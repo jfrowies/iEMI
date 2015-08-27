@@ -26,7 +26,7 @@
 		B5974C5B1B8922A6001BAA97 /* ParkingCloseEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */; };
 		B5AD6DC91B754EEE00932A26 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DC81B754EEE00932A26 /* LoginService.swift */; };
 		B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */; };
-		B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */; };
+		B5BDAD321A8546F200E31D01 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* BalanceViewController.swift */; };
 		B5BDAD341A8567BD00E31D01 /* BeginParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD331A8567BD00E31D01 /* BeginParkingViewController.swift */; };
 		B5C367591A92607500851368 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C367581A92607500851368 /* Transaction.swift */; };
 		B5C3675B1A92ACF100851368 /* EndParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */; };
@@ -72,7 +72,7 @@
 		B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCloseEMIService.swift; sourceTree = "<group>"; };
 		B5AD6DC81B754EEE00932A26 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
-		B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SaldoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B5BDAD311A8546F200E31D01 /* BalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BalanceViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BDAD331A8567BD00E31D01 /* BeginParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginParkingViewController.swift; sourceTree = "<group>"; };
 		B5C367581A92607500851368 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Transaction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndParkingViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				EFC014EE1A7FFFD00074560F /* LoginViewController.swift */,
-				B5BDAD311A8546F200E31D01 /* SaldoViewController.swift */,
+				B5BDAD311A8546F200E31D01 /* BalanceViewController.swift */,
 				B5C3675C1A938B1F00851368 /* ParkingInformationViewController.swift */,
 				B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */,
 				B5BDAD331A8567BD00E31D01 /* BeginParkingViewController.swift */,
@@ -372,7 +372,7 @@
 				B5974C551B883BE3001BAA97 /* ParkingLocation.swift in Sources */,
 				B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */,
 				B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */,
-				B5BDAD321A8546F200E31D01 /* SaldoViewController.swift in Sources */,
+				B5BDAD321A8546F200E31D01 /* BalanceViewController.swift in Sources */,
 				B536E51A1B83EF7000A1D286 /* ParkingInformationService.swift in Sources */,
 				B5FF34771B865605004603D1 /* ParkingGeneral.swift in Sources */,
 				B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */,

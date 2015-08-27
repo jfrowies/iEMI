@@ -1,5 +1,5 @@
 //
-//  SaldoViewController.swift
+//  BalanceViewController.swift
 //  iEMI
 //
 //  Created by Fer Rowies on 2/6/15.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
+class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var saldoLabel: UILabel!
+    @IBOutlet weak var creditBalanceLabel: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
 
@@ -57,7 +57,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         
         self.loadingSpinner.startAnimating()
         
-        self.reloadSaldoData(patente: patente)
+        self.reloadBalanceData(patente: patente)
         self.reloadTableData(patente: patente, count: 5)
         
     }
@@ -66,7 +66,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
 
         var newTableElements = [Transaction]()
         
-        self.loadRecargas(patente: patente, count: count) { (creditos: [Credit]) -> Void in
+        self.loadCredits(patente: patente, count: count) { (creditos: [Credit]) -> Void in
             
             for credito in creditos {
                 newTableElements.append(credito)
@@ -74,7 +74,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
             
            self.sortElements(&newTableElements)
             
-            self.loadConsumos(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Debit]) -> Void in
+            self.loadDebits(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Debit]) -> Void in
                 
                 for consumo in consumos {
                     newTableElements.append(consumo)
@@ -91,10 +91,10 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         }
     }
 
-    func updateSaldo(balance:String) {
+    func updateCreditBalance(balance:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.loadingSpinner.stopAnimating()
-            self.saldoLabel.text = balance
+            self.creditBalanceLabel.text = balance
             self.refreshControl.endRefreshing()
         })
     }
@@ -225,22 +225,22 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
     
     //MARK: - Service calls
     
-    func reloadSaldoData(patente licensePlate: String) {
+    func reloadBalanceData(patente licensePlate: String) {
         
         service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
             do {
                 let currentBalance = try result()
-                self.updateSaldo("\(currentBalance)"+" $")
+                self.updateCreditBalance("\(currentBalance)"+" $")
                 self.balance = currentBalance
                 
             } catch {
-                self.updateSaldo("Unknown")
+                self.updateCreditBalance("Unknown")
                 self.balance = 0.0
             }
         }
     }
     
-    func loadRecargas(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
+    func loadCredits(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
         
         service.credits(licensePlate: licensePlate, cant: cant) { [unowned self] (result) -> Void in
             do {
@@ -252,7 +252,7 @@ class SaldoViewController: TabBarIconFixerViewController, UITableViewDataSource,
         }
     }
     
-    func loadConsumos(patente licensePlate: String, desdeHoraIni fromTimeStamp: String, completion: ([Debit] -> Void)) {
+    func loadDebits(patente licensePlate: String, desdeHoraIni fromTimeStamp: String, completion: ([Debit] -> Void)) {
         
         service.debits(licensePlate: licensePlate, fromTimeStamp: fromTimeStamp) { [unowned self] (result) -> Void in
             do {
