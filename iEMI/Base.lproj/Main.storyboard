@@ -158,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-5d-Xey">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditoCell" id="wN6-Ly-3tL" customClass="CreditoTableViewCell" customModule="iEMI">
@@ -328,9 +328,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bnv-5d-Xey" firstAttribute="top" secondItem="W1N-fi-Y1b" secondAttribute="bottom" id="3Fm-xE-sOO"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="e6e-7D-iXq"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="trailing" secondItem="ghS-6J-idp" secondAttribute="trailing" id="k3T-Le-i4u"/>
+                            <constraint firstItem="bnv-5d-Xey" firstAttribute="top" secondItem="ghS-6J-idp" secondAttribute="topMargin" id="vUz-go-cFf"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="bottom" secondItem="oqG-kH-xu7" secondAttribute="top" id="wVt-Qd-wBn"/>
                         </constraints>
                     </view>
