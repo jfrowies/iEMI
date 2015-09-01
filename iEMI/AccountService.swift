@@ -17,5 +17,7 @@ protocol AccountService: NSObjectProtocol {
     func credits(licensePlate licensePlate:String ,start:Int ,cant:Int ,completion: (result: () throws -> [Credit]) -> Void) -> Void
     
     func debits(licensePlate licensePlate:String, fromTimeStamp:String ,completion: (result: () throws -> [Debit]) -> Void) -> Void
+    
+    func balance(licensePlate licensePlate:String, completion: (result: () throws -> [Transaction]) -> Void) -> Void
 
 }

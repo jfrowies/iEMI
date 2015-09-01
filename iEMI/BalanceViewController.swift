@@ -57,37 +57,44 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
 //        self.loadingSpinner.startAnimating()
         
         self.reloadBalanceData(patente: patente)
-        self.reloadTableData(patente: patente, count: 5)
+        self.reloadTableData(patente: patente)
         
     }
     
-    func reloadTableData(patente patente: String, count: Int) {
-
-        var newTableElements = [Transaction]()
+    func reloadTableData(patente patente: String) {
         
-        self.loadCredits(patente: patente, count: count) { (creditos: [Credit]) -> Void in
-            
-            for credito in creditos {
-                newTableElements.append(credito)
-            }
-            
-            self.sortElements(&newTableElements)
-            
-            self.loadDebits(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Debit]) -> Void in
+        service.balance(licensePlate: patente) { [unowned self]  (result) -> Void in
+            do {
+                let transactions = try result()
+                self.tableElements = transactions
+                self.tableView.reloadData()
                 
-                for consumo in consumos {
-                    newTableElements.append(consumo)
-                }
-                
-                self.sortElements(&newTableElements)
-                
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    
-                    self.tableElements = newTableElements
-                    self.tableView.reloadData()
-                })
+            } catch let error{
+                self.showTableError(error as NSError)
             }
         }
+    }
+    
+    let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
+    
+    func reloadBalanceData(patente licensePlate: String) {
+        
+        service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
+            do {
+                let currentBalance = try result()
+                self.updateCreditBalance("\(currentBalance)"+" $")
+                self.balance = currentBalance
+                
+            } catch {
+                self.updateCreditBalance(self.kUnknownCreditBalance)
+                self.balance = 0.0
+            }
+        }
+    }
+    
+    func showTableError(error: NSError?) {
+        print("Error: \(error)")
+        //TODO: show error feedback
     }
 
     func updateCreditBalance(balance:String) {
@@ -95,23 +102,6 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
 //            self.loadingSpinner.stopAnimating()
 //            self.creditBalanceLabel.text = balance
             self.refreshControl.endRefreshing()
-        })
-    }
-    
-    func sortElements(inout elements:[Transaction]) {
-        
-        elements.sortInPlace({ (mov1: Transaction, mov2: Transaction) -> Bool in
-            if mov1.timestamp > mov2.timestamp {
-                return true
-            }else if mov1.timestamp == mov2.timestamp {
-                if mov1.isKindOfClass(Debit) {
-                    return true
-                }else {
-                    return false
-                }
-            } else {
-                return false
-            }
         })
     }
     
@@ -225,54 +215,6 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
             let dvc = segue.destinationViewController as! ParkingInformationViewController
             dvc.parking = self.parkingSelected
         }
-    }
-    
-    //MARK: - Service calls
-    
-    let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
-    
-    func reloadBalanceData(patente licensePlate: String) {
-        
-        service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
-            do {
-                let currentBalance = try result()
-                self.updateCreditBalance("\(currentBalance)"+" $")
-                self.balance = currentBalance
-                
-            } catch {
-                self.updateCreditBalance(self.kUnknownCreditBalance)
-                self.balance = 0.0
-            }
-        }
-    }
-    
-    func loadCredits(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
-        
-        service.credits(licensePlate: licensePlate, start: 0, cant: cant) { [unowned self] (result) -> Void in
-            do {
-                let credits = try result()
-                completion(credits)
-            } catch let error{
-                self.showTableError(error as NSError)
-            }
-        }
-    }
-    
-    func loadDebits(patente licensePlate: String, desdeHoraIni fromTimeStamp: String, completion: ([Debit] -> Void)) {
-        
-        service.debits(licensePlate: licensePlate, fromTimeStamp: fromTimeStamp) { [unowned self] (result) -> Void in
-            do {
-                let debits = try result()
-                completion(debits)
-            } catch let error{
-                self.showTableError(error as NSError)
-            }
-        }
-    }
-    
-    func showTableError(error: NSError?) {
-        print("Error: \(error)")
-        //TODO: show error feedback
     }
     
 }

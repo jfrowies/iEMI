@@ -75,5 +75,57 @@ class AccountEMIService: NSObject, AccountService {
             })
         }
     }
+    
+    func balance(licensePlate licensePlate:String, completion: (result: () throws -> [Transaction]) -> Void) -> Void {
+        
+        var transactions = [Transaction]()
+        
+        self.credits(licensePlate: licensePlate, start: 0, cant: 5) { [unowned self] (result) -> Void in
+            do {
+                let credits = try result()
+                for credit in credits {
+                    transactions.append(credit)
+                }
+                
+                self.sortElements(&transactions)
+            
+                self.debits(licensePlate: licensePlate, fromTimeStamp: transactions.last!.timestamp) { [unowned self] (result) -> Void in
+                    do {
+                        let debits = try result()
+                        for debit in debits {
+                            transactions.append(debit)
+                        }
+                        self.sortElements(&transactions)
+                        
+                        completion() { return transactions }
+                        
+                    } catch let error{
+                        completion () { throw error }
+                    }
+                }
+                
+            } catch let error{
+                completion () { throw error }
+            }
+        }
+    
+    }
+    
+    private func sortElements(inout elements:[Transaction]) {
+        
+        elements.sortInPlace({ (mov1: Transaction, mov2: Transaction) -> Bool in
+            if mov1.timestamp > mov2.timestamp {
+                return true
+            }else if mov1.timestamp == mov2.timestamp {
+                if mov1.isKindOfClass(Debit) {
+                    return true
+                }else {
+                    return false
+                }
+            } else {
+                return false
+            }
+        })
+    }
 
 }
