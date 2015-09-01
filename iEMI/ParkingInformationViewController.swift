@@ -8,6 +8,9 @@
 
 import UIKit
 
+let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation srting")
+let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srting")
+
 class ParkingInformationViewController: TabBarIconFixerViewController {
     
     @IBOutlet weak var addressLabel: UILabel!
@@ -26,8 +29,6 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
     
     //MARK: - UI Constants
     
-    private let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation srting")
-    private let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srting")
     private let kParkingStatusParked: String = NSLocalizedString("parked", comment: "Parking status parked string")
     private let kParkingStatusClosed: String = NSLocalizedString("closed", comment: "Parking status closed string")
     private let kParkingEndTimeEmpty: String = "0000-00-00T00:00:00"
@@ -108,16 +109,16 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
                 self?.dateLabel.text = parkingTime.date
                 
                 let startTime = parkingTime.startTime! as NSString
-                self?.startTimeLabel.text = startTime.substringFromIndex(11) + " " + (self?.kHrs)!
+                self?.startTimeLabel.text = startTime.substringFromIndex(11) + " " + kHrs
 
                 let endTime = parkingTime.endTime! as NSString
-                self?.endTimeLabel.text = endTime.substringFromIndex(11) + " " + (self?.kHrs)!
+                self?.endTimeLabel.text = endTime.substringFromIndex(11) + " " + kHrs
 
                 let duration = parkingTime.parkingTime!
                 let hours = Int(duration)!/60 as Int
                 let minutes = Int(duration)! % 60
 
-                self?.parkingDurationLabel.text = String("\(hours) \((self?.kHrs)!) \(minutes) \((self?.kMin)!)")
+                self?.parkingDurationLabel.text = String("\(hours) \(kHrs) \(minutes) \(kMin)")
 
                 self?.parkingStatusLabel.text = parkingTime.endTime == self?.kParkingEndTimeEmpty ? self?.kParkingStatusParked: self?.kParkingStatusClosed
                 self?.timeSpinner.stopAnimating()

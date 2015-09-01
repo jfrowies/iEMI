@@ -74,10 +74,10 @@ class Debit: NSObject, Transaction {
         let timestampStartString : NSString = json["TarHoraIni"]!.description
         timestamp = timestampStartString as String
         date = timestampStartString.substringToIndex(10)
-        timeStart = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        timeStart = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
         
         let timestampEndString : NSString = json["TarHoraFin"]!.description
-        timeEnd = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        timeEnd = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
         
         let addressString : NSString = json["TarAddress"]!.description
         address = addressString.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")

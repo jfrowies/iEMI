@@ -22,7 +22,7 @@ class Credit: NSObject, Transaction {
         let fechaYHora : NSString = json["CreditoFecha"]!
         timestamp = fechaYHora as String
         date = fechaYHora.substringToIndex(10)
-        time = fechaYHora.substringWithRange(NSMakeRange(11, 5)) + " hs"
+        time = fechaYHora.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
         amount = json["CreditoImporte"]
         //balance = json["CreditoSaldo"] this is the balance actual, non sense
     }
