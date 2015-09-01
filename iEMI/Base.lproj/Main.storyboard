@@ -662,10 +662,10 @@
             </objects>
             <point key="canvasLocation" x="4376" y="717"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="bfp-KD-uSK">
             <objects>
-                <tabBarController id="Mnd-eb-3xM" sceneMemberID="viewController">
+                <tabBarController id="Mnd-eb-3xM" customClass="MainTabBarViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZJR-cd-7HW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

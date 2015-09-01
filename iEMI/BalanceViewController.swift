@@ -31,13 +31,12 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.tableView.contentInset = UIEdgeInsetsMake(48, 0, 0, 0)
         
         reloadData(patente:licensePlateSotrage.currentLicensePlate!)
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
         self.tableView.addSubview(refreshControl)
     }
     
@@ -72,7 +71,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
                 newTableElements.append(credito)
             }
             
-           self.sortElements(&newTableElements)
+            self.sortElements(&newTableElements)
             
             self.loadDebits(patente: patente, desdeHoraIni: newTableElements.last!.timestamp) { (consumos: [Debit]) -> Void in
                 
@@ -249,7 +248,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     func loadCredits(patente licensePlate: String, count cant: Int, completion: ([Credit] -> Void)) {
         
-        service.credits(licensePlate: licensePlate, cant: cant) { [unowned self] (result) -> Void in
+        service.credits(licensePlate: licensePlate, start: 0, cant: cant) { [unowned self] (result) -> Void in
             do {
                 let credits = try result()
                 completion(credits)

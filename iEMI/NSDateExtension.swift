@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 extension NSDate
 {
     convenience
@@ -17,6 +18,7 @@ extension NSDate
         let d = dateStringFormatter.dateFromString(dateJsonString)
         self.init(timeInterval:0, sinceDate:d!)
     }
+    
     convenience
     init(dateString:String) {
         let dateStringFormatter = NSDateFormatter()

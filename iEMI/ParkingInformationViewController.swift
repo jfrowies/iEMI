@@ -77,17 +77,17 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
         
         self.locationSpinner.startAnimating()
         
-        service.location(currentParking) { [unowned self] (result) -> Void in
+        service.location(currentParking) { [weak self] (result) -> Void in
             
             do {
                 let parkingLocation = try result()
-                self.addressLabel.text = parkingLocation.fullAddress
-                self.locationSpinner.stopAnimating()
+                self?.addressLabel.text = parkingLocation.fullAddress
+                self?.locationSpinner.stopAnimating()
                 
             } catch let error{
                 
                 print("Error: \(error)")
-                self.locationSpinner.stopAnimating()
+                self?.locationSpinner.stopAnimating()
             }
         }
     }
@@ -100,32 +100,32 @@ class ParkingInformationViewController: TabBarIconFixerViewController {
         
         self.timeSpinner.startAnimating()
 
-        service.time(currentParking) { [unowned self] (result) -> Void in
+        service.time(currentParking) { [weak self] (result) -> Void in
             
             do {
                 let parkingTime = try result()
                 
-                self.dateLabel.text = parkingTime.date
+                self?.dateLabel.text = parkingTime.date
                 
                 let startTime = parkingTime.startTime! as NSString
-                self.startTimeLabel.text = startTime.substringFromIndex(11) + " " + self.kHrs
+                self?.startTimeLabel.text = startTime.substringFromIndex(11) + " " + (self?.kHrs)!
 
                 let endTime = parkingTime.endTime! as NSString
-                self.endTimeLabel.text = endTime.substringFromIndex(11) + " " + self.kHrs
+                self?.endTimeLabel.text = endTime.substringFromIndex(11) + " " + (self?.kHrs)!
 
                 let duration = parkingTime.parkingTime!
                 let hours = Int(duration)!/60 as Int
                 let minutes = Int(duration)! % 60
 
-                self.parkingDurationLabel.text = String("\(hours) \(self.kHrs) \(minutes) \(self.kMin)")
+                self?.parkingDurationLabel.text = String("\(hours) \((self?.kHrs)!) \(minutes) \((self?.kMin)!)")
 
-                self.parkingStatusLabel.text = parkingTime.endTime == self.kParkingEndTimeEmpty ? self.kParkingStatusParked: self.kParkingStatusClosed
-                self.timeSpinner.stopAnimating()
+                self?.parkingStatusLabel.text = parkingTime.endTime == self?.kParkingEndTimeEmpty ? self?.kParkingStatusParked: self?.kParkingStatusClosed
+                self?.timeSpinner.stopAnimating()
 
             } catch let error{
                 
                 print("Error: \(error)")
-                self.timeSpinner.stopAnimating()
+                self?.timeSpinner.stopAnimating()
               
             }
         }
