@@ -22,12 +22,15 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     var sectionItemCount = [Int]()
     var sectionFirstItem = [Int]()
     var balance = 0.0
+    var creditBalanceView: CreditBalanceView?
     
     let service: AccountService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
 
     
     //MARK: - View controller lifecycle
+    
+    let kTableHeaderHeight = CGFloat(70.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,15 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
         self.tableView.addSubview(refreshControl)
+        
+        //TableHeaderView initialization
+        let screenWidth = UIScreen.mainScreen().bounds.size.width;
+       
+        let headerViewFrame: CGRect = CGRect(x:CGFloat(0), y: CGFloat(0), width: screenWidth, height: kTableHeaderHeight)
+        
+        self.creditBalanceView = CreditBalanceView(frame: headerViewFrame)
+        self.tableView.tableHeaderView = self.creditBalanceView
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,7 +112,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     func updateCreditBalance(balance:String) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
 //            self.loadingSpinner.stopAnimating()
-//            self.creditBalanceLabel.text = balance
+            self.creditBalanceView?.creditBalanceLabel.text = balance
             self.refreshControl.endRefreshing()
         })
     }
@@ -204,6 +216,10 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50.0
     }
     
     // MARK: - Navigation

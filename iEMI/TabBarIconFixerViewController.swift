@@ -33,4 +33,12 @@ class TabBarIconFixerViewController: UIViewController {
             super.tabBarItem = newValue
         }
     }
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        self.navigationController?.navigationBar.translucent = true
+//
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeGlobalTintColor()
+//    }
 }

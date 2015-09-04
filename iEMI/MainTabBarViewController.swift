@@ -15,6 +15,9 @@ class MainTabBarViewController: UITabBarController {
         
         self.tabBar.tintColor = UIColor.orangeGlobalTintColor()
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+
+        
     }
 
     override func didReceiveMemoryWarning() {
