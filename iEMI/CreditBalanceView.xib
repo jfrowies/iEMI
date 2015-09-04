@@ -7,7 +7,6 @@
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -25,27 +24,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-cZ-kn5" userLabel="Credit Balance View">
                     <rect key="frame" x="0.0" y="0.0" width="316" height="64"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit balance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="746-Bn-X31">
-                            <rect key="frame" x="4" y="22" width="116" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit balance: 00.00 $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-aD-uTF">
+                            <rect key="frame" x="64" y="21" width="188" height="21"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.50 $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-aD-uTF">
-                            <rect key="frame" x="128" y="22" width="61" height="21"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="746-Bn-X31" firstAttribute="centerY" secondItem="OvM-cZ-kn5" secondAttribute="centerY" id="DLw-KH-m4j"/>
-                        <constraint firstItem="746-Bn-X31" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OvM-cZ-kn5" secondAttribute="leading" constant="4" id="J9w-Yp-uCs"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TSF-aD-uTF" secondAttribute="trailing" constant="8" id="JPO-Iz-jQf"/>
-                        <constraint firstItem="TSF-aD-uTF" firstAttribute="leading" secondItem="746-Bn-X31" secondAttribute="trailing" constant="8" id="LlW-KA-H8k"/>
-                        <constraint firstItem="TSF-aD-uTF" firstAttribute="baseline" secondItem="746-Bn-X31" secondAttribute="baseline" id="io1-q2-duN"/>
-                        <constraint firstItem="TSF-aD-uTF" firstAttribute="centerX" secondItem="OvM-cZ-kn5" secondAttribute="centerX" id="uZk-1P-gIO"/>
+                        <constraint firstItem="TSF-aD-uTF" firstAttribute="centerX" secondItem="OvM-cZ-kn5" secondAttribute="centerX" id="27U-fN-3iR"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TSF-aD-uTF" secondAttribute="trailing" constant="16" id="Xjk-uS-3V1"/>
+                        <constraint firstItem="TSF-aD-uTF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OvM-cZ-kn5" secondAttribute="leading" constant="16" id="nmv-BA-QuE"/>
+                        <constraint firstItem="TSF-aD-uTF" firstAttribute="centerY" secondItem="OvM-cZ-kn5" secondAttribute="centerY" id="oWJ-zw-pOk"/>
                     </constraints>
                 </view>
             </subviews>

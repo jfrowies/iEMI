@@ -55,15 +55,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44L-LE-0rz" userLabel="login button">
-                                <rect key="frame" x="230" y="245" width="140" height="30"/>
-                                <state key="normal" title="Log in">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginTouched:" destination="TsN-dz-rbM" eventType="touchUpInside" id="xlz-bM-t5o"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-y7-eGj">
                                 <rect key="frame" x="179" y="197" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -84,6 +75,7 @@
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v2k-iz-qAS">
                                 <rect key="frame" x="190" y="250" width="20" height="20"/>
+                                <color key="color" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-rK-7CB" userLabel="License Plate Text Field">
                                 <rect key="frame" x="270" y="145" width="140" height="30"/>
@@ -103,6 +95,15 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44L-LE-0rz" userLabel="login button">
+                                <rect key="frame" x="230" y="245" width="140" height="30"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginTouched:" destination="TsN-dz-rbM" eventType="touchUpInside" id="xlz-bM-t5o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -158,8 +159,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-5d-Xey">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
-                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditoCell" rowHeight="52" id="wN6-Ly-3tL" customClass="CreditoTableViewCell" customModule="iEMI">
                                         <rect key="frame" x="0.0" y="22" width="600" height="52"/>
@@ -308,7 +309,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="e6e-7D-iXq"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="trailing" secondItem="ghS-6J-idp" secondAttribute="trailing" id="k3T-Le-i4u"/>
@@ -317,7 +318,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Credit balance" image="saldo" id="lwr-wQ-oHY"/>
-                    <navigationItem key="navigationItem" title="Balance" id="Ihq-9m-DOg"/>
+                    <navigationItem key="navigationItem" title="Balance" id="Ihq-9m-DOg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="JPs-yH-8kM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="bnv-5d-Xey" id="MGv-XN-KD5"/>
@@ -369,9 +374,10 @@
                                     </label>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0dh-ef-QkE">
                                         <rect key="frame" x="290" y="222" width="20" height="20"/>
+                                        <color key="color" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="0dh-ef-QkE" secondAttribute="centerY" constant="36" id="B8n-pq-Auc"/>
                                     <constraint firstAttribute="centerX" secondItem="0dh-ef-QkE" secondAttribute="centerX" id="Jgs-pF-xbD"/>
@@ -380,7 +386,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="us5-kW-KPO" firstAttribute="top" secondItem="VX1-nu-VkQ" secondAttribute="top" id="1B5-fH-imj"/>
                             <constraint firstAttribute="bottom" secondItem="us5-kW-KPO" secondAttribute="bottom" id="4Id-KG-ZzL"/>
@@ -397,7 +403,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="End parking" image="baja" id="aNv-CJ-VNb"/>
-                    <navigationItem key="navigationItem" title="End parking" id="ph7-2J-T5J"/>
+                    <navigationItem key="navigationItem" title="End parking" id="ph7-2J-T5J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PvD-Kn-vN8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="brE-HP-ZuM" id="o5H-p7-KhV"/>
                         <outlet property="closeSpinner" destination="dSR-MA-jVj" id="elZ-fI-J8a"/>
@@ -422,8 +432,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-lZ-1Gb" userLabel="parking info">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-lZ-1Gb" userLabel="parking info">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="449"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parked in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM5-wL-vKB">
                                         <rect key="frame" x="64" y="16" width="68" height="18"/>

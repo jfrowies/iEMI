@@ -30,7 +30,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     //MARK: - View controller lifecycle
     
-    let kTableHeaderHeight = CGFloat(70.0)
+    let kTableHeaderHeight = 60.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +40,13 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
+        self.refreshControl.backgroundColor = UIColor.grayBackgroundColor()
         self.tableView.addSubview(refreshControl)
         
         //TableHeaderView initialization
-        let screenWidth = UIScreen.mainScreen().bounds.size.width;
+        let screenWidth:Double = Double(UIScreen.mainScreen().bounds.size.width);
        
-        let headerViewFrame: CGRect = CGRect(x:CGFloat(0), y: CGFloat(0), width: screenWidth, height: kTableHeaderHeight)
+        let headerViewFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: kTableHeaderHeight)
         
         self.creditBalanceView = CreditBalanceView(frame: headerViewFrame)
         self.tableView.tableHeaderView = self.creditBalanceView
@@ -87,6 +88,10 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         }
     }
     
+    let kCreditBalanceText = NSLocalizedString("Credit balance", comment: "Credit balancen title text")
+    let kCreditBalanceSeparator = ": "
+    let kCreditBalanceSign = " $"
+    
     let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
     
     func reloadBalanceData(patente licensePlate: String) {
@@ -94,11 +99,11 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
             do {
                 let currentBalance = try result()
-                self.updateCreditBalance("\(currentBalance)"+" $")
+                self.updateCreditBalance(self.kCreditBalanceText + self.kCreditBalanceSeparator + "\(currentBalance)" + self.kCreditBalanceSign)
                 self.balance = currentBalance
                 
             } catch {
-                self.updateCreditBalance(self.kUnknownCreditBalance)
+                self.updateCreditBalance(self.kCreditBalanceText + self.kCreditBalanceSeparator + self.kUnknownCreditBalance)
                 self.balance = 0.0
             }
         }
