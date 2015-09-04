@@ -126,6 +126,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     //MARK: - UITableViewDelegate implementation
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         self.sectionItemCount.removeAll(keepCapacity: false)
         self.sectionFirstItem.removeAll(keepCapacity: false)
         var sections = 0;
@@ -161,6 +162,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         let mov = self.tableElements[self.sectionFirstItem[section]];
         
         var timestamp: String = mov.timestamp

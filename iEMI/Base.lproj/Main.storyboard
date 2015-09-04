@@ -158,7 +158,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-5d-Xey">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditoCell" rowHeight="52" id="wN6-Ly-3tL" customClass="CreditoTableViewCell" customModule="iEMI">
                                         <rect key="frame" x="0.0" y="22" width="600" height="52"/>
@@ -307,7 +308,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="e6e-7D-iXq"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="trailing" secondItem="ghS-6J-idp" secondAttribute="trailing" id="k3T-Le-i4u"/>
@@ -630,7 +631,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="cAs-FE-8Co" secondAttribute="centerX" id="39A-km-5Mr"/>
                             <constraint firstAttribute="centerY" secondItem="cAs-FE-8Co" secondAttribute="centerY" constant="10" id="JoO-Rm-72q"/>
@@ -671,6 +672,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="77V-hY-0mP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -692,6 +694,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="u4q-aD-vBe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -713,6 +716,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="PeG-Tz-032">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -734,6 +738,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="j1x-9S-gAR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
