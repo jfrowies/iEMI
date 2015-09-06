@@ -42,20 +42,6 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-    }
-    
     func showLoadingUI(loading:Bool) {
         if loading {
             self.loginButton.enabled = false
@@ -79,6 +65,9 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
         if textField == self.licensePlateTextField {
             self.passwordTextField.becomeFirstResponder()
         }
+        if textField == self.passwordTextField {
+                self.loginTouched()
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -88,7 +77,7 @@ class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
     
     //MARK: - IBActions
 
-    @IBAction func loginTouched(sender: UIButton) {
+    @IBAction func loginTouched() {
         
         self.showLoadingUI(true)
         

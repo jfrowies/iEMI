@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="30" id="dzg-PM-hBL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="TsN-dz-rbM" id="Fz5-WI-td5"/>
                                 </connections>
@@ -101,7 +101,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginTouched:" destination="TsN-dz-rbM" eventType="touchUpInside" id="xlz-bM-t5o"/>
+                                    <action selector="loginTouched" destination="TsN-dz-rbM" eventType="touchUpInside" id="QlK-2V-6bo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -432,8 +432,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-lZ-1Gb" userLabel="parking info">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="449"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-lZ-1Gb" userLabel="parking info">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parked in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM5-wL-vKB">
                                         <rect key="frame" x="64" y="16" width="68" height="18"/>
@@ -743,7 +743,7 @@
         <!--Begin parking-->
         <scene sceneID="jxN-FE-dmm">
             <objects>
-                <navigationController id="Ozd-qq-pYz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BeginParkingNavigationController" id="Ozd-qq-pYz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Begin parking" image="alta" id="5Fa-h6-5iU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="j1x-9S-gAR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

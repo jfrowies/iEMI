@@ -209,7 +209,6 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         
-        
         if let debit = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
 
             self.parkingSelected = Parking(number: debit.number!, year: debit.year!, serie: debit.serie!)
@@ -228,6 +227,10 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
     }
+    
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//    }
     
     // MARK: - Navigation
     
