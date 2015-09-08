@@ -106,6 +106,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="OKU-dM-Qga" secondAttribute="centerX" id="9bz-Jg-3B0"/>
                             <constraint firstAttribute="centerX" secondItem="eWc-rK-7CB" secondAttribute="centerX" constant="-40" id="CYE-Iq-aJ1"/>
