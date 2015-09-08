@@ -40,7 +40,7 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
-        self.refreshControl.backgroundColor = UIColor.grayBackgroundColor()
+        self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
         self.tableView.addSubview(refreshControl)
         
         //TableHeaderView initialization
@@ -139,8 +139,8 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         var index: Int = 0;
         var newSaldo = self.balance
         for mov: Transaction in self.tableElements {
-            var timestamp: String = mov.timestamp
-            let subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
+            let timestamp: String = mov.timestamp
+            let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
             if (!(date == subDate)) {
                 date = subDate
                 self.sectionItemCount.append(0)
@@ -170,8 +170,8 @@ class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSourc
         
         let mov = self.tableElements[self.sectionFirstItem[section]];
         
-        var timestamp: String = mov.timestamp
-        let subDate = timestamp.substringToIndex(advance(timestamp.startIndex, 10))
+        let timestamp: String = mov.timestamp
+        let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
         
         let nsDate = NSDate(dateString: subDate)
         let formatter = NSDateFormatter()
