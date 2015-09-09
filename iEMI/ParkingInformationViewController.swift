@@ -11,7 +11,7 @@ import UIKit
 let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation srting")
 let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srting")
 
-class ParkingInformationViewController: TabBarIconFixerViewController {
+class ParkingInformationViewController: UIViewController {
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EndParkingViewController: TabBarIconFixerViewController {
+class EndParkingViewController: UIViewController {
 
     @IBOutlet weak var loadingFeedback: UILabel!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
@@ -33,9 +33,7 @@ class EndParkingViewController: TabBarIconFixerViewController {
         super.viewDidLoad()
 
     }
-    
-    override func iconName() -> String { return "baja" }
-    
+        
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

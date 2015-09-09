@@ -8,13 +8,11 @@
 
 import UIKit
 
-class BalanceViewController: TabBarIconFixerViewController, UITableViewDataSource, UITableViewDelegate {
+class BalanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 //    @IBOutlet weak var creditBalanceLabel: UILabel!
 //    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-
-    override func iconName() -> String { return "saldo" }
 
     var refreshControl: UIRefreshControl!
     var tableElements = [Transaction]()

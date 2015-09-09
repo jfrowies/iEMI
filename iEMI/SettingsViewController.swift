@@ -8,30 +8,50 @@
 
 import UIKit
 
-class SettingsViewController: TabBarIconFixerViewController {
+class SettingsViewController: UITableViewController {
+    
+    @IBOutlet weak var licensePlateLabel: UILabel!
+    @IBOutlet weak var appVersionLabel: UILabel!
+    @IBOutlet weak var appBuildLabel: UILabel!
+    @IBOutlet weak var autoLoginSwitch: UISwitch!
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    // MARK: - View controller life cycle
+    
+    let kAppVersionKey:String = "CFBundleShortVersionString"
+    let kAppBuildKey:String = "CFBundleVersion"
 
+    
+    let licensePlateSotrage = LicensePlate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let appVersion = NSBundle.mainBundle().infoDictionary?[kAppVersionKey] as? String {
+            self.appVersionLabel.text = appVersion
+        }
+        
+        if let appBuild = NSBundle.mainBundle().infoDictionary?[kAppBuildKey] as? String {
+            self.appBuildLabel.text = "(\(appBuild))"
+        }
+        
+        self.licensePlateLabel.text = licensePlateSotrage.currentLicensePlate!
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - IBActions
+
+    @IBAction func logoutButtonTouched(sender: AnyObject) {
+        
+        licensePlateSotrage.currentLicensePlate = nil
     
-    override func iconName() -> String { return "settings" }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: TabBarIconFixerViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var licensePlateTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
