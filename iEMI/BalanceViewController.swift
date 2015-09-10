@@ -33,8 +33,10 @@ class BalanceViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reloadData(patente:licensePlateSotrage.currentLicensePlate!)
-        
+        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
+            self.reloadData(patente:currentLicensePlate)
+        }
+    
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
@@ -57,7 +59,9 @@ class BalanceViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func refresh(sender:AnyObject) {
-        reloadData(patente: licensePlateSotrage.currentLicensePlate!)
+        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
+            self.reloadData(patente:currentLicensePlate)
+        }
     }
     
     //MARK: -

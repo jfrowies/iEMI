@@ -20,10 +20,10 @@ class SettingsViewController: UITableViewController {
     
     let kAppVersionKey:String = "CFBundleShortVersionString"
     let kAppBuildKey:String = "CFBundleVersion"
-
     
     let licensePlateSotrage = LicensePlate()
-    
+    let settings = Settings()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,8 +35,11 @@ class SettingsViewController: UITableViewController {
             self.appBuildLabel.text = "(\(appBuild))"
         }
         
-        self.licensePlateLabel.text = licensePlateSotrage.currentLicensePlate!
+        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
+            self.licensePlateLabel.text = currentLicensePlate
+        }
         
+        self.autoLoginSwitch.on = settings.autoLogin
         
     }
 
@@ -50,8 +53,14 @@ class SettingsViewController: UITableViewController {
     @IBAction func logoutButtonTouched(sender: AnyObject) {
         
         licensePlateSotrage.currentLicensePlate = nil
-    
+        self.settings.autoLogin = true
+
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func autoLoginSwitchChanged(sender: UISwitch) {
+        
+        self.settings.autoLogin = sender.on
+    }
     
 }

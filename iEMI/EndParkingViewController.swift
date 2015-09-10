@@ -82,7 +82,11 @@ class EndParkingViewController: UIViewController {
     
     private func loadParking() {
         
-        service.getOpenParking(licensePlate.currentLicensePlate!) { [unowned self] (result) -> Void in
+        guard let currentLicensePlate = licensePlate.currentLicensePlate else {
+            return
+        }
+        
+        service.getOpenParking(currentLicensePlate) { [unowned self] (result) -> Void in
             
             do {
                 let parking = try result()

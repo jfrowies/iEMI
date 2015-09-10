@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let service: LoginService = LoginEMIService()
     let licensePlate = LicensePlate()
+    let settings = Settings()
     
     private let kShowTabBarViewControllerSegue: String = "showTabBarViewController"
     
@@ -30,14 +31,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let currentLicensePlate = self.licensePlate.currentLicensePlate {
-            self.licensePlateTextField.text = currentLicensePlate
-            self.showLoadingUI(true)
-             self.getSessionCookie(patente: self.licensePlateTextField.text!) { [unowned self] () -> Void in
-                self.performSegueWithIdentifier(self.kShowTabBarViewControllerSegue, sender: self)
+        self.showLoadingUI(false)
+        self.licensePlateTextField.text = self.licensePlate.currentLicensePlate
+        self.passwordTextField.text = ""
+
+        if  (self.licensePlate.currentLicensePlate != nil) {
+
+            if (settings.autoLogin) {
+               self.getSessionCookie()
+            } else {
+                self.passwordTextField.becomeFirstResponder()
             }
+
         } else {
-            self.showLoadingUI(false)
             self.licensePlateTextField.becomeFirstResponder()
         }
     }
@@ -75,9 +81,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true;
     }
     
-    //MARK: - IBActions
-
-    @IBAction func loginTouched() {
+    //MARK: - Authentication
+    
+    private func authenticate() {
         
         self.showLoadingUI(true)
         
@@ -86,6 +92,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.performSegueWithIdentifier(self.kShowTabBarViewControllerSegue, sender: self)
             }
         }
+    }
+    
+    private func getSessionCookie() {
+        
+        self.showLoadingUI(true)
+        
+        self.getSessionCookie(patente: self.licensePlateTextField.text!) { [unowned self] () -> Void in
+                self.performSegueWithIdentifier(self.kShowTabBarViewControllerSegue, sender: self)
+        }
+    }
+    
+    //MARK: - IBActions
+
+    @IBAction func loginTouched() {
+        self.authenticate()
     }
     
     //MARK: - Service calls

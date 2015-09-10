@@ -14,6 +14,7 @@
 		B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5171B83C72400A1D286 /* LicensePlate.swift */; };
 		B536E51A1B83EF7000A1D286 /* ParkingInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */; };
 		B536E51C1B84F41C00A1D286 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536E51B1B84F41C00A1D286 /* Parking.swift */; };
+		B53E5E661BA1103C00C66B3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E5E651BA1103C00C66B3B /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
 		B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */; };
 		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
 		B540C4B21A91C97100863944 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B11A91C97100863944 /* Credit.swift */; };
@@ -62,6 +63,7 @@
 		B536E5171B83C72400A1D286 /* LicensePlate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicensePlate.swift; sourceTree = "<group>"; };
 		B536E5191B83EF7000A1D286 /* ParkingInformationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationService.swift; sourceTree = "<group>"; };
 		B536E51B1B84F41C00A1D286 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		B53E5E651BA1103C00C66B3B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B540C4AC1A91C6D000863944 /* ConsumoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConsumoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B540C4B11A91C97100863944 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Credit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -134,6 +136,7 @@
 				B5FF34761B865605004603D1 /* ParkingGeneral.swift */,
 				B5974C521B883B3B001BAA97 /* ParkingTime.swift */,
 				B5974C541B883BE3001BAA97 /* ParkingLocation.swift */,
+				B53E5E651BA1103C00C66B3B /* Settings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				EFC014EF1A7FFFD00074560F /* LoginViewController.swift in Sources */,
 				B536E5141B82F27D00A1D286 /* AccountService.swift in Sources */,
 				B5974C551B883BE3001BAA97 /* ParkingLocation.swift in Sources */,
+				B53E5E661BA1103C00C66B3B /* Settings.swift in Sources */,
 				B5225CA21A959A1E002DF870 /* SettingsViewController.swift in Sources */,
 				B536E5161B83006500A1D286 /* AccountEMIService.swift in Sources */,
 				B58F277C1B90F2C000E05702 /* EMIColorsExtension.swift in Sources */,
