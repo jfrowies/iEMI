@@ -94,7 +94,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 
                 let currentBalance = try result()
                 self.balance = currentBalance
-                self.creditBalanceView?.creditBalanceLabel.text = self.kCreditBalanceText + self.kCreditBalanceSeparator + "\(currentBalance)" + self.kCreditBalanceSign
+                let creditBalanceString = String(format: "%.2f", currentBalance)
+                self.creditBalanceView?.creditBalanceLabel.text = self.kCreditBalanceText + self.kCreditBalanceSeparator + creditBalanceString + self.kCreditBalanceSign
 
             } catch let error{
                 
