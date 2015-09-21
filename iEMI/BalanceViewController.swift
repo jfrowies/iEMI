@@ -8,10 +8,9 @@
 
 import UIKit
 
-class BalanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BalanceViewController: NetworkActivityViewController, UITableViewDataSource, UITableViewDelegate {
 
-//    @IBOutlet weak var creditBalanceLabel: UILabel!
-//    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var tableView: UITableView!
 
     var refreshControl: UIRefreshControl!
@@ -58,22 +57,11 @@ class BalanceViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    func refresh(sender:AnyObject) {
-        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
-            self.reloadData(patente:currentLicensePlate)
-        }
-    }
-    
     //MARK: -
 
-    
     func reloadData(patente patente: String) {
-        
-//        self.loadingSpinner.startAnimating()
-        
-        self.reloadBalanceData(patente: patente)
+        self.reloadTableHeaderData(patente: patente)
         self.reloadTableData(patente: patente)
-        
     }
     
     func reloadTableData(patente patente: String) {
@@ -83,51 +71,59 @@ class BalanceViewController: UIViewController, UITableViewDataSource, UITableVie
                 let transactions = try result()
                 self.tableElements = transactions
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.hideLoadingView(true)
                 
             } catch let error{
-                self.showTableError(error as NSError)
+                self.showError(error as NSError)
             }
         }
     }
     
-    let kCreditBalanceText = NSLocalizedString("Credit balance", comment: "Credit balancen title text")
-    let kCreditBalanceSeparator = ": "
-    let kCreditBalanceSign = " $"
     
-    let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
+    private let kCreditBalanceText = NSLocalizedString("Credit balance", comment: "Credit balancen title text")
+    private let kCreditBalanceSeparator = ": "
+    private let kCreditBalanceSign = " $"
     
-    func reloadBalanceData(patente licensePlate: String) {
+    private let kUnknownCreditBalance = NSLocalizedString("Unknown", comment: "Unknown credit balance")
+    
+    func reloadTableHeaderData(patente licensePlate: String) {
         
         service.accountBalance(licensePlate: licensePlate) { [unowned self] (result) -> Void in
             do {
-                let currentBalance = try result()
-                self.updateCreditBalance(self.kCreditBalanceText + self.kCreditBalanceSeparator + "\(currentBalance)" + self.kCreditBalanceSign)
-                self.balance = currentBalance
                 
-            } catch {
-                self.updateCreditBalance(self.kCreditBalanceText + self.kCreditBalanceSeparator + self.kUnknownCreditBalance)
+                let currentBalance = try result()
+                self.balance = currentBalance
+                self.creditBalanceView?.creditBalanceLabel.text = self.kCreditBalanceText + self.kCreditBalanceSeparator + "\(currentBalance)" + self.kCreditBalanceSign
+
+            } catch let error{
+                
+                self.creditBalanceView?.creditBalanceLabel.text = self.kCreditBalanceText + self.kCreditBalanceSeparator + self.kUnknownCreditBalance
                 self.balance = 0.0
+                self.showError(error as NSError)
             }
         }
     }
     
-    func showTableError(error: NSError?) {
+    private let kErrorText = NSLocalizedString("Error loading balance, please try again later.", comment: "error loading balance text")
+    
+    func showError(error: NSError?) {
+        
         print("Error: \(error)")
-        //TODO: show error feedback
-    }
-
-    func updateCreditBalance(balance:String) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//            self.loadingSpinner.stopAnimating()
-            self.creditBalanceView?.creditBalanceLabel.text = balance
-            self.refreshControl.endRefreshing()
-        })
+        self.showErrorView(kErrorText, animated:false)
     }
     
     //MARK: - IBAction
+    
+    private let kLoadingCreditText = NSLocalizedString("Loading balance", comment: "loading credit balance text")
 
-    @IBAction func refreshButtonTouched(sender: UIButton) {
-        reloadData(patente: licensePlateSotrage.currentLicensePlate!)
+    @IBAction func refresh(sender:AnyObject) {
+        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
+            if !(sender.isEqual(self.refreshControl)) {
+                self.showLoadingView(kLoadingCreditText, animated:false)
+            }
+            self.reloadData(patente:currentLicensePlate)
+        }
     }
     
     //MARK: - UITableViewDelegate implementation

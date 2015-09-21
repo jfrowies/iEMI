@@ -8,11 +8,8 @@
 
 import UIKit
 
-class EndParkingViewController: UIViewController {
+class EndParkingViewController: NetworkActivityViewController {
 
-    @IBOutlet weak var loadingFeedback: UILabel!
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var closeSpinner: UIActivityIndicatorView!
     
     @IBOutlet weak var closeButton: UIButton!
@@ -27,19 +24,19 @@ class EndParkingViewController: UIViewController {
     
     private let kShowParkingInformationSegue: String = "showParkingInformation"
     
+    private let kLoadingParkingText = NSLocalizedString("Loading parking", comment: "loading parking message in close parking")
+    
     // MARK: - View controller life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-        
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.loadingView.hidden = false
-        self.loadingSpinner.startAnimating()
-        self.loadingFeedback.text = NSLocalizedString("Loading parking", comment: "loading parking message in close parking")
+        self.showLoadingView(kLoadingParkingText, animated: false)
         
         self.closeSpinner.stopAnimating()
         self.closeButton.enabled = true
@@ -73,9 +70,8 @@ class EndParkingViewController: UIViewController {
     // MARK: -
     
     private func showError(error: String) {
-        self.loadingFeedback.text = error
-        self.loadingFeedback.hidden = false
-        self.loadingSpinner.stopAnimating()
+        
+        self.showErrorView(error, animated: false)
     }
     
     // MARK: - service calls
@@ -95,7 +91,9 @@ class EndParkingViewController: UIViewController {
                 
                 self.parkingInformationViewController?.parking = self.parking
                 self.parkingInformationViewController?.reloadParking()
-                self.loadingView.hidden = true
+
+                self.hideLoadingView(true)
+                
                 self.closeButton.enabled = true
           
             } catch ServiceError.ResponseErrorMessage(let errorMessage){
