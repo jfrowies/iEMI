@@ -326,13 +326,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-77-T6y">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="449"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="422"/>
                                 <connections>
                                     <segue destination="3dn-jm-yZS" kind="embed" identifier="showParkingInformation" id="Pfc-4L-oc0"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brE-HP-ZuM" userLabel="close button">
-                                <rect key="frame" x="259" y="453" width="82" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brE-HP-ZuM" userLabel="close button">
+                                <rect key="frame" x="255" y="438" width="91" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="End parking">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -341,20 +342,14 @@
                                     <action selector="closeButtonTouched:" destination="XpU-sU-mvY" eventType="touchUpInside" id="4Zm-gO-pzN"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dSR-MA-jVj" userLabel="close spinner">
-                                <rect key="frame" x="231" y="458" width="20" height="20"/>
-                                <color key="color" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Xea-77-T6y" firstAttribute="top" secondItem="VX1-nu-VkQ" secondAttribute="top" id="4Nc-qY-I76"/>
-                            <constraint firstItem="brE-HP-ZuM" firstAttribute="top" secondItem="Xea-77-T6y" secondAttribute="bottom" constant="4" id="8vw-TQ-6Zs"/>
+                            <constraint firstItem="brE-HP-ZuM" firstAttribute="top" secondItem="Xea-77-T6y" secondAttribute="bottom" constant="16" id="8vw-TQ-6Zs"/>
                             <constraint firstItem="Xea-77-T6y" firstAttribute="leading" secondItem="VX1-nu-VkQ" secondAttribute="leading" id="CI8-Mt-FBz"/>
-                            <constraint firstItem="brE-HP-ZuM" firstAttribute="leading" secondItem="dSR-MA-jVj" secondAttribute="trailing" constant="8" id="D5g-ST-QdV"/>
-                            <constraint firstItem="ahB-gL-noy" firstAttribute="top" secondItem="brE-HP-ZuM" secondAttribute="bottom" constant="4" id="V4i-QJ-awP"/>
+                            <constraint firstItem="ahB-gL-noy" firstAttribute="top" secondItem="brE-HP-ZuM" secondAttribute="bottom" constant="16" id="V4i-QJ-awP"/>
                             <constraint firstAttribute="centerX" secondItem="brE-HP-ZuM" secondAttribute="centerX" id="YJH-t7-bGV"/>
-                            <constraint firstItem="brE-HP-ZuM" firstAttribute="centerY" secondItem="dSR-MA-jVj" secondAttribute="centerY" id="xtf-jO-zIl"/>
                             <constraint firstAttribute="trailing" secondItem="Xea-77-T6y" secondAttribute="trailing" id="ysd-dC-Rgd"/>
                         </constraints>
                     </view>
@@ -362,11 +357,13 @@
                     <navigationItem key="navigationItem" title="End parking" id="ph7-2J-T5J">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PvD-Kn-vN8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refresh:" destination="XpU-sU-mvY" id="XCe-eK-SK9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="brE-HP-ZuM" id="o5H-p7-KhV"/>
-                        <outlet property="closeSpinner" destination="dSR-MA-jVj" id="elZ-fI-J8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IU-Z8-4nT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -382,11 +379,11 @@
                         <viewControllerLayoutGuide type="bottom" id="7cc-AY-yzX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tm2-uE-giD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="449"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="422"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-lZ-1Gb" userLabel="parking info">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="449"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="422"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parked in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM5-wL-vKB">
                                         <rect key="frame" x="64" y="16" width="68" height="18"/>

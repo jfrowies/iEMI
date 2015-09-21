@@ -9,8 +9,6 @@
 import UIKit
 
 class EndParkingViewController: NetworkActivityViewController {
-
-    @IBOutlet weak var closeSpinner: UIActivityIndicatorView!
     
     @IBOutlet weak var closeButton: UIButton!
     
@@ -24,7 +22,6 @@ class EndParkingViewController: NetworkActivityViewController {
     
     private let kShowParkingInformationSegue: String = "showParkingInformation"
     
-    private let kLoadingParkingText = NSLocalizedString("Loading parking", comment: "loading parking message in close parking")
     
     // MARK: - View controller life cycle
     
@@ -36,27 +33,12 @@ class EndParkingViewController: NetworkActivityViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.showLoadingView(kLoadingParkingText, animated: false)
-        
-        self.closeSpinner.stopAnimating()
-        self.closeButton.enabled = true
-        
-        self.loadParking()
+        self.refresh(nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-    }
-    
-    
-    @IBAction func closeButtonTouched(sender: UIButton) {
-        
-        guard let currentParking = self.parking else {
-            return
-        }
-        
-        self.closeParking(currentParking)
     }
 
     // MARK: - Navigation
@@ -67,20 +49,43 @@ class EndParkingViewController: NetworkActivityViewController {
         }
     }
     
+    // MARK: - IBActions
+    
+    private let kLoadingParkingText = NSLocalizedString("Loading parking", comment: "loading parking message in close parking")
+    
+    @IBAction func refresh(sender:AnyObject?) {
+        
+        self.closeButton.enabled = false
+        self.loadParking()
+    }
+    
+    @IBAction func closeButtonTouched(sender: UIButton) {
+        
+        self.closeParking(self.parking)
+    }
+    
     // MARK: -
     
-    private func showError(error: String) {
+    private func showError(error: NSError?, errorMessage: String?) {
         
-        self.showErrorView(error, animated: false)
+        if let currentError = error {
+            print("Error: \(currentError.localizedDescription)")
+        }
+        self.showErrorView(errorMessage, animated:false)
     }
     
     // MARK: - service calls
     
+    private let kErrorLoadingParkingText = NSLocalizedString("Error loading parking. Try again please.", comment: "error loading parking")
+    
     private func loadParking() {
         
         guard let currentLicensePlate = licensePlate.currentLicensePlate else {
+            self.showError(nil,errorMessage: kErrorLoadingParkingText)
             return
         }
+        
+        self.showLoadingView(kLoadingParkingText, animated: false)
         
         service.getOpenParking(currentLicensePlate) { [unowned self] (result) -> Void in
             
@@ -92,36 +97,46 @@ class EndParkingViewController: NetworkActivityViewController {
                 self.parkingInformationViewController?.parking = self.parking
                 self.parkingInformationViewController?.reloadParking()
 
+                self.closeButton.enabled = true
+                
                 self.hideLoadingView(true)
                 
-                self.closeButton.enabled = true
-          
             } catch ServiceError.ResponseErrorMessage(let errorMessage){
                 
-                self.showError(errorMessage!)
+                self.showError(nil,errorMessage: errorMessage!)
 
-            } catch {
-                self.showError("Error")
+            } catch let error {
+                self.showError(error as NSError, errorMessage: self.kErrorLoadingParkingText)
             }
         }
     
     }
     
-    private func closeParking(parking:Parking) {
+    private let kErrorLoadingClosingText = NSLocalizedString("Error closing parking. Refresh and try again please.", comment: "error closing parking")
+    
+    private let kClosingParkingText = NSLocalizedString("Closing parking", comment: "closing parking message in close parking")
+    
+    private func closeParking(parking: Parking?) {
         
-        self.closeButton.enabled = false
-        self.closeSpinner.startAnimating()
-        
-        service.closeParking(parking) { [unowned self] (result) -> Void in
+        guard let currentParking = self.parking else {
             
-            self.closeSpinner.stopAnimating()
+            self.showError(nil,errorMessage: kErrorLoadingClosingText)
+            return
+        }
+        
+        self.showLoadingView(kClosingParkingText, animated: false)
 
+        service.closeParking(currentParking) { [unowned self] (result) -> Void in
+            
             do {
-                try result()
                 
-            } catch {
+                try result()
+                self.closeButton.enabled = false
                 self.parkingInformationViewController?.reloadParking()
-                self.closeButton.enabled = true
+                self.hideLoadingView(true)
+                
+            } catch let error{
+                self.showError(error as NSError, errorMessage: self.kErrorLoadingClosingText)
             }
         }
     }

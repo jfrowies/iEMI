@@ -43,13 +43,11 @@ class ParkingInformationViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // TODO: shouldn't do this
         self.reloadParking()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
     
     func reloadParking() {
@@ -73,6 +71,7 @@ class ParkingInformationViewController: UIViewController {
     private func loadLocation() {
         
         guard let currentParking = self.parking else {
+            //TODO: Show error
             return
         }
         
@@ -96,6 +95,7 @@ class ParkingInformationViewController: UIViewController {
     private func loadTime() {
         
         guard let currentParking = self.parking else {
+            //TODO: show error
             return
         }
         

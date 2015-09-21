@@ -15,15 +15,38 @@ class Parking: NSObject {
     
     init(json:[String:AnyObject]) {
         
+        //The service returns "TarNro" or "Tarnro"
         if let number = json["TarNro"] as? String {
             self.number = number
         }
         
+        if let number = json["Tarnro"] as? String {
+            self.number = number
+        }
+        
+        //The service returns "TarAno" or "Tarano"
         if let year = json["TarAno"] as? String {
             self.year = year
         }
         
+        if let year = json["TarAno"] as? Int {
+            self.year = String(year)
+        }
+        
+        if let year = json["Tarano"] as? String {
+            self.year = year
+        }
+        
+        if let year = json["Tarano"] as? Int {
+            self.year = String(year)
+        }
+        
+        //The service returns "TarSerie" or "Tarserie"
         if let serie = json["TarSerie"] as? String {
+            self.serie = serie
+        }
+        
+        if let serie = json["Tarserie"] as? String {
             self.serie = serie
         }
     }
