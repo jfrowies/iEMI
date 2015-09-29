@@ -99,7 +99,7 @@ class EndParkingViewController: NetworkActivityViewController {
 
                 self.closeButton.enabled = true
                 
-                self.hideLoadingView(true)
+                self.hideLoadingView(animated: true)
                 
             } catch ServiceError.ResponseErrorMessage(let errorMessage){
                 
@@ -116,6 +116,8 @@ class EndParkingViewController: NetworkActivityViewController {
     
     private let kClosingParkingText = NSLocalizedString("Closing parking", comment: "closing parking message in close parking")
     
+    private let kSuccessClosingParkingText = NSLocalizedString("Parking successfully closed", comment: "parking successfully closed message in close parking")
+    
     private func closeParking(parking: Parking?) {
         
         guard let currentParking = self.parking else {
@@ -129,11 +131,8 @@ class EndParkingViewController: NetworkActivityViewController {
         service.closeParking(currentParking) { [unowned self] (result) -> Void in
             
             do {
-                
                 try result()
-                self.closeButton.enabled = false
-                self.parkingInformationViewController?.reloadParking()
-                self.hideLoadingView(true)
+                self.showSuccessView(self.kSuccessClosingParkingText, animated: false)
                 
             } catch let error{
                 self.showError(error as NSError, errorMessage: self.kErrorLoadingClosingText)

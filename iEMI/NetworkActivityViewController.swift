@@ -61,7 +61,7 @@ class NetworkActivityViewController: UIViewController {
         }
     }
     
-    func showLoadingView(message: String, animated: Bool) {
+    func showLoadingView(message: String?, animated: Bool) {
         
         self.prepareForShowNetworkActivityView()
         
@@ -71,6 +71,19 @@ class NetworkActivityViewController: UIViewController {
         self.loadingView.loadingSpinner.hidden = false
         self.loadingView.loadingSpinner.startAnimating()
 
+        self.showNetworkActivityView(animated)
+    }
+    
+    func showSuccessView(message: String?, animated: Bool) {
+        
+        self.prepareForShowNetworkActivityView()
+        
+        self.loadingView.feedbackLabel!.text = message
+        self.loadingView.feedbackLabel.textColor = UIColor.grayLabelDefaultColor()
+        
+        self.loadingView.loadingSpinner.hidden = true
+        self.loadingView.loadingSpinner.stopAnimating()
+        
         self.showNetworkActivityView(animated)
     }
     
@@ -89,7 +102,7 @@ class NetworkActivityViewController: UIViewController {
     
     private let kHideAnimationDuration = 0.2
     
-    func hideLoadingView(animated: Bool) {
+    func hideLoadingView(animated animated: Bool) {
         
         if !animated {
             

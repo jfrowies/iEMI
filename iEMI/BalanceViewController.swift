@@ -72,7 +72,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 self.tableElements = transactions
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
-                self.hideLoadingView(true)
+                self.hideLoadingView(animated: true)
                 
             } catch let error{
                 self.showError(error as NSError)
