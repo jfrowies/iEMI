@@ -1,14 +1,8 @@
 # iEMI
-Cliente iOS no oficial para el EMI (Estacionamiento medido inteligente de Resistencia)
+Non-official iOS client for EMI (Estacionamiento Medido Inteligente de Resistencia)
 
-Este es un pequeño proyecto con dos objetivos:
+This app uses public EMI APIs and allows it's users to access the features of the EMI web page and android app right from their iOS devices.
 
-1) Hacer un cliente iOS para que un par de amigos puedan usar la Autogestión del sistema EMI en sus iPhones.
-
-2) Incursionar en Swift.
-
-Para poder hacer esta app se hizo un sniffing de la app Android ya existente y se tomo nota de todos los métodos importantes del servicio rest que ésta consume.
-
-Documentacion del servicio: https://docs.google.com/document/d/11iW6aUvfF7U-HYYarCX_WKczN4nsIDG7V-5ol8yivvU/edit?usp=sharing
+Public service documentation: https://docs.google.com/document/d/11iW6aUvfF7U-HYYarCX_WKczN4nsIDG7V-5ol8yivvU/edit?usp=sharing
 
 
