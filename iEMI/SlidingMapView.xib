@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlidingMapView" customModule="iEMI" customModuleProvider="target">
+            <connections>
+                <outlet property="footerLabel" destination="VcW-6b-dJP" id="obX-7Z-GCq"/>
+                <outlet property="mapView" destination="bMQ-0T-hzH" id="zhQ-oc-c7K"/>
+                <outlet property="mapViewTopConstraint" destination="7MZ-qt-4ln" id="vpj-ce-rla"/>
+                <outlet property="visualEffectViewBottomConstraint" destination="TWK-AX-q0H" id="MLC-Rm-Eaw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdc-gq-zRw" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bMQ-0T-hzH">
+                    <rect key="frame" x="0.0" y="200" width="375" height="0.0"/>
+                </mapView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8k-OL-vsZ">
+                    <rect key="frame" x="0.0" y="160" width="375" height="40"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dqh-bh-Ifs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Av. 9 de julio 922" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcW-6b-dJP">
+                                <rect key="frame" x="127" y="11" width="120" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VcW-6b-dJP" firstAttribute="centerX" secondItem="dqh-bh-Ifs" secondAttribute="centerX" id="4iR-5X-zoE"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VcW-6b-dJP" secondAttribute="trailing" constant="8" id="9TR-UG-4Ys"/>
+                            <constraint firstItem="VcW-6b-dJP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dqh-bh-Ifs" secondAttribute="leading" constant="8" id="FIQ-QC-3aF"/>
+                            <constraint firstItem="VcW-6b-dJP" firstAttribute="centerY" secondItem="dqh-bh-Ifs" secondAttribute="centerY" id="MF6-MX-PUh"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="N1m-v3-f3p"/>
+                    </constraints>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bMQ-0T-hzH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="200" id="7MZ-qt-4ln"/>
+                <constraint firstAttribute="bottom" secondItem="jdc-gq-zRw" secondAttribute="bottom" id="FiG-aU-Rb4"/>
+                <constraint firstItem="bMQ-0T-hzH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NNV-Q3-SAe"/>
+                <constraint firstItem="w8k-OL-vsZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TLY-w9-nwq"/>
+                <constraint firstAttribute="bottom" secondItem="w8k-OL-vsZ" secondAttribute="bottom" id="TWK-AX-q0H"/>
+                <constraint firstAttribute="trailing" secondItem="w8k-OL-vsZ" secondAttribute="trailing" id="gTv-4Z-LB3"/>
+                <constraint firstAttribute="bottom" secondItem="bMQ-0T-hzH" secondAttribute="bottom" id="lgp-dS-4pL"/>
+                <constraint firstItem="jdc-gq-zRw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rDh-iT-ORU"/>
+                <constraint firstItem="jdc-gq-zRw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rl1-2I-bD6"/>
+                <constraint firstAttribute="trailing" secondItem="bMQ-0T-hzH" secondAttribute="trailing" id="tuC-Dh-Y0t"/>
+                <constraint firstAttribute="trailing" secondItem="jdc-gq-zRw" secondAttribute="trailing" id="z1K-cY-kBI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

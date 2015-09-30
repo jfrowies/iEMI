@@ -40,6 +40,8 @@
 		B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CEBD731B6AA34700794CAC /* Images.xcassets */; };
 		B5CF48671B8257B200B13EC2 /* EMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF48661B8257B200B13EC2 /* EMIService.swift */; };
 		B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF486A1B829D2000B13EC2 /* Service.swift */; };
+		B5D95C291BBC6F960062E7FA /* SlidingMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D95C281BBC6F960062E7FA /* SlidingMapView.xib */; settings = {ASSET_TAGS = (); }; };
+		B5D95C2B1BBC6FB50062E7FA /* SlidingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D95C2A1BBC6FB50062E7FA /* SlidingMapView.swift */; settings = {ASSET_TAGS = (); }; };
 		B5FF34771B865605004603D1 /* ParkingGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF34761B865605004603D1 /* ParkingGeneral.swift */; };
 		EF163D331A7AABBB00BE4461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF163D321A7AABBB00BE4461 /* AppDelegate.swift */; };
 		EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF163D361A7AABBB00BE4461 /* Main.storyboard */; };
@@ -92,6 +94,8 @@
 		B5CEBD731B6AA34700794CAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5CF48661B8257B200B13EC2 /* EMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIService.swift; sourceTree = "<group>"; };
 		B5CF486A1B829D2000B13EC2 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B5D95C281BBC6F960062E7FA /* SlidingMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlidingMapView.xib; sourceTree = "<group>"; };
+		B5D95C2A1BBC6FB50062E7FA /* SlidingMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingMapView.swift; sourceTree = "<group>"; };
 		B5FF34761B865605004603D1 /* ParkingGeneral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGeneral.swift; sourceTree = "<group>"; };
 		EF163D2D1A7AABBB00BE4461 /* iEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF163D311A7AABBB00BE4461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */,
 				B58F27871B9772D300E05702 /* CreditBalanceView.xib */,
 				B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */,
+				B5D95C281BBC6F960062E7FA /* SlidingMapView.xib */,
 			);
 			name = "Storyboards and XIBs";
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */,
 				B58F27851B97721A00E05702 /* CreditBalanceView.swift */,
 				B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */,
+				B5D95C2A1BBC6FB50062E7FA /* SlidingMapView.swift */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D95C291BBC6F960062E7FA /* SlidingMapView.xib in Resources */,
 				EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */,
 				B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */,
 				B58F27881B9772D300E05702 /* CreditBalanceView.xib in Resources */,
@@ -386,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D95C2B1BBC6FB50062E7FA /* SlidingMapView.swift in Sources */,
 				B5C3675D1A938B1F00851368 /* ParkingInformationViewController.swift in Sources */,
 				B5C3675B1A92ACF100851368 /* EndParkingViewController.swift in Sources */,
 				B3A490241AAE646200886C25 /* NSDateExtension.swift in Sources */,

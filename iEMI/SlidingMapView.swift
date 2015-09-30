@@ -1,19 +1,23 @@
 //
-//  LoadingView.swift
+//  SlidingMapView.swift
 //  iEMI
 //
-//  Created by Fer Rowies on 9/14/15.
+//  Created by Fer Rowies on 9/30/15.
 //  Copyright © 2015 Rowies. All rights reserved.
 //
 
 import UIKit
+import MapKit
 
-@IBDesignable class LoadingView: UIView {
+@IBDesignable class SlidingMapView: UIView {
     
     private var view: UIView!
     
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var feedbackLabel: UILabel!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet weak var footerLabel: UILabel!
+
+    @IBOutlet private weak var mapViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var visualEffectViewBottomConstraint: NSLayoutConstraint!
     
     //Mark: - Getters/Setters
     
@@ -33,7 +37,7 @@ import UIKit
         addSubview(view)
     }
     
-    let kNibName: String = "LoadingView"
+    let kNibName: String = "SlidingMapView"
     
     func loadViewFromNib() -> UIView {
         
