@@ -11,14 +11,45 @@ import MapKit
 
 @IBDesignable class SlidingMapView: UIView {
     
+    //Mark: - Private properties
+    
     private var view: UIView!
     
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet weak var footerLabel: UILabel!
-
+    @IBOutlet private weak var footerLabel: UILabel!
     @IBOutlet private weak var mapViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var visualEffectViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var visualEffectViewBottomConstraint: NSLayoutConstraint!
     
+    private let kFooterViewHideConstant: CGFloat = -40
+    private let kFooterViewShowConstant: CGFloat = 0
+
+    private let kFooterHideShowAnimationDuration = 0.2
+
+
+    //Mark: - Public properties
+    
+    var footerText: String? {
+        
+        get {
+            return footerLabel.text
+        }
+        
+        set(text) {
+            if (text != nil) {
+                footerLabel.text = text
+                UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                    self.visualEffectViewBottomConstraint.constant = self.kFooterViewShowConstant
+                    self.layoutIfNeeded()
+                })
+            } else {
+                UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                    self.visualEffectViewBottomConstraint.constant = self.kFooterViewHideConstant
+                    self.layoutIfNeeded()
+                })
+            }
+        }
+    }
+
     //Mark: - Getters/Setters
     
     
@@ -32,6 +63,10 @@ import MapKit
         
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        
+        visualEffectViewBottomConstraint.constant = kFooterViewHideConstant
+
+        self.layoutIfNeeded()
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)

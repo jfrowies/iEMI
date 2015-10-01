@@ -16,14 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-CS-UMH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8S-eG-7i9">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e92-Ui-alo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="extraLight"/>
-                </visualEffectView>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-Oz-2kz">
                     <rect key="frame" x="282" y="197" width="37" height="37"/>
                     <color key="color" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,16 +33,16 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="MHK-CS-UMH" secondAttribute="trailing" id="2hA-38-5cS"/>
                 <constraint firstItem="zba-Co-jgv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-40" id="2zz-dK-piM"/>
                 <constraint firstItem="zba-Co-jgv" firstAttribute="top" secondItem="CaU-Oz-2kz" secondAttribute="bottom" constant="16" id="70h-zm-WJa"/>
                 <constraint firstItem="zba-Co-jgv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HCN-9D-eEg"/>
-                <constraint firstItem="MHK-CS-UMH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LJ2-Co-kbQ"/>
+                <constraint firstItem="r8S-eG-7i9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HJV-DR-ckv"/>
+                <constraint firstAttribute="bottom" secondItem="r8S-eG-7i9" secondAttribute="bottom" id="Nwr-tZ-QtY"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zba-Co-jgv" secondAttribute="trailing" constant="16" id="Qoi-D2-lJE"/>
                 <constraint firstItem="zba-Co-jgv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Xt7-VT-xRv"/>
-                <constraint firstItem="MHK-CS-UMH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eYF-nt-eBH"/>
+                <constraint firstItem="r8S-eG-7i9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zxs-eR-Q7H"/>
                 <constraint firstItem="CaU-Oz-2kz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="r5R-5K-z2d"/>
-                <constraint firstAttribute="bottom" secondItem="MHK-CS-UMH" secondAttribute="bottom" id="wHT-Zx-nCj"/>
+                <constraint firstAttribute="trailing" secondItem="r8S-eG-7i9" secondAttribute="trailing" id="xXK-1C-bHK"/>
             </constraints>
         </view>
     </objects>

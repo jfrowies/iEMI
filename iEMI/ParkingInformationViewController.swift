@@ -11,17 +11,15 @@ import UIKit
 let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation srting")
 let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srting")
 
-class ParkingInformationViewController: UIViewController {
+class ParkingInformationViewController: NetworkActivityViewController {
     
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var parkingDurationLabel: UILabel!
     @IBOutlet weak var parkingStatusLabel: UILabel!
     
-    @IBOutlet weak var locationSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var timeSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var slidingMapView: SlidingMapView!
     
     let service: ParkingInformationService = ParkingInformationEMIService()
     
@@ -52,8 +50,8 @@ class ParkingInformationViewController: UIViewController {
     
     func reloadParking() {
                 
-        self.addressLabel.text = ""
-        self.dateLabel .text = ""
+        self.slidingMapView.footerText = nil
+        self.dateLabel.text = ""
         self.startTimeLabel.text = ""
         self.endTimeLabel.text = ""
         self.parkingDurationLabel.text = ""
@@ -75,19 +73,14 @@ class ParkingInformationViewController: UIViewController {
             return
         }
         
-        self.locationSpinner.startAnimating()
-        
         service.location(currentParking) { [weak self] (result) -> Void in
             
             do {
                 let parkingLocation = try result()
-                self?.addressLabel.text = parkingLocation.fullAddress
-                self?.locationSpinner.stopAnimating()
+                self?.slidingMapView.footerText = parkingLocation.fullAddress
                 
             } catch let error{
-                
                 print("Error: \(error)")
-                self?.locationSpinner.stopAnimating()
             }
         }
     }
@@ -99,7 +92,7 @@ class ParkingInformationViewController: UIViewController {
             return
         }
         
-        self.timeSpinner.startAnimating()
+        self .showLoadingView("loading message", animated: false)
 
         service.time(currentParking) { [weak self] (result) -> Void in
             
@@ -121,12 +114,12 @@ class ParkingInformationViewController: UIViewController {
                 self?.parkingDurationLabel.text = String("\(hours) \(kHrs) \(minutes) \(kMin)")
 
                 self?.parkingStatusLabel.text = parkingTime.endTime == self?.kParkingEndTimeEmpty ? self?.kParkingStatusParked: self?.kParkingStatusClosed
-                self?.timeSpinner.stopAnimating()
+                self?.hideLoadingView(animated: true)
 
             } catch let error{
                 
                 print("Error: \(error)")
-                self?.timeSpinner.stopAnimating()
+                self?.showErrorView("error", animated: false)
               
             }
         }

@@ -23,7 +23,7 @@
                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bMQ-0T-hzH">
-                    <rect key="frame" x="0.0" y="200" width="375" height="0.0"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 </mapView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8k-OL-vsZ">
                     <rect key="frame" x="0.0" y="160" width="375" height="40"/>
@@ -31,8 +31,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Av. 9 de julio 922" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcW-6b-dJP">
-                                <rect key="frame" x="127" y="11" width="120" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Av. 9 de julio 922" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcW-6b-dJP">
+                                <rect key="frame" x="8" y="11" width="359" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -40,8 +40,8 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="VcW-6b-dJP" firstAttribute="centerX" secondItem="dqh-bh-Ifs" secondAttribute="centerX" id="4iR-5X-zoE"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VcW-6b-dJP" secondAttribute="trailing" constant="8" id="9TR-UG-4Ys"/>
-                            <constraint firstItem="VcW-6b-dJP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dqh-bh-Ifs" secondAttribute="leading" constant="8" id="FIQ-QC-3aF"/>
+                            <constraint firstAttribute="trailing" secondItem="VcW-6b-dJP" secondAttribute="trailing" constant="8" id="9TR-UG-4Ys"/>
+                            <constraint firstItem="VcW-6b-dJP" firstAttribute="leading" secondItem="dqh-bh-Ifs" secondAttribute="leading" constant="8" id="FIQ-QC-3aF"/>
                             <constraint firstItem="VcW-6b-dJP" firstAttribute="centerY" secondItem="dqh-bh-Ifs" secondAttribute="centerY" id="MF6-MX-PUh"/>
                         </constraints>
                     </view>
@@ -53,7 +53,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="bMQ-0T-hzH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="200" id="7MZ-qt-4ln"/>
+                <constraint firstItem="bMQ-0T-hzH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7MZ-qt-4ln"/>
                 <constraint firstAttribute="bottom" secondItem="jdc-gq-zRw" secondAttribute="bottom" id="FiG-aU-Rb4"/>
                 <constraint firstItem="bMQ-0T-hzH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NNV-Q3-SAe"/>
                 <constraint firstItem="w8k-OL-vsZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TLY-w9-nwq"/>
