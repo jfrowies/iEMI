@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import AddressBook
 
 @IBDesignable class SlidingMapView: UIView {
     
@@ -27,27 +28,24 @@ import MapKit
 
     //Mark: - Public properties
     
-    var footerText: String? {
+    var address: String? {
         
         get {
             return footerLabel.text
         }
         
         set(text) {
-            if (text != nil) {
-                footerLabel.text = text
-                UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
-                    self.visualEffectViewBottomConstraint.constant = self.kFooterViewShowConstant
-                    self.layoutIfNeeded()
-                })
+            
+            footerLabel.text = text
+            
+            if let textAddress = text {
+                self.showFooterView(animated: true)
+                self.centerMapOnAddress(textAddress)
             } else {
-                UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
-                    self.visualEffectViewBottomConstraint.constant = self.kFooterViewHideConstant
-                    self.layoutIfNeeded()
-                })
+                self.hideFooterView(animated: true)
             }
         }
-    }    
+    }
     
     //Mark: - View lifecycle
     
@@ -97,6 +95,61 @@ import MapKit
         
         // 3. Setup view from .xib file
         xibSetup()
+    }
+    
+    
+    //Mark: - Public functions
+
+    func showFooterView(animated animated: Bool) {
+        
+        if animated {
+            UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                self.visualEffectViewBottomConstraint.constant = self.kFooterViewShowConstant
+                self.layoutIfNeeded()
+                })
+        } else {
+            self.visualEffectViewBottomConstraint.constant = self.kFooterViewShowConstant
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func hideFooterView(animated animated: Bool) {
+        
+        if animated {
+            UIView.animateWithDuration(kFooterHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                self.visualEffectViewBottomConstraint.constant = self.kFooterViewHideConstant
+                self.layoutIfNeeded()
+                })
+        } else {
+            self.visualEffectViewBottomConstraint.constant = self.kFooterViewHideConstant
+            self.layoutIfNeeded()
+        }
+    }
+    
+    private let kDefaultDegreeSpamForCoordinateRegion = 0.005
+
+    func centerMapOnAddress(addressString: String) {
+        
+        let cleanStringData: NSData? = addressString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
+        guard cleanStringData != nil else { return }
+        
+        let cleanAddress: String? = String(data: cleanStringData!, encoding: NSASCIIStringEncoding)
+        guard cleanAddress != nil else { return }
+        
+        CLGeocoder().geocodeAddressString(cleanAddress!) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            
+            guard error == nil else {
+                return
+            }
+            
+            if let placeMark = placemarks?.first {
+
+                if let center = placeMark.location?.coordinate {
+                    let region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(self.kDefaultDegreeSpamForCoordinateRegion, self.kDefaultDegreeSpamForCoordinateRegion))
+                    self.mapView.setRegion(region, animated: true)
+                }
+            }
+        }
     }
     
 }

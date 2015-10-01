@@ -50,7 +50,7 @@ class ParkingInformationViewController: NetworkActivityViewController {
     
     func reloadParking() {
                 
-        self.slidingMapView.footerText = nil
+        self.slidingMapView.address = nil
         self.dateLabel.text = ""
         self.startTimeLabel.text = ""
         self.endTimeLabel.text = ""
@@ -88,7 +88,7 @@ class ParkingInformationViewController: NetworkActivityViewController {
             
             do {
                 let parkingLocation = try result()
-                self?.slidingMapView.footerText = parkingLocation.fullAddress
+                self?.slidingMapView.address = parkingLocation.fullAddress
                 
             } catch let error as NSError{
                 self?.showError(error, errorMessage: self?.kErrorLoadingParkingDataText)
@@ -125,6 +125,7 @@ class ParkingInformationViewController: NetworkActivityViewController {
                 self?.parkingDurationLabel.text = String("\(hours) \(kHrs) \(minutes) \(kMin)")
 
                 self?.parkingStatusLabel.text = parkingTime.endTime == self?.kParkingEndTimeEmpty ? self?.kParkingStatusParked: self?.kParkingStatusClosed
+                
                 self?.hideLoadingView(animated: true)
 
             } catch let error as NSError{
