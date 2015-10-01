@@ -18,11 +18,9 @@ class ParkingInformationViewController: NetworkActivityViewController {
     @IBOutlet private weak var endTimeLabel: UILabel!
     @IBOutlet private weak var parkingDurationLabel: UILabel!
     @IBOutlet private weak var parkingStatusLabel: UILabel!
-    
     @IBOutlet private weak var slidingMapView: SlidingMapView!
     
     let service: ParkingInformationService = ParkingInformationEMIService()
-    
     var parking: Parking?
     
     //MARK: - UI Constants
@@ -48,6 +46,8 @@ class ParkingInformationViewController: NetworkActivityViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - Public methods
+    
     func reloadParking() {
                 
         self.slidingMapView.footerText = nil
@@ -60,16 +60,27 @@ class ParkingInformationViewController: NetworkActivityViewController {
         self.loadLocation()
         self.loadTime()
     }
-
-    // MARK: - IBActions
     
+    // MARK: - Private methods
+    
+    private let kErrorLoadingParkingDataText = NSLocalizedString("Error loading parking data. Try again please.", comment: "error loading parking data message")
+    
+    private let kLoadingParkingDataText = NSLocalizedString("Loading parking data", comment: "loading parking data message")
+    
+    private func showError(error: NSError?, errorMessage: String?) {
+        
+        if let currentError = error {
+            print("Error: \(currentError.localizedDescription)")
+        }
+        self.showErrorView(errorMessage, animated:false)
+    }
     
     // MARK: - service calls
     
     private func loadLocation() {
         
         guard let currentParking = self.parking else {
-            //TODO: Show error
+            self.showError(nil, errorMessage: kErrorLoadingParkingDataText)
             return
         }
         
@@ -79,8 +90,8 @@ class ParkingInformationViewController: NetworkActivityViewController {
                 let parkingLocation = try result()
                 self?.slidingMapView.footerText = parkingLocation.fullAddress
                 
-            } catch let error{
-                print("Error: \(error)")
+            } catch let error as NSError{
+                self?.showError(error, errorMessage: self?.kErrorLoadingParkingDataText)
             }
         }
     }
@@ -88,11 +99,11 @@ class ParkingInformationViewController: NetworkActivityViewController {
     private func loadTime() {
         
         guard let currentParking = self.parking else {
-            //TODO: show error
+            self.showError(nil, errorMessage: kErrorLoadingParkingDataText)
             return
         }
         
-        self .showLoadingView("loading message", animated: false)
+        self .showLoadingView(kLoadingParkingDataText, animated: false)
 
         service.time(currentParking) { [weak self] (result) -> Void in
             
@@ -116,11 +127,8 @@ class ParkingInformationViewController: NetworkActivityViewController {
                 self?.parkingStatusLabel.text = parkingTime.endTime == self?.kParkingEndTimeEmpty ? self?.kParkingStatusParked: self?.kParkingStatusClosed
                 self?.hideLoadingView(animated: true)
 
-            } catch let error{
-                
-                print("Error: \(error)")
-                self?.showErrorView("error", animated: false)
-              
+            } catch let error as NSError{
+                self?.showError(error, errorMessage: self?.kErrorLoadingParkingDataText)
             }
         }
     }
