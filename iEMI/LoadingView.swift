@@ -12,11 +12,8 @@ import UIKit
     
     private var view: UIView!
     
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var feedbackLabel: UILabel!
-    
-    //Mark: - Getters/Setters
-    
+    @IBOutlet  weak var loadingSpinner: UIActivityIndicatorView!
+    @IBOutlet  weak var feedbackLabel: UILabel!
     
     //Mark: - View lifecycle
     

@@ -11,14 +11,10 @@ import UIKit
 
 @IBDesignable class CreditBalanceView: UIView {
 
-    var view: UIView!
+    private var view: UIView!
     
-    @IBOutlet weak var backgroundView: UIView!
-    
+    @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet weak var creditBalanceLabel: UILabel!
-    
-    //Mark: - Getters/Setters
-    
     
     //Mark: - View lifecycle
     

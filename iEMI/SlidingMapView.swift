@@ -25,7 +25,6 @@ import MapKit
 
     private let kFooterHideShowAnimationDuration = 0.2
 
-
     //Mark: - Public properties
     
     var footerText: String? {
@@ -48,10 +47,7 @@ import MapKit
                 })
             }
         }
-    }
-
-    //Mark: - Getters/Setters
-    
+    }    
     
     //Mark: - View lifecycle
     

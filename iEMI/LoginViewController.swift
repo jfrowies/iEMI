@@ -10,11 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var licensePlateTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet private weak var licensePlateTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
+    @IBOutlet private weak var errorLabel: UILabel!
     
     let service: LoginService = LoginEMIService()
     let licensePlate = LicensePlate()
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Service calls
     
-    let defaultErrorDescription = NSLocalizedString("Unknown error.", comment: "default error message")
+    private let defaultErrorDescription = NSLocalizedString("Unknown error.", comment: "default error message")
         
     func getSessionCookie(patente patente: String, completion: (Void -> Void)) {
         

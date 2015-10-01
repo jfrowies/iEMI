@@ -18,8 +18,8 @@ class SettingsViewController: UITableViewController {
     
     // MARK: - View controller life cycle
     
-    let kAppVersionKey:String = "CFBundleShortVersionString"
-    let kAppBuildKey:String = "CFBundleVersion"
+    private let kAppVersionKey:String = "CFBundleShortVersionString"
+    private let kAppBuildKey:String = "CFBundleVersion"
     
     let licensePlateSotrage = LicensePlate()
     let settings = Settings()

@@ -14,13 +14,8 @@ class NetworkActivityViewController: UIViewController {
     private lazy var loadingView : LoadingView = {
         return LoadingView(frame: UIScreen.mainScreen().bounds)
     }()
-    
 
     //MARK: - Public properties
-    
-    
-    //MARK: - Getters / Setters
-
     
     // MARK: - View controller life cycle
     

@@ -10,7 +10,7 @@ import UIKit
 
 class EndParkingViewController: NetworkActivityViewController {
     
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
     
     let service: ParkingCloseService = ParkingCloseEMIService()
     

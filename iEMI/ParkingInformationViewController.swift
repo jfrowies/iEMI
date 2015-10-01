@@ -13,13 +13,13 @@ let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srtin
 
 class ParkingInformationViewController: NetworkActivityViewController {
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var endTimeLabel: UILabel!
-    @IBOutlet weak var parkingDurationLabel: UILabel!
-    @IBOutlet weak var parkingStatusLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var startTimeLabel: UILabel!
+    @IBOutlet private weak var endTimeLabel: UILabel!
+    @IBOutlet private weak var parkingDurationLabel: UILabel!
+    @IBOutlet private weak var parkingStatusLabel: UILabel!
     
-    @IBOutlet weak var slidingMapView: SlidingMapView!
+    @IBOutlet private weak var slidingMapView: SlidingMapView!
     
     let service: ParkingInformationService = ParkingInformationEMIService()
     

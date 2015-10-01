@@ -9,25 +9,24 @@
 import UIKit
 
 class BalanceViewController: NetworkActivityViewController, UITableViewDataSource, UITableViewDelegate {
-
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
-    var refreshControl: UIRefreshControl!
-    var tableElements = [Transaction]()
-    var parkingSelected: Parking?
-    var sectionItemCount = [Int]()
-    var sectionFirstItem = [Int]()
-    var balance = 0.0
-    var creditBalanceView: CreditBalanceView?
+    private var refreshControl: UIRefreshControl!
+    private var tableElements = [Transaction]()
+    private var parkingSelected: Parking?
+    private var sectionItemCount = [Int]()
+    private var sectionFirstItem = [Int]()
+    private var balance = 0.0
+    private var creditBalanceView: CreditBalanceView?
     
     let service: AccountService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
-
+    
     
     //MARK: - View controller lifecycle
     
-    let kTableHeaderHeight = 60.0
+    private let kTableHeaderHeight = 60.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,8 +183,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         return self.sectionItemCount[section]
     }
     
-    let kCreditCellReuseId = "creditoCell"
-    let kDebitCellReuseId = "consumoCell"
+    private let kCreditCellReuseId = "creditoCell"
+    private let kDebitCellReuseId = "consumoCell"
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -233,7 +232,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     // MARK: - Navigation
     
-    let kShowParkingInformationSegueId = "showParkingInformation"
+    private let kShowParkingInformationSegueId = "showParkingInformation"
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == kShowParkingInformationSegueId {
