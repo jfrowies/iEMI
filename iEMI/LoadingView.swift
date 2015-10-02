@@ -30,7 +30,7 @@ import UIKit
         addSubview(view)
     }
     
-    let kNibName: String = "LoadingView"
+    private let kNibName: String = "LoadingView"
     
     func loadViewFromNib() -> UIView {
         

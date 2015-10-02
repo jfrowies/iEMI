@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import AddressBook
 
-@IBDesignable class SlidingMapView: UIView {
+let kDefaultDegreeSpamForCoordinateRegion = 0.005
+
+@IBDesignable class SlidingMapView: UIView, MKMapViewDelegate {
     
     //Mark: - Private properties
     
@@ -21,9 +23,14 @@ import AddressBook
     @IBOutlet private weak var mapViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var visualEffectViewBottomConstraint: NSLayoutConstraint!
     
+    private var mapAnnotations: [MKAnnotation] = []
+
+    private let kMapViewHideConstant: CGFloat = 200
+    private let kMapViewShowConstant: CGFloat = 0
+    private let kMapViewHideShowAnimationDuration = 0.5
+
     private let kFooterViewHideConstant: CGFloat = -40
     private let kFooterViewShowConstant: CGFloat = 0
-
     private let kFooterHideShowAnimationDuration = 0.2
 
     //Mark: - Public properties
@@ -58,15 +65,16 @@ import AddressBook
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
-        visualEffectViewBottomConstraint.constant = kFooterViewHideConstant
-
-        self.layoutIfNeeded()
+        hideFooterView(animated: false)
+        hideMapView(animated: false)
+        
+        mapView.delegate = self
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
     }
     
-    let kNibName: String = "SlidingMapView"
+    private let kNibName: String = "SlidingMapView"
     
     func loadViewFromNib() -> UIView {
         
@@ -97,7 +105,6 @@ import AddressBook
         xibSetup()
     }
     
-    
     //Mark: - Public functions
 
     func showFooterView(animated animated: Bool) {
@@ -126,8 +133,32 @@ import AddressBook
         }
     }
     
-    private let kDefaultDegreeSpamForCoordinateRegion = 0.005
-
+    func showMapView(animated animated: Bool) {
+        
+        if animated {
+            UIView.animateWithDuration(kMapViewHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                self.mapViewTopConstraint.constant = self.kMapViewShowConstant
+                self.layoutIfNeeded()
+                })
+        } else {
+            self.mapViewTopConstraint.constant = self.kMapViewShowConstant
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func hideMapView(animated animated: Bool) {
+        
+        if animated {
+            UIView.animateWithDuration(kMapViewHideShowAnimationDuration, animations: { [unowned self] () -> Void in
+                self.mapViewTopConstraint.constant = self.kMapViewHideConstant
+                self.layoutIfNeeded()
+                })
+        } else {
+            self.mapViewTopConstraint.constant = self.kMapViewHideConstant
+            self.layoutIfNeeded()
+        }
+    }
+    
     func centerMapOnAddress(addressString: String) {
         
         let cleanStringData: NSData? = addressString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
@@ -136,7 +167,7 @@ import AddressBook
         let cleanAddress: String? = String(data: cleanStringData!, encoding: NSASCIIStringEncoding)
         guard cleanAddress != nil else { return }
         
-        CLGeocoder().geocodeAddressString(cleanAddress!) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+        CLGeocoder().geocodeAddressString(cleanAddress!) { [weak self] (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             
             guard error == nil else {
                 return
@@ -145,14 +176,40 @@ import AddressBook
             if let placeMark = placemarks?.first {
 
                 if let center = placeMark.location?.coordinate {
-                    let region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(self.kDefaultDegreeSpamForCoordinateRegion, self.kDefaultDegreeSpamForCoordinateRegion))
+                    let region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(kDefaultDegreeSpamForCoordinateRegion, kDefaultDegreeSpamForCoordinateRegion))
                     
                     let annotationPlaceMark = MKPlacemark.init(placemark: placeMark)
-                    self.mapView.addAnnotation(annotationPlaceMark)
-                    self.mapView.setRegion(region, animated: false)
+                    self?.mapAnnotations = [annotationPlaceMark]
+                    self?.mapView.setRegion(region, animated: false)
+                    self?.showMapView(animated: true)
                 }
             }
         }
     }
+    
+    //Mark: - MKMapViewDelegate implementation
+    
+    private let slidingMapViewPinAnnotationId = "slidingMapViewPinAnnotation"
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: slidingMapViewPinAnnotationId)
+        
+        if #available(iOS 9.0, *) {
+            pinAnnotationView.pinTintColor = UIColor.orangeGlobalTintColor()
+        }
+        
+        pinAnnotationView.animatesDrop = true
+        
+        return pinAnnotationView
+    }
+    
+    func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool) {
+        
+        if fullyRendered {
+            mapView.addAnnotations(self.mapAnnotations)
+        }
+    }
+
     
 }

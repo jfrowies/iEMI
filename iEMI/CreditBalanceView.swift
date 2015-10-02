@@ -31,7 +31,7 @@ import UIKit
         addSubview(view)
     }
     
-    let kNibName: String = "CreditBalanceView"
+    private let kNibName: String = "CreditBalanceView"
     
     func loadViewFromNib() -> UIView {
         

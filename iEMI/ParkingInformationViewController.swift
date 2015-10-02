@@ -33,13 +33,14 @@ class ParkingInformationViewController: NetworkActivityViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.reloadParking()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.reloadParking()
+//        self.reloadParking()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +104,7 @@ class ParkingInformationViewController: NetworkActivityViewController {
             return
         }
         
-        self .showLoadingView(kLoadingParkingDataText, animated: false)
+        self.showLoadingView(kLoadingParkingDataText, animated: false)
 
         service.time(currentParking) { [weak self] (result) -> Void in
             
