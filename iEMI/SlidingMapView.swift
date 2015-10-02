@@ -146,7 +146,10 @@ import AddressBook
 
                 if let center = placeMark.location?.coordinate {
                     let region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(self.kDefaultDegreeSpamForCoordinateRegion, self.kDefaultDegreeSpamForCoordinateRegion))
-                    self.mapView.setRegion(region, animated: true)
+                    
+                    let annotationPlaceMark = MKPlacemark.init(placemark: placeMark)
+                    self.mapView.addAnnotation(annotationPlaceMark)
+                    self.mapView.setRegion(region, animated: false)
                 }
             }
         }
