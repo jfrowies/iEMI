@@ -11,6 +11,7 @@ import UIKit
 class BalanceViewController: NetworkActivityViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var creditBalanceView: CreditBalanceView!
 
     private var refreshControl: UIRefreshControl!
     private var tableElements = [Transaction]()
@@ -18,15 +19,12 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     private var sectionItemCount = [Int]()
     private var sectionFirstItem = [Int]()
     private var balance = 0.0
-    private var creditBalanceView: CreditBalanceView?
     
     let service: AccountService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
     
     
     //MARK: - View controller lifecycle
-    
-    private let kTableHeaderHeight = 60.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +38,6 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
         self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
         self.tableView.addSubview(refreshControl)
-        
-        //TableHeaderView initialization
-        let screenWidth:Double = Double(UIScreen.mainScreen().bounds.size.width);
-       
-        let headerViewFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: kTableHeaderHeight)
-        
-        self.creditBalanceView = CreditBalanceView(frame: headerViewFrame)
-        self.tableView.tableHeaderView = self.creditBalanceView
-
     }
     
     override func didReceiveMemoryWarning() {

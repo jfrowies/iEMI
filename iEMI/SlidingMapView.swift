@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import AddressBook
 
 let kDefaultDegreeSpamForCoordinateRegion = 0.005
 
