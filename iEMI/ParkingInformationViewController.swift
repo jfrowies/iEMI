@@ -92,36 +92,32 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
         
         var title: String? = ""
         var content: String? = ""
-        
+
         if currentParkingTime.parkingStatus == ParkingStatus.Closed {
-            
-            var startTime = currentParkingTime.startTime! as NSString
-            startTime = startTime.substringFromIndex(11) + " " + kHrs
-        
-            var endTime = currentParkingTime.endTime! as NSString
-            endTime = endTime.substringFromIndex(11) + " " + kHrs
-            
-            let duration = currentParkingTime.parkingTime!
-            let hours = Int(duration)!/60 as Int
-            let minutes = Int(duration)! % 60
-            let parkingDuration = String("\(hours) \(kHrs) \(minutes) \(kMin)")
             
             switch indexPath.row {
             case 0:
                 title = kParkingDateTitle
-                content = self.parkingTime?.date
+                content = NSDate(dateString: currentParkingTime.date!).formattedDateString()
                 break
             case 1:
                 title = kParkingDurationTitle
-                content = parkingDuration
+                let duration = currentParkingTime.parkingDuration!
+                let hours = Int(duration)!/60 as Int
+                let minutes = Int(duration)! % 60
+                if hours != 0 {
+                    content = String("\(hours) \(kHrs) \(minutes) \(kMin)")
+                } else {
+                    content = String("\(minutes) \(kMin)")
+                }
                 break
             case 2:
                 title = kParkingStartTimeTitle
-                content = startTime as String
+                content = currentParkingTime.startTime + " " + kHrs
                 break
             case 3:
                 title = kParkingEndTimeTitle
-                content = endTime as String
+                content = currentParkingTime.endTime + " " + kHrs
                 break
             case 4:
                 title = kParkingStatusTitle
@@ -130,18 +126,15 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
             default: break
             }
         } else {
-            
-            var startTime = currentParkingTime.startTime! as NSString
-            startTime = startTime.substringFromIndex(11) + " " + kHrs
-            
+        
             switch indexPath.row {
             case 0:
                 title = kParkingDateTitle
-                content = self.parkingTime?.date
+                content = NSDate(dateString: currentParkingTime.date!).formattedDateString()
                 break
             case 1:
                 title = kParkingStartTimeTitle
-                content = startTime as String
+                content = currentParkingTime.startTime + " " + kHrs
                 break
             case 2:
                 title = kParkingStatusTitle
@@ -156,9 +149,7 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
         
         return cell
     }
-    
-    // MARK: - UITableViewDelegate implementation
-    
+        
     // MARK: - Service calls
     
     private func loadLocation() {

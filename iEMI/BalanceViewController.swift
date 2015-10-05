@@ -159,12 +159,10 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         
         let timestamp: String = mov.timestamp
         let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
-        
+    
         let nsDate = NSDate(dateString: subDate)
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        formatter.timeStyle = NSDateFormatterStyle.NoStyle
-        return formatter.stringFromDate(nsDate)
+        
+        return nsDate.formattedDateString()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -8,6 +8,10 @@
 
 import Foundation
 
+
+let kTodayString: String = NSLocalizedString("Today", comment: "today srting")
+let kYesterdayString: String = NSLocalizedString("Yesterday", comment: "yesterday srting")
+
 extension NSDate
 {
     convenience
@@ -26,5 +30,33 @@ extension NSDate
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         let d = dateStringFormatter.dateFromString(dateString)
         self.init(timeInterval:0, sinceDate:d!)
+    }
+
+    
+    func formattedDateString() -> String {
+        
+        let calendarUnits: NSCalendarUnit = [.Era, .Year, .Month, .Day]
+        
+        let calendar = NSCalendar.currentCalendar()
+        let todayComponents = calendar.components(calendarUnits, fromDate: NSDate())
+        let today = calendar.dateFromComponents(todayComponents)
+        
+        let yestardayFullDate = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
+        let yesterdayComponents = calendar.components(calendarUnits, fromDate: yestardayFullDate!)
+        let yesterday = calendar.dateFromComponents(yesterdayComponents)
+        
+        let dateComponents =  calendar.components(calendarUnits, fromDate: self)
+        let date = calendar.dateFromComponents(dateComponents)
+        
+        if (date!.isEqualToDate(today!)) {
+            return kTodayString
+        } else if (date!.isEqualToDate(yesterday!)) {
+            return kYesterdayString
+        }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.FullStyle
+        formatter.timeStyle = NSDateFormatterStyle.NoStyle
+        return formatter.stringFromDate(self)
     }
 }

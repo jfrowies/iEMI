@@ -424,7 +424,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ohc-dP-4vp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -483,7 +483,7 @@
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ohc-dP-4vp" firstAttribute="leading" secondItem="Tm2-uE-giD" secondAttribute="leading" id="HHZ-Me-eFk"/>
-                            <constraint firstItem="7cc-AY-yzX" firstAttribute="top" secondItem="ohc-dP-4vp" secondAttribute="bottom" id="PnH-yq-rWY"/>
+                            <constraint firstAttribute="bottom" secondItem="ohc-dP-4vp" secondAttribute="bottom" id="Nzh-bG-RiK"/>
                             <constraint firstItem="ohc-dP-4vp" firstAttribute="top" secondItem="Afn-bb-Ekx" secondAttribute="bottom" id="hPh-95-rSW"/>
                             <constraint firstAttribute="trailing" secondItem="ohc-dP-4vp" secondAttribute="trailing" id="qPq-b2-Npz"/>
                         </constraints>
