@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var licensePlateTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
@@ -77,10 +78,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow() {
         
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        self.scrollView.setContentOffset(CGPointMake(0, 50), animated: true)
     }
     
     func keyboardWillHide() {
         
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }
     
     //MARK: - UITextFieldDelegate

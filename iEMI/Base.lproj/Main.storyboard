@@ -129,6 +129,7 @@
                         <outlet property="loadingSpinner" destination="v2k-iz-qAS" id="L46-Be-8Wx"/>
                         <outlet property="loginButton" destination="44L-LE-0rz" id="ZjE-cb-6N7"/>
                         <outlet property="passwordTextField" destination="Ned-QU-b0m" id="cyh-JM-YIY"/>
+                        <outlet property="scrollView" destination="rqa-sx-2sX" id="txF-eV-07B"/>
                         <segue destination="Mnd-eb-3xM" kind="presentation" identifier="showTabBarViewController" id="Ytz-v3-aKa"/>
                     </connections>
                 </viewController>
