@@ -42,8 +42,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.passwordTextField.becomeFirstResponder()
             }
-
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func showLoadingUI(loading:Bool) {
@@ -64,6 +73,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: - Keyboard show/hide notifications
+    
+    func keyboardWillShow() {
+        
+    }
+    
+    func keyboardWillHide() {
+        
+    }
+    
     //MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -71,12 +90,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         
         if textField == self.licensePlateTextField {
             self.passwordTextField.becomeFirstResponder()
         }
         if textField == self.passwordTextField {
+            textField.resignFirstResponder()
             self.loginTouched()
         }
         
