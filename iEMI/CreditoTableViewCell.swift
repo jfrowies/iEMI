@@ -15,9 +15,11 @@ class CreditoTableViewCell: UITableViewCell {
     @IBOutlet weak var saldoLabel: UILabel!
     
     var credito: Credit {
+        
         get{
             return self.credito
         }
+        
         set(newCredito){
             self.creditoLabel.text = newCredito.amount
             self.horaCreditoLabel.text = newCredito.time

@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
 
         } else {
-            self.licensePlateTextField.becomeFirstResponder()
+//            self.licensePlateTextField.becomeFirstResponder()
         }
     }
     

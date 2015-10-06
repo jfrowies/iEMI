@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @IBDesignable class CreditBalanceView: UIView {
 
     private var view: UIView!

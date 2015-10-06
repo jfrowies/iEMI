@@ -26,7 +26,7 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
 
     private let kMapViewHideConstant: CGFloat = 200
     private let kMapViewShowConstant: CGFloat = 0
-    private let kMapViewHideShowAnimationDuration = 0.5
+    private let kMapViewHideShowAnimationDuration = 0.3
 
     private let kFooterViewHideConstant: CGFloat = -40
     private let kFooterViewShowConstant: CGFloat = 0

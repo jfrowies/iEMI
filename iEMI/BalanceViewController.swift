@@ -25,6 +25,9 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     private let kCreditBalanceHeaderViewNibName = "CreditBalanceHeaderView"
     private let kCreditBalanceHeaderViewReuseId = "CreditBalanceHeaderViewReuseId"
+    
+    private let kBalanceCellDefaultHeight: CGFloat = 62.0
+    private let kBalanceHeaderDefaultHeight: CGFloat = 30.0
 
     //MARK: - View controller lifecycle
     
@@ -200,7 +203,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50.0
+        return kBalanceCellDefaultHeight
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -217,7 +220,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
+        return kBalanceHeaderDefaultHeight
     }
     
     // MARK: - Navigation
