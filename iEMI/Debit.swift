@@ -8,7 +8,11 @@
 
 import UIKit
 
+
 class Debit: NSObject, Transaction {
+    
+    private let kTarj55DateString = "2015-03-02"
+    private let kNoEndTimeString = "00:00"
 
     var number: String?
     var year: String?
@@ -26,20 +30,24 @@ class Debit: NSObject, Transaction {
     var amount: String? {
         get {
             
+            guard let end = self.timeEnd else {
+                return "0.00"
+            }
+            
             //temporary workaround
             let hourFrom = (self.timeStart! as NSString).substringToIndex(2)
             let minutesFrom = (self.timeStart! as NSString).substringWithRange(NSMakeRange(3, 2))
             let totalMinutesFrom = (Int(hourFrom)! * 60) + Int(minutesFrom)!
             
-            let hourTo = (self.timeEnd! as NSString).substringToIndex(2)
-            let minutesTo = (self.timeEnd! as NSString).substringWithRange(NSMakeRange(3, 2))
+            let hourTo = (end as NSString).substringToIndex(2)
+            let minutesTo = (end as NSString).substringWithRange(NSMakeRange(3, 2))
             let totalMinutesTo = (Int(hourTo)! * 60) + Int(minutesTo)!
             
             let minutes = totalMinutesTo - totalMinutesFrom
             
             let date = NSDate(dateJsonString: self.timestamp);
             
-            let tarj55 = NSDate(dateString: "2015-03-02")
+            let tarj55 = NSDate(dateString: kTarj55DateString)
             
             if (tarj55.compare(date) == NSComparisonResult.OrderedAscending)
             {
@@ -47,7 +55,7 @@ class Debit: NSObject, Transaction {
                     return "5.50"
                 }else if minutes <= 90 {
                     return "8.25"
-                }else if  minutes <= 120 {
+                }else {
                     return "11.00"
                 }
             }
@@ -57,11 +65,10 @@ class Debit: NSObject, Transaction {
                     return "4.50"
                 }else if minutes <= 90 {
                     return "6.75"
-                }else if  minutes <= 120 {
+                }else {
                     return "9.00"
                 }
             }
-           return "0.00"
         }
     }
     
@@ -77,7 +84,14 @@ class Debit: NSObject, Transaction {
         timeStart = timestampStartString.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
         
         let timestampEndString : NSString = json["TarHoraFin"]!.description
-        timeEnd = timestampEndString.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
+        
+        let timeEndString =  timestampEndString.substringWithRange(NSMakeRange(11, 5))
+            
+        if timeEndString != kNoEndTimeString {
+            timeEnd = timeEndString + " " + kHrs
+        } else {
+            timeEnd = nil
+        }
         
         let addressString : NSString = json["TarAddress"]!.description
         address = addressString.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")

@@ -15,21 +15,40 @@ class ConsumoTableViewCell: UITableViewCell {
     @IBOutlet weak var horaDesdeLabel: UILabel!
     @IBOutlet weak var horaHastaLabel: UILabel!
     @IBOutlet weak var saldoLabel: UILabel!
+    @IBOutlet weak var minusSignLabel: UILabel!
+    @IBOutlet weak var moneySignLabel: UILabel!
     
     var consumo: Debit {
+        
         get{
             return self.consumo
         }
+        
         set(cons){
-            self.consumoLabel.text = cons.amount
             self.consumoDireccionLabel.text = cons.address
             self.horaDesdeLabel.text = cons.timeStart
-            self.horaHastaLabel.text = cons.timeEnd
-            self.saldoLabel.text = cons.balance
+            
+            if cons.timeEnd == nil { //still parked
+                self.saldoLabel.hidden = true
+                self.consumoLabel.hidden = true
+                self.minusSignLabel.hidden = true
+                self.moneySignLabel.hidden = true
+                
+                self.horaHastaLabel.text = kNowString
+                
+            } else {
+                self.saldoLabel.hidden = false
+                self.consumoLabel.hidden = false
+                self.minusSignLabel.hidden = false
+                self.moneySignLabel.hidden = false
+
+                self.saldoLabel.text = cons.balance
+                self.consumoLabel.text = cons.amount
+                self.horaHastaLabel.text = cons.timeEnd
+            }
         }
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

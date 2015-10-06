@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -314,6 +314,8 @@
                                             <outlet property="consumoLabel" destination="nSk-hJ-OtX" id="SgD-og-YkZ"/>
                                             <outlet property="horaDesdeLabel" destination="DPM-FL-UWh" id="nVi-7f-M9X"/>
                                             <outlet property="horaHastaLabel" destination="eCl-go-Opi" id="Uyo-NE-hwN"/>
+                                            <outlet property="minusSignLabel" destination="gzg-cc-TMh" id="tAE-IY-Of6"/>
+                                            <outlet property="moneySignLabel" destination="aqx-12-7cs" id="tn6-EC-gAy"/>
                                             <outlet property="saldoLabel" destination="1Ms-C1-EEi" id="3Ws-Jp-KJg"/>
                                             <segue destination="3dn-jm-yZS" kind="show" identifier="showParkingInformation" id="Dxy-4a-0gi"/>
                                         </connections>

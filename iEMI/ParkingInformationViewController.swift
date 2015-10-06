@@ -8,8 +8,9 @@
 
 import UIKit
 
-let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation srting")
-let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation srting")
+let kHrs: String = NSLocalizedString("hrs", comment: "Hours abbreviation string")
+let kMin: String = NSLocalizedString("min", comment: "Minutes abbreviation string")
+let kNowString: String = NSLocalizedString("now", comment: "Now string")
 
 class ParkingInformationViewController: NetworkActivityViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -92,7 +93,7 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
         
         var title: String? = ""
         var content: String? = ""
-
+        
         if currentParkingTime.parkingStatus == ParkingStatus.Closed {
             
             switch indexPath.row {

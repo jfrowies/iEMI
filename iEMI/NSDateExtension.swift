@@ -9,8 +9,8 @@
 import Foundation
 
 
-let kTodayString: String = NSLocalizedString("Today", comment: "today srting")
-let kYesterdayString: String = NSLocalizedString("Yesterday", comment: "yesterday srting")
+let kTodayString: String = NSLocalizedString("today", comment: "today srting")
+let kYesterdayString: String = NSLocalizedString("yesterday", comment: "yesterday srting")
 
 extension NSDate
 {

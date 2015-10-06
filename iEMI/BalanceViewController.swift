@@ -26,7 +26,6 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     private let kCreditBalanceHeaderViewNibName = "CreditBalanceHeaderView"
     private let kCreditBalanceHeaderViewReuseId = "CreditBalanceHeaderViewReuseId"
 
-    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
@@ -38,8 +37,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
-        self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.refreshControl.backgroundColor = UIColor.grayCreditBalanceViewBackgroundColor()
         self.tableView.addSubview(refreshControl)
         
         let nib = UINib(nibName: kCreditBalanceHeaderViewNibName, bundle: nil)
@@ -159,18 +158,6 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         return sections
     }
     
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//        let mov = self.tableElements[self.sectionFirstItem[section]];
-//        
-//        let timestamp: String = mov.timestamp
-//        let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
-//    
-//        let nsDate = NSDate(dateString: subDate)
-//        
-//        return nsDate.formattedDateString()
-//    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.sectionItemCount[section]
@@ -201,13 +188,10 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         
         if let debit = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
-
             self.parkingSelected = Parking(number: debit.number!, year: debit.year!, serie: debit.serie!)
-            
         }else{
             return nil
         }
-
         return indexPath
     }
     
