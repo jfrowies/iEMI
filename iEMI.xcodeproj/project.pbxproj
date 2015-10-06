@@ -27,7 +27,6 @@
 		B58F277A1B90EF9500E05702 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */; };
 		B58F277C1B90F2C000E05702 /* EMIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */; };
 		B58F27861B97721A00E05702 /* CreditBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F27851B97721A00E05702 /* CreditBalanceView.swift */; };
-		B58F27881B9772D300E05702 /* CreditBalanceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58F27871B9772D300E05702 /* CreditBalanceView.xib */; };
 		B5974C531B883B3B001BAA97 /* ParkingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C521B883B3B001BAA97 /* ParkingTime.swift */; };
 		B5974C551B883BE3001BAA97 /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C541B883BE3001BAA97 /* ParkingLocation.swift */; };
 		B5974C571B88421F001BAA97 /* ParkingInformationEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */; };
@@ -39,6 +38,7 @@
 		B5C367591A92607500851368 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C367581A92607500851368 /* Transaction.swift */; };
 		B5C3675B1A92ACF100851368 /* EndParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */; };
 		B5C3675D1A938B1F00851368 /* ParkingInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675C1A938B1F00851368 /* ParkingInformationViewController.swift */; };
+		B5C70D3B1BC4955C0054CC99 /* CreditBalanceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C70D3D1BC4955C0054CC99 /* CreditBalanceView.xib */; };
 		B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CEBD731B6AA34700794CAC /* Images.xcassets */; };
 		B5CF48671B8257B200B13EC2 /* EMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF48661B8257B200B13EC2 /* EMIService.swift */; };
 		B5CF486B1B829D2000B13EC2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF486A1B829D2000B13EC2 /* Service.swift */; };
@@ -83,7 +83,6 @@
 		B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIColorsExtension.swift; sourceTree = "<group>"; };
 		B58F27851B97721A00E05702 /* CreditBalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceView.swift; sourceTree = "<group>"; };
-		B58F27871B9772D300E05702 /* CreditBalanceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditBalanceView.xib; sourceTree = "<group>"; };
 		B5974C521B883B3B001BAA97 /* ParkingTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTime.swift; sourceTree = "<group>"; };
 		B5974C541B883BE3001BAA97 /* ParkingLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
 		B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationEMIService.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		B5C367581A92607500851368 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Transaction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndParkingViewController.swift; sourceTree = "<group>"; };
 		B5C3675C1A938B1F00851368 /* ParkingInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationViewController.swift; sourceTree = "<group>"; };
+		B5C70D3C1BC4955C0054CC99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditBalanceView.xib; sourceTree = "<group>"; };
 		B5CEBD731B6AA34700794CAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5CF48661B8257B200B13EC2 /* EMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIService.swift; sourceTree = "<group>"; };
 		B5CF486A1B829D2000B13EC2 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			children = (
 				EF163D361A7AABBB00BE4461 /* Main.storyboard */,
 				EF163D3B1A7AABBB00BE4461 /* LaunchScreen.xib */,
-				B58F27871B9772D300E05702 /* CreditBalanceView.xib */,
+				B5C70D3D1BC4955C0054CC99 /* CreditBalanceView.xib */,
 				B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */,
 				B5D95C281BBC6F960062E7FA /* SlidingMapView.xib */,
 				B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */,
@@ -380,7 +380,7 @@
 				B5D95C291BBC6F960062E7FA /* SlidingMapView.xib in Resources */,
 				EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */,
 				B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */,
-				B58F27881B9772D300E05702 /* CreditBalanceView.xib in Resources */,
+				B5C70D3B1BC4955C0054CC99 /* CreditBalanceView.xib in Resources */,
 				EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */,
 				B55C0B621BA73DF100C4F0F0 /* LoadingView.xib in Resources */,
 				B58B47C81BC35C8B00CE6221 /* CreditBalanceHeaderView.xib in Resources */,
@@ -458,6 +458,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B5C70D3D1BC4955C0054CC99 /* CreditBalanceView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5C70D3C1BC4955C0054CC99 /* Base */,
+			);
+			name = CreditBalanceView.xib;
+			sourceTree = "<group>";
+		};
 		EF163D361A7AABBB00BE4461 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
