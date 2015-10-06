@@ -11,8 +11,8 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.tabBar.tintColor = UIColor.orangeGlobalTintColor()
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
 }

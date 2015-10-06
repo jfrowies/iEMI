@@ -40,8 +40,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl.tintColor = UIColor.whiteColor()
-        self.refreshControl.backgroundColor = UIColor.grayCreditBalanceViewBackgroundColor()
+        self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
+        self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
         self.tableView.addSubview(refreshControl)
         
         let nib = UINib(nibName: kCreditBalanceHeaderViewNibName, bundle: nil)

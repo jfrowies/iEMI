@@ -32,6 +32,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
+        
         self.showLoadingUI(false)
         self.licensePlateTextField.text = self.licensePlate.currentLicensePlate
         self.passwordTextField.text = ""

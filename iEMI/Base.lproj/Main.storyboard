@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TsN-dz-rbM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -75,13 +74,16 @@
                                                     <action selector="loginTouched" destination="TsN-dz-rbM" eventType="touchUpInside" id="QlK-2V-6bo"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-Km-jMZ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-Km-jMZ">
                                                 <rect key="frame" x="255" y="125" width="90" height="90"/>
+                                                <animations/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="MRD-Km-jMZ" secondAttribute="height" id="Lot-pc-iVw"/>
+                                                    <constraint firstAttribute="width" constant="90" id="mW3-uS-5kA"/>
+                                                    <constraint firstAttribute="height" constant="90" id="wjE-MT-sx7"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="44L-LE-0rz" firstAttribute="width" secondItem="eWc-rK-7CB" secondAttribute="width" id="5my-x6-4bX"/>
@@ -103,6 +105,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="QV2-4Y-dT5" secondAttribute="trailing" id="2Pz-L3-Trl"/>
                                     <constraint firstItem="QV2-4Y-dT5" firstAttribute="top" secondItem="rqa-sx-2sX" secondAttribute="top" id="DXv-BZ-0An"/>
@@ -843,7 +846,7 @@
     </scenes>
     <resources>
         <image name="baja" width="22" height="22"/>
-        <image name="logo" width="90" height="90"/>
+        <image name="logo" width="344" height="344"/>
         <image name="saldo" width="22" height="22"/>
         <image name="settings" width="22" height="22"/>
     </resources>
