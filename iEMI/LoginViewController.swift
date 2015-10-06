@@ -43,12 +43,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.passwordTextField.becomeFirstResponder()
             }
 
-        } else {
-//            self.licensePlateTextField.becomeFirstResponder()
         }
     }
     
     func showLoadingUI(loading:Bool) {
+        
         if loading {
             self.loginButton.enabled = false
             self.licensePlateTextField.enabled = false
@@ -67,17 +66,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        if textField == self.licensePlateTextField {
-            self.passwordTextField.becomeFirstResponder()
-        }
-        if textField == self.passwordTextField {
-                self.loginTouched()
-        }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.errorLabel.hidden = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        if textField == self.licensePlateTextField {
+            self.passwordTextField.becomeFirstResponder()
+        }
+        if textField == self.passwordTextField {
+            self.loginTouched()
+        }
+        
         return true;
     }
     
