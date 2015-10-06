@@ -22,6 +22,8 @@
 		B540C4B41A91C98800863944 /* Debit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B31A91C98800863944 /* Debit.swift */; };
 		B55C0B621BA73DF100C4F0F0 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */; settings = {ASSET_TAGS = (); }; };
 		B55C0B641BA73FA300C4F0F0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */; settings = {ASSET_TAGS = (); }; };
+		B58B47C61BC3528900CE6221 /* CreditBalanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		B58B47C81BC35C8B00CE6221 /* CreditBalanceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */; settings = {ASSET_TAGS = (); }; };
 		B58F277A1B90EF9500E05702 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */; };
 		B58F277C1B90F2C000E05702 /* EMIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */; };
 		B58F27861B97721A00E05702 /* CreditBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F27851B97721A00E05702 /* CreditBalanceView.swift */; };
@@ -76,6 +78,8 @@
 		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Debit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceHeaderView.swift; sourceTree = "<group>"; };
+		B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditBalanceHeaderView.xib; sourceTree = "<group>"; };
 		B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIColorsExtension.swift; sourceTree = "<group>"; };
 		B58F27851B97721A00E05702 /* CreditBalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceView.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				B58F27871B9772D300E05702 /* CreditBalanceView.xib */,
 				B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */,
 				B5D95C281BBC6F960062E7FA /* SlidingMapView.xib */,
+				B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */,
 			);
 			name = "Storyboards and XIBs";
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				B58F27851B97721A00E05702 /* CreditBalanceView.swift */,
 				B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */,
 				B5D95C2A1BBC6FB50062E7FA /* SlidingMapView.swift */,
+				B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				B58F27881B9772D300E05702 /* CreditBalanceView.xib in Resources */,
 				EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */,
 				B55C0B621BA73DF100C4F0F0 /* LoadingView.xib in Resources */,
+				B58B47C81BC35C8B00CE6221 /* CreditBalanceHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +411,7 @@
 				B536E5181B83C72400A1D286 /* LicensePlate.swift in Sources */,
 				B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */,
 				B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */,
+				B58B47C61BC3528900CE6221 /* CreditBalanceHeaderView.swift in Sources */,
 				B540C4AD1A91C6D000863944 /* ConsumoTableViewCell.swift in Sources */,
 				B5C367591A92607500851368 /* Transaction.swift in Sources */,
 				B5974C5B1B8922A6001BAA97 /* ParkingCloseEMIService.swift in Sources */,

@@ -23,6 +23,9 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     let service: AccountService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
     
+    private let kCreditBalanceHeaderViewNibName = "CreditBalanceHeaderView"
+    private let kCreditBalanceHeaderViewReuseId = "CreditBalanceHeaderViewReuseId"
+
     
     //MARK: - View controller lifecycle
     
@@ -38,6 +41,9 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
         self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
         self.tableView.addSubview(refreshControl)
+        
+        let nib = UINib(nibName: kCreditBalanceHeaderViewNibName, bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: kCreditBalanceHeaderViewReuseId)
     }
     
     override func didReceiveMemoryWarning() {
@@ -153,17 +159,17 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         return sections
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        let mov = self.tableElements[self.sectionFirstItem[section]];
-        
-        let timestamp: String = mov.timestamp
-        let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
-    
-        let nsDate = NSDate(dateString: subDate)
-        
-        return nsDate.formattedDateString()
-    }
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//        let mov = self.tableElements[self.sectionFirstItem[section]];
+//        
+//        let timestamp: String = mov.timestamp
+//        let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
+//    
+//        let nsDate = NSDate(dateString: subDate)
+//        
+//        return nsDate.formattedDateString()
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -213,9 +219,22 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         return 50.0
     }
     
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//    }
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(kCreditBalanceHeaderViewReuseId) as? CreditBalanceHeaderView
+        
+        let mov = self.tableElements[self.sectionFirstItem[section]];
+        let timestamp: String = mov.timestamp
+        let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
+        let nsDate = NSDate(dateString: subDate)
+        
+        headerView?.sectionTitleLabel.text = nsDate.formattedDateString()
+        
+        return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
     
     // MARK: - Navigation
     
