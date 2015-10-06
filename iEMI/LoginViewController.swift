@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var licensePlateTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
@@ -42,13 +43,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.passwordTextField.becomeFirstResponder()
             }
-
-        } else {
-//            self.licensePlateTextField.becomeFirstResponder()
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func showLoadingUI(loading:Bool) {
+        
         if loading {
             self.loginButton.enabled = false
             self.licensePlateTextField.enabled = false
@@ -65,19 +74,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: - Keyboard show/hide notifications
+    
+    func keyboardWillShow() {
+        
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        self.scrollView.setContentOffset(CGPointMake(0, 50), animated: true)
+    }
+    
+    func keyboardWillHide() {
+        
+        self.scrollView.contentInset = UIEdgeInsetsZero
+        self.scrollView.setContentOffset(CGPointZero, animated: true)
+    }
+    
     //MARK: - UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.errorLabel.hidden = true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         if textField == self.licensePlateTextField {
             self.passwordTextField.becomeFirstResponder()
         }
         if textField == self.passwordTextField {
-                self.loginTouched()
+            textField.resignFirstResponder()
+            self.loginTouched()
         }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        
         return true;
     }
     
