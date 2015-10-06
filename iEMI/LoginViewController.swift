@@ -84,8 +84,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func keyboardWillHide() {
         
-        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        self.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        self.scrollView.contentInset = UIEdgeInsetsZero
+        self.scrollView.setContentOffset(CGPointZero, animated: true)
     }
     
     //MARK: - UITextFieldDelegate
