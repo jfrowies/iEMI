@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QV2-4Y-dT5" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-QU-b0m" userLabel="Password Text Field">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ned-QU-b0m" userLabel="Password Text Field">
                                                 <rect key="frame" x="210" y="285" width="180" height="30"/>
                                                 <animations/>
                                                 <constraints>
@@ -42,7 +42,7 @@
                                                 <animations/>
                                                 <color key="color" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </activityIndicatorView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License plate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-rK-7CB" userLabel="License Plate Text Field">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Patente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-rK-7CB" userLabel="License Plate Text Field">
                                                 <rect key="frame" x="210" y="239" width="180" height="30"/>
                                                 <animations/>
                                                 <constraints>
@@ -51,7 +51,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="TsN-dz-rbM" id="emB-eX-eaR"/>
                                                 </connections>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="210" y="331" width="180" height="30"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Log in">
+                                                <state key="normal" title="Iniciar sesión">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="1116" y="1151"/>
         </scene>
-        <!--Balance-->
+        <!--Saldo-->
         <scene sceneID="Qky-sy-1dv">
             <objects>
                 <viewController id="0cr-uO-OTH" customClass="BalanceViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,8 +184,8 @@
                                                     <color key="textColor" red="0.0" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-jk-iWt">
-                                                    <rect key="frame" x="24" y="12" width="60" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:00 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-jk-iWt">
+                                                    <rect key="frame" x="24" y="12" width="55" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,22 +250,22 @@
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:05 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-FL-UWh">
-                                                    <rect key="frame" x="24" y="12" width="61" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:05 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-FL-UWh">
+                                                    <rect key="frame" x="24" y="12" width="56" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="until:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehv-uO-G6B">
-                                                    <rect key="frame" x="89" y="13" width="30" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hasta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehv-uO-G6B">
+                                                    <rect key="frame" x="84" y="13" width="37" height="16"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-go-Opi">
-                                                    <rect key="frame" x="123" y="12" width="61" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30 hs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-go-Opi">
+                                                    <rect key="frame" x="125" y="12" width="56" height="17"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,8 +351,8 @@
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="top" secondItem="ghS-6J-idp" secondAttribute="topMargin" id="vUz-go-cFf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Credit balance" image="saldo" id="lwr-wQ-oHY"/>
-                    <navigationItem key="navigationItem" title="Balance" id="Ihq-9m-DOg">
+                    <tabBarItem key="tabBarItem" tag="1" title="Saldo" image="saldo" id="lwr-wQ-oHY"/>
+                    <navigationItem key="navigationItem" title="Saldo" id="Ihq-9m-DOg">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="JPs-yH-8kM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -390,10 +390,10 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brE-HP-ZuM" userLabel="close button">
-                                <rect key="frame" x="255" y="438" width="91" height="33"/>
+                                <rect key="frame" x="203" y="438" width="194" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="End parking">
+                                <state key="normal" title="Finalizar estacionamiento">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -413,8 +413,8 @@
                             <constraint firstAttribute="trailing" secondItem="Xea-77-T6y" secondAttribute="trailing" id="ysd-dC-Rgd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="End parking" image="baja" id="aNv-CJ-VNb"/>
-                    <navigationItem key="navigationItem" title="End parking" id="ph7-2J-T5J">
+                    <tabBarItem key="tabBarItem" tag="3" title="Finalizar estacionamiento" image="baja" id="aNv-CJ-VNb"/>
+                    <navigationItem key="navigationItem" title="Finalizar estacionamiento" id="ph7-2J-T5J">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PvD-Kn-vN8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -467,7 +467,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MEl-vY-uVM">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="titulo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MEl-vY-uVM">
                                                     <rect key="frame" x="15" y="15" width="91" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -476,8 +476,8 @@
                                                     <color key="textColor" red="0.98039215690000003" green="0.40000000000000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="THr-kd-S2D">
-                                                    <rect key="frame" x="112" y="13" width="38" height="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detalle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="THr-kd-S2D">
+                                                    <rect key="frame" x="112" y="13" width="45" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -517,7 +517,7 @@
             </objects>
             <point key="canvasLocation" x="5215" y="1067.5"/>
         </scene>
-        <!--Settings-->
+        <!--Configuración-->
         <scene sceneID="NZy-B9-iy0">
             <objects>
                 <tableViewController id="OP4-YN-qaf" customClass="SettingsViewController" customModule="iEMI" customModuleProvider="target" sceneMemberID="viewController">
@@ -536,8 +536,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License plate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbG-qX-heH">
-                                                    <rect key="frame" x="24" y="12" width="102" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbG-qX-heH">
+                                                    <rect key="frame" x="24" y="12" width="59" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -607,8 +607,8 @@
                                                         <constraint firstAttribute="height" constant="1" id="YO2-73-gid"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh0-ic-gsf">
-                                                    <rect key="frame" x="24" y="12" width="87" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inicio de sesión automático" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh0-ic-gsf">
+                                                    <rect key="frame" x="24" y="12" width="208" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -636,7 +636,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-T6-XMT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-T6-XMT">
                                                     <rect key="frame" x="24" y="12" width="57" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -689,7 +689,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For more information about this app feel free to contact the developer at jfrowies@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-pk-KE9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para mas información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-pk-KE9">
                                                     <rect key="frame" x="8" y="8" width="584" height="12"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -716,10 +716,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcr-V3-ja5">
-                                                    <rect key="frame" x="270" y="6" width="61" height="33"/>
+                                                    <rect key="frame" x="249" y="6" width="103" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Log Out"/>
+                                                    <state key="normal" title="Cerrar sesión"/>
                                                     <connections>
                                                         <action selector="logoutButtonTouched:" destination="OP4-YN-qaf" eventType="touchUpInside" id="e05-7Y-Ixu"/>
                                                     </connections>
@@ -743,7 +743,7 @@
                             <outlet property="delegate" destination="OP4-YN-qaf" id="axi-Ro-Gxn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="icf-JM-cIr"/>
+                    <navigationItem key="navigationItem" title="Configuración" id="icf-JM-cIr"/>
                     <connections>
                         <outlet property="appBuildLabel" destination="OO8-EB-nJ2" id="gt4-Tm-fS8"/>
                         <outlet property="appVersionLabel" destination="ges-56-Afo" id="IRN-JF-dDE"/>
@@ -776,11 +776,11 @@
             </objects>
             <point key="canvasLocation" x="2028" y="1151"/>
         </scene>
-        <!--Settings-->
+        <!--Configuración-->
         <scene sceneID="OxE-Ms-iPp">
             <objects>
                 <navigationController id="XJt-Fs-mrd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="UX7-cM-d28"/>
+                    <tabBarItem key="tabBarItem" title="Configuración" image="settings" id="UX7-cM-d28"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="77V-hY-0mP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -799,11 +799,11 @@
             </objects>
             <point key="canvasLocation" x="3382" y="1931"/>
         </scene>
-        <!--Balance-->
+        <!--Saldo-->
         <scene sceneID="GVt-pg-Vx9">
             <objects>
                 <navigationController id="7Va-SB-dHX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Balance" image="saldo" id="cKL-bW-6lY"/>
+                    <tabBarItem key="tabBarItem" title="Saldo" image="saldo" id="cKL-bW-6lY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="u4q-aD-vBe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -822,11 +822,11 @@
             </objects>
             <point key="canvasLocation" x="3382" y="331"/>
         </scene>
-        <!--End Parking-->
+        <!--Finalizar estacionamiento-->
         <scene sceneID="6vB-DP-gnJ">
             <objects>
                 <navigationController id="4wS-zb-wF2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="End Parking" image="baja" id="Roz-FE-Cad"/>
+                    <tabBarItem key="tabBarItem" title="Finalizar estacionamiento" image="baja" id="Roz-FE-Cad"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="PeG-Tz-032">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

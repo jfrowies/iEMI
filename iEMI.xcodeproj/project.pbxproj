@@ -80,6 +80,7 @@
 		B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceHeaderView.swift; sourceTree = "<group>"; };
 		B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditBalanceHeaderView.xib; sourceTree = "<group>"; };
+		B58B80B81BCB813D00C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "es-AR"; path = "es-AR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIColorsExtension.swift; sourceTree = "<group>"; };
 		B58F27851B97721A00E05702 /* CreditBalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceView.swift; sourceTree = "<group>"; };
@@ -470,6 +471,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EF163D371A7AABBB00BE4461 /* Base */,
+				B58B80B81BCB813D00C3D2BB /* es-AR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

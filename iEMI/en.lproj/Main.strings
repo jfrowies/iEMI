@@ -1,0 +1,111 @@
+
+/* Class = "UILabel"; text = "Avenida Italia 450"; ObjectID = "0a1-pJ-aYt"; */
+"0a1-pJ-aYt.text" = "Avenida Italia 450";
+
+/* Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi"; */
+"1Ms-C1-EEi.text" = "0.00 $";
+
+/* Class = "UIViewController"; title = "Parking"; ObjectID = "3dn-jm-yZS"; */
+"3dn-jm-yZS.title" = "Parking";
+
+/* Class = "UIButton"; normalTitle = "Log in"; ObjectID = "44L-LE-0rz"; */
+"44L-LE-0rz.normalTitle" = "Log in";
+
+/* Class = "UILabel"; text = "$"; ObjectID = "88n-ip-pQN"; */
+"88n-ip-pQN.text" = "$";
+
+/* Class = "UILabel"; text = "0.00 $"; ObjectID = "96R-lI-DBU"; */
+"96R-lI-DBU.text" = "0.00 $";
+
+/* Class = "UILabel"; text = "14:05 hrs"; ObjectID = "DPM-FL-UWh"; */
+"DPM-FL-UWh.text" = "14:05 hrs";
+
+/* Class = "UILabel"; text = "Auto Log In"; ObjectID = "Fh0-ic-gsf"; */
+"Fh0-ic-gsf.text" = "Auto Log In";
+
+/* Class = "UILabel"; text = "17:00 hrs"; ObjectID = "GDo-jk-iWt"; */
+"GDo-jk-iWt.text" = "17:00 hrs";
+
+/* Class = "UILabel"; text = "License plate"; ObjectID = "HbG-qX-heH"; */
+"HbG-qX-heH.text" = "License plate";
+
+/* Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg"; */
+"Ihq-9m-DOg.title" = "Balance";
+
+/* Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9"; */
+"Kb5-pk-KE9.text" = "For more information about this app feel free to contact the developer at jfrowies@gmail.com";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM"; */
+"MEl-vY-uVM.text" = "Title";
+
+/* Class = "UILabel"; text = "ABC123"; ObjectID = "MNm-OO-PcS"; */
+"MNm-OO-PcS.text" = "ABC123";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Ned-QU-b0m"; */
+"Ned-QU-b0m.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "error label"; ObjectID = "OKU-dM-Qga"; */
+"OKU-dM-Qga.text" = "error label";
+
+/* Class = "UILabel"; text = "(0)"; ObjectID = "OO8-EB-nJ2"; */
+"OO8-EB-nJ2.text" = "(0)";
+
+/* Class = "UITabBarItem"; title = "End Parking"; ObjectID = "Roz-FE-Cad"; */
+"Roz-FE-Cad.title" = "End Parking";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "THr-kd-S2D"; */
+"THr-kd-S2D.text" = "Detail";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "UX7-cM-d28"; */
+"UX7-cM-d28.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "End parking"; ObjectID = "aNv-CJ-VNb"; */
+"aNv-CJ-VNb.title" = "End parking";
+
+/* Class = "UILabel"; text = "$"; ObjectID = "aqx-12-7cs"; */
+"aqx-12-7cs.text" = "$";
+
+/* Class = "UIButton"; normalTitle = "End parking"; ObjectID = "brE-HP-ZuM"; */
+"brE-HP-ZuM.normalTitle" = "End parking";
+
+/* Class = "UITabBarItem"; title = "Balance"; ObjectID = "cKL-bW-6lY"; */
+"cKL-bW-6lY.title" = "Balance";
+
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "dcr-V3-ja5"; */
+"dcr-V3-ja5.normalTitle" = "Log Out";
+
+/* Class = "UILabel"; text = "18:30 hrs"; ObjectID = "eCl-go-Opi"; */
+"eCl-go-Opi.text" = "18:30 hrs";
+
+/* Class = "UITextField"; placeholder = "License plate"; ObjectID = "eWc-rK-7CB"; */
+"eWc-rK-7CB.placeholder" = "License plate";
+
+/* Class = "UILabel"; text = "until:"; ObjectID = "ehv-uO-G6B"; */
+"ehv-uO-G6B.text" = "until:";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "fLf-k8-Equ"; */
+"fLf-k8-Equ.text" = "0.0";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "ges-56-Afo"; */
+"ges-56-Afo.text" = "0.0";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "gzg-cc-TMh"; */
+"gzg-cc-TMh.text" = "-";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "icf-JM-cIr"; */
+"icf-JM-cIr.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Credit balance"; ObjectID = "lwr-wQ-oHY"; */
+"lwr-wQ-oHY.title" = "Credit balance";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "nSk-hJ-OtX"; */
+"nSk-hJ-OtX.text" = "0.0";
+
+/* Class = "UINavigationItem"; title = "End parking"; ObjectID = "ph7-2J-T5J"; */
+"ph7-2J-T5J.title" = "End parking";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "sqc-T6-XMT"; */
+"sqc-T6-XMT.text" = "Version";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "yd8-rO-Kgs"; */
+"yd8-rO-Kgs.text" = "+";
