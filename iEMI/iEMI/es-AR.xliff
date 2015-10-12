@@ -34,7 +34,7 @@
       </trans-unit>
       <trans-unit id="3dn-jm-yZS.title">
         <source>Parking</source>
-        <target>Parking</target>
+        <target>Estacionamiento</target>
         <note>Class = "UIViewController"; title = "Parking"; ObjectID = "3dn-jm-yZS";</note>
       </trans-unit>
       <trans-unit id="44L-LE-0rz.normalTitle">
@@ -79,12 +79,12 @@
       </trans-unit>
       <trans-unit id="Kb5-pk-KE9.text">
         <source>For more information about this app feel free to contact the developer at jfrowies@gmail.com</source>
-        <target>Para mas información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
+        <target>Para más información acerca de esta aplicación, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
         <note>Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9";</note>
       </trans-unit>
       <trans-unit id="MEl-vY-uVM.text">
         <source>Title</source>
-        <target>titulo</target>
+        <target>Título</target>
         <note>Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM";</note>
       </trans-unit>
       <trans-unit id="MNm-OO-PcS.text">
