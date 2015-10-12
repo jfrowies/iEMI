@@ -1,0 +1,48 @@
+/* closing parking message in close parking */
+"Closing parking" = "Finalizando estacionamiento";
+
+/* Credit balancen title text */
+"Credit balance" = "Saldo";
+
+/* error closing parking */
+"Error closing parking. Refresh and try again please." = "Error finalizando estacionamiento. Por favor, intente nuevamente.";
+
+/* default error message */
+"Unknown error." = "Ha ocurrido un error desconocido.";
+
+/* Parking status closed string */
+"closed" = "finalizado";
+
+/* parking date title on table */
+"date" = "fecha";
+
+/* parking duration title on table */
+"duration" = "duración";
+
+/* parking end time title on table */
+"end time" = "hora de fin";
+
+/* Hours abbreviation string */
+"hrs" = "hs";
+
+/* Minutes abbreviation string */
+"min" = "min";
+
+/* Now string */
+"now" = "ahora";
+
+/* Parking status parked string */
+"parked" = "estacionado";
+
+/* parking start time title on table */
+"start time" = "hora de inicio";
+
+/* parking status title on table */
+"status" = "estado";
+
+/* today srting */
+"today" = "hoy";
+
+/* yesterday srting */
+"yesterday" = "ayer";
+

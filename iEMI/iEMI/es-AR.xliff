@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="iEMI/Base.lproj/CreditBalanceView.xib" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body>
+      <trans-unit id="TSF-aD-uTF.text">
+        <source>Credit balance: 00.00 $</source>
+        <note>Class = "UILabel"; text = "Credit balance: 00.00 $"; ObjectID = "TSF-aD-uTF";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="iEMI/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body/>
+  </file>
+  <file original="iEMI/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body>
+      <trans-unit id="0a1-pJ-aYt.text">
+        <source>Avenida Italia 450</source>
+        <target>Avenida Italia 450</target>
+        <note>Class = "UILabel"; text = "Avenida Italia 450"; ObjectID = "0a1-pJ-aYt";</note>
+      </trans-unit>
+      <trans-unit id="1Ms-C1-EEi.text">
+        <source>0.00 $</source>
+        <target>0.00 $</target>
+        <note>Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi";</note>
+      </trans-unit>
+      <trans-unit id="3dn-jm-yZS.title">
+        <source>Parking</source>
+        <target>Parking</target>
+        <note>Class = "UIViewController"; title = "Parking"; ObjectID = "3dn-jm-yZS";</note>
+      </trans-unit>
+      <trans-unit id="44L-LE-0rz.normalTitle">
+        <source>Log in</source>
+        <target>Iniciar sesión</target>
+        <note>Class = "UIButton"; normalTitle = "Log in"; ObjectID = "44L-LE-0rz";</note>
+      </trans-unit>
+      <trans-unit id="88n-ip-pQN.text">
+        <source>$</source>
+        <target>$</target>
+        <note>Class = "UILabel"; text = "$"; ObjectID = "88n-ip-pQN";</note>
+      </trans-unit>
+      <trans-unit id="96R-lI-DBU.text">
+        <source>0.00 $</source>
+        <target>0.00 $</target>
+        <note>Class = "UILabel"; text = "0.00 $"; ObjectID = "96R-lI-DBU";</note>
+      </trans-unit>
+      <trans-unit id="DPM-FL-UWh.text">
+        <source>14:05 hrs</source>
+        <target>14:05 hs</target>
+        <note>Class = "UILabel"; text = "14:05 hrs"; ObjectID = "DPM-FL-UWh";</note>
+      </trans-unit>
+      <trans-unit id="Fh0-ic-gsf.text">
+        <source>Auto Log In</source>
+        <target>Inicio de sesión automático</target>
+        <note>Class = "UILabel"; text = "Auto Log In"; ObjectID = "Fh0-ic-gsf";</note>
+      </trans-unit>
+      <trans-unit id="GDo-jk-iWt.text">
+        <source>17:00 hrs</source>
+        <target>17:00 hs</target>
+        <note>Class = "UILabel"; text = "17:00 hrs"; ObjectID = "GDo-jk-iWt";</note>
+      </trans-unit>
+      <trans-unit id="HbG-qX-heH.text">
+        <source>License plate</source>
+        <target>Patente</target>
+        <note>Class = "UILabel"; text = "License plate"; ObjectID = "HbG-qX-heH";</note>
+      </trans-unit>
+      <trans-unit id="Ihq-9m-DOg.title">
+        <source>Balance</source>
+        <target>Saldo</target>
+        <note>Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg";</note>
+      </trans-unit>
+      <trans-unit id="Kb5-pk-KE9.text">
+        <source>For more information about this app feel free to contact the developer at jfrowies@gmail.com</source>
+        <target>Para mas información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
+        <note>Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9";</note>
+      </trans-unit>
+      <trans-unit id="MEl-vY-uVM.text">
+        <source>Title</source>
+        <target>titulo</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM";</note>
+      </trans-unit>
+      <trans-unit id="MNm-OO-PcS.text">
+        <source>ABC123</source>
+        <target>ABC123</target>
+        <note>Class = "UILabel"; text = "ABC123"; ObjectID = "MNm-OO-PcS";</note>
+      </trans-unit>
+      <trans-unit id="Ned-QU-b0m.placeholder">
+        <source>Password</source>
+        <target>Contraseña</target>
+        <note>Class = "UITextField"; placeholder = "Password"; ObjectID = "Ned-QU-b0m";</note>
+      </trans-unit>
+      <trans-unit id="OKU-dM-Qga.text">
+        <source>error label</source>
+        <target>error label</target>
+        <note>Class = "UILabel"; text = "error label"; ObjectID = "OKU-dM-Qga";</note>
+      </trans-unit>
+      <trans-unit id="OO8-EB-nJ2.text">
+        <source>(0)</source>
+        <target>(0)</target>
+        <note>Class = "UILabel"; text = "(0)"; ObjectID = "OO8-EB-nJ2";</note>
+      </trans-unit>
+      <trans-unit id="Roz-FE-Cad.title">
+        <source>End Parking</source>
+        <target>Finalizar estacionamiento</target>
+        <note>Class = "UITabBarItem"; title = "End Parking"; ObjectID = "Roz-FE-Cad";</note>
+      </trans-unit>
+      <trans-unit id="THr-kd-S2D.text">
+        <source>Detail</source>
+        <target>Detalle</target>
+        <note>Class = "UILabel"; text = "Detail"; ObjectID = "THr-kd-S2D";</note>
+      </trans-unit>
+      <trans-unit id="UX7-cM-d28.title">
+        <source>Settings</source>
+        <target>Configuración</target>
+        <note>Class = "UITabBarItem"; title = "Settings"; ObjectID = "UX7-cM-d28";</note>
+      </trans-unit>
+      <trans-unit id="aNv-CJ-VNb.title">
+        <source>End parking</source>
+        <target>Finalizar estacionamiento</target>
+        <note>Class = "UITabBarItem"; title = "End parking"; ObjectID = "aNv-CJ-VNb";</note>
+      </trans-unit>
+      <trans-unit id="aqx-12-7cs.text">
+        <source>$</source>
+        <target>$</target>
+        <note>Class = "UILabel"; text = "$"; ObjectID = "aqx-12-7cs";</note>
+      </trans-unit>
+      <trans-unit id="brE-HP-ZuM.normalTitle">
+        <source>End parking</source>
+        <target>Finalizar estacionamiento</target>
+        <note>Class = "UIButton"; normalTitle = "End parking"; ObjectID = "brE-HP-ZuM";</note>
+      </trans-unit>
+      <trans-unit id="cKL-bW-6lY.title">
+        <source>Balance</source>
+        <target>Saldo</target>
+        <note>Class = "UITabBarItem"; title = "Balance"; ObjectID = "cKL-bW-6lY";</note>
+      </trans-unit>
+      <trans-unit id="dcr-V3-ja5.normalTitle">
+        <source>Log Out</source>
+        <target>Cerrar sesión</target>
+        <note>Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "dcr-V3-ja5";</note>
+      </trans-unit>
+      <trans-unit id="eCl-go-Opi.text">
+        <source>18:30 hrs</source>
+        <target>18:30 hs</target>
+        <note>Class = "UILabel"; text = "18:30 hrs"; ObjectID = "eCl-go-Opi";</note>
+      </trans-unit>
+      <trans-unit id="eWc-rK-7CB.placeholder">
+        <source>License plate</source>
+        <target>Patente</target>
+        <note>Class = "UITextField"; placeholder = "License plate"; ObjectID = "eWc-rK-7CB";</note>
+      </trans-unit>
+      <trans-unit id="ehv-uO-G6B.text">
+        <source>until:</source>
+        <target>hasta:</target>
+        <note>Class = "UILabel"; text = "until:"; ObjectID = "ehv-uO-G6B";</note>
+      </trans-unit>
+      <trans-unit id="fLf-k8-Equ.text">
+        <source>0.0</source>
+        <target>0.0</target>
+        <note>Class = "UILabel"; text = "0.0"; ObjectID = "fLf-k8-Equ";</note>
+      </trans-unit>
+      <trans-unit id="ges-56-Afo.text">
+        <source>0.0</source>
+        <target>0.0</target>
+        <note>Class = "UILabel"; text = "0.0"; ObjectID = "ges-56-Afo";</note>
+      </trans-unit>
+      <trans-unit id="gzg-cc-TMh.text">
+        <source>-</source>
+        <target>-</target>
+        <note>Class = "UILabel"; text = "-"; ObjectID = "gzg-cc-TMh";</note>
+      </trans-unit>
+      <trans-unit id="icf-JM-cIr.title">
+        <source>Settings</source>
+        <target>Configuración</target>
+        <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "icf-JM-cIr";</note>
+      </trans-unit>
+      <trans-unit id="lwr-wQ-oHY.title">
+        <source>Credit balance</source>
+        <target>Saldo</target>
+        <note>Class = "UITabBarItem"; title = "Credit balance"; ObjectID = "lwr-wQ-oHY";</note>
+      </trans-unit>
+      <trans-unit id="nSk-hJ-OtX.text">
+        <source>0.0</source>
+        <target>0.0</target>
+        <note>Class = "UILabel"; text = "0.0"; ObjectID = "nSk-hJ-OtX";</note>
+      </trans-unit>
+      <trans-unit id="ph7-2J-T5J.title">
+        <source>End parking</source>
+        <target>Finalizar estacionamiento</target>
+        <note>Class = "UINavigationItem"; title = "End parking"; ObjectID = "ph7-2J-T5J";</note>
+      </trans-unit>
+      <trans-unit id="sqc-T6-XMT.text">
+        <source>Version</source>
+        <target>Versión</target>
+        <note>Class = "UILabel"; text = "Version"; ObjectID = "sqc-T6-XMT";</note>
+      </trans-unit>
+      <trans-unit id="yd8-rO-Kgs.text">
+        <source>+</source>
+        <target>+</target>
+        <note>Class = "UILabel"; text = "+"; ObjectID = "yd8-rO-Kgs";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="iEMI/Info.plist" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>0.5</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="iEMI/Localizable.strings" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body>
+      <trans-unit id="Closing parking">
+        <source>Closing parking</source>
+        <target>Finalizando estacionamiento</target>
+        <note>closing parking message in close parking</note>
+      </trans-unit>
+      <trans-unit id="Credit balance">
+        <source>Credit balance</source>
+        <target>Saldo</target>
+        <note>Credit balancen title text</note>
+      </trans-unit>
+      <trans-unit id="Error closing parking. Refresh and try again please.">
+        <source>Error closing parking. Refresh and try again please.</source>
+        <target>Error finalizando estacionamiento. Por favor, intente nuevamente.</target>
+        <note>error closing parking</note>
+      </trans-unit>
+      <trans-unit id="Error loading balance, please try again later.">
+        <source>Error loading balance, please try again later.</source>
+        <note>error loading balance text</note>
+      </trans-unit>
+      <trans-unit id="Error loading parking data. Try again please.">
+        <source>Error loading parking data. Try again please.</source>
+        <note>error loading parking data message</note>
+      </trans-unit>
+      <trans-unit id="Error loading parking. Try again please.">
+        <source>Error loading parking. Try again please.</source>
+        <note>error loading parking</note>
+      </trans-unit>
+      <trans-unit id="Loading balance">
+        <source>Loading balance</source>
+        <note>loading credit balance text</note>
+      </trans-unit>
+      <trans-unit id="Loading parking">
+        <source>Loading parking</source>
+        <note>loading parking message in close parking</note>
+      </trans-unit>
+      <trans-unit id="Loading parking data">
+        <source>Loading parking data</source>
+        <note>loading parking data message</note>
+      </trans-unit>
+      <trans-unit id="Parking successfully closed">
+        <source>Parking successfully closed</source>
+        <note>parking successfully closed message in close parking</note>
+      </trans-unit>
+      <trans-unit id="Unknown">
+        <source>Unknown</source>
+        <note>Unknown credit balance</note>
+      </trans-unit>
+      <trans-unit id="Unknown error.">
+        <source>Unknown error.</source>
+        <target>Ha ocurrido un error desconocido.</target>
+        <note>default error message</note>
+      </trans-unit>
+      <trans-unit id="closed">
+        <source>closed</source>
+        <target>finalizado</target>
+        <note>Parking status closed string</note>
+      </trans-unit>
+      <trans-unit id="date">
+        <source>date</source>
+        <target>fecha</target>
+        <note>parking date title on table</note>
+      </trans-unit>
+      <trans-unit id="duration">
+        <source>duration</source>
+        <target>duración</target>
+        <note>parking duration title on table</note>
+      </trans-unit>
+      <trans-unit id="end time">
+        <source>end time</source>
+        <target>hora de fin</target>
+        <note>parking end time title on table</note>
+      </trans-unit>
+      <trans-unit id="hrs">
+        <source>hrs</source>
+        <target>hs</target>
+        <note>Hours abbreviation string</note>
+      </trans-unit>
+      <trans-unit id="min">
+        <source>min</source>
+        <target>min</target>
+        <note>Minutes abbreviation string</note>
+      </trans-unit>
+      <trans-unit id="now">
+        <source>now</source>
+        <target>ahora</target>
+        <note>Now string</note>
+      </trans-unit>
+      <trans-unit id="parked">
+        <source>parked</source>
+        <target>estacionado</target>
+        <note>Parking status parked string</note>
+      </trans-unit>
+      <trans-unit id="start time">
+        <source>start time</source>
+        <target>hora de inicio</target>
+        <note>parking start time title on table</note>
+      </trans-unit>
+      <trans-unit id="status">
+        <source>status</source>
+        <target>estado</target>
+        <note>parking status title on table</note>
+      </trans-unit>
+      <trans-unit id="today">
+        <source>today</source>
+        <target>hoy</target>
+        <note>today srting</note>
+      </trans-unit>
+      <trans-unit id="yesterday">
+        <source>yesterday</source>
+        <target>ayer</target>
+        <note>yesterday srting</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="iEMITests/Info.plist" source-language="en" datatype="plaintext" target-language="es-AR">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
