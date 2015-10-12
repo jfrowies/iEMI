@@ -15,7 +15,7 @@ let kNowString: String = NSLocalizedString("now", comment: "Now string")
 class ParkingInformationViewController: NetworkActivityViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet private weak var slidingMapView: SlidingMapView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var parkingTime: ParkingTime? = nil
     
@@ -164,7 +164,7 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
             
             do {
                 let parkingLocation = try result()
-                self?.slidingMapView.address = parkingLocation.fullAddress
+                self?.slidingMapView.parkingLocation = parkingLocation
                 
             } catch let error as NSError{
                 self?.showError(error, errorMessage: self?.kErrorLoadingParkingDataText)

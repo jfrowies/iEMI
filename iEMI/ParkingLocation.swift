@@ -19,6 +19,12 @@ class ParkingLocation: Parking {
     var parkingSpace: String?
     var parkingSpaceZone: String?
     
+    var streetNameAndNumber: String? {
+        get {
+            return fullAddress?.stringByReplacingOccurrencesOfString(", Resistencia, Chaco", withString: "")
+        }
+    }
+    
     override init(json:[String:AnyObject]) {
         
         super.init(json: json)
