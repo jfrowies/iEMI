@@ -24,8 +24,6 @@
 		B55C0B641BA73FA300C4F0F0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		B58B47C61BC3528900CE6221 /* CreditBalanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		B58B47C81BC35C8B00CE6221 /* CreditBalanceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */; settings = {ASSET_TAGS = (); }; };
-		B58B80BD1BCB8C7000C3D2BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58B80BF1BCB8C7000C3D2BB /* InfoPlist.strings */; };
-		B58B80C21BCB8C7000C3D2BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58B80C41BCB8C7000C3D2BB /* InfoPlist.strings */; };
 		B58B80C71BCB8C7100C3D2BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B58B80C91BCB8C7100C3D2BB /* Localizable.strings */; };
 		B58F277A1B90EF9500E05702 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */; };
 		B58F277C1B90F2C000E05702 /* EMIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */; };
@@ -83,12 +81,8 @@
 		B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceHeaderView.swift; sourceTree = "<group>"; };
 		B58B47C71BC35C8B00CE6221 /* CreditBalanceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditBalanceHeaderView.xib; sourceTree = "<group>"; };
-		B58B80B81BCB813D00C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "es-AR"; path = "es-AR.lproj/Main.storyboard"; sourceTree = "<group>"; };
-		B58B80B91BCB8C6F00C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/CreditBalanceView.strings"; sourceTree = "<group>"; };
-		B58B80BA1BCB8C7000C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		B58B80BE1BCB8C7000C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		B58B80C31BCB8C7000C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		B58B80C81BCB8C7100C3D2BB /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B58B80CA1BCC475700C3D2BB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		B58B80CB1BCC475800C3D2BB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B58F27791B90EF9500E05702 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B58F277B1B90F2C000E05702 /* EMIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIColorsExtension.swift; sourceTree = "<group>"; };
 		B58F27851B97721A00E05702 /* CreditBalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceView.swift; sourceTree = "<group>"; };
@@ -283,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				B58B80C91BCB8C7100C3D2BB /* Localizable.strings */,
-				B58B80BF1BCB8C7000C3D2BB /* InfoPlist.strings */,
 				EF163D311A7AABBB00BE4461 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -301,7 +294,6 @@
 		EF163D461A7AABBB00BE4461 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B58B80C41BCB8C7000C3D2BB /* InfoPlist.strings */,
 				EF163D471A7AABBB00BE4461 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -372,6 +364,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = EF163D241A7AABBB00BE4461;
 			productRefGroup = EF163D2E1A7AABBB00BE4461 /* Products */;
@@ -390,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D95C291BBC6F960062E7FA /* SlidingMapView.xib in Resources */,
-				B58B80BD1BCB8C7000C3D2BB /* InfoPlist.strings in Resources */,
 				EF163D381A7AABBB00BE4461 /* Main.storyboard in Resources */,
 				B5CEBD741B6AA34700794CAC /* Images.xcassets in Resources */,
 				B58B80C71BCB8C7100C3D2BB /* Localizable.strings in Resources */,
@@ -405,7 +397,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58B80C21BCB8C7000C3D2BB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,26 +464,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B58B80BF1BCB8C7000C3D2BB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B58B80BE1BCB8C7000C3D2BB /* es-AR */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B58B80C41BCB8C7000C3D2BB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B58B80C31BCB8C7000C3D2BB /* es-AR */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		B58B80C91BCB8C7100C3D2BB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B58B80C81BCB8C7100C3D2BB /* es-AR */,
+				B58B80CB1BCC475800C3D2BB /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -501,7 +476,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B5C70D3C1BC4955C0054CC99 /* Base */,
-				B58B80B91BCB8C6F00C3D2BB /* es-AR */,
 			);
 			name = CreditBalanceView.xib;
 			sourceTree = "<group>";
@@ -510,7 +484,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EF163D371A7AABBB00BE4461 /* Base */,
-				B58B80B81BCB813D00C3D2BB /* es-AR */,
+				B58B80CA1BCC475700C3D2BB /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -519,7 +493,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				EF163D3C1A7AABBB00BE4461 /* Base */,
-				B58B80BA1BCB8C7000C3D2BB /* es-AR */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
