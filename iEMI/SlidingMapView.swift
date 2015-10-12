@@ -14,14 +14,12 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
 @IBDesignable class SlidingMapView: UIView, MKMapViewDelegate {
     
     //Mark: - Private properties
-    
-    private var view: UIView!
-    
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var footerLabel: UILabel!
     @IBOutlet private weak var mapViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var visualEffectViewBottomConstraint: NSLayoutConstraint!
     
+    private var view: UIView!
     private var mapAnnotations: [MKAnnotation] = []
 
     private let kMapViewHideConstant: CGFloat = 200
@@ -34,22 +32,27 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
 
     //Mark: - Public properties
     
-    var address: String? {
+    var parkingLocation: ParkingLocation {
         
         get {
-            return footerLabel.text
+            return self.parkingLocation
         }
         
-        set(text) {
+        set(location) {
             
-            footerLabel.text = text
-            
-            if let textAddress = text {
+            if let address = location.streetNameAndNumber {
+                
+                footerLabel.text = address
                 self.showFooterView(animated: true)
-                self.centerMapOnAddress(textAddress)
+                
+                if let textAddress = location.fullAddress {
+                    self.centerMapOnAddress(textAddress)
+                }
+                
             } else {
                 self.hideFooterView(animated: true)
             }
+            
         }
     }
     
@@ -68,7 +71,8 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
         hideMapView(animated: false)
         
         mapView.delegate = self
-        
+        mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 40.0, right: 0.0)
+
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
     }
@@ -174,6 +178,14 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
             
             if let placeMark = placemarks?.first {
 
+                guard placeMark.locality == "Resistencia" else {
+                    return
+                }
+                
+                guard placeMark.country == "Argentina" else {
+                    return
+                }
+                
                 if let center = placeMark.location?.coordinate {
                     let region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(kDefaultDegreeSpamForCoordinateRegion, kDefaultDegreeSpamForCoordinateRegion))
                     
