@@ -244,34 +244,42 @@
       </trans-unit>
       <trans-unit id="Error loading balance, please try again later.">
         <source>Error loading balance, please try again later.</source>
+        <target>Ha ocurrido un error cargando la información. Por favor intente nuevamente.</target>
         <note>error loading balance text</note>
       </trans-unit>
       <trans-unit id="Error loading parking data. Try again please.">
         <source>Error loading parking data. Try again please.</source>
+        <target>Ha ocurrido un error cargando la información. Por favor intente nuevamente.</target>
         <note>error loading parking data message</note>
       </trans-unit>
       <trans-unit id="Error loading parking. Try again please.">
         <source>Error loading parking. Try again please.</source>
+        <target>Ha ocurrido un error cargando la la información de estacionamiento. Por favor intente nuevamente.</target>
         <note>error loading parking</note>
       </trans-unit>
       <trans-unit id="Loading balance">
         <source>Loading balance</source>
+        <target>Cargando saldo</target>
         <note>loading credit balance text</note>
       </trans-unit>
       <trans-unit id="Loading parking">
         <source>Loading parking</source>
+        <target>Cargando estacionamiento</target>
         <note>loading parking message in close parking</note>
       </trans-unit>
       <trans-unit id="Loading parking data">
         <source>Loading parking data</source>
+        <target>Cargando información de estacionamiento</target>
         <note>loading parking data message</note>
       </trans-unit>
       <trans-unit id="Parking successfully closed">
         <source>Parking successfully closed</source>
+        <target>Estacionamiento finalizado exitosamente</target>
         <note>parking successfully closed message in close parking</note>
       </trans-unit>
       <trans-unit id="Unknown">
         <source>Unknown</source>
+        <target>Desconocido</target>
         <note>Unknown credit balance</note>
       </trans-unit>
       <trans-unit id="Unknown error.">
@@ -296,7 +304,7 @@
       </trans-unit>
       <trans-unit id="end time">
         <source>end time</source>
-        <target>hora de fin</target>
+        <target>fin</target>
         <note>parking end time title on table</note>
       </trans-unit>
       <trans-unit id="hrs">
@@ -321,7 +329,7 @@
       </trans-unit>
       <trans-unit id="start time">
         <source>start time</source>
-        <target>hora de inicio</target>
+        <target>inicio</target>
         <note>parking start time title on table</note>
       </trans-unit>
       <trans-unit id="status">

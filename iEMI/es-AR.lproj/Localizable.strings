@@ -7,6 +7,30 @@
 /* error closing parking */
 "Error closing parking. Refresh and try again please." = "Error finalizando estacionamiento. Por favor, intente nuevamente.";
 
+/* error loading balance text */
+"Error loading balance, please try again later." = "Ha ocurrido un error cargando la información. Por favor intente nuevamente.";
+
+/* error loading parking data message */
+"Error loading parking data. Try again please." = "Ha ocurrido un error cargando la información. Por favor intente nuevamente.";
+
+/* error loading parking */
+"Error loading parking. Try again please." = "Ha ocurrido un error cargando la la información de estacionamiento. Por favor intente nuevamente.";
+
+/* loading credit balance text */
+"Loading balance" = "Cargando saldo";
+
+/* loading parking message in close parking */
+"Loading parking" = "Cargando estacionamiento";
+
+/* loading parking data message */
+"Loading parking data" = "Cargando información de estacionamiento";
+
+/* parking successfully closed message in close parking */
+"Parking successfully closed" = "Estacionamiento finalizado exitosamente";
+
+/* Unknown credit balance */
+"Unknown" = "Desconocido";
+
 /* default error message */
 "Unknown error." = "Ha ocurrido un error desconocido.";
 
@@ -20,7 +44,7 @@
 "duration" = "duración";
 
 /* parking end time title on table */
-"end time" = "hora de fin";
+"end time" = "fin";
 
 /* Hours abbreviation string */
 "hrs" = "hs";
@@ -35,7 +59,7 @@
 "parked" = "estacionado";
 
 /* parking start time title on table */
-"start time" = "hora de inicio";
+"start time" = "inicio";
 
 /* parking status title on table */
 "status" = "estado";
