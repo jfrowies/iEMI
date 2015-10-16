@@ -34,9 +34,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let currentLicensePlate = licensePlateSotrage.currentLicensePlate {
-            self.reloadData(patente:currentLicensePlate)
-        }
+        self.refresh(self)
     
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
