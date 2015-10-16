@@ -1,4 +1,3 @@
-
 /* Class = "UILabel"; text = "Avenida Italia 450"; ObjectID = "0a1-pJ-aYt"; */
 "0a1-pJ-aYt.text" = "Avenida Italia 450";
 
@@ -8,7 +7,7 @@
 /* Class = "UIViewController"; title = "Parking"; ObjectID = "3dn-jm-yZS"; */
 "3dn-jm-yZS.title" = "Estacionamiento";
 
-/* Class = "UIButton"; normalTitle = "Iniciar sesión"; ObjectID = "44L-LE-0rz"; */
+/* Class = "UIButton"; normalTitle = "Log in"; ObjectID = "44L-LE-0rz"; */
 "44L-LE-0rz.normalTitle" = "Iniciar sesión";
 
 /* Class = "UILabel"; text = "$"; ObjectID = "88n-ip-pQN"; */
@@ -17,31 +16,31 @@
 /* Class = "UILabel"; text = "0.00 $"; ObjectID = "96R-lI-DBU"; */
 "96R-lI-DBU.text" = "0.00 $";
 
-/* Class = "UILabel"; text = "14:05 hs"; ObjectID = "DPM-FL-UWh"; */
+/* Class = "UILabel"; text = "14:05 hrs"; ObjectID = "DPM-FL-UWh"; */
 "DPM-FL-UWh.text" = "14:05 hs";
 
-/* Class = "UILabel"; text = "Inicio de sesión automático"; ObjectID = "Fh0-ic-gsf"; */
+/* Class = "UILabel"; text = "Auto Log In"; ObjectID = "Fh0-ic-gsf"; */
 "Fh0-ic-gsf.text" = "Inicio de sesión automático";
 
-/* Class = "UILabel"; text = "17:00 hs"; ObjectID = "GDo-jk-iWt"; */
+/* Class = "UILabel"; text = "17:00 hrs"; ObjectID = "GDo-jk-iWt"; */
 "GDo-jk-iWt.text" = "17:00 hs";
 
-/* Class = "UILabel"; text = "Patente"; ObjectID = "HbG-qX-heH"; */
+/* Class = "UILabel"; text = "License plate"; ObjectID = "HbG-qX-heH"; */
 "HbG-qX-heH.text" = "Patente";
 
-/* Class = "UINavigationItem"; title = "Saldo"; ObjectID = "Ihq-9m-DOg"; */
+/* Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg"; */
 "Ihq-9m-DOg.title" = "Saldo";
 
-/* Class = "UILabel"; text = "Para mas información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9"; */
+/* Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9"; */
 "Kb5-pk-KE9.text" = "Para más información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com";
 
-/* Class = "UILabel"; text = "titulo"; ObjectID = "MEl-vY-uVM"; */
+/* Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM"; */
 "MEl-vY-uVM.text" = "título";
 
 /* Class = "UILabel"; text = "ABC123"; ObjectID = "MNm-OO-PcS"; */
 "MNm-OO-PcS.text" = "ABC123";
 
-/* Class = "UITextField"; placeholder = "Contraseña"; ObjectID = "Ned-QU-b0m"; */
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Ned-QU-b0m"; */
 "Ned-QU-b0m.placeholder" = "Contraseña";
 
 /* Class = "UILabel"; text = "error label"; ObjectID = "OKU-dM-Qga"; */
@@ -50,37 +49,37 @@
 /* Class = "UILabel"; text = "(0)"; ObjectID = "OO8-EB-nJ2"; */
 "OO8-EB-nJ2.text" = "(0)";
 
-/* Class = "UITabBarItem"; title = "Finalizar estacionamiento"; ObjectID = "Roz-FE-Cad"; */
+/* Class = "UITabBarItem"; title = "End Parking"; ObjectID = "Roz-FE-Cad"; */
 "Roz-FE-Cad.title" = "Finalizar estacionamiento";
 
-/* Class = "UILabel"; text = "Detalle"; ObjectID = "THr-kd-S2D"; */
+/* Class = "UILabel"; text = "Detail"; ObjectID = "THr-kd-S2D"; */
 "THr-kd-S2D.text" = "Detalle";
 
-/* Class = "UITabBarItem"; title = "Configuración"; ObjectID = "UX7-cM-d28"; */
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "UX7-cM-d28"; */
 "UX7-cM-d28.title" = "Configuración";
 
-/* Class = "UITabBarItem"; title = "Finalizar estacionamiento"; ObjectID = "aNv-CJ-VNb"; */
+/* Class = "UITabBarItem"; title = "End parking"; ObjectID = "aNv-CJ-VNb"; */
 "aNv-CJ-VNb.title" = "Finalizar estacionamiento";
 
 /* Class = "UILabel"; text = "$"; ObjectID = "aqx-12-7cs"; */
 "aqx-12-7cs.text" = "$";
 
-/* Class = "UIButton"; normalTitle = "Finalizar estacionamiento"; ObjectID = "brE-HP-ZuM"; */
+/* Class = "UIButton"; normalTitle = "End parking"; ObjectID = "brE-HP-ZuM"; */
 "brE-HP-ZuM.normalTitle" = "Finalizar estacionamiento";
 
-/* Class = "UITabBarItem"; title = "Saldo"; ObjectID = "cKL-bW-6lY"; */
+/* Class = "UITabBarItem"; title = "Balance"; ObjectID = "cKL-bW-6lY"; */
 "cKL-bW-6lY.title" = "Saldo";
 
-/* Class = "UIButton"; normalTitle = "Cerrar sesión"; ObjectID = "dcr-V3-ja5"; */
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "dcr-V3-ja5"; */
 "dcr-V3-ja5.normalTitle" = "Cerrar sesión";
 
-/* Class = "UILabel"; text = "18:30 hs"; ObjectID = "eCl-go-Opi"; */
+/* Class = "UILabel"; text = "18:30 hrs"; ObjectID = "eCl-go-Opi"; */
 "eCl-go-Opi.text" = "18:30 hs";
 
-/* Class = "UITextField"; placeholder = "Patente"; ObjectID = "eWc-rK-7CB"; */
+/* Class = "UITextField"; placeholder = "License plate"; ObjectID = "eWc-rK-7CB"; */
 "eWc-rK-7CB.placeholder" = "Patente";
 
-/* Class = "UILabel"; text = "hasta:"; ObjectID = "ehv-uO-G6B"; */
+/* Class = "UILabel"; text = "until:"; ObjectID = "ehv-uO-G6B"; */
 "ehv-uO-G6B.text" = "hasta:";
 
 /* Class = "UILabel"; text = "0.0"; ObjectID = "fLf-k8-Equ"; */
@@ -92,20 +91,21 @@
 /* Class = "UILabel"; text = "-"; ObjectID = "gzg-cc-TMh"; */
 "gzg-cc-TMh.text" = "-";
 
-/* Class = "UINavigationItem"; title = "Configuración"; ObjectID = "icf-JM-cIr"; */
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "icf-JM-cIr"; */
 "icf-JM-cIr.title" = "Configuración";
 
-/* Class = "UITabBarItem"; title = "Saldo"; ObjectID = "lwr-wQ-oHY"; */
+/* Class = "UITabBarItem"; title = "Credit balance"; ObjectID = "lwr-wQ-oHY"; */
 "lwr-wQ-oHY.title" = "Saldo";
 
 /* Class = "UILabel"; text = "0.0"; ObjectID = "nSk-hJ-OtX"; */
 "nSk-hJ-OtX.text" = "0.0";
 
-/* Class = "UINavigationItem"; title = "Finalizar estacionamiento"; ObjectID = "ph7-2J-T5J"; */
+/* Class = "UINavigationItem"; title = "End parking"; ObjectID = "ph7-2J-T5J"; */
 "ph7-2J-T5J.title" = "Finalizar estacionamiento";
 
-/* Class = "UILabel"; text = "Versión"; ObjectID = "sqc-T6-XMT"; */
+/* Class = "UILabel"; text = "Version"; ObjectID = "sqc-T6-XMT"; */
 "sqc-T6-XMT.text" = "Versión";
 
 /* Class = "UILabel"; text = "+"; ObjectID = "yd8-rO-Kgs"; */
 "yd8-rO-Kgs.text" = "+";
+

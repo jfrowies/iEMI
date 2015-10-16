@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="iEMI/Base.lproj/CreditBalanceView.xib" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMI/Base.lproj/CreditBalanceView.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>
     <body>
       <trans-unit id="TSF-aD-uTF.text">
         <source>Credit balance: 00.00 $</source>
+        <target>Saldo: 0.00 $</target>
         <note>Class = "UILabel"; text = "Credit balance: 00.00 $"; ObjectID = "TSF-aD-uTF";</note>
       </trans-unit>
     </body>
   </file>
-  <file original="iEMI/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMI/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>
     <body/>
   </file>
-  <file original="iEMI/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMI/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>
@@ -79,12 +80,12 @@
       </trans-unit>
       <trans-unit id="Kb5-pk-KE9.text">
         <source>For more information about this app feel free to contact the developer at jfrowies@gmail.com</source>
-        <target>Para más información acerca de esta aplicación, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
+        <target>Para más información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
         <note>Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9";</note>
       </trans-unit>
       <trans-unit id="MEl-vY-uVM.text">
         <source>Title</source>
-        <target>Título</target>
+        <target>título</target>
         <note>Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM";</note>
       </trans-unit>
       <trans-unit id="MNm-OO-PcS.text">
@@ -209,7 +210,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="iEMI/Info.plist" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMI/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>
@@ -218,11 +219,11 @@
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>0.5</source>
+        <source>0.6</source>
       </trans-unit>
     </body>
   </file>
-  <file original="iEMI/Localizable.strings" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMI/Localizable.strings" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>
@@ -349,7 +350,7 @@
       </trans-unit>
     </body>
   </file>
-  <file original="iEMITests/Info.plist" source-language="en" datatype="plaintext" target-language="es-AR">
+  <file original="iEMITests/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.0.1" build-num="7A1001"/>
     </header>

@@ -20,6 +20,8 @@
 		B540C4AF1A91C71A00863944 /* CreditoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */; };
 		B540C4B21A91C97100863944 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B11A91C97100863944 /* Credit.swift */; };
 		B540C4B41A91C98800863944 /* Debit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540C4B31A91C98800863944 /* Debit.swift */; };
+		B5497BAF1BD1316C0037EF0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5497BB11BD1316C0037EF0C /* InfoPlist.strings */; };
+		B5497BB41BD1316C0037EF0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5497BB61BD1316C0037EF0C /* InfoPlist.strings */; };
 		B55C0B621BA73DF100C4F0F0 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */; settings = {ASSET_TAGS = (); }; };
 		B55C0B641BA73FA300C4F0F0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		B58B47C61BC3528900CE6221 /* CreditBalanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -77,6 +79,10 @@
 		B540C4AE1A91C71A00863944 /* CreditoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditoTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B540C4B11A91C97100863944 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Credit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B540C4B31A91C98800863944 /* Debit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Debit.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B5497BAC1BD1316C0037EF0C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B5497BB01BD1316C0037EF0C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5497BB51BD1316C0037EF0C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5497BB71BD1316D0037EF0C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CreditBalanceView.strings; sourceTree = "<group>"; };
 		B55C0B611BA73DF100C4F0F0 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		B55C0B631BA73FA300C4F0F0 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B58B47C51BC3528900CE6221 /* CreditBalanceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditBalanceHeaderView.swift; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 		EF163D301A7AABBB00BE4461 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5497BB11BD1316C0037EF0C /* InfoPlist.strings */,
 				B58B80C91BCB8C7100C3D2BB /* Localizable.strings */,
 				EF163D311A7AABBB00BE4461 /* Info.plist */,
 			);
@@ -294,6 +301,7 @@
 		EF163D461A7AABBB00BE4461 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5497BB61BD1316C0037EF0C /* InfoPlist.strings */,
 				EF163D471A7AABBB00BE4461 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -389,6 +397,7 @@
 				B5C70D3B1BC4955C0054CC99 /* CreditBalanceView.xib in Resources */,
 				EF163D3D1A7AABBB00BE4461 /* LaunchScreen.xib in Resources */,
 				B55C0B621BA73DF100C4F0F0 /* LoadingView.xib in Resources */,
+				B5497BAF1BD1316C0037EF0C /* InfoPlist.strings in Resources */,
 				B58B47C81BC35C8B00CE6221 /* CreditBalanceHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5497BB41BD1316C0037EF0C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +474,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B5497BB11BD1316C0037EF0C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5497BB01BD1316C0037EF0C /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B5497BB61BD1316C0037EF0C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5497BB51BD1316C0037EF0C /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B58B80C91BCB8C7100C3D2BB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -476,6 +502,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B5C70D3C1BC4955C0054CC99 /* Base */,
+				B5497BB71BD1316D0037EF0C /* es */,
 			);
 			name = CreditBalanceView.xib;
 			sourceTree = "<group>";
@@ -493,6 +520,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EF163D3C1A7AABBB00BE4461 /* Base */,
+				B5497BAC1BD1316C0037EF0C /* es */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
