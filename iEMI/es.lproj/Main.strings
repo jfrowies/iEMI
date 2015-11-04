@@ -103,6 +103,9 @@
 /* Class = "UINavigationItem"; title = "End parking"; ObjectID = "ph7-2J-T5J"; */
 "ph7-2J-T5J.title" = "Finalizar estacionamiento";
 
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "sgN-Av-EpK"; */
+"sgN-Av-EpK.normalTitle" = "Registrarse";
+
 /* Class = "UILabel"; text = "Version"; ObjectID = "sqc-T6-XMT"; */
 "sqc-T6-XMT.text" = "Versión";
 

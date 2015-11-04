@@ -22,7 +22,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let settings = Settings()
     
     private let kShowTabBarViewControllerSegue: String = "showTabBarViewController"
-    
+    private let kEMIRegisterURL: NSURL = NSURL(string: "http://w3.logo-sa.com.ar:8080/EstacionamientoWebAG/servlet/registroag")!
+
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
@@ -80,8 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func keyboardWillShow() {
         
-        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
-        self.scrollView.setContentOffset(CGPointMake(0, 50), animated: true)
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 85, 0)
+        self.scrollView.setContentOffset(CGPointMake(0, 85), animated: true)
     }
     
     func keyboardWillHide() {
@@ -135,6 +136,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginTouched() {
         self.authenticate()
+    }
+    
+    @IBAction func registerTouched(sender: AnyObject) {
+        if UIApplication.sharedApplication().canOpenURL(kEMIRegisterURL) {
+            self.errorLabel.hidden = true
+            UIApplication.sharedApplication().openURL(kEMIRegisterURL)
+        } else {
+            self.errorLabel.hidden = false;
+            self.errorLabel.text = defaultErrorDescription
+        }
     }
     
     //MARK: - Service calls
