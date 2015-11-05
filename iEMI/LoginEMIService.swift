@@ -14,6 +14,13 @@ class LoginEMIService: NSObject, LoginService {
         
     func getSessionCookie(licensePlate licensePlate:String, completion: (result: () throws -> Bool) -> Void) -> Void {
         
+        let cookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        if let cookies = cookieStorage.cookies {
+            for cookie in cookies {
+                cookieStorage.deleteCookie(cookie)
+            }
+        }
+        
         let endpointURL = "UpperChapa"
         let params = ["Tarchapa":licensePlate] as Dictionary<String, String>
         
