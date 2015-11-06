@@ -60,7 +60,7 @@ class NetworkActivityViewController: UIViewController {
         
         self.prepareForShowNetworkActivityView()
         
-        self.loadingView.feedbackLabel!.text = message
+        self.loadingView.feedbackLabel.text = message
         self.loadingView.feedbackLabel.textColor = UIColor.grayLabelDefaultColor()
 
         self.loadingView.loadingSpinner.hidden = false
@@ -73,7 +73,7 @@ class NetworkActivityViewController: UIViewController {
         
         self.prepareForShowNetworkActivityView()
         
-        self.loadingView.feedbackLabel!.text = message
+        self.loadingView.feedbackLabel.text = message
         self.loadingView.feedbackLabel.textColor = UIColor.grayLabelDefaultColor()
         
         self.loadingView.loadingSpinner.hidden = true
@@ -86,7 +86,7 @@ class NetworkActivityViewController: UIViewController {
         
         self.prepareForShowNetworkActivityView()
         
-        self.loadingView.feedbackLabel!.text = errorMessage
+        self.loadingView.feedbackLabel.text = errorMessage
         self.loadingView.feedbackLabel.textColor = UIColor.redErrorColor()
         
         self.loadingView.loadingSpinner.hidden = true

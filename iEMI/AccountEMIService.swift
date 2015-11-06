@@ -83,6 +83,12 @@ class AccountEMIService: NSObject, AccountService {
         self.credits(licensePlate: licensePlate, start: 0, cant: 5) { [unowned self] (result) -> Void in
             do {
                 let credits = try result()
+                
+                guard credits.count != 0 else {
+                    completion() { return transactions }
+                    return
+                }
+                
                 for credit in credits {
                     transactions.append(credit)
                 }

@@ -162,7 +162,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 try result()
                 completion()
             } catch  ServiceError.RequestFailed(let errorDescription){
-                self.showError(errorDescription!)
+                self.showError(errorDescription)
             } catch  {
                 self.showError(self.defaultErrorDescription)
             }
@@ -178,19 +178,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     completion()
                 }
             } catch ServiceError.ResponseErrorMessage(let errorMessage) {
-                self.showError(errorMessage!)
+                self.showError(errorMessage)
             } catch ServiceError.RequestFailed(let errorDescription) {
-                self.showError(errorDescription!)
+                self.showError(errorDescription)
             } catch {
                 self.showError(self.defaultErrorDescription)
             }
         }
     }
 
-    func showError(error: String) {
+    func showError(error: String?) {
         self.errorLabel.text = error
         self.errorLabel.hidden = false
         self.loginButton.enabled = true
+        self.registerButton.enabled = true
         self.licensePlateTextField.enabled = true
         self.passwordTextField.enabled = true
         self.loadingSpinner.stopAnimating()

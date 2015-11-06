@@ -103,7 +103,7 @@ class EndParkingViewController: NetworkActivityViewController {
                 
             } catch ServiceError.ResponseErrorMessage(let errorMessage){
                 
-                self.showError(nil,errorMessage: errorMessage!)
+                self.showError(nil,errorMessage: errorMessage)
 
             } catch let error {
                 self.showError(error as NSError, errorMessage: self.kErrorLoadingParkingText)
