@@ -46,6 +46,14 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: kCreditBalanceHeaderViewReuseId)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if refreshControl.refreshing {
+            refreshControl.endRefreshing()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

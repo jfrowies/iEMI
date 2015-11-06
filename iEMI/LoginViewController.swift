@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var licensePlateTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet private weak var errorLabel: UILabel!
     
@@ -63,6 +64,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if loading {
             self.loginButton.enabled = false
+            self.registerButton.enabled = false
             self.licensePlateTextField.enabled = false
             self.passwordTextField.enabled = false
             self.loadingSpinner.hidden = false
@@ -70,6 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.errorLabel.hidden = true
         } else {
             self.loginButton.enabled = true
+            self.registerButton.enabled = true
             self.licensePlateTextField.enabled = true
             self.passwordTextField.enabled = true
             self.loadingSpinner.stopAnimating()

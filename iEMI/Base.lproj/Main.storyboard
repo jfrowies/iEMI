@@ -82,7 +82,7 @@
                                                     <constraint firstAttribute="height" constant="90" id="wjE-MT-sx7"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgN-Av-EpK" userLabel="login button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgN-Av-EpK" userLabel="register button">
                                                 <rect key="frame" x="210" y="369" width="180" height="30"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -146,6 +146,7 @@
                         <outlet property="loadingSpinner" destination="v2k-iz-qAS" id="L46-Be-8Wx"/>
                         <outlet property="loginButton" destination="44L-LE-0rz" id="ZjE-cb-6N7"/>
                         <outlet property="passwordTextField" destination="Ned-QU-b0m" id="cyh-JM-YIY"/>
+                        <outlet property="registerButton" destination="sgN-Av-EpK" id="fHl-ju-tC9"/>
                         <outlet property="scrollView" destination="rqa-sx-2sX" id="txF-eV-07B"/>
                         <segue destination="Mnd-eb-3xM" kind="presentation" identifier="showTabBarViewController" id="Ytz-v3-aKa"/>
                     </connections>
