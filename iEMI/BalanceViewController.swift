@@ -34,13 +34,13 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refresh(self)
+        refresh(self)
     
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl.tintColor = UIColor.orangeGlobalTintColor()
-        self.refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
-        self.tableView.addSubview(refreshControl)
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.tintColor = UIColor.orangeGlobalTintColor()
+        refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
+        tableView.addSubview(refreshControl)
         
         let nib = UINib(nibName: kCreditBalanceHeaderViewNibName, bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: kCreditBalanceHeaderViewReuseId)
@@ -74,9 +74,15 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 self.tableElements = transactions
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                if transactions.count == 0 {
+                    self.tableView.hidden = true
+                } else {
+                    self.tableView.hidden = false
+                }
                 self.hideLoadingView(animated: true)
                 
             } catch let error{
+                self.tableView.hidden = false
                 self.showError(error as NSError)
             }
         }

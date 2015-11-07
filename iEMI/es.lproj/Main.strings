@@ -4,6 +4,9 @@
 /* Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi"; */
 "1Ms-C1-EEi.text" = "0.00 $";
 
+/* Class = "UILabel"; text = "You will se here your credit balance when you start using EMI."; ObjectID = "1PN-t6-SMF"; */
+"1PN-t6-SMF.text" = "Aquí verás tu saldo, recargas y estacionamientos cuando utilices el sistema EMI.";
+
 /* Class = "UIViewController"; title = "Parking"; ObjectID = "3dn-jm-yZS"; */
 "3dn-jm-yZS.title" = "Estacionamiento";
 
@@ -30,9 +33,6 @@
 
 /* Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg"; */
 "Ihq-9m-DOg.title" = "Saldo";
-
-/* Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9"; */
-"Kb5-pk-KE9.text" = "Para más información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM"; */
 "MEl-vY-uVM.text" = "título";

@@ -33,6 +33,11 @@
         <target>0.00 $</target>
         <note>Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi";</note>
       </trans-unit>
+      <trans-unit id="1PN-t6-SMF.text">
+        <source>You will se here your credit balance when you start using EMI.</source>
+        <target>Aquí verás tu saldo, recargas y estacionamientos cuando utilices el sistema EMI.</target>
+        <note>Class = "UILabel"; text = "You will se here your credit balance when you start using EMI."; ObjectID = "1PN-t6-SMF";</note>
+      </trans-unit>
       <trans-unit id="3dn-jm-yZS.title">
         <source>Parking</source>
         <target>Estacionamiento</target>
@@ -77,11 +82,6 @@
         <source>Balance</source>
         <target>Saldo</target>
         <note>Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg";</note>
-      </trans-unit>
-      <trans-unit id="Kb5-pk-KE9.text">
-        <source>For more information about this app feel free to contact the developer at jfrowies@gmail.com</source>
-        <target>Para más información acerca de esta app, contáctese con el desarrollador enviando un email a jfrowies@gmail.com</target>
-        <note>Class = "UILabel"; text = "For more information about this app feel free to contact the developer at jfrowies@gmail.com"; ObjectID = "Kb5-pk-KE9";</note>
       </trans-unit>
       <trans-unit id="MEl-vY-uVM.text">
         <source>Title</source>
@@ -224,7 +224,7 @@
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>0.6</source>
+        <source>0.7</source>
       </trans-unit>
     </body>
   </file>

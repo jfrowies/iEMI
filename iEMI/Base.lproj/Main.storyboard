@@ -167,6 +167,13 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will se here your credit balance when you start using EMI." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PN-t6-SMF">
+                                <rect key="frame" x="65" y="242" width="470" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-5d-Xey">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <animations/>
@@ -360,9 +367,13 @@
                         <animations/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="1PN-t6-SMF" firstAttribute="centerY" secondItem="ghS-6J-idp" secondAttribute="centerY" constant="-16" id="1Iw-0L-Aa0"/>
                             <constraint firstAttribute="bottom" secondItem="bnv-5d-Xey" secondAttribute="bottom" id="8CA-O1-018"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="1PN-t6-SMF" secondAttribute="trailing" constant="8" id="P81-nn-oUP"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="leading" secondItem="ghS-6J-idp" secondAttribute="leading" id="e6e-7D-iXq"/>
+                            <constraint firstItem="1PN-t6-SMF" firstAttribute="centerX" secondItem="ghS-6J-idp" secondAttribute="centerX" id="gUf-pL-jLf"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="trailing" secondItem="ghS-6J-idp" secondAttribute="trailing" id="k3T-Le-i4u"/>
+                            <constraint firstItem="1PN-t6-SMF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ghS-6J-idp" secondAttribute="leadingMargin" constant="8" id="kN0-Rt-XAL"/>
                             <constraint firstItem="bnv-5d-Xey" firstAttribute="top" secondItem="ghS-6J-idp" secondAttribute="topMargin" id="vUz-go-cFf"/>
                         </constraints>
                     </view>
