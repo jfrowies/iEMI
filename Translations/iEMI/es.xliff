@@ -178,6 +178,11 @@
         <target>-</target>
         <note>Class = "UILabel"; text = "-"; ObjectID = "gzg-cc-TMh";</note>
       </trans-unit>
+      <trans-unit id="h2a-dS-cgY.normalTitle">
+        <source>Register</source>
+        <target>Registrarse</target>
+        <note>Class = "UIButton"; normalTitle = "Register"; ObjectID = "h2a-dS-cgY";</note>
+      </trans-unit>
       <trans-unit id="icf-JM-cIr.title">
         <source>Settings</source>
         <target>Configuración</target>
@@ -197,11 +202,6 @@
         <source>End parking</source>
         <target>Finalizar estacionamiento</target>
         <note>Class = "UINavigationItem"; title = "End parking"; ObjectID = "ph7-2J-T5J";</note>
-      </trans-unit>
-      <trans-unit id="sgN-Av-EpK.normalTitle">
-        <source>Register</source>
-        <target>Registrarse</target>
-        <note>Class = "UIButton"; normalTitle = "Register"; ObjectID = "sgN-Av-EpK";</note>
       </trans-unit>
       <trans-unit id="sqc-T6-XMT.text">
         <source>Version</source>
