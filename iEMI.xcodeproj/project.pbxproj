@@ -617,6 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juan Fernando Rowies (K87YE7875X)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juan Fernando Rowies (K87YE7875X)";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rowiesapps.iemi;
@@ -632,6 +633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Juan Fernando Rowies (GHAM634Y6B)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Juan Fernando Rowies (GHAM634Y6B)";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rowiesapps.iemi;
