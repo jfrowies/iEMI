@@ -95,15 +95,20 @@ class AccountEMIService: NSObject, AccountService {
                 
                 self.sortElements(&transactions)
             
-                self.debits(licensePlate: licensePlate, fromTimeStamp: transactions.last!.timestamp) { [unowned self] (result) -> Void in
+                self.debits(licensePlate: licensePlate, fromTimeStamp: transactions.last!.timestamp) { [unowned self, transactions] (result) -> Void in
                     do {
+                        
+                        var creditsAndDebits = [Transaction]()
+
+                        creditsAndDebits.appendContentsOf(transactions)
+                        
                         let debits = try result()
                         for debit in debits {
-                            transactions.append(debit)
+                            creditsAndDebits.append(debit)
                         }
-                        self.sortElements(&transactions)
+                        self.sortElements(&creditsAndDebits)
                         
-                        completion() { return transactions }
+                        completion() { return creditsAndDebits }
                         
                     } catch let error{
                         completion () { throw error }
@@ -120,18 +125,25 @@ class AccountEMIService: NSObject, AccountService {
     private func sortElements(inout elements:[Transaction]) {
         
         elements.sortInPlace({ (mov1: Transaction, mov2: Transaction) -> Bool in
+            
             if mov1.timestamp > mov2.timestamp {
                 return true
-            }else if mov1.timestamp == mov2.timestamp {
+            }
+                
+            if mov1.timestamp == mov2.timestamp {
+                    
                 if mov1.isKindOfClass(Debit) {
+                    //debits first
                     return true
                 }else {
                     return false
                 }
-            } else {
-                return false
             }
+            
+            //mov1.timestamp < mov2.timestamp
+            return false
         })
+        
     }
 
 }

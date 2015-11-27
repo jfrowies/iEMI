@@ -44,6 +44,11 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         
         let nib = UINib(nibName: kCreditBalanceHeaderViewNibName, bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: kCreditBalanceHeaderViewReuseId)
+        
+        let tableViewInsets = UIEdgeInsetsMake(0.0, 0.0, (self.tabBarController?.tabBar.frame.size.height)!, 0.0)
+        
+        tableView.contentInset = tableViewInsets
+        tableView.scrollIndicatorInsets = tableViewInsets
     }
     
     override func viewWillAppear(animated: Bool) {
