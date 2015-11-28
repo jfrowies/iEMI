@@ -44,11 +44,8 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
                 
                 footerLabel.text = address
                 self.showFooterView(animated: true)
-                
-                if let textAddress = location.fullAddress {
-                    self.centerMapOnAddress(textAddress)
-                }
-                
+                self.centerMapOnLocation(location)
+
             } else {
                 self.hideFooterView(animated: true)
             }
@@ -162,7 +159,11 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
         }
     }
     
-    func centerMapOnAddress(addressString: String) {
+    func centerMapOnLocation(location: ParkingLocation) {
+        
+        guard let addressString = formatedAddressForParking(location) else {
+            return
+        }
         
         let cleanStringData: NSData? = addressString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
         guard cleanStringData != nil else { return }
@@ -196,6 +197,44 @@ let kDefaultDegreeSpamForCoordinateRegion = 0.005
                 }
             }
         }
+    }
+    
+    //Mark: - Private functions
+    
+    private func formatedAddressForParking(location: ParkingLocation) -> String? {
+        
+        
+        guard let streetNameAndNumber = location.streetNameAndNumber else {
+            return nil
+        }
+        
+        var words = streetNameAndNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        guard words.count > 2 else {
+            return nil
+        }
+        
+        words = words.filter({ !$0.isEmpty })
+
+        var addressString = ""
+        
+        //saving the number
+        let addressNumber = words.popLast()!
+        
+        //putting the last word first (last name of street names on Resistencia goes first)
+        let addressLastName = words.popLast()!
+        addressString += addressLastName
+        
+        //adding the other words
+        if words.count > 0 {
+            addressString += " " + words.joinWithSeparator(" ")
+        }
+        //adding the number
+        addressString += " " + addressNumber
+        //adding the citi, province and country
+        addressString += " Resistencia, Chaco, Argentina"
+        
+        return addressString
     }
     
     //Mark: - MKMapViewDelegate implementation
