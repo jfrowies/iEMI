@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -142,12 +143,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func registerTouched(sender: AnyObject) {
-        if UIApplication.sharedApplication().canOpenURL(kEMIRegisterURL) {
-            self.errorLabel.hidden = true
-            UIApplication.sharedApplication().openURL(kEMIRegisterURL)
+        
+        if #available(iOS 9, *) {
+
+            let safariViewController = SFSafariViewController(URL: kEMIRegisterURL, entersReaderIfAvailable: false)
+            self.presentViewController(safariViewController, animated: true, completion: nil)
+
         } else {
-            self.errorLabel.hidden = false;
-            self.errorLabel.text = defaultErrorDescription
+            
+            if UIApplication.sharedApplication().canOpenURL(kEMIRegisterURL) {
+                self.errorLabel.hidden = true
+                UIApplication.sharedApplication().openURL(kEMIRegisterURL)
+            } else {
+                self.errorLabel.hidden = false;
+                self.errorLabel.text = defaultErrorDescription
+            }
         }
     }
     
