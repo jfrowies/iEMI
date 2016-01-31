@@ -144,6 +144,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func registerTouched(sender: AnyObject) {
         
+        self.errorLabel.hidden = true
+        
         if #available(iOS 9, *) {
 
             let safariViewController = SFSafariViewController(URL: kEMIRegisterURL, entersReaderIfAvailable: false)
@@ -151,13 +153,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         } else {
             
-            if UIApplication.sharedApplication().canOpenURL(kEMIRegisterURL) {
-                self.errorLabel.hidden = true
-                UIApplication.sharedApplication().openURL(kEMIRegisterURL)
-            } else {
-                self.errorLabel.hidden = false;
-                self.errorLabel.text = defaultErrorDescription
-            }
+            self.performSegueWithIdentifier("showWebViewController", sender: self)
         }
     }
     
@@ -205,6 +201,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.licensePlateTextField.enabled = true
         self.passwordTextField.enabled = true
         self.loadingSpinner.stopAnimating()
+    }
+    
+    //Mark: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.destinationViewController.isKindOfClass(WebViewController) {
+            let webViewController = segue.destinationViewController as! WebViewController
+            webViewController.url = kEMIRegisterURL
+        }
     }
     
 }
