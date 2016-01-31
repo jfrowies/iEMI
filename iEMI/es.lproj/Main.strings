@@ -34,6 +34,9 @@
 /* Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg"; */
 "Ihq-9m-DOg.title" = "Saldo";
 
+/* Class = "UINavigationItem"; title = "Register"; ObjectID = "KGh-Eg-EKC"; */
+"KGh-Eg-EKC.title" = "Registrarse";
+
 /* Class = "UILabel"; text = "Title"; ObjectID = "MEl-vY-uVM"; */
 "MEl-vY-uVM.text" = "título";
 

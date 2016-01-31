@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="iEMI/Base.lproj/CreditBalanceView.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body>
       <trans-unit id="TSF-aD-uTF.text">
@@ -14,13 +14,13 @@
   </file>
   <file original="iEMI/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body/>
   </file>
   <file original="iEMI/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body>
       <trans-unit id="0a1-pJ-aYt.text">
@@ -82,6 +82,11 @@
         <source>Balance</source>
         <target>Saldo</target>
         <note>Class = "UINavigationItem"; title = "Balance"; ObjectID = "Ihq-9m-DOg";</note>
+      </trans-unit>
+      <trans-unit id="KGh-Eg-EKC.title">
+        <source>Register</source>
+        <target>Registrarse</target>
+        <note>Class = "UINavigationItem"; title = "Register"; ObjectID = "KGh-Eg-EKC";</note>
       </trans-unit>
       <trans-unit id="MEl-vY-uVM.text">
         <source>Title</source>
@@ -217,7 +222,7 @@
   </file>
   <file original="iEMI/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
@@ -230,7 +235,7 @@
   </file>
   <file original="iEMI/Localizable.strings" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body>
       <trans-unit id="Closing parking">
@@ -357,7 +362,7 @@
   </file>
   <file original="iEMITests/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
