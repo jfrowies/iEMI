@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ParkingCloseEMIService: NSObject, ParkingCloseService {
+class ParkingCloseEMIService: NSObject {
     
-    var service: Service = EMIService()
+    var service: EMIService = EMIService()
     
     func getOpenParking(licensePlate:String, completion: (result: () throws -> Parking) -> Void) -> Void {
         

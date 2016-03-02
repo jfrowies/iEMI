@@ -19,7 +19,7 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
     
     private var parkingTime: ParkingTime? = nil
     
-    let service: ParkingInformationService = ParkingInformationEMIService()
+    let service: ParkingInformationEMIService = ParkingInformationEMIService()
     var parking: Parking?
     
     //MARK: - UI Constants

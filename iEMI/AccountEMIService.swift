@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AccountEMIService: NSObject, AccountService {
+class AccountEMIService: NSObject {
     
-    var service: Service = EMIService()
+    var service: EMIService = EMIService()
     
     func accountBalance(licensePlate licensePlate:String, completion: (result: () throws -> Double) -> Void) -> Void {
         
@@ -34,7 +34,7 @@ class AccountEMIService: NSObject, AccountService {
     
     func credits(licensePlate licensePlate:String, start:Int, cant:Int ,completion: (result: () throws -> [Credit]) -> Void) -> Void {
         
-        let endpointURL = "WorkWithDevicesEMCredito_EMCredito_List_Grid"
+        let endpointURL = "WorkWithDevicesEMCredito_EMCredito_List_Grid1"
         let parameters = ["CreditoChapa":licensePlate,"start":String(start), "count":String(cant)]
         
         service.get(endpointURL, parameters: parameters) { (response) -> Void in
@@ -56,7 +56,7 @@ class AccountEMIService: NSObject, AccountService {
     
     func debits(licensePlate licensePlate:String, fromTimeStamp:String ,completion: (result: () throws -> [Debit]) -> Void) -> Void {
         
-        let endpointURL = "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid"
+        let endpointURL = "WorkWithDevicesTarjetas_UltimosConsumos_List_Grid2"
         let parameters = ["TarChapa":licensePlate, "Tarhoraini":fromTimeStamp]
         
         service.get(endpointURL, parameters: parameters) { (response) -> Void in

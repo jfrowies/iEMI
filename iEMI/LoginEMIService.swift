@@ -8,9 +8,9 @@
 
 import UIKit
 
-class LoginEMIService: NSObject, LoginService {
+class LoginEMIService: NSObject {
     
-    var service: Service = EMIService()
+    var service: EMIService = EMIService()
         
     func getSessionCookie(licensePlate licensePlate:String, completion: (result: () throws -> Bool) -> Void) -> Void {
         

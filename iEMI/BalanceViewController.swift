@@ -20,7 +20,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     private var sectionFirstItem = [Int]()
     private var balance = 0.0
     
-    let service: AccountService = AccountEMIService()
+    let service: AccountEMIService = AccountEMIService()
     let licensePlateSotrage = LicensePlate()
     
     private let kCreditBalanceHeaderViewNibName = "CreditBalanceHeaderView"

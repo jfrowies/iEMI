@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ParkingInformationEMIService: NSObject , ParkingInformationService {
+class ParkingInformationEMIService: NSObject {
     
-    var service: Service = EMIService()
+    var service: EMIService = EMIService()
     
     func detail(parking:Parking , completion: (result: () throws -> ParkingGeneral) -> Void) -> Void {
         

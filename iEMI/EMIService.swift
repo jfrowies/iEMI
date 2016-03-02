@@ -8,9 +8,20 @@
 
 import UIKit
 
-class EMIService: NSObject, Service {
+enum ServiceError: ErrorType {
+    case RequestTimedOut
+    case RequestFailed(description:String?)
+    case ParametersSerializationError
+    case ResponseParsingError
+    case ResponseInformationError
+    case ResponseErrorMessage(errorMessage:String?)
+    case RequestURLNotValid
+}
 
-    var baseURL: String = "http://w1.logo-sa.com.ar:8080/EstacionamientoV2/rest/"
+
+class EMIService: NSObject {
+
+    var baseURL: String = "http://w1.logo-sa.com.ar:8080/EMIW3/rest/"
     
     let session = NSURLSession.sharedSession()
     

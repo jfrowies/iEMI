@@ -12,7 +12,7 @@ class EndParkingViewController: NetworkActivityViewController {
     
     @IBOutlet private weak var closeButton: UIButton!
     
-    let service: ParkingCloseService = ParkingCloseEMIService()
+    let service: ParkingCloseEMIService = ParkingCloseEMIService()
     
     let licensePlate = LicensePlate()
 

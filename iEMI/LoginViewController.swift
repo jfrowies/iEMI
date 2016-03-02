@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet private weak var errorLabel: UILabel!
     
-    let service: LoginService = LoginEMIService()
+    let service: LoginEMIService = LoginEMIService()
     let licensePlate = LicensePlate()
     let settings = Settings()
     
