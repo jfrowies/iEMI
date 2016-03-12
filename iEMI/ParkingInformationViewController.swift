@@ -28,10 +28,10 @@ class ParkingInformationViewController: NetworkActivityViewController, UITableVi
     private let kParkingStatusClosed: String = NSLocalizedString("closed", comment: "Parking status closed string")
     
     private let kParkingDateTitle: String = NSLocalizedString("date", comment: "parking date title on table")
-      private let kParkingStartTimeTitle: String = NSLocalizedString("start time", comment: "parking start time title on table")
-      private let kParkingEndTimeTitle: String = NSLocalizedString("end time", comment: "parking end time title on table")
-  private let kParkingDurationTitle: String = NSLocalizedString("duration", comment: "parking duration title on table")
-      private let kParkingStatusTitle: String = NSLocalizedString("status", comment: "parking status title on table")
+    private let kParkingStartTimeTitle: String = NSLocalizedString("start time", comment: "parking start time title on table")
+    private let kParkingEndTimeTitle: String = NSLocalizedString("end time", comment: "parking end time title on table")
+    private let kParkingDurationTitle: String = NSLocalizedString("duration", comment: "parking duration title on table")
+    private let kParkingStatusTitle: String = NSLocalizedString("status", comment: "parking status title on table")
 
     // MARK: - View life cycle
     
