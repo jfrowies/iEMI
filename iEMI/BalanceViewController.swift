@@ -14,13 +14,15 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     @IBOutlet private weak var creditBalanceView: CreditBalanceView!
 
     private var refreshControl: UIRefreshControl!
-    private var tableElements = [Transaction]()
+    private var transactions = [Transaction]()
+    private var debitAmounts = [String:Float]()
     private var parkingSelected: Parking?
     private var sectionItemCount = [Int]()
     private var sectionFirstItem = [Int]()
     private var balance = 0.0
     
     let service: AccountEMIService = AccountEMIService()
+    let parkingInformationService: ParkingInformationEMIService = ParkingInformationEMIService()
     let licensePlateSotrage = LicensePlate()
     
     private let kCreditBalanceHeaderViewNibName = "CreditBalanceHeaderView"
@@ -28,7 +30,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     private let kBalanceCellDefaultHeight: CGFloat = 62.0
     private let kBalanceHeaderDefaultHeight: CGFloat = 30.0
-
+    
     //MARK: - View controller lifecycle
     
     override func viewDidLoad() {
@@ -61,7 +63,6 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: -
@@ -76,7 +77,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         service.balance(licensePlate: patente) { [unowned self]  (result) -> Void in
             do {
                 let transactions = try result()
-                self.tableElements = transactions
+                self.transactions = transactions
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 if transactions.count == 0 {
@@ -149,8 +150,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         var sections = 0;
         var date: String = "";
         var index: Int = 0;
-        var newSaldo = self.balance
-        for mov: Transaction in self.tableElements {
+//        var newSaldo = self.balance
+        for mov: Transaction in self.transactions {
             let timestamp: String = mov.timestamp
             let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
             if (!(date == subDate)) {
@@ -160,17 +161,17 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 sections++
             }
             
-            mov.balance = String(format: "%.2f $", newSaldo)
-            if (mov.isKindOfClass(Debit))
-            {
-                let amount = (mov as! Debit).amount
-                newSaldo += (amount! as NSString).doubleValue
-            }
-            if (mov.isKindOfClass(Credit))
-            {
-                let amount = (mov as! Credit).amount
-                newSaldo -= (amount! as NSString).doubleValue
-            }
+//            mov.balance = String(format: "%.2f $", newSaldo)
+//            if (mov.isKindOfClass(Debit))
+//            {
+//                let amount = (mov as! Debit).amount
+//                newSaldo += (amount! as NSString).doubleValue
+//            }
+//            if (mov.isKindOfClass(Credit))
+//            {
+//                let amount = (mov as! Credit).amount
+//                newSaldo -= (amount! as NSString).doubleValue
+//            }
             
             self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
             index++
@@ -188,7 +189,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let movimiento = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row]
+        let movimiento = self.transactions[self.sectionFirstItem[indexPath.section] + indexPath.row]
         
         if movimiento.isKindOfClass(Credit) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier(kCreditCellReuseId, forIndexPath: indexPath) as! CreditoTableViewCell
@@ -198,7 +199,29 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         
         if movimiento.isKindOfClass(Debit) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier(kDebitCellReuseId, forIndexPath: indexPath) as! ConsumoTableViewCell
-            cell.consumo = movimiento as! Debit
+            
+            let debit = movimiento as! Debit
+            
+            if let debitAmount = self.debitAmounts[debit.number] {
+                debit.amount = String(format: "%0.2f", debitAmount)
+            } else {
+                let parking = Parking(number: debit.number, year: debit.year, serie: debit.serie)
+                parkingInformationService.detail(parking, completion: { [weak self, debit] (result) -> Void in
+                    
+                    do {
+                        let parkingInfo: ParkingGeneral = try result()
+                        if let amount = parkingInfo.fareAmount {
+                            self?.debitAmounts[debit.number] = Float(amount)
+                        }
+                        
+                        self?.tableView.reloadData()
+                        
+                    } catch {}
+                })
+            }
+            
+            cell.debit = debit
+            
             return cell
         }
         
@@ -207,8 +230,8 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         
-        if let debit = self.tableElements[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
-            self.parkingSelected = Parking(number: debit.number!, year: debit.year!, serie: debit.serie!)
+        if let debit = self.transactions[self.sectionFirstItem[indexPath.section] + indexPath.row] as? Debit {
+            self.parkingSelected = Parking(number: debit.number, year: debit.year, serie: debit.serie)
         }else{
             return nil
         }
@@ -226,7 +249,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(kCreditBalanceHeaderViewReuseId) as? CreditBalanceHeaderView
         
-        let mov = self.tableElements[self.sectionFirstItem[section]];
+        let mov = self.transactions[self.sectionFirstItem[section]];
         let timestamp: String = mov.timestamp
         let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
         let nsDate = NSDate(dateString: subDate)

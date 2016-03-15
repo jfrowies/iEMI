@@ -12,7 +12,7 @@ class CreditoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var creditoLabel: UILabel!
     @IBOutlet weak var horaCreditoLabel: UILabel!
-    @IBOutlet weak var saldoLabel: UILabel!
+//    @IBOutlet weak var saldoLabel: UILabel!
     
     var credito: Credit {
         
@@ -23,7 +23,7 @@ class CreditoTableViewCell: UITableViewCell {
         set(newCredito){
             self.creditoLabel.text = newCredito.amount
             self.horaCreditoLabel.text = newCredito.time
-            self.saldoLabel.text = newCredito.balance
+//            self.saldoLabel.text = newCredito.balance
         }
     }
     

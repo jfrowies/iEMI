@@ -14,37 +14,41 @@ class ConsumoTableViewCell: UITableViewCell {
     @IBOutlet weak var consumoDireccionLabel: UILabel!
     @IBOutlet weak var horaDesdeLabel: UILabel!
     @IBOutlet weak var horaHastaLabel: UILabel!
-    @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var minusSignLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var moneySignLabel: UILabel!
     
-    var consumo: Debit {
+    var debit: Debit {
         
         get{
-            return self.consumo
+            return self.debit
         }
         
-        set(cons){
-            self.consumoDireccionLabel.text = cons.address
-            self.horaDesdeLabel.text = cons.timeStart
+        set(debit){
             
-            if cons.timeEnd == nil { //still parked
-                self.saldoLabel.hidden = true
-                self.consumoLabel.hidden = true
-                self.minusSignLabel.hidden = true
-                self.moneySignLabel.hidden = true
-                
+            self.consumoDireccionLabel.text = debit.address
+            self.horaDesdeLabel.text = debit.timeStart
+            
+            self.consumoLabel.hidden = true
+            self.minusSignLabel.hidden = true
+            self.moneySignLabel.hidden = true
+            self.spinner.startAnimating()
+            
+            if debit.timeEnd == nil { //still parked
                 self.horaHastaLabel.text = kNowString
+                self.spinner.stopAnimating()
                 
             } else {
-                self.saldoLabel.hidden = false
-                self.consumoLabel.hidden = false
-                self.minusSignLabel.hidden = false
-                self.moneySignLabel.hidden = false
-
-                self.saldoLabel.text = cons.balance
-                self.consumoLabel.text = cons.amount
-                self.horaHastaLabel.text = cons.timeEnd
+                
+                self.horaHastaLabel.text = debit.timeEnd
+                
+                if let amount = debit.amount {
+                    self.consumoLabel.hidden = false
+                    self.minusSignLabel.hidden = false
+                    self.moneySignLabel.hidden = false
+                    self.spinner.stopAnimating()
+                    self.consumoLabel.text = amount
+                }
             }
         }
     }
