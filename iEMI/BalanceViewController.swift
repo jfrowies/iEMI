@@ -14,7 +14,34 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
     @IBOutlet private weak var creditBalanceView: CreditBalanceView!
 
     private var refreshControl: UIRefreshControl!
-    private var transactions = [Transaction]()
+    
+    private var _transactions: [Transaction]?
+    
+    private var transactions : [Transaction] {
+        get {
+            return _transactions ?? [Transaction]()
+        }
+        
+        set {
+            _transactions = newValue
+            for transaction in self.transactions {
+                if transaction.isKindOfClass(Debit) {
+                    let debit = transaction as! Debit
+                    let parking = Parking(number: debit.number, year: debit.year, serie: debit.serie)
+                    parkingInformationService.detail(parking, completion: { [weak self, debit] (result) -> Void in
+                        do {
+                            let parkingInfo: ParkingGeneral = try result()
+                            if let amount = parkingInfo.fareAmount {
+                                self?.debitAmounts[debit.number] = Float(amount)
+                            }
+                            self?.tableView.reloadData()
+                        } catch {
+                        }
+                    })
+                }
+            }
+        }
+    }
     private var debitAmounts = [String:Float]()
     private var parkingSelected: Parking?
     private var sectionItemCount = [Int]()
@@ -150,7 +177,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         var sections = 0;
         var date: String = "";
         var index: Int = 0;
-//        var newSaldo = self.balance
+
         for mov: Transaction in self.transactions {
             let timestamp: String = mov.timestamp
             let subDate = timestamp.substringToIndex(timestamp.startIndex.advancedBy(10))
@@ -160,18 +187,6 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 self.sectionFirstItem.append(index)
                 sections++
             }
-            
-//            mov.balance = String(format: "%.2f $", newSaldo)
-//            if (mov.isKindOfClass(Debit))
-//            {
-//                let amount = (mov as! Debit).amount
-//                newSaldo += (amount! as NSString).doubleValue
-//            }
-//            if (mov.isKindOfClass(Credit))
-//            {
-//                let amount = (mov as! Credit).amount
-//                newSaldo -= (amount! as NSString).doubleValue
-//            }
             
             self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
             index++
@@ -199,29 +214,11 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         
         if movimiento.isKindOfClass(Debit) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier(kDebitCellReuseId, forIndexPath: indexPath) as! ConsumoTableViewCell
-            
             let debit = movimiento as! Debit
-            
             if let debitAmount = self.debitAmounts[debit.number] {
                 debit.amount = String(format: "%0.2f", debitAmount)
-            } else {
-                let parking = Parking(number: debit.number, year: debit.year, serie: debit.serie)
-                parkingInformationService.detail(parking, completion: { [weak self, debit] (result) -> Void in
-                    
-                    do {
-                        let parkingInfo: ParkingGeneral = try result()
-                        if let amount = parkingInfo.fareAmount {
-                            self?.debitAmounts[debit.number] = Float(amount)
-                        }
-                        
-                        self?.tableView.reloadData()
-                        
-                    } catch {}
-                })
             }
-            
             cell.debit = debit
-            
             return cell
         }
         
