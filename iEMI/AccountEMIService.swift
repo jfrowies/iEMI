@@ -40,7 +40,7 @@ class AccountEMIService: NSObject {
         service.get(endpointURL, parameters: parameters) { (response) -> Void in
             completion (result: { () -> [Credit] in
                 do {
-                    if let jsonCredits = try response() as? [[String:String]] {
+                    if let jsonCredits = try response() as? [[String:AnyObject]] {
                         var credits = [Credit]()
                         for jsonCredit in jsonCredits {
                             credits.append(Credit(json: jsonCredit))

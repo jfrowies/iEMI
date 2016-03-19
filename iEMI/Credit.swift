@@ -17,14 +17,14 @@ class Credit: NSObject, Transaction {
     var amount: String?
     var balance: String?
     
-    init(json:[String:String]) {
-        creditId = json["CreditoID"]
-        let fechaYHora : NSString = json["CreditoFecha"]!
+    init(json:[String:AnyObject]) {
+        creditId = json["CreditoID"]?.description
+        let fechaYHora : NSString = (json["CreditoFecha"]?.description)!
         timestamp = fechaYHora as String
         date = fechaYHora.substringToIndex(10)
         time = fechaYHora.substringWithRange(NSMakeRange(11, 5)) + " " + kHrs
-        amount = json["CreditoImporte"]
-        balance = json["CreditoSaldo"] //this is the balance actual, non sense
+        amount = json["CreditoImporte"]?.description
+        balance = json["CreditoSaldo"]?.description
     }
     
 }
