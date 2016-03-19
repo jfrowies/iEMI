@@ -1,3 +1,12 @@
+/* Close parking action sheet message */
+"Are you sure you want to close this parking?" = "¿Estás seguro que querés cerrar este estacionamiento?";
+
+/* Cancel button title in action sheet */
+"Cancel" = "Cancelar";
+
+/* Close parking action in action sheet */
+"Close parking" = "Cerrar";
+
 /* closing parking message in close parking */
 "Closing parking" = "Finalizando estacionamiento";
 

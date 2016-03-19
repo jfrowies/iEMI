@@ -61,7 +61,25 @@ class EndParkingViewController: NetworkActivityViewController {
     
     @IBAction func closeButtonTouched(sender: UIButton) {
         
-        self.closeParking(self.parking)
+        guard let currentParking = self.parking else {
+            
+            self.showError(nil,errorMessage: kErrorLoadingClosingText)
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil, message: NSLocalizedString("Are you sure you want to close this parking?", comment: "Close parking action sheet message"), preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button title in action sheet"), style: .Cancel) { (action) in
+            // Do nothing
+        }
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: NSLocalizedString("Close parking", comment: "Close parking action in action sheet"), style: .Destructive) { [unowned self] (action) in
+            self.closeParking(currentParking)
+        }
+        alertController.addAction(destroyAction)
+        
+        self.presentViewController(alertController, animated: true) {}
     }
     
     // MARK: -
@@ -118,17 +136,11 @@ class EndParkingViewController: NetworkActivityViewController {
     
     private let kSuccessClosingParkingText = NSLocalizedString("Parking successfully closed", comment: "parking successfully closed message in close parking")
     
-    private func closeParking(parking: Parking?) {
-        
-        guard let currentParking = self.parking else {
-            
-            self.showError(nil,errorMessage: kErrorLoadingClosingText)
-            return
-        }
+    private func closeParking(parking: Parking) {
         
         self.showLoadingView(kClosingParkingText, animated: false)
 
-        service.closeParking(currentParking) { [unowned self] (result) -> Void in
+        service.closeParking(parking) { [unowned self] (result) -> Void in
             
             do {
                 try result()

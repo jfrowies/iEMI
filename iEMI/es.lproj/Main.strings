@@ -1,9 +1,6 @@
 /* Class = "UILabel"; text = "Avenida Italia 450"; ObjectID = "0a1-pJ-aYt"; */
 "0a1-pJ-aYt.text" = "Avenida Italia 450";
 
-/* Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi"; */
-"1Ms-C1-EEi.text" = "0.00 $";
-
 /* Class = "UILabel"; text = "You will se here your credit balance when you start using EMI."; ObjectID = "1PN-t6-SMF"; */
 "1PN-t6-SMF.text" = "Aquí verás tu saldo, recargas y estacionamientos cuando utilices el sistema EMI.";
 
@@ -15,9 +12,6 @@
 
 /* Class = "UILabel"; text = "$"; ObjectID = "88n-ip-pQN"; */
 "88n-ip-pQN.text" = "$";
-
-/* Class = "UILabel"; text = "0.00 $"; ObjectID = "96R-lI-DBU"; */
-"96R-lI-DBU.text" = "0.00 $";
 
 /* Class = "UILabel"; text = "14:05 hrs"; ObjectID = "DPM-FL-UWh"; */
 "DPM-FL-UWh.text" = "14:05 hs";

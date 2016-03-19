@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="iEMI/Base.lproj/CreditBalanceView.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body>
       <trans-unit id="TSF-aD-uTF.text">
@@ -14,24 +14,19 @@
   </file>
   <file original="iEMI/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body/>
   </file>
   <file original="iEMI/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body>
       <trans-unit id="0a1-pJ-aYt.text">
         <source>Avenida Italia 450</source>
         <target>Avenida Italia 450</target>
         <note>Class = "UILabel"; text = "Avenida Italia 450"; ObjectID = "0a1-pJ-aYt";</note>
-      </trans-unit>
-      <trans-unit id="1Ms-C1-EEi.text">
-        <source>0.00 $</source>
-        <target>0.00 $</target>
-        <note>Class = "UILabel"; text = "0.00 $"; ObjectID = "1Ms-C1-EEi";</note>
       </trans-unit>
       <trans-unit id="1PN-t6-SMF.text">
         <source>You will se here your credit balance when you start using EMI.</source>
@@ -52,11 +47,6 @@
         <source>$</source>
         <target>$</target>
         <note>Class = "UILabel"; text = "$"; ObjectID = "88n-ip-pQN";</note>
-      </trans-unit>
-      <trans-unit id="96R-lI-DBU.text">
-        <source>0.00 $</source>
-        <target>0.00 $</target>
-        <note>Class = "UILabel"; text = "0.00 $"; ObjectID = "96R-lI-DBU";</note>
       </trans-unit>
       <trans-unit id="DPM-FL-UWh.text">
         <source>14:05 hrs</source>
@@ -222,22 +212,37 @@
   </file>
   <file original="iEMI/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>0.7</source>
+        <source>1.0</source>
       </trans-unit>
     </body>
   </file>
   <file original="iEMI/Localizable.strings" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body>
+      <trans-unit id="Are you sure you want to close this parking?">
+        <source>Are you sure you want to close this parking?</source>
+        <target>¿Estás seguro que querés cerrar este estacionamiento?</target>
+        <note>Close parking action sheet message</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+        <note>Cancel button title in action sheet</note>
+      </trans-unit>
+      <trans-unit id="Close parking">
+        <source>Close parking</source>
+        <target>Cerrar</target>
+        <note>Close parking action in action sheet</note>
+      </trans-unit>
       <trans-unit id="Closing parking">
         <source>Closing parking</source>
         <target>Finalizando estacionamiento</target>
@@ -362,7 +367,7 @@
   </file>
   <file original="iEMITests/Info.plist" source-language="en" datatype="plaintext" target-language="es">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
