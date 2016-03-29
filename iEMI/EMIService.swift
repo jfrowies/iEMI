@@ -152,7 +152,7 @@ class EMIService: NSObject {
         let responseMessages = responseJson as? [String:AnyObject]
         
         if let messages = responseMessages?["Messages"] as? [[String : AnyObject]] {
-            //if we get the Messages field it's becouse the response have messages. If the message type is 1 is an error.
+            //if we get the Messages field it's becouse the response have messages. If the message type is 1 it's an error.
             //Error message {"Messages":[{"Description":"PIN Incorrecto","Id":"","Type":1}]}
             //Message {"Messages":[{"Description":"Estacionamiento Finalizado CORRECTAMENTE!","Id":"","Type":0}]}
             
