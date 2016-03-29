@@ -15,6 +15,7 @@ enum ServiceError: ErrorType {
     case ResponseParsingError
     case ResponseInformationError
     case ResponseErrorMessage(errorMessage:String?)
+    case ResponseSuccessfullMessage(message:String?) //not really an error
     case RequestURLNotValid
 }
 
@@ -25,7 +26,7 @@ class EMIService: NSObject {
     
     let session = NSURLSession.sharedSession()
     
-    func get(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
+    func get(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) {
         
         guard NSURL(string: baseURL + url) != nil else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -57,7 +58,7 @@ class EMIService: NSObject {
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request) { [unowned self] data, response, error -> Void in
             
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -66,53 +67,20 @@ class EMIService: NSObject {
                 return
             }
             
-            guard data != nil else {
+            guard let data = data else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(response: {return nil})
                 })
                 return
             }
-                
-            do {
-                let responseData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
-                
-                let responseMessages = responseData as? [String:AnyObject]
-                
-                if let messages = responseMessages?["Messages"] as? [[String : AnyObject]] {
-                    //if we get the Messages field it's becouse there is an error
-
-                    if let message = messages.first {
-                        //if we get items inside messages, the first item is the error description
-                        let messageDescription = message["Description"] as? String
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
-                        })
-                    } else {
-                        //if the field messages is present but there is no messages -> the response is ok
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            completion(response: {return responseData})
-                        })
-                    }
-                    
-                } else {
-                    //if we didn't get "messages" -> the response is ok
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        completion(response: {return responseData})
-                    })
-                }
-                
-            } catch {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completion(response: {throw ServiceError.ResponseParsingError})
-                })
-            }
             
+            self.parseResponseData(data, completion: completion)
         }
         
         task.resume()
     }
     
-    func post(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) -> Void {
+    func post(url: String, parameters: Dictionary<String, String>?, completion: (response: () throws -> AnyObject?) -> Void) {
         
         guard let requestURL = NSURL(string: baseURL + url) else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -137,7 +105,7 @@ class EMIService: NSObject {
             }
         }
         
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request) { [unowned self] data, response, error -> Void in
             
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -146,49 +114,75 @@ class EMIService: NSObject {
                 return
             }
             
-            guard data != nil else {
+            guard let data = data else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(response: {return nil})
                 })
                 return
             }
-                
-            do {
-                let responseData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
-                
-                let responseMessages = responseData as? [String:AnyObject]
-                
-                if let messages = responseMessages?["Messages"] as? [[String : AnyObject]] {
-                    //if we get the Messages field it's becouse there is an error
-                    
-                    if let message = messages.first {
-                        //if we get items inside messages, the first item is the error description
-                        let messageDescription = message["Description"] as? String
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
-                        })
-                    }else {
-                        //if the field messages is present but there is no messages -> the response is ok
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            completion(response: {return responseData})
-                        })
-                    }
-                } else {
-                    //if we didn't get "messages" -> the response is ok
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        completion(response: {return responseData})
-                    })
-                }
-                
-            } catch {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completion(response: {throw ServiceError.ResponseParsingError})
-                })
-            }
             
+            self.parseResponseData(data, completion: completion)
         }
         
         task.resume()
+
+    }
+    
+    private func parseResponseData(data: NSData,completion: (response: () throws -> AnyObject?) -> Void) {
+        
+        var responseJson : AnyObject? = nil
+        
+        do {
+            responseJson = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+            
+        } catch {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {throw ServiceError.ResponseParsingError})
+            })
+            return
+        }
+        
+        guard responseJson != nil else {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {throw ServiceError.ResponseParsingError})
+            })
+            return
+        }
+        
+        let responseMessages = responseJson as? [String:AnyObject]
+        
+        if let messages = responseMessages?["Messages"] as? [[String : AnyObject]] {
+            //if we get the Messages field it's becouse the response have messages. If the message type is 1 is an error.
+            //Error message {"Messages":[{"Description":"PIN Incorrecto","Id":"","Type":1}]}
+            //Message {"Messages":[{"Description":"Estacionamiento Finalizado CORRECTAMENTE!","Id":"","Type":0}]}
+            
+            if let message = messages.first {
+                
+                let messageType = message["Type"] as? Int
+                let messageDescription = message["Description"] as? String
+
+                if messageType == 0 {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(response: {throw ServiceError.ResponseSuccessfullMessage(message: messageDescription)})
+                    })
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(response: {throw ServiceError.ResponseErrorMessage(errorMessage: messageDescription)})
+                    })
+                }
+                
+            }else {
+                //if the field messages is present but there is no messages -> the response is ok
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(response: {return responseJson})
+                })
+            }
+        } else {
+            //if we didn't get "messages" -> the response is ok
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(response: {return responseJson})
+            })
+        }
 
     }
 

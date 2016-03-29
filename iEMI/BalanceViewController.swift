@@ -66,7 +66,7 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
         refresh(self)
     
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(BalanceViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.orangeGlobalTintColor()
         refreshControl.backgroundColor = UIColor.lightGrayBackgroundColor()
         tableView.addSubview(refreshControl)
@@ -185,11 +185,11 @@ class BalanceViewController: NetworkActivityViewController, UITableViewDataSourc
                 date = subDate
                 self.sectionItemCount.append(0)
                 self.sectionFirstItem.append(index)
-                sections++
+                sections += 1
             }
             
             self.sectionItemCount[sections - 1] = self.sectionItemCount[sections - 1] + 1
-            index++
+            index += 1
         }
         return sections
     }

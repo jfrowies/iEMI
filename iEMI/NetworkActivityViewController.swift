@@ -49,7 +49,7 @@ class NetworkActivityViewController: UIViewController {
             loadingView.alpha = 0.0
             self.view.addSubview(self.loadingView)
 
-            UIView.animateWithDuration(kShowAnimationDuration, animations: {[unowned self] () -> Void in
+            UIView.animateWithDuration(kShowAnimationDuration, animations: { () -> Void in
                 
                 self.loadingView.alpha = 1.0
             })
@@ -105,7 +105,7 @@ class NetworkActivityViewController: UIViewController {
             
         } else {
             
-            UIView.animateWithDuration(kHideAnimationDuration, animations: {[unowned self] () -> Void in
+            UIView.animateWithDuration(kHideAnimationDuration, animations: { () -> Void in
                 
                 self.loadingView.alpha = 0.0
                 

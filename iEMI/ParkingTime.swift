@@ -31,7 +31,10 @@ class ParkingTime: Parking {
                 return ""
             }
             
-            return timeStamp.substringWithRange(Range<String.Index>(start: timeStamp.startIndex.advancedBy(11), end: timeStamp.endIndex.advancedBy(-3)))
+            let range = timeStamp.startIndex.advancedBy(11) ..< timeStamp.endIndex.advancedBy(-3)
+            return timeStamp.substringWithRange(range)
+            
+//            return timeStamp.substringWithRange(Range<String.Index>(start: timeStamp.startIndex.advancedBy(11), end: timeStamp.endIndex.advancedBy(-3)))
         }
     }
     
@@ -41,7 +44,10 @@ class ParkingTime: Parking {
                 return ""
             }
             
-            return timeStamp.substringWithRange(Range<String.Index>(start: timeStamp.startIndex.advancedBy(11), end: timeStamp.endIndex.advancedBy(-3)))
+            let range = timeStamp.startIndex.advancedBy(11) ..< timeStamp.endIndex.advancedBy(-3)
+            return timeStamp.substringWithRange(range)
+            
+//            return timeStamp.substringWithRange(Range<String.Index>(start: timeStamp.startIndex.advancedBy(11), end: timeStamp.endIndex.advancedBy(-3)))
         }
     }
     

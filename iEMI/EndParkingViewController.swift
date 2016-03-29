@@ -146,8 +146,18 @@ class EndParkingViewController: NetworkActivityViewController {
                 try result()
                 self.showSuccessView(self.kSuccessClosingParkingText, animated: false)
                 
-            } catch let error{
-                self.showError(error as NSError, errorMessage: self.kErrorLoadingClosingText)
+            } catch let error {
+                
+                if let serviceError = error as? ServiceError {
+                    switch serviceError {
+                    case .ResponseSuccessfullMessage:
+                        self.showSuccessView(self.kSuccessClosingParkingText, animated: false)
+                    default:
+                        self.showError(error as NSError, errorMessage: self.kErrorLoadingClosingText)
+                    }
+                } else {
+                    self.showError(error as NSError, errorMessage: self.kErrorLoadingClosingText)
+                }
             }
         }
     }
