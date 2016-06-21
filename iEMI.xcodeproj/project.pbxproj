@@ -35,6 +35,8 @@
 		B5974C571B88421F001BAA97 /* ParkingInformationEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */; };
 		B5974C5B1B8922A6001BAA97 /* ParkingCloseEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */; };
 		B5AD6DCD1B75847400932A26 /* LoginEMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */; };
+		B5B3F43B1D19FCE200B5B54B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B3F4391D19FCE200B5B54B /* Fabric.framework */; };
+		B5B3F43C1D19FCE200B5B54B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B3F43A1D19FCE200B5B54B /* Crashlytics.framework */; };
 		B5BDAD321A8546F200E31D01 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDAD311A8546F200E31D01 /* BalanceViewController.swift */; };
 		B5C367591A92607500851368 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C367581A92607500851368 /* Transaction.swift */; };
 		B5C3675B1A92ACF100851368 /* EndParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */; };
@@ -94,6 +96,8 @@
 		B5974C561B88421F001BAA97 /* ParkingInformationEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInformationEMIService.swift; sourceTree = "<group>"; };
 		B5974C5A1B8922A6001BAA97 /* ParkingCloseEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingCloseEMIService.swift; sourceTree = "<group>"; };
 		B5AD6DCC1B75847400932A26 /* LoginEMIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginEMIService.swift; sourceTree = "<group>"; };
+		B5B3F4391D19FCE200B5B54B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B5B3F43A1D19FCE200B5B54B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B5BDAD311A8546F200E31D01 /* BalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BalanceViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5C367581A92607500851368 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Transaction.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5C3675A1A92ACF100851368 /* EndParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndParkingViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B3F43C1D19FCE200B5B54B /* Crashlytics.framework in Frameworks */,
+				B5B3F43B1D19FCE200B5B54B /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +230,8 @@
 		EF163D241A7AABBB00BE4461 = {
 			isa = PBXGroup;
 			children = (
+				B5B3F4391D19FCE200B5B54B /* Fabric.framework */,
+				B5B3F43A1D19FCE200B5B54B /* Crashlytics.framework */,
 				EF163D2F1A7AABBB00BE4461 /* iEMI */,
 				EF163D451A7AABBB00BE4461 /* iEMITests */,
 				EF163D2E1A7AABBB00BE4461 /* Products */,
@@ -292,6 +300,7 @@
 				EF163D291A7AABBB00BE4461 /* Sources */,
 				EF163D2A1A7AABBB00BE4461 /* Frameworks */,
 				EF163D2B1A7AABBB00BE4461 /* Resources */,
+				B5B3F4381D19FC4700B5B54B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,6 +395,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5B3F4381D19FC4700B5B54B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 2a2405425151aa53bcf04fac19d1ce10e1e5e8d6 f842c4ae84e00c98d8d2d157a036582066b94c38d987457c19f131156e7688fd";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF163D291A7AABBB00BE4461 /* Sources */ = {
@@ -591,6 +616,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Juan Fernando Rowies (K87YE7875X)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Juan Fernando Rowies (K87YE7875X)";
 				ENABLE_ON_DEMAND_RESOURCES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rowiesapps.iemi;
@@ -607,6 +636,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Juan Fernando Rowies (GHAM634Y6B)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Juan Fernando Rowies (GHAM634Y6B)";
 				ENABLE_ON_DEMAND_RESOURCES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iEMI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rowiesapps.iemi;
