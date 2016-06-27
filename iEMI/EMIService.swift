@@ -57,6 +57,7 @@ class EMIService: NSObject {
         let request = NSMutableURLRequest(URL: requestURL)
         request.HTTPMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
         let task = session.dataTaskWithRequest(request) { [unowned self] data, response, error -> Void in
             
@@ -92,7 +93,8 @@ class EMIService: NSObject {
         let request = NSMutableURLRequest(URL: requestURL)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+
         if let requestParameters = parameters {
             do {
                 request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(requestParameters,options:NSJSONWritingOptions.PrettyPrinted)
