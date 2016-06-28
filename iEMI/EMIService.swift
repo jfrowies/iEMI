@@ -59,7 +59,11 @@ class EMIService: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
-        let task = session.dataTaskWithRequest(request) { [unowned self] data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request) { [weak self] data, response, error -> Void in
+            
+            guard let `self` = self else {
+                return
+            }
             
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -107,7 +111,11 @@ class EMIService: NSObject {
             }
         }
         
-        let task = session.dataTaskWithRequest(request) { [unowned self] data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request) { [weak self] data, response, error -> Void in
+            
+            guard let `self` = self else {
+                return
+            }
             
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -127,7 +135,6 @@ class EMIService: NSObject {
         }
         
         task.resume()
-
     }
     
     private func parseResponseData(data: NSData,completion: (response: () throws -> AnyObject?) -> Void) {
